@@ -5,7 +5,7 @@
             :cmpToEdit="currCmpToEdit"
             @pickedSample="pickSample"
             @updated="updateCmpToShow"
-            @uploading="uploadImg"
+
         >
             <slot>
                 <button @click="toggleEditor" class="toggle-dashboard">
