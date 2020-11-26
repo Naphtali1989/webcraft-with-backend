@@ -1,0 +1,17 @@
+{
+    "id": "12434",
+    "type": "wap-hero",
+    "info": {
+        "class": "sample-hero",
+        "style": {
+            "backgroundColor": "red",
+            "color": "white"
+        },
+        "children": [{
+            "h1": {
+                "txt": "this is h1"
+
+            }
+        }]
+    }
+}

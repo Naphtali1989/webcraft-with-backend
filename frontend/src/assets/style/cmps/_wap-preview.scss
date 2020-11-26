@@ -1,0 +1,47 @@
+    .wap-preview {
+        text-align: center;
+        background: gainsboro;
+        box-shadow: 0 0 4px black;
+        border-radius: 5px;
+        width: 250px;
+        height: 400px;
+        max-height: 380px;
+        font-size: 1.2rem;
+        position: relative;
+        cursor: pointer;
+
+
+        &:hover {
+            .wap-prev-controls {
+                opacity: 1;
+            }
+        }
+        img {
+            height: 21.25rem;
+            width: 100%;
+            object-fit: cover
+            
+        }
+        h3 {
+            height: 2.5rem;
+            text-transform: capitalize;
+          
+        }
+        .wap-prev-controls {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: .5s ease;
+            backface-visibility: hidden;
+            >* {
+                padding: 0.5rem;
+                margin-inline-start: 5px;
+                margin-inline-end: 5px;
+                color: white;
+                font-size: 2rem;
+            }
+
+        }
+    }

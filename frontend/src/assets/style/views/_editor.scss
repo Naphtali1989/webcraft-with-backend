@@ -1,0 +1,31 @@
+.editor-container {
+    &.hide-editor {
+        .editor-dashboard {
+            transform: translateX(-95%);
+        }
+        .editor-workspace {
+            margin: 0;
+        }
+    }
+}
+
+.editor-dashboard {
+    position: fixed;
+    min-height: 100vh;
+    background-color: #e6e9ec;
+    overflow-y: auto;
+    width: 20rem;
+    transition: all .3s ease-in-out;
+    // margin-inline-end: 1rem;
+}
+
+.toggle-dashboard {
+    position: absolute;
+    right: -10px;
+    /* right: -8px; */
+    top: 50%;
+}
+
+.editor-workspace {
+    margin-inline-start: 20rem;
+}
