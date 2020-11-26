@@ -8,8 +8,8 @@
         </template>
 
         <div class="img-uploader">
-            <div class="preview">
-                <img :src="cmpToEdit.imgUrl" v-show="cmpToEdit.imgUrl" />
+            <div class="preview" v-if="cmpToEdit.imgUrl">
+                <img :src="cmpToEdit.imgUrl" />
             </div>
             <p class="editor-txt">Or Add An Image As A Background</p>
             <label class="user-input input-file"><i class="fas fa-cloud-upload-alt"></i>
@@ -38,7 +38,6 @@ export default {
             const res=await uploadImg(ev);
             this.cmpToEdit.style.background=`url(${res.url}) center / cover no-repeat`;
             this.cmpToEdit.imgUrl=res.url;
-            // this.$emit('updatedCmp', this.cmpToEdit)
             // console.log('cmp changed:',this.cmpToEdit.imgUrl);
         },
         setColor(color) {
@@ -50,11 +49,6 @@ export default {
             this.cmpToEdit.style.background=`url(${imgUrl}) center / cover no-repeat`;
             console.log('cmp changed:',this.cmpToEdit.imgUrl);
 
-        }
-    },
-    watch: {
-        'this.cmpToEdit.imgUrl'(to,from) {
-            console.log('to:',to)
         }
     },
     components: {
