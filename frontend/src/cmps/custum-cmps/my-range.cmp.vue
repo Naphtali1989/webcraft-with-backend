@@ -1,5 +1,5 @@
 <template>
-    <div class="block">
+    <div class="block custom-range">
         <el-slider :max="options.max" :min="options.min" v-model="value" @input="emitChange"></el-slider>
     </div>
 </template>
@@ -22,3 +22,9 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.custom-range {
+    width: 70%;
+}
+</style>
