@@ -77,7 +77,7 @@ export default {
     },
     created() {
         this.cmps=[{
-            id: Math.random().toString(36).substring(2,8),
+            _id: Math.random().toString(36).substring(2,8),
             type: "section",
             class: "flex column justify-center align-center",
             color: "#222",

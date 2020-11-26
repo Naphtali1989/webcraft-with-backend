@@ -1,5 +1,5 @@
 <template>
-    <section class="section-editor">
+    <section class="section-editor flex column align-center">
         <p class="editor-txt">Set Round Edges:</p>
         <my-range :options="{ initVal: 2, min: 0, max: 50 }" />
         <template v-if="cmpToEdit.type === 'section'">
@@ -13,8 +13,7 @@
                 <input class="hide" type="file" @change="emitUploadImg" />
             </label>
         </div>
-        <unsplash-search />
-
+        <unsplash-search @setImg="onSetImg" />
     </section>
 </template>
 
@@ -36,6 +35,7 @@ export default {
     },
     methods: {
         emitUploadImg(ev) {
+            console.log(ev);
             this.$emit('uploading',ev)
             //     this.$store.commit({
             //         type:'setIsLoading',
@@ -50,6 +50,10 @@ export default {
         },
         setColor(color) {
             this.cmpToEdit.style.background=color;
+        },
+        onSetImg(photo) {
+            console.log('picked photo:',photo);
+            this.cmpToEdit.style.background=`url(${photo}) center / cover no-repeat`;
         }
     },
     components: {
@@ -59,4 +63,6 @@ export default {
     }
 }
 </script>
-        UnsplashSearchCmp
+
+<style lang="scss" scoped>
+</style>
