@@ -1,23 +1,13 @@
 <template>
     <section class="editor-container flex column" :class="hideEditor">
-        <editor-dashboard
-            :samples="samples"
-            :cmpToEdit="currCmpToEdit"
-            @pickedSample="pickSample"
-            @updated="updateCmpToShow"
-
-        >
+        <editor-dashboard :samples="samples" :cmpToEdit="currCmpToEdit" @pickedSample="pickSample" @updated="updateCmpToShow">
             <slot>
                 <button @click="toggleEditor" class="toggle-dashboard">
                     Toggle Me
                 </button>
             </slot>
         </editor-dashboard>
-        <editor-workspace
-            :cmps="cmps"
-            @clicked="setCmpToEdit"
-            @updatedTxt="updateTxt"
-        />
+        <editor-workspace :cmps="cmps" @clicked="setCmpToEdit" @updatedTxt="updateTxt" @copy="copySection" @delete="deleteSection" @moveSection="moveSection" />
     </section>
 </template>
 
@@ -51,48 +41,78 @@ export default {
         editorWorkspace
     },
     methods: {
-        findByIdRecursive(nodes, id) {
-            for (let i = 0; i < nodes.length; i++) {
-                const child = nodes[i];
-                if (child.id === id) {
+        findByIdRecursive(nodes,id) {
+            for(let i=0;i<nodes.length;i++) {
+                const child=nodes[i];
+                if(child.id===id) {
                     return child;
                 } else {
-                    if (child.children) {
-                        const found = this.findByIdRecursive(child.children, id);
-                        if (found) {
+                    if(child.children) {
+                        const found=this.findByIdRecursive(child.children,id);
+                        if(found) {
                             return found;
                         }
                     }
                 }
             }
         },
+        replaceIds(node) {
+            node.id=Math.random().toString().substring(2,10);
+            if(node.children) {
+                node.children.forEach(child => {
+                    this.replaceIds(child);
+                })
+            }
+        }
+        ,
         setCmpToEdit(id) {
-            var cmpToEdit = this.findByIdRecursive(this.cmps, id);
-            this.currCmpToEdit = cmpToEdit;
+            var cmpToEdit=this.findByIdRecursive(this.cmps,id);
+            this.currCmpToEdit=cmpToEdit;
         },
         updateCmpToShow(updatedCmp) {
-            this.currCmpToEdit = updatedCmp
+            this.currCmpToEdit=updatedCmp
         },
         updateTxt(txtValue) {
-            this.currCmpToEdit.txt = txtValue;
+            this.currCmpToEdit.txt=txtValue;
         },
         toggleEditor() {
-            this.isEditorShow = !this.isEditorShow
+            this.isEditorShow=!this.isEditorShow
         },
         async pickSample(id) {
-            const res = await this.$store.dispatch({
+            const res=await this.$store.dispatch({
                 type: 'pickedSample',
                 id
             })
-            const sample = JSON.parse(JSON.stringify(res))
+            const sample=JSON.parse(JSON.stringify(res))
             this.cmps.unshift(sample)
 
-        }
+        },
+        copySection(id) {
+            const section=this.cmps.find(cmp => cmp.id===id);
+            const cmp=JSON.parse(JSON.stringify(section))
+            this.replaceIds(cmp)
+            const idx=this.cmps.findIndex(cmp => cmp.id===id);
+            this.cmps.splice(idx,0,cmp)
+            console.log('idx:',idx);
+            console.log('please find this man:',section);
+        },
+        deleteSection(id) {
+            const idx=this.cmps.findIndex(cmp => cmp.id===id);
+            this.cmps.splice(idx,1)
+        },
+        moveSection(id,diff) {
+            const section=this.cmps.find(cmp => cmp.id===id);
+            console.log(this.cmps.indexOf(section));
+            const idx=this.cmps.findIndex(cmp => cmp.id===id);
+            if(idx===0&&diff===-1) return;
+            this.cmps.splice(idx,1)
+            this.cmps.splice(idx+diff,0,section);
 
+        }
     },
     created() {
-        this.cmps = [{
-            _id: Math.random().toString(36).substring(2, 10),
+        this.cmps=[{
+            id: Math.random().toString(36).substring(2,10),
             name: "section",
             imgUrl: '',
             class: "flex column justify-center align-center",
@@ -104,7 +124,7 @@ export default {
                 height: "33%"
             },
             children: [{
-                id: Math.random().toString(36).substring(2, 10),
+                id: Math.random().toString(36).substring(2,10),
                 name: "txt",
                 class: "h1-heading",
                 txt: "MATAN THIS SHIT MAYBE WORKS",
@@ -121,7 +141,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2, 10),
+                id: Math.random().toString(36).substring(2,10),
                 name: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
@@ -138,7 +158,7 @@ export default {
                 },
             },
             {
-                id: Math.random().toString(36).substring(2, 10),
+                id: Math.random().toString(36).substring(2,10),
                 name: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",
@@ -156,7 +176,7 @@ export default {
             }]
         },
         {
-            id: Math.random().toString(36).substring(2, 10),
+            id: Math.random().toString(36).substring(2,10),
             name: "section",
             imgUrl: '',
             class: "flex column justify-center align-center",
@@ -168,7 +188,7 @@ export default {
                 height: "300px"
             },
             children: [{
-                id: Math.random().toString(36).substring(2, 10),
+                id: Math.random().toString(36).substring(2,10),
                 name: "txt",
                 class: "h1-heading",
                 txt: "this is h1",
@@ -182,7 +202,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2, 10),
+                id: Math.random().toString(36).substring(2,10),
                 name: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
@@ -196,7 +216,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2, 10),
+                id: Math.random().toString(36).substring(2,10),
                 name: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",
@@ -212,8 +232,8 @@ export default {
             }]
         },
         {
-            id: Math.random().toString(36).substring(2, 10),
-            name: "img",
+            id: Math.random().toString(36).substring(2,10),
+            name: "section",
             imgUrl: '',
             class: "flex column justify-center align-center",
             style: {
@@ -223,7 +243,7 @@ export default {
                 height: "300px"
             },
             children: [{
-                id: Math.random().toString(36).substring(2, 10),
+                id: Math.random().toString(36).substring(2,10),
                 name: "txt",
                 class: "h1-heading",
                 txt: "this is h1",
@@ -237,7 +257,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2, 10),
+                id: Math.random().toString(36).substring(2,10),
                 name: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
@@ -251,7 +271,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2, 10),
+                id: Math.random().toString(36).substring(2,10),
                 name: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",

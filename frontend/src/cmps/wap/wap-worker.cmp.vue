@@ -1,12 +1,12 @@
 <template>
     <component class="editable" :is="name" :style="cmp.style" :class="cmp.class" @click.stop.prevent="onClick(cmp.id)" @clicked="onClick" @blur="updateTxt" :contenteditable="editable">
         <slot v-if="cmp.name === 'img' || cmp.name === 'section'">
-            <controls />
+            <controls :id="cmp.id" @copy="emitCopy" @delete="emitDelete" @moveSection="emitMoveSection" />
         </slot>
         {{ cmpTxt }}
         <template v-if="cmp.children">
-            <wap-worker v-for="child in cmp.children" :key="child._id" :cmp="child" @clicked="onClick" @updatedTxt="emitUpdateTxt">
-                <slot :id="child._id"></slot>
+            <wap-worker v-for="child in cmp.children" :key="child.id" :cmp="child" @clicked="onClick" @updatedTxt="emitUpdateTxt">
+                <slot></slot>
             </wap-worker>
         </template>
     </component>
@@ -53,6 +53,12 @@ export default {
         }
     },
     methods: {
+        emitCopy(id) {
+            this.$emit('copy',id)
+        },
+        emitDelete(id) {
+            this.$emit('delete',id)
+        },
         onClick(id) {
             this.$emit('clicked',id)
         },
@@ -62,9 +68,11 @@ export default {
         },
         emitUpdateTxt(txtValue) {
             this.$emit('updatedTxt',txtValue)
+        },
+        emitMoveSection(id,diff) {
+            this.$emit('moveSection',id,diff)
         }
-    },
-    mounted() {
+
     },
     components: {
         googleMap,
