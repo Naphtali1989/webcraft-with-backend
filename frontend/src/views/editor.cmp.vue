@@ -37,7 +37,6 @@ export default {
             currWap: null,
             isEditorShow: true,
 
-
         }
     },
     computed: {
