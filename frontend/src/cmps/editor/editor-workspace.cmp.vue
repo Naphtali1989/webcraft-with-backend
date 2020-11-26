@@ -1,6 +1,6 @@
 <template>
     <section class="editor-workspace flex column">
-        <wap-worker v-for="cmp in cmps" :key="cmp.id" :cmp="cmp" @clicked="emitUserChoice" @updatedTxt="emitUpdateTxt">
+        <wap-worker v-for="cmp in cmps" :key="cmp.id" :cmp="cmp" @clicked="emitUserChoice" @updatedTxt="emitUpdateTxt" @copy="emitCopy" @delete="emitDelete" @moveSection="emitMoveSection">
         </wap-worker>
     </section>
 </template>
@@ -25,6 +25,15 @@ export default {
         },
         emitUpdateTxt(txtValue) {
             this.$emit('updatedTxt',txtValue);
+        },
+        emitCopy(id) {
+            this.$emit('copy',id)
+        },
+        emitDelete(id) {
+            this.$emit('delete',id)
+        },
+        emitMoveSection(id,diff) {
+            this.$emit('moveSection',id,diff)
         }
     }
 }
