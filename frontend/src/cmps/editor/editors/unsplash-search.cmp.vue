@@ -2,7 +2,7 @@
     <section class="unsplash-search">
         <form @submit.prevent="searchPhotos">
             <div class="form-container">
-                <input type="text" placeholder="Search photo..." v-model="term" />
+                <input type="text" placeholder="Search photo..." v-model.trim="term" />
                 <button class="btn btn-search"><i class="fas fa-search"></i></button>
             </div>
         </form>
@@ -30,6 +30,7 @@ export default {
             console.log('data from api:',data);
             const photos=this.getUrls(data.results);
             this.photos=photos;
+            this.term=''
         },
         getUrls(results) {
             const res=results.map(result => result.urls)

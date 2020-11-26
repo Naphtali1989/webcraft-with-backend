@@ -6,7 +6,6 @@
             <p class="editor-txt">Set A Background Color</p>
             <color-picker @changeColor="setColor" />
         </template>
-
         <div class="img-uploader">
             <div class="preview" v-if="cmpToEdit.imgUrl">
                 <img :src="cmpToEdit.imgUrl" />
@@ -38,16 +37,13 @@ export default {
             const res=await uploadImg(ev);
             this.cmpToEdit.style.background=`url(${res.url}) center / cover no-repeat`;
             this.cmpToEdit.imgUrl=res.url;
-            // console.log('cmp changed:',this.cmpToEdit.imgUrl);
         },
         setColor(color) {
             this.cmpToEdit.style.background=color;
         },
         onSetImg(imgUrl) {
-            console.log('picked photo:',imgUrl);
             this.cmpToEdit.imgUrl=imgUrl
             this.cmpToEdit.style.background=`url(${imgUrl}) center / cover no-repeat`;
-            console.log('cmp changed:',this.cmpToEdit.imgUrl);
 
         }
     },
@@ -61,7 +57,7 @@ export default {
 
 <style lang="scss" scoped>
 .img-uploader {
-    margin-block-start: 1.5rem;
+    margin-block-start: 1rem;
 }
 .preview {
     margin-block-start: 1.5rem;
