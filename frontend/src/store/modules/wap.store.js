@@ -43,8 +43,8 @@ export const wapStore = {
 
     },
     actions: {
-        pickedSampe(, { id }) {
+        pickedSample({ commit }, { id }) {
 
-        }
+        },
     }
 }
