@@ -1,12 +1,12 @@
 <template>
     <component class="editable" :is="type" :style="cmp.style" :class="cmp.class" @click.stop.prevent="onClick(cmp.id)" @clicked="onClick" @blur="updateTxt" :contenteditable="editable">
         <slot v-if="cmp.type === 'img' || cmp.type === 'section'">
-            <controls />
+            <controls :id="cmp.id" @copy="emitCopy" />
         </slot>
         {{ cmpTxt }}
         <template v-if="cmp.children">
             <wap-worker v-for="child in cmp.children" :key="child._id" :cmp="child" @clicked="onClick" @updatedTxt="emitUpdateTxt">
-                <slot :id="child._id"></slot>
+                <slot></slot>
             </wap-worker>
         </template>
     </component>
@@ -53,6 +53,9 @@ export default {
         }
     },
     methods: {
+        emitCopy(id) {
+            this.$emit('copy',id)
+        },
         // onInput(ev) {
         //     console.log('let us see!', ev.target.value.trim())
         // },

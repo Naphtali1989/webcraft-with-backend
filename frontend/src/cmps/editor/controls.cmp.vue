@@ -2,7 +2,7 @@
     <div class="controls flex align-center">
         <button class="btn"><i class="fas fa-trash"></i></button>
         <button class="btn"><i class="fas fa-edit"></i></button>
-        <button class="btn"><i class="fas fa-copy"></i></button>
+        <button class="btn" @click="onCopy"><i class="fas fa-copy"></i></button>
         <button class="btn"><i class="fas fa-trash"></i></button>
     </div>
 
@@ -14,6 +14,12 @@ export default {
     props: {
         id: {
             type: String
+        }
+    },
+    methods: {
+        onCopy() {
+            this.$emit('copy',this.id)
+            console.log('id is :',this.id);
         }
     }
 }

@@ -216,7 +216,7 @@ export default {
             }]
         },
         {
-            id: Math.random().toString(36).substring(2,10),
+            id: 'idanman',
             type: "img",
             imgUrl: '',
             class: "flex column justify-center align-center",
