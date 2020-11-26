@@ -2,6 +2,8 @@
     <section class="section-editor flex column align-center">
         <p class="editor-txt">Set Round Edges:</p>
         <my-range :options="{ initVal: 2, min: 0, max: 50 }" />
+        <p class="editor-txt">Set Section Height:</p>
+        <my-range :options="{ initVal:sectionHeight, min: 0, max: 700 }" @input="setSectionHeight" />
         <template v-if="cmpToEdit.name !== 'img'">
             <p class="editor-txt">Set A Background Color</p>
             <color-picker @changeColor="setColor" />
@@ -44,8 +46,16 @@ export default {
         onSetImg(imgUrl) {
             this.cmpToEdit.imgUrl=imgUrl
             this.cmpToEdit.style.background=`url(${imgUrl}) center / cover no-repeat`;
-
+        },
+        setSectionHeight(height) {
+            this.cmpToEdit.style.height=height+'px';
         }
+    },
+    computed: {
+        sectionHeight() {
+            const { height }=this.cmpToEdit.style;
+            return parseInt(height,10);
+        },
     },
     components: {
         myRange,

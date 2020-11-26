@@ -2,33 +2,18 @@
     <section class="text-editor flex column align-center">
         <div class="editor-link-container" v-if="showLink">
             <p class="editor-txt">Attach a link to this button:</p>
-            <input
-                type="text"
-                placeholder="Insert a link"
-                v-model="cmpToEdit.href"
-            />
+            <input type="text" placeholder="Insert a link" v-model="cmpToEdit.href" />
             <i class="fas fa-link"></i>
         </div>
-        <my-select
-            :options="fonts"
-            @change="setFontFamily"
-            class="custom-select"
-        />
-        <p class="editor-txt">Font Size</p>
-        <my-range
-            :options="{ initVal: fontSize, min: 1, max: 72 }"
-            @input="setFontSize"
-        />
-        <p class="editor-txt">Line Height</p>
-        <my-range
-            :options="{ initVal: +cmpToEdit.style.lineHeight, min: 1, max: 15 }"
-            @input="setLineHeight"
-        />
-        <p class="editor-txt">Letter Spacing</p>
-        <my-range
-            :options="{ initVal: letterSpacing, min: 1, max: 30 }"
-            @input="setLetterSpacing"
-        />
+        <div v-if="cmpToEdit">
+            <my-select :options="fonts" @change="setFontFamily" class="custom-select" />
+            <p class="editor-txt">Font Size</p>
+            <my-range :options="{ initVal: fontSize, min: 1, max: 72 }" @input="setFontSize" />
+            <p class="editor-txt">Line Height</p>
+            <my-range :options="{ initVal: +cmpToEdit.style.lineHeight, min: 1, max: 15 }" @input="setLineHeight" />
+            <p class="editor-txt">Letter Spacing</p>
+            <my-range :options="{ initVal: letterSpacing, min: 1, max: 30 }" @input="setLetterSpacing" />
+        </div>
         <div class="align-controls">
             <button class="btn align-btn" @click="toggleTextAlign('left')">
                 <i class="fas fa-align-left"></i>
@@ -41,10 +26,7 @@
             </button>
         </div>
         <div class="decoration-controls">
-            <button
-                class="btn align-btn"
-                @click="toggleTxtDecoration('underline')"
-            >
+            <button class="btn align-btn" @click="toggleTxtDecoration('underline')">
                 <i class="fas fa-underline"></i>
             </button>
             <button class="btn align-btn" @click="toggleFontStyle('italic')">
@@ -58,7 +40,6 @@
         <color-picker @changeColor="setColor" />
     </section>
 </template>
-<i class="fas fa-copy"></i>
 <script>
 import mySelect from '@/cmps/custum-cmps/my-select.cmp.vue';
 import myRange from '@/cmps/custum-cmps/my-range.cmp.vue';
@@ -75,16 +56,16 @@ export default {
             fonts: [{
                 label: 'Arial',
                 value: 'Arial'
-            }, {
+            },{
                 label: 'Helvetica',
                 value: 'Helvetica'
-            }, {
+            },{
                 label: 'Georgia',
                 value: 'Georgia'
-            }, {
+            },{
                 label: 'Monospace',
                 value: 'Monospace'
-            }, {
+            },{
                 label: 'Cursive',
                 value: 'Cursive'
             },
@@ -101,52 +82,53 @@ export default {
     },
     methods: {
         setFontFamily(font) {
-            this.cmpToEdit.style.fontFamily = font;
+            this.cmpToEdit.style.fontFamily=font;
         },
         setFontSize(size) {
-            this.cmpToEdit.style.fontSize = size + 'px';
+            this.cmpToEdit.style.fontSize=size+'px';
         },
         setLineHeight(size) {
-            this.cmpToEdit.style.lineHeight = size;
+            this.cmpToEdit.style.lineHeight=size;
         },
         setLetterSpacing(size) {
-            this.cmpToEdit.style.letterSpacing = size + 'px';
+            this.cmpToEdit.style.letterSpacing=size+'px';
         },
         toggleTxtDecoration(decoration) {
             //style object
-            const { style } = this.cmpToEdit;
-            const { textDecoration, fontStyle } = style;
-            if (style.textDecoration === decoration) this.cmpToEdit.style.textDecoration = 'revert'
-            else this.cmpToEdit.style.textDecoration = decoration
+            const { style }=this.cmpToEdit;
+            const { textDecoration,fontStyle }=style;
+            if(style.textDecoration===decoration) this.cmpToEdit.style.textDecoration='revert'
+            else this.cmpToEdit.style.textDecoration=decoration
         },
         toggleFontStyle(txtStyle) {
-            const { fontStyle } = this.cmpToEdit.style;
-            if (fontStyle === txtStyle) this.cmpToEdit.style.fontStyle = 'revert'
-            else this.cmpToEdit.style.fontStyle = txtStyle
+            const { fontStyle }=this.cmpToEdit.style;
+            if(fontStyle===txtStyle) this.cmpToEdit.style.fontStyle='revert'
+            else this.cmpToEdit.style.fontStyle=txtStyle
         },
         toggleFontWeight(weight) {
-            const { fontWeight } = this.cmpToEdit.style;
-            if (fontWeight !== weight) this.cmpToEdit.style.fontWeight = weight
-            else this.cmpToEdit.style.fontWeight = 'normal'
+            const { fontWeight }=this.cmpToEdit.style;
+            if(fontWeight!==weight) this.cmpToEdit.style.fontWeight=weight
+            else this.cmpToEdit.style.fontWeight='normal'
         },
         toggleTextAlign(direction) {
-            this.cmpToEdit.style.textAlign = direction;
+            this.cmpToEdit.style.textAlign=direction;
         },
         setColor(color) {
-            this.cmpToEdit.style.color = color;
+            this.cmpToEdit.style.color=color;
         }
     },
     computed: {
         showLink() {
-            return this.cmpToEdit.name === 'link'
+            if(!this.cmpToEdit) return false;
+            return this.cmpToEdit.name==='link'
         },
         fontSize() {
-            const { fontSize } = this.cmpToEdit.style;
-            return parseInt(fontSize, 10);
+            const { fontSize }=this.cmpToEdit.style;
+            return parseInt(fontSize,10);
         },
         letterSpacing() {
-            const { letterSpacing } = this.cmpToEdit.style;
-            return parseInt(letterSpacing, 10);
+            const { letterSpacing }=this.cmpToEdit.style;
+            return parseInt(letterSpacing,10);
         }
     },
 
@@ -159,5 +141,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>

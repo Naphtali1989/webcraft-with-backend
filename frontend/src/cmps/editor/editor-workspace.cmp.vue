@@ -1,6 +1,7 @@
 <template>
     <section class="editor-workspace flex column">
         <wap-worker v-for="cmp in cmps" :key="cmp.id" :cmp="cmp" @clicked="emitUserChoice" @updatedTxt="emitUpdateTxt" @copy="emitCopy" @delete="emitDelete" @moveSection="emitMoveSection">
+
         </wap-worker>
     </section>
 </template>
@@ -21,6 +22,7 @@ export default {
     },
     methods: {
         emitUserChoice(id) {
+            console.log('edit mode is on');
             this.$emit('clicked',id);
         },
         emitUpdateTxt(txtValue) {

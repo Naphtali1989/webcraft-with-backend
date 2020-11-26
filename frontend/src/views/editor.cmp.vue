@@ -1,6 +1,7 @@
 <template>
     <section class="editor-container flex column" :class="hideEditor">
-        <editor-dashboard :samples="samples" :cmpToEdit="currCmpToEdit" @pickedSample="pickSample" @updated="updateCmpToShow">
+        <editor-dashboard :samples="samples" :cmpToEdit="currCmpToEdit" @pickedSample="pickSample" @updated="updateCmpToShow" @switched="emptyCmpToEdit">
+
             <slot>
                 <button @click="toggleEditor" class="toggle-dashboard">
                     Toggle Me
@@ -105,7 +106,9 @@ export default {
             if(idx===0&&diff===-1) return;
             this.cmps.splice(idx,1)
             this.cmps.splice(idx+diff,0,section);
-
+        },
+        emptyCmpToEdit() {
+            this.currCmpToEdit=null;
         }
     },
     created() {
@@ -119,7 +122,7 @@ export default {
                 // background: "url(https://images.unsplash.com/photo-1529271208007-f3a35808467b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=943&q=80) center / cover no-repeat",
                 background: "gray",
                 color: "red",
-                height: "33%"
+                height: "300px"
             },
             children: [{
                 id: Math.random().toString(36).substring(2,10),
