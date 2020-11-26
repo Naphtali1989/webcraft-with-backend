@@ -1,10 +1,10 @@
 <template>
     <section class="editor-container flex column" :class="hideEditor">
-        <editor-dashboard :samples="samples" :cmpToEdit="currCmpToEdit"  @pickedSample="pickSample" @updated="updateCmpToShow" @uploading="uploadImg">
+        <editor-dashboard :samples="samples" :cmpToEdit="currCmpToEdit" @pickedSample="pickSample" @updated="updateCmpToShow">
             <slot>
                 <button @click="toggleEditor" class="toggle-dashboard">Toggle Me</button>
             </slot>
-        </editor-dashboard  >
+        </editor-dashboard>
         <editor-workspace :cmps="cmps" @clicked="setCmpToEdit" @updatedTxt="updateTxt" />
         <!-- <component :is="currCmp.type" :info="currCmp.info">
             <component :is="child.type" v-for="child in info" :key="child.id"/>
@@ -24,7 +24,7 @@ export default {
             currCmpToEdit: null,
             currWap: null,
             isEditorShow: true,
-            
+
         }
     },
     computed: {
@@ -34,7 +34,7 @@ export default {
         hideEditor() {
             return { 'hide-editor': !this.isEditorShow }
         },
-        samples(){
+        samples() {
             return this.$store.getters.sampleList
         }
     },
@@ -68,18 +68,15 @@ export default {
             console.log('we have emitted a crime!',updatedCmp)
             this.currCmpToEdit=updatedCmp
         },
-        uploadImg(ev) {
-            console.log('in editor',ev)
-        },
         updateTxt(txtValue) {
             this.currCmpToEdit.txt=txtValue;
         },
         toggleEditor() {
             this.isEditorShow=!this.isEditorShow
         },
-        pickSample(id){
+        pickSample(id) {
             this.$store.dispatch({
-                type:'pickedSample',
+                type: 'pickedSample',
                 id
             })
         }
