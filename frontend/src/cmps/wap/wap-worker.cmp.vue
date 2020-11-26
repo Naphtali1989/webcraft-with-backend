@@ -7,7 +7,7 @@
         @click.stop.prevent="onClick(cmp.id)"
         @clicked="onClick"
         @blur="updateTxt"
-        :contenteditable="notSection"
+        :contenteditable="editable"
     >
         {{ cmpTxt }}
         <template v-if="cmp.children">
@@ -47,7 +47,7 @@ export default {
             return this.cmp.txt || ''
         },
         urlSrc() {
-            return (this.template.imgUrl) ? this.template.imgUrl : ((this.template.vidUrl) ? this.convertedUrl : '');
+            return (this.cmp.imgUrl) ? this.cmp.imgUrl : ((this.cmp.vidUrl) ? this.convertedUrl : '');
         },
         convertedUrl() {
             if (this.cmp.vidUrl.includes("?v=")) {
@@ -56,8 +56,8 @@ export default {
             }
             return this.cmp.vidUrl
         },
-        notSection() {
-            if (this.cmp.type !== 'section' && this.cmp.type !== 'img') return true;
+        editable() {
+            if (this.cmp.type === 'txt' || this.cmp.type === 'link') return true;
             return false
         }
     },
@@ -78,6 +78,9 @@ export default {
         emitUpdateTxt(txtValue) {
             this.$emit('updatedTxt', txtValue)
         }
+    },
+    mounted(){
+        console.log("cmp",this.cmp.type)
     },
     components: {
         googleMap,

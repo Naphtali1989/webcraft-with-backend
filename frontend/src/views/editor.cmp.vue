@@ -28,6 +28,7 @@
 import editorDashboard from '@/cmps/editor/editor-dashboard.cmp.vue';
 import editorWorkspace from '@/cmps/editor/editor-workspace.cmp.vue';
 import EditorDashboardCmp from '../cmps/editor/editor-dashboard.cmp.vue';
+
 export default {
     name: 'editor',
     data() {
@@ -98,14 +99,14 @@ export default {
             console.log('naftul the Hatul' ,res)
             const sample = JSON.parse(JSON.stringify(res))
             console.log('sample:', sample)
-            this.cmps[0].children.unshift(sample)
+            this.cmps.unshift(sample)
 
         }
 
     },
     created() {
         this.cmps = [{
-            _id: Math.random().toString(36).substring(2, 8),
+            _id: Math.random().toString(36).substring(2,10) ,
             type: "section",
             imgUrl:'',
             class: "flex column justify-center align-center",
@@ -117,7 +118,7 @@ export default {
                 height: "33%"
             },
             children: [{
-                id: Math.random().toString(36).substring(2, 8),
+                id: Math.random().toString(36).substring(2,10) ,
                 type: "txt",
                 class: "h1-heading",
                 txt: "MATAN THIS SHIT MAYBE WORKS",
@@ -134,7 +135,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2, 8),
+                id: Math.random().toString(36).substring(2,10) ,
                 type: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
@@ -151,7 +152,7 @@ export default {
                 },
             },
             {
-                id: Math.random().toString(36).substring(2, 8),
+                id: Math.random().toString(36).substring(2,10) ,
                 type: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",
@@ -169,7 +170,7 @@ export default {
             }]
         },
         {
-            id: Math.random().toString(36).substring(2, 8),
+            id: Math.random().toString(36).substring(2,10) ,
             type: "section",
             imgUrl:'',
             class: "flex column justify-center align-center",
@@ -181,7 +182,7 @@ export default {
                 height: "300px"
             },
             children: [{
-                id: Math.random().toString(36).substring(2, 8),
+                id: Math.random().toString(36).substring(2,10) ,
                 type: "txt",
                 class: "h1-heading",
                 txt: "this is h1",
@@ -195,7 +196,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2, 8),
+                id: Math.random().toString(36).substring(2,10) ,
                 type: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
@@ -209,7 +210,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2, 8),
+                id: Math.random().toString(36).substring(2,10) ,
                 type: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",
@@ -225,7 +226,7 @@ export default {
             }]
         },
         {
-            id: Math.random().toString(36).substring(2, 8),
+            id: Math.random().toString(36).substring(2,10) ,
             type: "img",
             imgUrl:'',
             class: "flex column justify-center align-center",
@@ -236,7 +237,7 @@ export default {
                 height: "300px"
             },
             children: [{
-                id: Math.random().toString(36).substring(2, 8),
+                id: Math.random().toString(36).substring(2,10) ,
                 type: "txt",
                 class: "h1-heading",
                 txt: "this is h1",
@@ -250,7 +251,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2, 8),
+                id: Math.random().toString(36).substring(2,10) ,
                 type: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
@@ -264,7 +265,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2, 8),
+                id: Math.random().toString(36).substring(2,10) ,
                 type: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",
