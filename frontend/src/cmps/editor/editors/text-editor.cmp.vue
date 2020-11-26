@@ -67,6 +67,14 @@ export default {
             },{
                 label: 'Cursive',
                 value: 'Cursive'
+            },
+            {
+                label: 'Ruhl',
+                value: 'Ruhl'
+            },
+              {
+                label: 'Vibes',
+                value: 'Vibes'
             },],
 
         }

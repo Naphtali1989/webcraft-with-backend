@@ -2,7 +2,7 @@
     <section class="section-editor flex column align-center">
         <p class="editor-txt">Set Round Edges:</p>
         <my-range :options="{ initVal: 2, min: 0, max: 50 }" />
-        <template v-if="cmpToEdit.type === 'section'">
+        <template v-if="cmpToEdit.type !== 'img'">
             <p class="editor-txt">Set A Background Color</p>
             <color-picker @changeColor="setColor" />
         </template>
