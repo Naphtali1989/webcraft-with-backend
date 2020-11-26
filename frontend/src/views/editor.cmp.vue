@@ -1,23 +1,13 @@
 <template>
     <section class="editor-container flex column" :class="hideEditor">
-        <editor-dashboard
-            :samples="samples"
-            :cmpToEdit="currCmpToEdit"
-            @pickedSample="pickSample"
-            @updated="updateCmpToShow"
-            @uploading="uploadImg"
-        >
+        <editor-dashboard :samples="samples" :cmpToEdit="currCmpToEdit" @pickedSample="pickSample" @updated="updateCmpToShow" @uploading="uploadImg">
             <slot>
                 <button @click="toggleEditor" class="toggle-dashboard">
                     Toggle Me
                 </button>
             </slot>
         </editor-dashboard>
-        <editor-workspace
-            :cmps="cmps"
-            @clicked="setCmpToEdit"
-            @updatedTxt="updateTxt"
-        />
+        <editor-workspace :cmps="cmps" @clicked="setCmpToEdit" @updatedTxt="updateTxt" />
         <!-- <component :is="currCmp.type" :info="currCmp.info">
             <component :is="child.type" v-for="child in info" :key="child.id"/>
         </component> -->
@@ -57,15 +47,15 @@ export default {
         editorWorkspace
     },
     methods: {
-        findByIdRecursive(nodes, id) {
-            for (let i = 0; i < nodes.length; i++) {
-                const child = nodes[i];
-                if (child.id === id) {
+        findByIdRecursive(nodes,id) {
+            for(let i=0;i<nodes.length;i++) {
+                const child=nodes[i];
+                if(child.id===id) {
                     return child;
                 } else {
-                    if (child.children) {
-                        const found = this.findByIdRecursive(child.children, id);
-                        if (found) {
+                    if(child.children) {
+                        const found=this.findByIdRecursive(child.children,id);
+                        if(found) {
                             return found;
                         }
                     }
@@ -73,42 +63,42 @@ export default {
             }
         },
         setCmpToEdit(id) {
-            var cmpToEdit = this.findByIdRecursive(this.cmps, id);
-            this.currCmpToEdit = cmpToEdit;
+            var cmpToEdit=this.findByIdRecursive(this.cmps,id);
+            this.currCmpToEdit=cmpToEdit;
             // console.log('YESH PO INYAN!',this.currCmpToEdit)
             // this.$store.commit({ type: 'setEditType',editType: this.currCmpToEdit.type });
         },
         updateCmpToShow(updatedCmp) {
-            console.log('we have emitted a crime!', updatedCmp)
-            this.currCmpToEdit = updatedCmp
+            console.log('we have emitted a crime!',updatedCmp)
+            this.currCmpToEdit=updatedCmp
         },
         uploadImg(ev) {
-            console.log('in editor', ev)
+            console.log('in editor',ev)
         },
         updateTxt(txtValue) {
-            this.currCmpToEdit.txt = txtValue;
+            this.currCmpToEdit.txt=txtValue;
         },
         toggleEditor() {
-            this.isEditorShow = !this.isEditorShow
+            this.isEditorShow=!this.isEditorShow
         },
         async pickSample(id) {
-            const res = await this.$store.dispatch({
+            const res=await this.$store.dispatch({
                 type: 'pickedSample',
                 id
             })
-            console.log('naftul the Hatul' ,res)
-            const sample = JSON.parse(JSON.stringify(res))
-            console.log('sample:', sample)
+            console.log('naftul the Hatul',res)
+            const sample=JSON.parse(JSON.stringify(res))
+            console.log('sample:',sample)
             this.cmps.unshift(sample)
 
         }
 
     },
     created() {
-        this.cmps = [{
-            _id: Math.random().toString(36).substring(2,10) ,
+        this.cmps=[{
+            _id: Math.random().toString(36).substring(2,10),
             type: "section",
-            imgUrl:'',
+            imgUrl: '',
             class: "flex column justify-center align-center",
             color: "#222",
             style: {
@@ -118,7 +108,7 @@ export default {
                 height: "33%"
             },
             children: [{
-                id: Math.random().toString(36).substring(2,10) ,
+                id: Math.random().toString(36).substring(2,10),
                 type: "txt",
                 class: "h1-heading",
                 txt: "MATAN THIS SHIT MAYBE WORKS",
@@ -135,7 +125,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,10) ,
+                id: Math.random().toString(36).substring(2,10),
                 type: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
@@ -152,7 +142,7 @@ export default {
                 },
             },
             {
-                id: Math.random().toString(36).substring(2,10) ,
+                id: Math.random().toString(36).substring(2,10),
                 type: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",
@@ -170,9 +160,9 @@ export default {
             }]
         },
         {
-            id: Math.random().toString(36).substring(2,10) ,
+            id: Math.random().toString(36).substring(2,10),
             type: "section",
-            imgUrl:'',
+            imgUrl: '',
             class: "flex column justify-center align-center",
             color: "#222",
             style: {
@@ -182,7 +172,7 @@ export default {
                 height: "300px"
             },
             children: [{
-                id: Math.random().toString(36).substring(2,10) ,
+                id: Math.random().toString(36).substring(2,10),
                 type: "txt",
                 class: "h1-heading",
                 txt: "this is h1",
@@ -196,7 +186,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,10) ,
+                id: Math.random().toString(36).substring(2,10),
                 type: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
@@ -210,7 +200,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,10) ,
+                id: Math.random().toString(36).substring(2,10),
                 type: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",
@@ -226,18 +216,18 @@ export default {
             }]
         },
         {
-            id: Math.random().toString(36).substring(2,10) ,
+            id: Math.random().toString(36).substring(2,10),
             type: "img",
-            imgUrl:'',
+            imgUrl: '',
             class: "flex column justify-center align-center",
             style: {
-                // background: "url(https://images.unsplash.com/photo-1529271208007-f3a35808467b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=943&q=80) center / cover no-repeat",
-                background: "gray",
+                background: "url(https://images.unsplash.com/photo-1529271208007-f3a35808467b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=943&q=80) center / cover no-repeat",
+                // background: "gray",
                 color: "#222",
                 height: "300px"
             },
             children: [{
-                id: Math.random().toString(36).substring(2,10) ,
+                id: Math.random().toString(36).substring(2,10),
                 type: "txt",
                 class: "h1-heading",
                 txt: "this is h1",
@@ -251,7 +241,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,10) ,
+                id: Math.random().toString(36).substring(2,10),
                 type: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
@@ -265,7 +255,7 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,10) ,
+                id: Math.random().toString(36).substring(2,10),
                 type: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",

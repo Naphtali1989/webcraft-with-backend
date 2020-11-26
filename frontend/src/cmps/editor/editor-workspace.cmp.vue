@@ -1,7 +1,8 @@
 <template>
     <section class="editor-workspace flex column">
         <!-- <component :is="cmp.type" v-for="(cmp,idx) in cmps" :key="idx" :info="cmp.info" /> -->
-        <wap-worker v-for="cmp in cmps" :key="cmp.id" :cmp="cmp" @clicked="emitUserChoice" @updatedTxt="emitUpdateTxt" />
+        <wap-worker v-for="cmp in cmps" :key="cmp.id" :cmp="cmp" @clicked="emitUserChoice" @updatedTxt="emitUpdateTxt">
+        </wap-worker>
     </section>
 </template>
 
@@ -17,7 +18,7 @@ export default {
     },
     components: {
         // heroSample,
-        wapWorker
+        wapWorker,
     },
     methods: {
         emitUserChoice(id) {
@@ -30,5 +31,12 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.editor-workspace {
+    > * {
+        &:hover {
+            color: white;
+        }
+    }
+}
 </style>

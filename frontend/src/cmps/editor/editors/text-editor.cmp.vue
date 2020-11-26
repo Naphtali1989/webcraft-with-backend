@@ -38,7 +38,7 @@
         <color-picker @changeColor="setColor" />
     </section>
 </template>
-
+<i class="fas fa-copy"></i>
 <script>
 import mySelect from '@/cmps/custum-cmps/my-select.cmp.vue';
 import myRange from '@/cmps/custum-cmps/my-range.cmp.vue';
@@ -72,7 +72,7 @@ export default {
                 label: 'Ruhl',
                 value: 'Ruhl'
             },
-              {
+            {
                 label: 'Vibes',
                 value: 'Vibes'
             },],

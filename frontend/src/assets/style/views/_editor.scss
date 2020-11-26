@@ -28,4 +28,13 @@
 
 .editor-workspace {
     margin-inline-start: 20rem;
+    section {
+        position: relative;
+        &:hover {
+            .controls {
+                transition: opacity .5s ease;
+                opacity: 1;
+            }
+        }
+    }
 }

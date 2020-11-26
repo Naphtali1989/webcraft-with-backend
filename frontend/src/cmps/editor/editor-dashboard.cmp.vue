@@ -1,6 +1,5 @@
 <template>
     <section class="editor-dashboard">
-        <slot></slot>
         <section class="editor-nav flex">
             <div class="tab-container">
                 <button v-for="tab in tabs" :key="tab" @click="toggleTabs(tab)" :class="{ selected: currTab === tab }" class="tab-item">
