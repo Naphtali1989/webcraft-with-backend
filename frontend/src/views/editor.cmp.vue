@@ -1,23 +1,30 @@
 <template>
     <section class="editor-container flex column" :class="hideEditor">
-        <editor-dashboard :samples="samples" :cmpToEdit="currCmpToEdit" @pickedSample="pickSample" @updated="updateCmpToShow" @uploading="uploadImg">
+        <editor-dashboard
+            :samples="samples"
+            :cmpToEdit="currCmpToEdit"
+            @pickedSample="pickSample"
+            @updated="updateCmpToShow"
+
+        >
             <slot>
                 <button @click="toggleEditor" class="toggle-dashboard">
                     Toggle Me
                 </button>
             </slot>
         </editor-dashboard>
-        <editor-workspace :cmps="cmps" @clicked="setCmpToEdit" @updatedTxt="updateTxt" />
-        <!-- <component :is="currCmp.type" :info="currCmp.info">
-            <component :is="child.type" v-for="child in info" :key="child.id"/>
-        </component> -->
+        <editor-workspace
+            :cmps="cmps"
+            @clicked="setCmpToEdit"
+            @updatedTxt="updateTxt"
+        />
     </section>
 </template>
 
 <script>
 import editorDashboard from '@/cmps/editor/editor-dashboard.cmp.vue';
 import editorWorkspace from '@/cmps/editor/editor-workspace.cmp.vue';
-import EditorDashboardCmp from '../cmps/editor/editor-dashboard.cmp.vue';
+
 
 export default {
     name: 'editor',
@@ -31,9 +38,6 @@ export default {
         }
     },
     computed: {
-        editType() {
-            return this.$store.getters.editType;
-        },
         hideEditor() {
             return { 'hide-editor': !this.isEditorShow }
         },
@@ -47,15 +51,15 @@ export default {
         editorWorkspace
     },
     methods: {
-        findByIdRecursive(nodes,id) {
-            for(let i=0;i<nodes.length;i++) {
-                const child=nodes[i];
-                if(child.id===id) {
+        findByIdRecursive(nodes, id) {
+            for (let i = 0; i < nodes.length; i++) {
+                const child = nodes[i];
+                if (child.id === id) {
                     return child;
                 } else {
-                    if(child.children) {
-                        const found=this.findByIdRecursive(child.children,id);
-                        if(found) {
+                    if (child.children) {
+                        const found = this.findByIdRecursive(child.children, id);
+                        if (found) {
                             return found;
                         }
                     }
@@ -63,41 +67,33 @@ export default {
             }
         },
         setCmpToEdit(id) {
-            var cmpToEdit=this.findByIdRecursive(this.cmps,id);
-            this.currCmpToEdit=cmpToEdit;
-            // console.log('YESH PO INYAN!',this.currCmpToEdit)
-            // this.$store.commit({ type: 'setEditType',editType: this.currCmpToEdit.type });
+            var cmpToEdit = this.findByIdRecursive(this.cmps, id);
+            this.currCmpToEdit = cmpToEdit;
         },
         updateCmpToShow(updatedCmp) {
-            console.log('we have emitted a crime!',updatedCmp)
-            this.currCmpToEdit=updatedCmp
-        },
-        uploadImg(ev) {
-            console.log('in editor',ev)
+            this.currCmpToEdit = updatedCmp
         },
         updateTxt(txtValue) {
-            this.currCmpToEdit.txt=txtValue;
+            this.currCmpToEdit.txt = txtValue;
         },
         toggleEditor() {
-            this.isEditorShow=!this.isEditorShow
+            this.isEditorShow = !this.isEditorShow
         },
         async pickSample(id) {
-            const res=await this.$store.dispatch({
+            const res = await this.$store.dispatch({
                 type: 'pickedSample',
                 id
             })
-            console.log('naftul the Hatul',res)
-            const sample=JSON.parse(JSON.stringify(res))
-            console.log('sample:',sample)
+            const sample = JSON.parse(JSON.stringify(res))
             this.cmps.unshift(sample)
 
         }
 
     },
     created() {
-        this.cmps=[{
-            _id: Math.random().toString(36).substring(2,10),
-            type: "section",
+        this.cmps = [{
+            _id: Math.random().toString(36).substring(2, 10),
+            name: "section",
             imgUrl: '',
             class: "flex column justify-center align-center",
             color: "#222",
@@ -108,8 +104,8 @@ export default {
                 height: "33%"
             },
             children: [{
-                id: Math.random().toString(36).substring(2,10),
-                type: "txt",
+                id: Math.random().toString(36).substring(2, 10),
+                name: "txt",
                 class: "h1-heading",
                 txt: "MATAN THIS SHIT MAYBE WORKS",
                 style: {
@@ -125,8 +121,8 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,10),
-                type: "txt",
+                id: Math.random().toString(36).substring(2, 10),
+                name: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
                 style: {
@@ -142,8 +138,8 @@ export default {
                 },
             },
             {
-                id: Math.random().toString(36).substring(2,10),
-                type: "link",
+                id: Math.random().toString(36).substring(2, 10),
+                name: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",
                 href: "https://www.google.com/",
@@ -160,8 +156,8 @@ export default {
             }]
         },
         {
-            id: Math.random().toString(36).substring(2,10),
-            type: "section",
+            id: Math.random().toString(36).substring(2, 10),
+            name: "section",
             imgUrl: '',
             class: "flex column justify-center align-center",
             color: "#222",
@@ -172,8 +168,8 @@ export default {
                 height: "300px"
             },
             children: [{
-                id: Math.random().toString(36).substring(2,10),
-                type: "txt",
+                id: Math.random().toString(36).substring(2, 10),
+                name: "txt",
                 class: "h1-heading",
                 txt: "this is h1",
                 style: {
@@ -186,8 +182,8 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,10),
-                type: "txt",
+                id: Math.random().toString(36).substring(2, 10),
+                name: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
                 style: {
@@ -200,8 +196,8 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,10),
-                type: "link",
+                id: Math.random().toString(36).substring(2, 10),
+                name: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",
                 href: "https://www.google.com/",
@@ -216,8 +212,13 @@ export default {
             }]
         },
         {
+<<<<<<< HEAD
             id: 'idanman',
             type: "img",
+=======
+            id: Math.random().toString(36).substring(2, 10),
+            name: "img",
+>>>>>>> c16ebe7a1ad4c25da1152844043a7d8b96fd99be
             imgUrl: '',
             class: "flex column justify-center align-center",
             style: {
@@ -227,8 +228,8 @@ export default {
                 height: "300px"
             },
             children: [{
-                id: Math.random().toString(36).substring(2,10),
-                type: "txt",
+                id: Math.random().toString(36).substring(2, 10),
+                name: "txt",
                 class: "h1-heading",
                 txt: "this is h1",
                 style: {
@@ -241,8 +242,8 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,10),
-                type: "txt",
+                id: Math.random().toString(36).substring(2, 10),
+                name: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
                 style: {
@@ -255,8 +256,8 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,10),
-                type: "link",
+                id: Math.random().toString(36).substring(2, 10),
+                name: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",
                 href: "https://www.google.com/",

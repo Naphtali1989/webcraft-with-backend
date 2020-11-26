@@ -6,7 +6,7 @@
         </div>
         <div class="nav-links">
             <router-link to="/">Home</router-link>
-            <router-link to="/">Link 3</router-link>
+            <router-link to="/wap">templates</router-link>
             <router-link to="/editor">Editor</router-link>
         </div>
     </section>

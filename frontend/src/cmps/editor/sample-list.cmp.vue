@@ -2,7 +2,7 @@
     <div class="sample-list flex column align-center">
         <div v-for="sample in samples" class="sample" :key="sample.id">
             <!-- <img :src="sample.thumbnail" alt="" /> -->
-            <span @click="emitPickSample(sample.id)">{{sample.name}}</span>
+            <span @click="emitPickSample(sample.id)">{{sample.type}}</span>
         </div>
     </div>
 </template>

@@ -47,7 +47,8 @@ export default {
             return this.selectedElem;
         },
         filterdSamples() {
-            return this.samples.filter((sample) => sample.type === this.selectedType)
+            return this.samples
+            // this.samples.filter((sample) => sample.name === this.selectedType)
         }
     },
     components: {
