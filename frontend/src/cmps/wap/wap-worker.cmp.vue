@@ -1,6 +1,6 @@
 <template>
-    <component class="editable" :is="type" :style="cmp.style" :class="cmp.class" @click.stop.prevent="onClick(cmp.id)" @clicked="onClick" @blur="updateTxt" :contenteditable="editable">
-        <slot v-if="cmp.type === 'img' || cmp.type === 'section'">
+    <component class="editable" :is="name" :style="cmp.style" :class="cmp.class" @click.stop.prevent="onClick(cmp.id)" @clicked="onClick" @blur="updateTxt" :contenteditable="editable">
+        <slot v-if="cmp.name === 'img' || cmp.name === 'section'">
             <controls />
         </slot>
         {{ cmpTxt }}
@@ -28,11 +28,11 @@ export default {
         return {}
     },
     computed: {
-        type() {
-            if(this.cmp.type==='txt') return 'span';
-            if(this.cmp.type==='link') return 'a';
-            if(this.cmp.type==='vid') return 'iframe';
-            else return this.cmp.type
+        name() {
+            if(this.cmp.name==='txt') return 'span';
+            if(this.cmp.name==='link') return 'a';
+            if(this.cmp.name==='vid') return 'iframe';
+            else return this.cmp.name
         },
         cmpTxt() {
             return this.cmp.txt||''
@@ -48,30 +48,23 @@ export default {
             return this.cmp.vidUrl
         },
         editable() {
-            if(this.cmp.type==='txt'||this.cmp.type==='link') return true;
+            if(this.cmp.name==='txt'||this.cmp.name==='link') return true;
             return false
         }
     },
     methods: {
-        // onInput(ev) {
-        //     console.log('let us see!', ev.target.value.trim())
-        // },
         onClick(id) {
-            // if (this.$el.localName !== 'button' && this.$el.localName !== 'a') return
-            //  window.location.href = this.$el.href
             this.$emit('clicked',id)
         },
         updateTxt(ev) {
-            if(this.cmp.type==='img') return
+            if(this.cmp.name==='img') return
             this.$emit('updatedTxt',ev.target.innerText)
-            // console.log('this:', this)
         },
         emitUpdateTxt(txtValue) {
             this.$emit('updatedTxt',txtValue)
         }
     },
     mounted() {
-        console.log("cmp",this.cmp.type)
     },
     components: {
         googleMap,

@@ -31,8 +31,8 @@ export default {
             return this.currEditor + '-editor';
         },
         editorName() {
-            if (this.cmpToEdit.type === 'img') return 'Image';
-            return this.cmpToEdit.type;
+            if (this.cmpToEdit.name === 'img') return 'Image';
+            return this.cmpToEdit.name;
         }
     },
     methods: {
@@ -44,7 +44,7 @@ export default {
         },
     },
     updated() {
-        if (this.cmpToEdit && (this.cmpToEdit.type === 'txt' || this.cmpToEdit.type === 'link')) this.currEditor = 'text'
+        if (this.cmpToEdit && (this.cmpToEdit.name === 'txt' || this.cmpToEdit.name === 'link')) this.currEditor = 'text'
         else this.currEditor = 'section'
     },
     components: {

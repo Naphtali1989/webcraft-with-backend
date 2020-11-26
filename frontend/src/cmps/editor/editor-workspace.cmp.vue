@@ -1,6 +1,5 @@
 <template>
     <section class="editor-workspace flex column">
-        <!-- <component :is="cmp.type" v-for="(cmp,idx) in cmps" :key="idx" :info="cmp.info" /> -->
         <wap-worker v-for="cmp in cmps" :key="cmp.id" :cmp="cmp" @clicked="emitUserChoice" @updatedTxt="emitUpdateTxt">
         </wap-worker>
     </section>
