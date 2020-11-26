@@ -93,8 +93,6 @@ export default {
             this.replaceIds(cmp)
             const idx=this.cmps.findIndex(cmp => cmp.id===id);
             this.cmps.splice(idx,0,cmp)
-            console.log('idx:',idx);
-            console.log('please find this man:',section);
         },
         deleteSection(id) {
             const idx=this.cmps.findIndex(cmp => cmp.id===id);
