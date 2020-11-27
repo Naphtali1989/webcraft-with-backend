@@ -265,11 +265,10 @@ export const wapStore = {
                 class: "card-section flex",
                 thumbnail: "https://imagizer.imageshack.com/img922/1905/up2tR2.png",
                 style: {
-                    background: "beige",
+                    background: "transparent",
                     borderRadius: "0px",
                     height: "400px",
                 },
-                imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEPu7BceUzLF-DvrMQdcldR3W_5Gn9BhKsiw&usqp=CAU',
                 children: [{
                         id: Math.random().toString(36).substring(2, 10),
                         name: "div",
