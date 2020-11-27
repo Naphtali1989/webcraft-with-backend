@@ -34,7 +34,7 @@ export const wapStore = {
                     {
                         id: Math.random().toString(36).substring(2, 10),
                         name: 'div',
-                        class: "nav-links flex  clean-list space-around",
+                        class: "nav-links flex clean-list space-around",
                         style: {
                             background: "",
                             width: "40%",
@@ -106,7 +106,7 @@ export const wapStore = {
                 id: Math.random().toString(36).substring(2, 10),
                 name: "section",
                 type: "cards",
-                class: "",
+                class: "flex",
                 style: {
                     minHeight: "872px",
                     padding: "",
@@ -137,7 +137,7 @@ export const wapStore = {
                     children: [{
                             id: Math.random().toString(36).substring(2, 10),
                             name: "div",
-                            class: "hero-introduction",
+                            class: "flex column hero-introduction",
                             style: {
                                 background: "",
                                 flex: "2 1 40rem",
@@ -223,7 +223,7 @@ export const wapStore = {
                         },
                         {
                             id: Math.random().toString(36).substring(2, 10),
-                            name: "section",
+                            name: "div",
                             class: "hero-images",
                             style: {
                                 background: "linear-gradient(#dad8dd, #dad1d4)",

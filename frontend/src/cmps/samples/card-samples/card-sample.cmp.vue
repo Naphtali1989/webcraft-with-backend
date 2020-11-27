@@ -14,17 +14,7 @@
                 <a href="#gallery">Gallery</a>
             </div>
             <div class="hero-images">
-<<<<<<< HEAD
-                <img class="hero-elena" src="@/assets/img/elenajoy.png" alt="picture of elena joy" />
-                <img src="@/assets/img/plant1.png" alt="" class="plant1 plant" />
-                <img src="@/assets/img/plant2.png" alt="" class="plant2 plant" />
-=======
-                <img
-                    class="hero-elena"
-                    src="https://imagizer.imageshack.com/img924/5680/fy20r8.png"
-                    alt="picture of elena joy"
-                />
->>>>>>> 18e0327a2584878d3356a810a3895a174afcc445
+                <img class="hero-elena" src="https://imagizer.imageshack.com/img924/5680/fy20r8.png" alt="picture of elena joy" />
             </div>
         </section>
         <!-- <section class="about" id="about">
