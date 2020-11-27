@@ -1,22 +1,32 @@
 <template>
     <section class="editor-workspace flex column">
-        <wap-worker
-            v-for="cmp in cmps"
-            :key="cmp.id"
-            :cmp="cmp"
-            @clicked="emitUserChoice"
-            @updatedTxt="emitUpdateTxt"
-            @copy="emitCopy"
-            @delete="emitDelete"
-            @moveSection="emitMoveSection"
+        <Container
+            drag-class="card-ghost"
+            drop-class="card-ghost-drop"
+            :drop-placeholder="dropPlaceholderOptions"
+            :get-child-payload="getChildPayload"
+            group-name="1"
+            @drop="onDrop"
         >
-        </wap-worker>
+            <Draggable v-for="cmp in cmps" :key="cmp.id">
+                <wap-worker
+                    :cmp="cmp"
+                    @clicked="emitUserChoice"
+                    @updatedTxt="emitUpdateTxt"
+                    @copy="emitCopy"
+                    @delete="emitDelete"
+                    @moveSection="emitMoveSection"
+                >
+                </wap-worker>
+            </Draggable>
+        </Container>
     </section>
 </template>
 
 <script>
 // import heroSample from "@/cmps/samples/hero-sample.cmp.vue";
-import wapWorker from "@/cmps/wap/wap-worker.cmp.vue";
+import { Container, Draggable } from 'vue-smooth-dnd';
+import wapWorker from '@/cmps/wap/wap-worker.cmp.vue';
 export default {
     name: 'editor-workspace',
     props: {
@@ -24,13 +34,28 @@ export default {
             type: Array
         }
     },
+    data() {
+        return {
+            dropPlaceholderOptions: {
+                className: "drop-preview",
+                animationDuration: "80",
+                showOnTop: false
+            },
+        }
+    },
     components: {
-        // heroSample,
+        Container,
+        Draggable,
         wapWorker,
     },
     methods: {
+        onDrop(dropResult) {
+            this.$emit('dropped', dropResult)
+        },
+        getChildPayload(index) {
+            return this.cmps[index];
+        },
         emitUserChoice(id) {
-            console.log('edit mode is on');
             this.$emit('clicked', id);
         },
         emitUpdateTxt(txtValue) {
@@ -50,4 +75,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card-ghost {
+    transition: transform 0.18s ease;
+    transform: rotateZ(5deg);
+}
+.card-ghost-drop {
+    transition: transform 0.18s ease-in-out;
+    transform: rotateZ(0deg);
+}
 </style>

@@ -59,7 +59,6 @@ export default {
             return this.cmp.txt || ''
         },
         urlSrc() {
-            console.log('this.cmp.imgUrl:', this.cmp.imgUrl)
             return (this.cmp.imgUrl) ? this.cmp.imgUrl : ((this.cmp.vidUrl) ? this.convertedUrl : '');
         },
         convertedUrl() {
@@ -94,7 +93,6 @@ export default {
         emitMoveSection(id, diff) {
             this.$emit('moveSection', id, diff)
         }
-
     },
     components: {
         googleMap,
