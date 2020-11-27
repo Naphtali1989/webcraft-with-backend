@@ -119,7 +119,7 @@ export const wapStore = {
                     name: "div",
                     class: "hero flex wrap",
                     style: {
-                        lineHeight: "",
+                        lineHeight: "11",
                         backgroundColor: "",
                         color: 'black',
                         flex: "1 1 20rem",
@@ -128,7 +128,7 @@ export const wapStore = {
                         textAlign: '',
                         fontStyle: '',
                         textDecoration: '',
-                        letterSpacing: '',
+                        letterSpacing: '1',
                         width: "95%",
                         flexWrap: "wrap",
                         margin: "0 0 0 auto",
@@ -145,6 +145,8 @@ export const wapStore = {
                                 borderRadius: 0,
                             },
                             children: [{
+                                    name: "div",
+
                                     id: Math.random().toString(36).substring(2, 10),
                                     type: "text",
                                     name: "txt",
@@ -152,14 +154,16 @@ export const wapStore = {
                                     style: {
                                         fontSize: "24px",
                                         lineHeight: "",
-                                        letterSpacing: "",
+                                        letterSpacing: "1",
                                         background: "",
                                         color: "rgb(63,63,63)",
                                         fontFamily: "Ruhl",
                                         textDecoration: "",
                                         fontStyle: "",
                                         textAlign: "",
-                                        paddingTop: "3rem",
+                                        padding: "20px 40px 40px 20px",
+                                        marginBlockEnd: "16px",
+                                        marginBlockStart: "16px",
                                     }
                                 }, {
                                     id: Math.random().toString(36).substring(2, 10),
@@ -168,8 +172,8 @@ export const wapStore = {
                                     txt: "Photography",
                                     style: {
                                         fontSize: "24px",
-                                        lineHeight: "",
-                                        letterSpacing: "",
+                                        lineHeight: "8",
+                                        letterSpacing: "1",
                                         background: "",
                                         color: "rgb(63,63,63)",
                                         fontFamily: "Ruhl",
@@ -186,7 +190,7 @@ export const wapStore = {
                                     class: "",
                                     txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque minima assumenda expedita similique quaerat maiores ab, itaque hic explicabo eaque!",
                                     style: {
-                                        lineHeight: "",
+                                        lineHeight: "8",
                                         backgroundColor: "",
                                         color: 'rgb(63,63,63)',
                                         fontFamily: "Ruhl",
@@ -194,7 +198,7 @@ export const wapStore = {
                                         textAlign: '',
                                         fontStyle: '',
                                         textDecoration: '',
-                                        letterSpacing: '',
+                                        letterSpacing: '1',
                                         padding: "5rem 10rem"
                                     }
                                 }, {
@@ -213,7 +217,7 @@ export const wapStore = {
                                         textAlign: '',
                                         fontStyle: '',
                                         textDecoration: '',
-                                        letterSpacing: '',
+                                        letterSpacing: '1',
                                         padding: "2rem 8rem",
                                         border: "3px solid black",
                                         marginBottom: "4rem"
@@ -237,7 +241,7 @@ export const wapStore = {
                                 class: "hero-elena",
                                 style: {
                                     borderRadius: "2px",
-                                    height: "872px",
+                                    height: "100%",
                                     width: "100%",
                                     objectFit: "cover"
                                 },
