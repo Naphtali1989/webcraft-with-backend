@@ -33,7 +33,7 @@ export const wapStore = {
                     },
                     {
                         id: Math.random().toString(36).substring(2, 10),
-                        name: 'div',
+                        name: 'section',
                         class: "nav-links flex  clean-list space-around",
                         style: {
                             background: "",
