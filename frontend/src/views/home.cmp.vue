@@ -1,10 +1,19 @@
 <template>
-    <section>
-        <h1>This is the home page</h1>
-        <avatar :color="'red'" :size="50" :imgUrl="'https://yt3.ggpht.com/ytc/AAUvwng7U1ocP5NSaqKiwcApzXq9WGhWWYvdsfo6XTazvg=s900-c-k-c0x00ffffff-no-rj'"/>
+    <section class="home-container flex column align-center">
+        <img src="@/assets/img/logo3.png" class="logo" />
+        <main class="flex-1">
+            MAIN CONTENT HERE
+        </main>
 
-        <avatar :color="'red'" :size="50" :imgUrl="'https://imagizer.imageshack.com/img923/3226/fgIcr0.jpg'"/>
-        
+        <footer class="flex align-center space-between">
+            <h1>WEBCRAFT!</h1>
+            <div class="links">
+                <span>Link 1</span>
+                <span>Link 2</span>
+                <span>Link 3</span>
+            </div>
+        </footer>
+
     </section>
 </template>
 
@@ -13,8 +22,8 @@
 import avatar from '@/cmps/avatar.cmp.vue';
 
 export default {
-    name:'home',
-    components:{avatar}
+    name: 'home',
+    components: { avatar }
 };
 
 </script>

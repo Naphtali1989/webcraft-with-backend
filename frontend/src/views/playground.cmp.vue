@@ -4,7 +4,7 @@
         <!-- <header-sample /> -->
         <!-- <grid-sample /> -->
         <!-- <unsplash-search> -->
-
+        <!-- <hero-sample /> -->
         <!-- </unsplash-search> -->
         <!-- <navbar-sample /> -->
         <card-sample />
@@ -14,6 +14,7 @@
 <script>
 // import navbarSample from '@/cmps/samples/header-samples/navbar-sample.cmp.vue';
 import cardSample from '@/cmps/samples/card-samples/card-sample.cmp.vue';
+// import heroSample from '@/cmps/samples/idantest/hero-sample.cmp.vue';
 // import GridSample from '../cmps/samples/header-samples/grid-sample.vue';
 // import unsplashSearch from '@/cmps/editor/editors/unsplash-search.cmp.vue';
 export default {
@@ -24,7 +25,8 @@ export default {
         // gridSample,
         // unsplashSearch
         // navbarSample,
-        cardSample
+        // cardSample
+        // heroSample
 
     }
 }
