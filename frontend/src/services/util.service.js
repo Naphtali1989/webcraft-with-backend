@@ -8,7 +8,6 @@ function makeId() {
 }
 
 function applyDrag(cmps, dragResult) {
-    console.log('yaron not gonna like this!', cmps)
     const { removedIndex, addedIndex, payload } = dragResult;
     if (removedIndex === null && addedIndex === null) return cmps;
     const result = [...cmps];

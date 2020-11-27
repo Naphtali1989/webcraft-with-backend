@@ -8,11 +8,26 @@ body {
     color: rgb(63, 63, 63);
 }
 
+html {
+    body.smooth-dnd-no-user-select {
+        &.smooth-dnd-disable-touch-action {
+            * {
+                cursor: grabbing !important;
+            }
+        }
+    }
+}
+
 button {
     cursor: pointer;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
 }
 
