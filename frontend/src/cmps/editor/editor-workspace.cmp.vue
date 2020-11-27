@@ -10,7 +10,6 @@
 </template>
 
 <script>
-// import heroSample from "@/cmps/samples/hero-sample.cmp.vue";
 import { Container,Draggable } from 'vue-smooth-dnd';
 import wapWorker from '@/cmps/wap/wap-worker.cmp.vue';
 export default {
@@ -36,7 +35,6 @@ export default {
     },
     methods: {
         onDrop(dropResult) {
-            console.log('in workspace object',dropResult)
             //if there is no removed index
             if(!dropResult.removedIndex&&dropResult.removedIndex===null) {
                 this.$emit('droppedSample',dropResult.payload.id,dropResult.addedIndex)
@@ -45,8 +43,6 @@ export default {
             }
         },
         getChildPayload(index) {
-            console.log('child payload idx is:',index);
-            console.log('cmps in position idx:',this.cmps[index]);
             return this.cmps[index];
         },
         emitUserChoice(id) {
@@ -71,10 +67,10 @@ export default {
 <style lang="scss" scoped>
 .card-ghost {
     transition: transform 0.18s ease;
-    transform: rotateZ(5deg);
+    transform: scale(0.9);
 }
 .card-ghost-drop {
     transition: transform 0.18s ease-in-out;
-    transform: rotateZ(0deg);
+    transform: scale(1);
 }
 </style>

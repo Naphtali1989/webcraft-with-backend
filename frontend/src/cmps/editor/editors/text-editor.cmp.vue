@@ -94,10 +94,8 @@ export default {
             this.cmpToEdit.style.letterSpacing=size+'px';
         },
         toggleTxtDecoration(decoration) {
-            //style object
-            const { style }=this.cmpToEdit;
-            const { textDecoration,fontStyle }=style;
-            if(style.textDecoration===decoration) this.cmpToEdit.style.textDecoration='revert'
+            const { textDecoration }=this.cmpToEdit.style;
+            if(textDecoration===decoration) this.cmpToEdit.style.textDecoration='revert'
             else this.cmpToEdit.style.textDecoration=decoration
         },
         toggleFontStyle(txtStyle) {
