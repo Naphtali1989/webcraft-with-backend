@@ -18,18 +18,8 @@
             <div class="hero-images">
                 <img
                     class="hero-elena"
-                    src="@/assets/img/elenajoy.png"
+                    src="https://imagizer.imageshack.com/img924/5680/fy20r8.png"
                     alt="picture of elena joy"
-                />
-                <img
-                    src="@/assets/img/plant1.png"
-                    alt=""
-                    class="plant1 plant"
-                />
-                <img
-                    src="@/assets/img/plant2.png"
-                    alt=""
-                    class="plant2 plant"
                 />
             </div>
         </section>

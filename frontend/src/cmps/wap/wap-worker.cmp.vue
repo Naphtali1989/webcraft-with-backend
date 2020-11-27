@@ -1,11 +1,32 @@
 <template>
-    <component class="editable" :is="name" :style="cmp.style" :class="cmp.class" @click.stop.prevent="onClick(cmp.id)" @clicked="onClick" @blur="updateTxt" :contenteditable="editable">
+    <component
+        class="editable"
+        :is="name"
+        :style="cmp.style"
+        :class="cmp.class"
+        :src="urlSrc"
+        @click.stop.prevent="onClick(cmp.id)"
+        @clicked="onClick"
+        @blur="updateTxt"
+        :contenteditable="editable"
+    >
         <slot v-if="cmp.name === 'img' || cmp.name === 'section'">
-            <controls :id="cmp.id" @copy="emitCopy" @delete="emitDelete" @moveSection="emitMoveSection" />
+            <controls
+                :id="cmp.id"
+                @copy="emitCopy"
+                @delete="emitDelete"
+                @moveSection="emitMoveSection"
+            />
         </slot>
         {{ cmpTxt }}
         <template v-if="cmp.children">
-            <wap-worker v-for="child in cmp.children" :key="child.id" :cmp="child" @clicked="onClick" @updatedTxt="emitUpdateTxt">
+            <wap-worker
+                v-for="child in cmp.children"
+                :key="child.id"
+                :cmp="child"
+                @clicked="onClick"
+                @updatedTxt="emitUpdateTxt"
+            >
                 <slot></slot>
             </wap-worker>
         </template>
@@ -29,48 +50,49 @@ export default {
     },
     computed: {
         name() {
-            if(this.cmp.name==='txt') return 'span';
-            if(this.cmp.name==='link') return 'a';
-            if(this.cmp.name==='vid') return 'iframe';
+            if (this.cmp.name === 'txt') return 'span';
+            if (this.cmp.name === 'link') return 'a';
+            if (this.cmp.name === 'vid') return 'iframe';
             else return this.cmp.name
         },
         cmpTxt() {
-            return this.cmp.txt||''
+            return this.cmp.txt || ''
         },
         urlSrc() {
-            return (this.cmp.imgUrl)? this.cmp.imgUrl:((this.cmp.vidUrl)? this.convertedUrl:'');
+            console.log('this.cmp.imgUrl:', this.cmp.imgUrl)
+            return (this.cmp.imgUrl) ? this.cmp.imgUrl : ((this.cmp.vidUrl) ? this.convertedUrl : '');
         },
         convertedUrl() {
-            if(this.cmp.vidUrl.includes("?v=")) {
-                const id=this.cmp.vidUrl.split("?v=")[1];
+            if (this.cmp.vidUrl.includes("?v=")) {
+                const id = this.cmp.vidUrl.split("?v=")[1];
                 return `https://www.youtube.com/embed/${id}`;
             }
             return this.cmp.vidUrl
         },
         editable() {
-            if(this.cmp.name==='txt'||this.cmp.name==='link') return true;
+            if (this.cmp.name === 'txt' || this.cmp.name === 'link') return true;
             return false
         }
     },
     methods: {
         emitCopy(id) {
-            this.$emit('copy',id)
+            this.$emit('copy', id)
         },
         emitDelete(id) {
-            this.$emit('delete',id)
+            this.$emit('delete', id)
         },
         onClick(id) {
-            this.$emit('clicked',id)
+            this.$emit('clicked', id)
         },
         updateTxt(ev) {
-            if(this.cmp.name==='img') return
-            this.$emit('updatedTxt',ev.target.innerText)
+            if (this.cmp.name === 'img') return
+            this.$emit('updatedTxt', ev.target.innerText)
         },
         emitUpdateTxt(txtValue) {
-            this.$emit('updatedTxt',txtValue)
+            this.$emit('updatedTxt', txtValue)
         },
-        emitMoveSection(id,diff) {
-            this.$emit('moveSection',id,diff)
+        emitMoveSection(id, diff) {
+            this.$emit('moveSection', id, diff)
         }
 
     },

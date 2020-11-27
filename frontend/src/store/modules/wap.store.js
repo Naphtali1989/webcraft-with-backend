@@ -7,7 +7,7 @@ export const wapStore = {
                 name: "section",
                 class: "flex align-center",
                 style: {
-                    minHeight: "7.25rem",
+                    minHeight: "116px",
                     padding: "2rem 2rem",
                     background: "beige",
                     width: "100%",
@@ -24,7 +24,7 @@ export const wapStore = {
                             color: 'black',
                             flex: "1 1 20rem",
                             fontFamily: "Vibes",
-                            fontSize: "1.5rem",
+                            fontSize: "24px",
                             textAlign: '',
                             fontStyle: '',
                             textDecoration: '',
@@ -49,7 +49,7 @@ export const wapStore = {
                                     color: "black",
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
-                                    fontSize: "1rem",
+                                    fontSize: "16px",
                                     lineHeight: '',
                                     letterSpacing: '',
                                     backgroundColor: '',
@@ -68,7 +68,7 @@ export const wapStore = {
                                     color: "black",
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
-                                    fontSize: "1rem",
+                                    fontSize: "16px",
                                     lineHeight: '',
                                     letterSpacing: '',
                                     backgroundColor: '',
@@ -87,7 +87,7 @@ export const wapStore = {
                                     color: "black",
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
-                                    fontSize: "1rem",
+                                    fontSize: "16px",
                                     lineHeight: '',
                                     letterSpacing: '',
                                     backgroundColor: '',
@@ -101,6 +101,7 @@ export const wapStore = {
                     }
                 ]
             },
+            // next one
             {
                 id: Math.random().toString(36).substring(2, 10),
                 name: "section",
@@ -115,10 +116,10 @@ export const wapStore = {
                 },
                 children: [{
                     id: Math.random().toString(36).substring(2, 10),
-                    name: "section",
+                    name: "div",
                     class: "hero flex wrap",
                     style: {
-                        lineHeight: "1.5",
+                        lineHeight: "",
                         backgroundColor: "",
                         color: 'black',
                         flex: "1 1 20rem",
@@ -149,8 +150,8 @@ export const wapStore = {
                                     name: "txt",
                                     txt: "Elena Joy",
                                     style: {
-                                        fontSize: "1.5rem",
-                                        lineHeight: "1.5",
+                                        fontSize: "24px",
+                                        lineHeight: "",
                                         letterSpacing: "",
                                         background: "",
                                         color: "rgb(63,63,63)",
@@ -166,8 +167,8 @@ export const wapStore = {
                                     name: "txt",
                                     txt: "Photography",
                                     style: {
-                                        fontSize: "1.5rem",
-                                        lineHeight: "1.5",
+                                        fontSize: "24px",
+                                        lineHeight: "",
                                         letterSpacing: "",
                                         background: "",
                                         color: "rgb(63,63,63)",
@@ -189,7 +190,7 @@ export const wapStore = {
                                         backgroundColor: "",
                                         color: 'rgb(63,63,63)',
                                         fontFamily: "Ruhl",
-                                        fontSize: "1rem",
+                                        fontSize: "16px",
                                         textAlign: '',
                                         fontStyle: '',
                                         textDecoration: '',
@@ -208,7 +209,7 @@ export const wapStore = {
                                         backgroundColor: "",
                                         color: 'rgb(63,63,63)',
                                         fontFamily: "Ruhl",
-                                        fontSize: "1rem",
+                                        fontSize: "16px",
                                         textAlign: '',
                                         fontStyle: '',
                                         textDecoration: '',
@@ -222,7 +223,7 @@ export const wapStore = {
                         },
                         {
                             id: Math.random().toString(36).substring(2, 10),
-                            name: "div",
+                            name: "section",
                             class: "hero-images",
                             style: {
                                 background: "linear-gradient(#dad8dd, #dad1d4)",
@@ -240,7 +241,7 @@ export const wapStore = {
                                     width: "100%",
                                     objectFit: "cover"
                                 },
-                                imgUrl: "@/assets/img/elenajoy.png"
+                                imgUrl: "https://imagizer.imageshack.com/img924/5680/fy20r8.png"
                             }]
                         }
 
