@@ -20,18 +20,17 @@
             overflow-y: auto;
             width: 20rem;
             transition: all .3s ease-in-out;
-            // margin-inline-end: 1rem;
         }
         
         .toggle-dashboard {
             position: absolute;
             right: -10px;
-            /* right: -8px; */
             top: 50%;
         }
         
         .editor-workspace {
             margin-inline-start: 20rem;
+            padding: 1rem;
             section {
                 position: relative;
                 &:hover {

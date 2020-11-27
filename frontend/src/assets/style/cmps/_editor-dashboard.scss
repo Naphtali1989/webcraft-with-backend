@@ -21,3 +21,22 @@
 .nav-item {
     margin-block-start: 10px;
 }
+
+.sample-preview {
+    text-align: center;
+    background: gainsboro;
+    box-shadow: 0 0 4px black;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    position: relative;
+    margin: 1rem;
+    cursor: pointer;
+    img {
+        width: 100%;
+        object-fit: cover
+    }
+    h3 {
+        height: 2.5rem;
+        text-transform: capitalize;
+    }
+}

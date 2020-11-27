@@ -4,7 +4,7 @@ export const wapStore = {
         samples: [{
                 id: Math.random().toString(36).substring(2, 10),
                 type: "header",
-                prevUrl: "https://imagizer.imageshack.com/img924/5872/s3ba6B.png",
+                thumbnail: "https://imagizer.imageshack.com/img924/5872/s3ba6B.png",
                 title: "Nav Bar",
                 name: "section",
                 class: "flex align-center",
@@ -109,7 +109,7 @@ export const wapStore = {
                 name: "section",
                 type: "cards",
                 title: "Photography",
-                prevUrl: "https://imagizer.imageshack.com/img922/1905/up2tR2.png",
+                thumbnail: "https://imagizer.imageshack.com/img922/1905/up2tR2.png",
                 class: "flex",
                 style: {
                     maxHeight: "500px",
@@ -263,7 +263,7 @@ export const wapStore = {
 
     getters: {
         sampleList(state) {
-            return state.samples.map(sample => ({ id: sample.id, name: sample.name, type: sample.type }))
+            return state.samples.map(sample => ({ id: sample.id, name: sample.name, type: sample.type, thumbnail: sample.thumbnail, title: sample.title }))
         },
         sampleToAdd(state) {
             return state.pickedSample
