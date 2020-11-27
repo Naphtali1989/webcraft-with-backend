@@ -26,7 +26,7 @@ export const wapStore = {
                             color: 'black',
                             flex: "1 1 20rem",
                             fontFamily: "Vibes",
-                            fontSize: "1.5rem",
+                            fontSize: "24px",
                             textAlign: '',
                             fontStyle: '',
                             textDecoration: '',
@@ -51,7 +51,7 @@ export const wapStore = {
                                     color: "black",
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
-                                    fontSize: "1rem",
+                                    fontSize: "16px",
                                     lineHeight: '',
                                     letterSpacing: '',
                                     backgroundColor: '',
@@ -70,7 +70,7 @@ export const wapStore = {
                                     color: "black",
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
-                                    fontSize: "1rem",
+                                    fontSize: "16px",
                                     lineHeight: '',
                                     letterSpacing: '',
                                     backgroundColor: '',
@@ -89,7 +89,7 @@ export const wapStore = {
                                     color: "black",
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
-                                    fontSize: "1rem",
+                                    fontSize: "16px",
                                     lineHeight: '',
                                     letterSpacing: '',
                                     backgroundColor: '',
@@ -223,7 +223,7 @@ export const wapStore = {
                                         letterSpacing: '1',
                                         padding: "2rem 4rem",
                                         border: "3px solid black",
-                                        // marginBottom: "2rem"
+                                        margin: "0 auto"
                                     }
                                 }
                             ]
