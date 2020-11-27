@@ -9,11 +9,12 @@
         <!-- <navbar-sample /> -->
         <!-- <card-sample /> -->
         <!-- <avatar-modal /> -->
-
+        <footer-sample />
     </section>
 </template>
 
 <script>
+import footerSample from '@/cmps/samples/footer-samples/footer-sample.cmp.vue';
 // import navbarSample from '@/cmps/samples/header-samples/navbar-sample.cmp.vue';
 // import cardSample from '@/cmps/samples/card-samples/card-sample.cmp.vue';
 // import avatarModal from '@/cmps/avatar-modal.cmp.vue';
@@ -31,6 +32,7 @@ export default {
         // navbarSample,
         // cardSample
         // heroSample
+        footerSample
 
     }
 }
