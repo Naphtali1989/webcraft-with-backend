@@ -4,6 +4,8 @@ export const wapStore = {
         samples: [{
                 id: Math.random().toString(36).substring(2, 10),
                 type: "header",
+                prevUrl: "https://imagizer.imageshack.com/img924/5872/s3ba6B.png",
+                title: "Nav Bar",
                 name: "section",
                 class: "flex align-center",
                 style: {
@@ -106,9 +108,11 @@ export const wapStore = {
                 id: Math.random().toString(36).substring(2, 10),
                 name: "section",
                 type: "cards",
+                title: "Photography",
+                prevUrl: "https://imagizer.imageshack.com/img922/1905/up2tR2.png",
                 class: "flex",
                 style: {
-                    minHeight: "872px",
+                    maxHeight: "500px",
                     padding: "",
                     background: "beige",
                     width: "100%",
@@ -119,7 +123,7 @@ export const wapStore = {
                     name: "div",
                     class: "hero flex wrap",
                     style: {
-                        lineHeight: "11",
+                        lineHeight: "4",
                         backgroundColor: "",
                         color: 'black',
                         flex: "1 1 20rem",
@@ -153,7 +157,7 @@ export const wapStore = {
                                     txt: "Elena Joy",
                                     style: {
                                         fontSize: "24px",
-                                        lineHeight: "",
+                                        lineHeight: "4",
                                         letterSpacing: "1",
                                         background: "",
                                         color: "rgb(63,63,63)",
@@ -161,9 +165,8 @@ export const wapStore = {
                                         textDecoration: "",
                                         fontStyle: "",
                                         textAlign: "",
-                                        padding: "20px 40px 40px 20px",
-                                        marginBlockEnd: "16px",
-                                        marginBlockStart: "16px",
+                                        marginBlockEnd: "8px",
+                                        marginBlockStart: "8px",
                                     }
                                 }, {
                                     id: Math.random().toString(36).substring(2, 10),
@@ -172,7 +175,7 @@ export const wapStore = {
                                     txt: "Photography",
                                     style: {
                                         fontSize: "24px",
-                                        lineHeight: "8",
+                                        lineHeight: "4",
                                         letterSpacing: "1",
                                         background: "",
                                         color: "rgb(63,63,63)",
@@ -180,7 +183,6 @@ export const wapStore = {
                                         textDecoration: "",
                                         fontStyle: "",
                                         textAlign: "",
-                                        paddingTop: "3rem",
                                     }
                                 },
                                 {
@@ -190,7 +192,7 @@ export const wapStore = {
                                     class: "",
                                     txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque minima assumenda expedita similique quaerat maiores ab, itaque hic explicabo eaque!",
                                     style: {
-                                        lineHeight: "8",
+                                        lineHeight: "2",
                                         backgroundColor: "",
                                         color: 'rgb(63,63,63)',
                                         fontFamily: "Ruhl",
@@ -199,7 +201,8 @@ export const wapStore = {
                                         fontStyle: '',
                                         textDecoration: '',
                                         letterSpacing: '1',
-                                        padding: "5rem 10rem"
+                                        padding: "1rem 3rem",
+                                        marginBottom: "1.5rem"
                                     }
                                 }, {
                                     id: Math.random().toString(36).substring(2, 10),
@@ -209,7 +212,7 @@ export const wapStore = {
                                     txt: "Gallery",
                                     href: "#Gallery",
                                     style: {
-                                        lineHeight: "",
+                                        lineHeight: "1",
                                         backgroundColor: "",
                                         color: 'rgb(63,63,63)',
                                         fontFamily: "Ruhl",
@@ -218,9 +221,9 @@ export const wapStore = {
                                         fontStyle: '',
                                         textDecoration: '',
                                         letterSpacing: '1',
-                                        padding: "2rem 8rem",
+                                        padding: "2rem 4rem",
                                         border: "3px solid black",
-                                        marginBottom: "4rem"
+                                        // marginBottom: "2rem"
                                     }
                                 }
                             ]
@@ -231,9 +234,10 @@ export const wapStore = {
                             class: "hero-images",
                             style: {
                                 background: "linear-gradient(#dad8dd, #dad1d4)",
-                                flex: "1 1 40rem",
+                                flex: "1 1 20rem",
                                 borderRadius: 0,
                                 zIndex: 1,
+                                height: "500px"
                             },
                             children: [{
                                 id: Math.random().toString(36).substring(2, 10),
@@ -241,7 +245,7 @@ export const wapStore = {
                                 class: "hero-elena",
                                 style: {
                                     borderRadius: "2px",
-                                    height: "100%",
+                                    height: "500px",
                                     width: "100%",
                                     objectFit: "cover"
                                 },
