@@ -1,9 +1,7 @@
 <template>
     <div class="card-sample">
         <section class="hero">
-            <div
-                class="hero-introduction flex column justify-center align-center"
-            >
+            <div class="hero-introduction flex column justify-center align-center">
                 <h2>
                     Elena Joy <br />
                     Photography
@@ -16,21 +14,9 @@
                 <a href="#gallery">Gallery</a>
             </div>
             <div class="hero-images">
-                <img
-                    class="hero-elena"
-                    src="@/assets/img/elenajoy.png"
-                    alt="picture of elena joy"
-                />
-                <img
-                    src="@/assets/img/plant1.png"
-                    alt=""
-                    class="plant1 plant"
-                />
-                <img
-                    src="@/assets/img/plant2.png"
-                    alt=""
-                    class="plant2 plant"
-                />
+                <img class="hero-elena" src="@/assets/img/elenajoy.png" alt="picture of elena joy" />
+                <img src="@/assets/img/plant1.png" alt="" class="plant1 plant" />
+                <img src="@/assets/img/plant2.png" alt="" class="plant2 plant" />
             </div>
         </section>
         <!-- <section class="about" id="about">

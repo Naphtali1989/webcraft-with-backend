@@ -129,3 +129,71 @@ export const wapStore = {
         },
     }
 }
+
+// {
+//     "name": "section",
+//     "children": [{
+//             "id": "5748"
+//             "name": "section",
+//             "imgUrl": '',
+//             "class": "flex column justify-center align-center",
+//             "color": "#222",
+//             "style": {
+//                 "background": "gray",
+//                 "color": "red",
+//                 "height": "300px"
+//             },
+//             "children": [{
+//                 "id": "12343"
+//                 "name": "txt",
+//                 "class": "h1-heading",
+//                 "txt": "MATAN THIS SHIT MAYBE WORKS",
+//                 "style": {
+//                    "fontSize": "25px",
+//                     "lineHeight": 1.5,
+//                     "letterSpacing": "10px",
+//                     "backgroundColor": "",
+//                     "color": "red",
+//                     "fontFamily": "monospace",
+//                     "textDecoration": "underline",
+//                     "fontStyle": "italic",
+//                     "fontWeight": "bold"
+
+//                 }
+//             }]
+
+// }
+
+// {
+//     "name": "section",
+//     "children": [{
+//         "id": "5748",
+//         "name": "section",
+//         "imgUrl": '',
+//         "class": "flex column justify-center align-center",
+//         "color": "#222",
+//         "style": {
+//             "background": "gray",
+//             "color": "red",
+//             "height": "300px"
+//         },
+//         "children": [{
+//             "id": "12343",
+//             "name": "txt",
+//             "class": "h1-heading",
+//             "txt": "MATAN THIS SHIT MAYBE WORKS",
+//             "style": {
+//                 "fontSize": "25px",
+//                 "lineHeight": "1.5",
+//                 "letterSpacing": "10px",
+//                 "backgroundColor": "",
+//                 "color": "red",
+//                 "fontFamily": "monospace",
+//                 "textDecoration": "underline",
+//                 "fontStyle": "italic",
+//                 "fontWeight": "bold"
+//             }
+//         }]
+
+//     }]
+// }
