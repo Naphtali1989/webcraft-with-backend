@@ -7,7 +7,7 @@ export const wapStore = {
                 name: "section",
                 class: "flex align-center",
                 style: {
-                    minHeight: "116px",
+                    minHeight: "7.25rem",
                     padding: "2rem 2rem",
                     background: "beige",
                     width: "100%",
@@ -24,7 +24,7 @@ export const wapStore = {
                             color: 'black',
                             flex: "1 1 20rem",
                             fontFamily: "Vibes",
-                            fontSize: "24px",
+                            fontSize: "1.5rem",
                             textAlign: '',
                             fontStyle: '',
                             textDecoration: '',
@@ -49,7 +49,7 @@ export const wapStore = {
                                     color: "black",
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
-                                    fontSize: "16px",
+                                    fontSize: "1rem",
                                     lineHeight: '',
                                     letterSpacing: '',
                                     backgroundColor: '',
@@ -68,7 +68,7 @@ export const wapStore = {
                                     color: "black",
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
-                                    fontSize: "16px",
+                                    fontSize: "1rem",
                                     lineHeight: '',
                                     letterSpacing: '',
                                     backgroundColor: '',
@@ -87,7 +87,7 @@ export const wapStore = {
                                     color: "black",
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
-                                    fontSize: "16px",
+                                    fontSize: "1rem",
                                     lineHeight: '',
                                     letterSpacing: '',
                                     backgroundColor: '',
@@ -281,71 +281,3 @@ export const wapStore = {
         },
     }
 }
-
-// {
-//     "name": "section",
-//     "children": [{
-//             "id": "5748"
-//             "name": "section",
-//             "imgUrl": '',
-//             "class": "flex column justify-center align-center",
-//             "color": "#222",
-//             "style": {
-//                 "background": "gray",
-//                 "color": "red",
-//                 "height": "300px"
-//             },
-//             "children": [{
-//                 "id": "12343"
-//                 "name": "txt",
-//                 "class": "h1-heading",
-//                 "txt": "MATAN THIS SHIT MAYBE WORKS",
-//                 "style": {
-//                    "fontSize": "25px",
-//                     "lineHeight": 1.5,
-//                     "letterSpacing": "10px",
-//                     "backgroundColor": "",
-//                     "color": "red",
-//                     "fontFamily": "monospace",
-//                     "textDecoration": "underline",
-//                     "fontStyle": "italic",
-//                     "fontWeight": "bold"
-
-//                 }
-//             }]
-
-// }
-
-// {
-//     "name": "section",
-//     "children": [{
-//         "id": "5748",
-//         "name": "section",
-//         "imgUrl": '',
-//         "class": "flex column justify-center align-center",
-//         "color": "#222",
-//         "style": {
-//             "background": "gray",
-//             "color": "red",
-//             "height": "300px"
-//         },
-//         "children": [{
-//             "id": "12343",
-//             "name": "txt",
-//             "class": "h1-heading",
-//             "txt": "MATAN THIS SHIT MAYBE WORKS",
-//             "style": {
-//                 "fontSize": "25px",
-//                 "lineHeight": "1.5",
-//                 "letterSpacing": "10px",
-//                 "backgroundColor": "",
-//                 "color": "red",
-//                 "fontFamily": "monospace",
-//                 "textDecoration": "underline",
-//                 "fontStyle": "italic",
-//                 "fontWeight": "bold"
-//             }
-//         }]
-
-//     }]
-// }
