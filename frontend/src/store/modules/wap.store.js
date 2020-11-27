@@ -112,11 +112,7 @@ export const wapStore = {
                 prevUrl: "https://imagizer.imageshack.com/img922/1905/up2tR2.png",
                 class: "flex",
                 style: {
-<<<<<<< HEAD
-                    maxHeight: "872px",
-=======
                     maxHeight: "500px",
->>>>>>> 1598662fe5450b5626020f0cda569667f468ff41
                     padding: "",
                     background: "beige",
                     width: "100%",

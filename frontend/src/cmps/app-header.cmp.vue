@@ -14,11 +14,15 @@
 </template>
 
 <script>
+import avatar from '@/cmps/avatar.vue';
 export default {
     name: "app-header",
     data() {
         return {};
     },
+    components: {
+        avatar
+    }
 };
 </script>
 

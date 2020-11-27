@@ -84,7 +84,9 @@ export default {
         padding: 1rem;
 
         &.selected {
-            background: red;
+            background: #2e4ead;
+            color: white;
+            border-radius: 5px;
         }
     }
 }

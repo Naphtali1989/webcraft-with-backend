@@ -3,7 +3,7 @@
         <p class="editor-txt">Set Round Edges:</p>
         <my-range :options="{ initVal: 2, min: 0, max: 50 }" />
         <p class="editor-txt">Set Section Height:</p>
-        <my-range :options="{ initVal:sectionHeight, min: 0, max: 900 }" @input="setSectionHeight" />
+        <my-range :options="{ initVal:sectionHeight, min: 0, max: 500 }" @input="setSectionHeight" />
         <template v-if="cmpToEdit.name !== 'img'">
             <p class="editor-txt">Set A Background Color</p>
             <color-picker @changeColor="setColor" />
