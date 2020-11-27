@@ -1,11 +1,12 @@
 <template>
     <section class="editor-workspace flex column">
         <Container
+            class="dnd-container"
             drag-class="card-ghost"
             drop-class="card-ghost-drop"
             :drop-placeholder="dropPlaceholderOptions"
             :get-child-payload="getChildPayload"
-            group-name="1"
+            group-name="editor"
             @drop="onDrop"
         >
             <Draggable v-for="cmp in cmps" :key="cmp.id">
@@ -50,7 +51,8 @@ export default {
     },
     methods: {
         onDrop(dropResult) {
-            this.$emit('dropped', dropResult)
+            console.log('in workspace',dropResult)
+            this.$emit('droppedSection', dropResult)
         },
         getChildPayload(index) {
             return this.cmps[index];

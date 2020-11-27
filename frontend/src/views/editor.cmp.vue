@@ -14,13 +14,14 @@
             </slot>
         </editor-dashboard>
         <editor-workspace
+            :draggingSample="draggingSample"
             :cmps="cmps"
             @clicked="setCmpToEdit"
             @updatedTxt="updateTxt"
             @copy="copySection"
             @delete="deleteSection"
             @moveSection="moveSection"
-            @dropped="dropSection"
+            @droppedSection="dropSection"
         />
     </section>
 </template>
@@ -39,7 +40,7 @@ export default {
             currCmpToEdit: null,
             currWap: null,
             isEditorShow: true,
-
+            draggingSample:null
         }
     },
     computed: {
@@ -99,7 +100,7 @@ export default {
                 id
             })
             const sample = JSON.parse(JSON.stringify(res))
-            this.cmps.unshift(sample)
+            this.dropSection(sample)
 
         },
         copySection(id) {
