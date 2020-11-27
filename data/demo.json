@@ -1,14 +1,14 @@
 [{
         "id": "ajahdbdh",
-        "type": "txt",
-        "name": "awesomeTxt",
+        "name": "txt",
+        "type": "awesomeTxt",
         "class": "cool-txt",
         "txt": "blablabla",
         "style": {
             "fontSize": "25px",
             "lineHeight": 1.5,
             "letterSpacing": "10px",
-            "background": "",
+            "background": "inherit",
             "color": "red",
             "fontFamily": "cursive",
             "textDecoration": "underline",
@@ -19,8 +19,8 @@
 
     {
         "id": "ahshhfb",
-        "type": "link",
-        "name": "awesomeLink",
+        "name": "link",
+        "type": "awesomeLink",
         "class": "cool-link",
         "txt": "Monday!",
         "href": "https: //monday.com",
@@ -28,19 +28,39 @@
             "fontSize": "25px",
             "lineHeight": 1.5,
             "letterSpacing": "10px",
-            "backgroundColor": "",
+            "backgroundColor": "inherit",
             "color": "red",
             "fontFamily": "cursive",
             "textDecoration": "underline",
             "fontStyle": "italic",
             "textAlign": "center"
         }
+    }, {
+        "id": "weafaweghth",
+        "name": "button",
+        "type": "awesomeButton",
+        "class": "cool-link",
+        "txt": "Click me!",
+        "href": "#clicked",
+        "style": {
+            "fontSize": "25px",
+            "lineHeight": 1.5,
+            "letterSpacing": "10px",
+            "backgroundColor": "inherit",
+            "color": "red",
+            "fontFamily": "cursive",
+            "textDecoration": "underline",
+            "fontStyle": "italic",
+            "textAlign": "center",
+            "width": "unset",
+            "borderRadius": "0px"
+        }
     },
 
     {
         "id": "ajebrnh",
-        "type": "section",
-        "name": "navbar",
+        "name": "section",
+        "type": "navbar",
         "class": "cool-navbar",
         "style": {
             "background": "red",
@@ -52,8 +72,8 @@
 
     {
         "id": "gshsusna",
-        "type": "img",
-        "name": "img-container",
+        "name": "img",
+        "type": "img-container",
         "class": "cool-img",
         "style": {
             "borderRadius": "2px",
