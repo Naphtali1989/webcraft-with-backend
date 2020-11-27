@@ -25,3 +25,15 @@
 .smooth-dnd-draggable-wrapper {
     cursor: grab;
 }
+
+.card-ghost {
+    transition: transform 0.18s ease;
+    transform: rotateZ(5deg);
+    // transform: scale(0.9);
+}
+
+.card-ghost-drop {
+    transition: transform 0.18s ease-in-out;
+    transform: rotateZ(0);
+    // transform: scale(1);
+}

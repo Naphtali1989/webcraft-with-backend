@@ -1,0 +1,84 @@
+[{
+    "id": "afaewfag4wravfsfdwe",
+    "name": "section",
+    "type": "map",
+    "class": "map-section flex space-around",
+    "style": {
+        "background": "#69D2E7",
+        "borderRadius": "0px",
+        "height": "450px"
+    },
+    "children": [{
+        "id": "awetaerhgavaefw3ew",
+        "name": "div",
+        "type": "inner-div",
+        "class": "inner-div flex column",
+        "style": {
+            "background": "transparent",
+            "borderRadius": "2px",
+            "height": "350px"
+        },
+        "children": [{
+            "id": "asstjrythsregr",
+            "name": "txt",
+            "type": "inner-text",
+            "class": "map-inner-text",
+            "txt": "Come visit us!",
+            "style": {
+                "fontSize": "25px",
+                "lineHeight": 1.5,
+                "letterSpacing": "10px",
+                "background": "inherit",
+                "color": "#222",
+                "fontFamily": "inherit",
+                "textDecoration": "inherit",
+                "fontStyle": "inherit",
+                "textAlign": "inherit"
+            }
+        }, {
+            "id": "awegaethtryktj",
+            "name": "txt",
+            "type": "inner-text",
+            "class": "map-inner-text",
+            "txt": "1 Privet Drive, Sari, England",
+            "style": {
+                "fontSize": "22px",
+                "lineHeight": 1.2,
+                "letterSpacing": "10px",
+                "background": "inherit",
+                "color": "#212121",
+                "fontFamily": "inherit",
+                "textDecoration": "inherit",
+                "fontStyle": "inherit",
+                "textAlign": "inherit"
+            }
+        }, {
+            "id": "awegahtesryjrtsfdvsvgwe",
+            "name": "txt",
+            "type": "inner-text",
+            "class": "map-inner-text",
+            "txt": "+972-666-6666",
+            "style": {
+                "fontSize": "24px",
+                "lineHeight": 1.2,
+                "letterSpacing": "10px",
+                "background": "inherit",
+                "color": "#7E2D96",
+                "fontFamily": "inherit",
+                "textDecoration": "inherit",
+                "fontStyle": "inherit",
+                "textAlign": "inherit"
+            }
+        }]
+    }, {
+        "id": "areyharuyjtyberry3esvd",
+        "name": "google-map",
+        "type": "map",
+        "class": "google-map",
+        "style": {
+            "background": "transparent",
+            "borderRadius": "2px",
+            "height": "350px"
+        }
+    }]
+}]
