@@ -1,23 +1,8 @@
 <template>
     <section class="editor-workspace flex column">
-        <Container
-            class="dnd-container"
-            drag-class="card-ghost"
-            drop-class="card-ghost-drop"
-            :drop-placeholder="dropPlaceholderOptions"
-            :get-child-payload="getChildPayload"
-            group-name="editor"
-            @drop="onDrop"
-        >
+        <Container class="dnd-container" drag-class="card-ghost" drop-class="card-ghost-drop" :drop-placeholder="dropPlaceholderOptions" :get-child-payload="getChildPayload" group-name="editor" @drop="onDrop">
             <Draggable v-for="cmp in cmps" :key="cmp.id">
-                <wap-worker
-                    :cmp="cmp"
-                    @clicked="emitUserChoice"
-                    @updatedTxt="emitUpdateTxt"
-                    @copy="emitCopy"
-                    @delete="emitDelete"
-                    @moveSection="emitMoveSection"
-                >
+                <wap-worker :cmp="cmp" @clicked="emitUserChoice" @updatedTxt="emitUpdateTxt" @copy="emitCopy" @delete="emitDelete" @moveSection="emitMoveSection">
                 </wap-worker>
             </Draggable>
         </Container>
@@ -26,7 +11,7 @@
 
 <script>
 // import heroSample from "@/cmps/samples/hero-sample.cmp.vue";
-import { Container, Draggable } from 'vue-smooth-dnd';
+import { Container,Draggable } from 'vue-smooth-dnd';
 import wapWorker from '@/cmps/wap/wap-worker.cmp.vue';
 export default {
     name: 'editor-workspace',
@@ -51,26 +36,33 @@ export default {
     },
     methods: {
         onDrop(dropResult) {
-            console.log('in workspace',dropResult)
-            this.$emit('droppedSection', dropResult)
+            console.log('in workspace object',dropResult)
+            //if there is no removed index
+            if(!dropResult.removedIndex&&dropResult.removedIndex===null) {
+                this.$emit('droppedSample',dropResult.payload.id,dropResult.addedIndex)
+            } else {
+                this.$emit('droppedSection',dropResult)
+            }
         },
         getChildPayload(index) {
+            console.log('child payload idx is:',index);
+            console.log('cmps in position idx:',this.cmps[index]);
             return this.cmps[index];
         },
         emitUserChoice(id) {
-            this.$emit('clicked', id);
+            this.$emit('clicked',id);
         },
         emitUpdateTxt(txtValue) {
-            this.$emit('updatedTxt', txtValue);
+            this.$emit('updatedTxt',txtValue);
         },
         emitCopy(id) {
-            this.$emit('copy', id)
+            this.$emit('copy',id)
         },
         emitDelete(id) {
-            this.$emit('delete', id)
+            this.$emit('delete',id)
         },
-        emitMoveSection(id, diff) {
-            this.$emit('moveSection', id, diff)
+        emitMoveSection(id,diff) {
+            this.$emit('moveSection',id,diff)
         }
     }
 }
