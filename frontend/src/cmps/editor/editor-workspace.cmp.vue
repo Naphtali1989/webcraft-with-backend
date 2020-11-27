@@ -1,13 +1,16 @@
 <template>
     <section class="editor-workspace flex column">
-        <!-- <component :is="cmp.type" v-for="(cmp,idx) in cmps" :key="idx" :info="cmp.info" /> -->
         <wap-worker
-            v-for="(cmp, idx) in cmps"
-            :key="idx"
+            v-for="cmp in cmps"
+            :key="cmp.id"
             :cmp="cmp"
             @clicked="emitUserChoice"
             @updatedTxt="emitUpdateTxt"
-        />
+            @copy="emitCopy"
+            @delete="emitDelete"
+            @moveSection="emitMoveSection"
+        >
+        </wap-worker>
     </section>
 </template>
 
@@ -23,18 +26,28 @@ export default {
     },
     components: {
         // heroSample,
-        wapWorker
+        wapWorker,
     },
     methods: {
         emitUserChoice(id) {
+            console.log('edit mode is on');
             this.$emit('clicked', id);
         },
         emitUpdateTxt(txtValue) {
             this.$emit('updatedTxt', txtValue);
+        },
+        emitCopy(id) {
+            this.$emit('copy', id)
+        },
+        emitDelete(id) {
+            this.$emit('delete', id)
+        },
+        emitMoveSection(id, diff) {
+            this.$emit('moveSection', id, diff)
         }
     }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 </style>

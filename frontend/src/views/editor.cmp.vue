@@ -1,21 +1,22 @@
 <template>
     <section class="editor-container flex column" :class="hideEditor">
-        <editor-dashboard :cmpToEdit="currCmpToEdit" @updated="updateCmpToShow" @uploading="uploadImg">
+        <editor-dashboard :samples="samples" :cmpToEdit="currCmpToEdit" @pickedSample="pickSample" @updated="updateCmpToShow" @switched="emptyCmpToEdit">
+
             <slot>
-                <button @click="toggleEditor" class="toggle-dashboard">Toggle Me</button>
+                <button @click="toggleEditor" class="toggle-dashboard">
+                    Toggle Me
+                </button>
             </slot>
         </editor-dashboard>
-        <editor-workspace :cmps="cmps" @clicked="setCmpToEdit" @updatedTxt="updateTxt" />
-        <!-- <component :is="currCmp.type" :info="currCmp.info">
-            <component :is="child.type" v-for="child in info" :key="child.id"/>
-        </component> -->
+        <editor-workspace :cmps="cmps" @clicked="setCmpToEdit" @updatedTxt="updateTxt" @copy="copySection" @delete="deleteSection" @moveSection="moveSection" />
     </section>
 </template>
 
 <script>
 import editorDashboard from '@/cmps/editor/editor-dashboard.cmp.vue';
 import editorWorkspace from '@/cmps/editor/editor-workspace.cmp.vue';
-import EditorDashboardCmp from '../cmps/editor/editor-dashboard.cmp.vue';
+
+
 export default {
     name: 'editor',
     data() {
@@ -23,16 +24,18 @@ export default {
             cmps: null,
             currCmpToEdit: null,
             currWap: null,
-            isEditorShow: true
+            isEditorShow: true,
+
         }
     },
     computed: {
-        editType() {
-            return this.$store.getters.editType;
-        },
         hideEditor() {
             return { 'hide-editor': !this.isEditorShow }
-        }
+        },
+        samples() {
+            return this.$store.getters.sampleList
+        },
+
     },
     components: {
         editorDashboard,
@@ -54,42 +57,76 @@ export default {
                 }
             }
         },
+        replaceIds(node) {
+            node.id=Math.random().toString().substring(2,10);
+            if(node.children) {
+                node.children.forEach(child => {
+                    this.replaceIds(child);
+                })
+            }
+        }
+        ,
         setCmpToEdit(id) {
             var cmpToEdit=this.findByIdRecursive(this.cmps,id);
             this.currCmpToEdit=cmpToEdit;
-            // console.log('YESH PO INYAN!',this.currCmpToEdit)
-            // this.$store.commit({ type: 'setEditType',editType: this.currCmpToEdit.type });
         },
         updateCmpToShow(updatedCmp) {
-            console.log('we have emitted a crime!',updatedCmp)
             this.currCmpToEdit=updatedCmp
-        },
-        uploadImg(ev) {
-            console.log('in editor',ev)
         },
         updateTxt(txtValue) {
             this.currCmpToEdit.txt=txtValue;
         },
         toggleEditor() {
             this.isEditorShow=!this.isEditorShow
-        }
+        },
+        async pickSample(id) {
+            const res=await this.$store.dispatch({
+                type: 'pickedSample',
+                id
+            })
+            const sample=JSON.parse(JSON.stringify(res))
+            this.cmps.unshift(sample)
 
+        },
+        copySection(id) {
+            const section=this.cmps.find(cmp => cmp.id===id);
+            const cmp=JSON.parse(JSON.stringify(section))
+            this.replaceIds(cmp)
+            const idx=this.cmps.findIndex(cmp => cmp.id===id);
+            this.cmps.splice(idx,0,cmp)
+        },
+        deleteSection(id) {
+            const idx=this.cmps.findIndex(cmp => cmp.id===id);
+            this.cmps.splice(idx,1)
+        },
+        moveSection(id,diff) {
+            const section=this.cmps.find(cmp => cmp.id===id);
+            console.log(this.cmps.indexOf(section));
+            const idx=this.cmps.findIndex(cmp => cmp.id===id);
+            if(idx===0&&diff===-1) return;
+            this.cmps.splice(idx,1)
+            this.cmps.splice(idx+diff,0,section);
+        },
+        emptyCmpToEdit() {
+            this.currCmpToEdit=null;
+        }
     },
     created() {
         this.cmps=[{
-            id: Math.random().toString(36).substring(2,8),
-            type: "section",
+            id: Math.random().toString(36).substring(2,10),
+            name: "section",
+            imgUrl: '',
             class: "flex column justify-center align-center",
             color: "#222",
             style: {
                 // background: "url(https://images.unsplash.com/photo-1529271208007-f3a35808467b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=943&q=80) center / cover no-repeat",
                 background: "gray",
                 color: "red",
-                height: "33%"
+                height: "300px"
             },
             children: [{
-                id: Math.random().toString(36).substring(2,8),
-                type: "txt",
+                id: Math.random().toString(36).substring(2,10),
+                name: "txt",
                 class: "h1-heading",
                 txt: "MATAN THIS SHIT MAYBE WORKS",
                 style: {
@@ -105,8 +142,8 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,8),
-                type: "txt",
+                id: Math.random().toString(36).substring(2,10),
+                name: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
                 style: {
@@ -122,8 +159,8 @@ export default {
                 },
             },
             {
-                id: Math.random().toString(36).substring(2,8),
-                type: "link",
+                id: Math.random().toString(36).substring(2,10),
+                name: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",
                 href: "https://www.google.com/",
@@ -140,8 +177,9 @@ export default {
             }]
         },
         {
-            id: Math.random().toString(36).substring(2,8),
-            type: "section",
+            id: Math.random().toString(36).substring(2,10),
+            name: "section",
+            imgUrl: '',
             class: "flex column justify-center align-center",
             color: "#222",
             style: {
@@ -151,8 +189,8 @@ export default {
                 height: "300px"
             },
             children: [{
-                id: Math.random().toString(36).substring(2,8),
-                type: "txt",
+                id: Math.random().toString(36).substring(2,10),
+                name: "txt",
                 class: "h1-heading",
                 txt: "this is h1",
                 style: {
@@ -165,8 +203,8 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,8),
-                type: "txt",
+                id: Math.random().toString(36).substring(2,10),
+                name: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
                 style: {
@@ -179,8 +217,8 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,8),
-                type: "link",
+                id: Math.random().toString(36).substring(2,10),
+                name: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",
                 href: "https://www.google.com/",
@@ -195,18 +233,19 @@ export default {
             }]
         },
         {
-            id: Math.random().toString(36).substring(2,8),
-            type: "img",
+            id: Math.random().toString(36).substring(2,10),
+            name: "section",
+            imgUrl: '',
             class: "flex column justify-center align-center",
             style: {
-                // background: "url(https://images.unsplash.com/photo-1529271208007-f3a35808467b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=943&q=80) center / cover no-repeat",
-                background: "gray",
+                background: "url(https://images.unsplash.com/photo-1529271208007-f3a35808467b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=943&q=80) center / cover no-repeat",
+                // background: "gray",
                 color: "#222",
                 height: "300px"
             },
             children: [{
-                id: Math.random().toString(36).substring(2,8),
-                type: "txt",
+                id: Math.random().toString(36).substring(2,10),
+                name: "txt",
                 class: "h1-heading",
                 txt: "this is h1",
                 style: {
@@ -219,8 +258,8 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,8),
-                type: "txt",
+                id: Math.random().toString(36).substring(2,10),
+                name: "txt",
                 class: "hero-p",
                 txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consequatur quo dolorem itaque voluptas ab!",
                 style: {
@@ -233,8 +272,8 @@ export default {
                 }
             },
             {
-                id: Math.random().toString(36).substring(2,8),
-                type: "link",
+                id: Math.random().toString(36).substring(2,10),
+                name: "link",
                 class: "hero-link",
                 txt: "CLICK ME!",
                 href: "https://www.google.com/",

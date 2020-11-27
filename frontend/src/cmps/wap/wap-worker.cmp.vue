@@ -1,23 +1,34 @@
 <template>
     <component
         class="editable"
-        :is="type"
+        :is="name"
         :style="cmp.style"
         :class="cmp.class"
+        :src="urlSrc"
         @click.stop.prevent="onClick(cmp.id)"
         @clicked="onClick"
         @blur="updateTxt"
-        :contenteditable="notSection"
+        :contenteditable="editable"
     >
+        <slot v-if="cmp.name === 'img' || cmp.name === 'section'">
+            <controls
+                :id="cmp.id"
+                @copy="emitCopy"
+                @delete="emitDelete"
+                @moveSection="emitMoveSection"
+            />
+        </slot>
         {{ cmpTxt }}
         <template v-if="cmp.children">
             <wap-worker
                 v-for="child in cmp.children"
-                :key="child._uid"
+                :key="child.id"
                 :cmp="child"
                 @clicked="onClick"
                 @updatedTxt="emitUpdateTxt"
-            />
+            >
+                <slot></slot>
+            </wap-worker>
         </template>
     </component>
 </template>
@@ -25,6 +36,7 @@
 <script>
 import googleMap from '@/cmps/samples/google-map.cmp.vue';
 import heroSample from "@/cmps/samples/hero-sample.cmp.vue";
+import controls from '@/cmps/editor/controls.cmp.vue';
 export default {
     name: 'wap-worker',
     props: {
@@ -37,17 +49,18 @@ export default {
         return {}
     },
     computed: {
-        type() {
-            if (this.cmp.type === 'txt') return 'span';
-            if (this.cmp.type === 'link') return 'a';
-            if (this.cmp.type === 'vid') return 'iframe';
-            else return this.cmp.type
+        name() {
+            if (this.cmp.name === 'txt') return 'span';
+            if (this.cmp.name === 'link') return 'a';
+            if (this.cmp.name === 'vid') return 'iframe';
+            else return this.cmp.name
         },
         cmpTxt() {
             return this.cmp.txt || ''
         },
         urlSrc() {
-            return (this.template.imgUrl) ? this.template.imgUrl : ((this.template.vidUrl) ? this.convertedUrl : '');
+            console.log('this.cmp.imgUrl:', this.cmp.imgUrl)
+            return (this.cmp.imgUrl) ? this.cmp.imgUrl : ((this.cmp.vidUrl) ? this.convertedUrl : '');
         },
         convertedUrl() {
             if (this.cmp.vidUrl.includes("?v=")) {
@@ -56,32 +69,37 @@ export default {
             }
             return this.cmp.vidUrl
         },
-        notSection() {
-            if (this.cmp.type !== 'section' && this.cmp.type !== 'img') return true;
+        editable() {
+            if (this.cmp.name === 'txt' || this.cmp.name === 'link') return true;
             return false
         }
     },
     methods: {
-        // onInput(ev) {
-        //     console.log('let us see!', ev.target.value.trim())
-        // },
+        emitCopy(id) {
+            this.$emit('copy', id)
+        },
+        emitDelete(id) {
+            this.$emit('delete', id)
+        },
         onClick(id) {
-            // if (this.$el.localName !== 'button' && this.$el.localName !== 'a') return
-            //  window.location.href = this.$el.href
             this.$emit('clicked', id)
         },
         updateTxt(ev) {
-            if(this.cmp.type==='img') return
+            if (this.cmp.name === 'img') return
             this.$emit('updatedTxt', ev.target.innerText)
-            // console.log('this:', this)
         },
         emitUpdateTxt(txtValue) {
             this.$emit('updatedTxt', txtValue)
+        },
+        emitMoveSection(id, diff) {
+            this.$emit('moveSection', id, diff)
         }
+
     },
     components: {
         googleMap,
-        heroSample
+        heroSample,
+        controls
     },
 };
 </script>

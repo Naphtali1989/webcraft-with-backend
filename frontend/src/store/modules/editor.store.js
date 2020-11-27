@@ -1,16 +1,8 @@
 export const editorStore = {
-    state: {
-        // currEditType: ''
-    },
-    getters: {
-        // editType(state) {
-        //     return state.currEditType;
-        // }
-    },
+    state: {},
+    getters: {},
     mutations: {
-        // setEditType(state, { editType }) {
-        //     state.currEditType = editType;
-        // }
+
     },
     actions: {
 
