@@ -108,7 +108,7 @@ export const wapStore = {
                 type: "cards",
                 class: "flex",
                 style: {
-                    minHeight: "872px",
+                    maxHeight: "872px",
                     padding: "",
                     background: "beige",
                     width: "100%",
