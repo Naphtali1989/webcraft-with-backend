@@ -244,7 +244,7 @@ export const wapStore = {
                                 name: "img",
                                 class: "hero-elena",
                                 style: {
-                                    borderRadius: "2px",
+                                    borderRadius: "",
                                     height: "500px",
                                     width: "100%",
                                     objectFit: "cover"

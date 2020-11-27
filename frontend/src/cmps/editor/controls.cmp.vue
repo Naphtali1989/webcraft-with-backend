@@ -32,8 +32,7 @@ export default {
 
 <style scoped lang="scss">
 .controls {
-    height: 20px;
-    padding: 5px;
+    padding: 10px;
     background: #fafafa;
     position: absolute;
     right: 0;

@@ -130,7 +130,8 @@ export default {
                 // background: "url(https://images.unsplash.com/photo-1529271208007-f3a35808467b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=943&q=80) center / cover no-repeat",
                 background: "gray",
                 color: "red",
-                height: "300px"
+                height: "300px",
+                borderRadius: ''
             },
             children: [{
                 id: Math.random().toString(36).substring(2,10),
@@ -194,7 +195,8 @@ export default {
                 // background: "url(https://images.unsplash.com/photo-1529271208007-f3a35808467b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=943&q=80) center / cover no-repeat",
                 background: "gray",
                 color: "#222",
-                height: "300px"
+                height: "300px",
+                borderRadius: ''
             },
             children: [{
                 id: Math.random().toString(36).substring(2,10),
@@ -249,7 +251,8 @@ export default {
                 background: "url(https://images.unsplash.com/photo-1529271208007-f3a35808467b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=943&q=80) center / cover no-repeat",
                 // background: "gray",
                 color: "#222",
-                height: "300px"
+                height: "300px",
+                borderRadius: ''
             },
             children: [{
                 id: Math.random().toString(36).substring(2,10),

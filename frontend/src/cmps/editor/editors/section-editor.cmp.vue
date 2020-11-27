@@ -1,7 +1,7 @@
 <template>
     <section class="section-editor flex column align-center">
         <p class="editor-txt">Set Round Edges:</p>
-        <my-range :options="{ initVal: 2, min: 0, max: 50 }" />
+        <my-range :options="{ initVal: sectionRadius, min: 0, max: 50 }" @input="setSectionRadius" />
         <p class="editor-txt">Set Section Height:</p>
         <my-range :options="{ initVal:sectionHeight, min: 0, max: 500 }" @input="setSectionHeight" />
         <template v-if="cmpToEdit.name !== 'img'">
@@ -48,6 +48,9 @@ export default {
         },
         setSectionHeight(height) {
             this.cmpToEdit.style.height=height+'px';
+        },
+        setSectionRadius(radius) {
+            this.cmpToEdit.style.borderRadius=radius+'px';
         }
     },
     computed: {
@@ -55,6 +58,10 @@ export default {
             const { height }=this.cmpToEdit.style;
             return parseInt(height,10);
         },
+        sectionRadius() {
+            const { borderRadius }=this.cmpToEdit.style;
+            return parseInt(borderRadius,10)
+        }
     },
     components: {
         myRange,
