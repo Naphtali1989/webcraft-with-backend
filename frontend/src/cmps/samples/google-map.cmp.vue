@@ -1,8 +1,9 @@
 <template>
     <GmapMap
         :center="{ lat: 32.088028, lng: 34.803222 }"
-        :zoom="17"
+        :zoom="15"
         map-type-id="terrain"
+        @click.stop.prevent="doNothing"
         
     >
         <GmapMarker
@@ -27,12 +28,18 @@ export default {
         return {
             markers: [
                 { position: { lat: 32.088028, lng: 34.803222 } },
-                { position: { lat: 31.7843, lng: 35.2149 } },
-                { position: { lat: 45.5035, lng: -73.5685 } },
-                { position: { lat: 35.6798, lng: 139.7369 } },
+
             ]
         }
     },
+    methods:{
+        doNothing(){
+            console.log('Doing nothing!')
+        }
+    },
+    computed:{
+        
+    }
   
 }
 </script>
