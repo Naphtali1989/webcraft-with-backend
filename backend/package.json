@@ -4,8 +4,7 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "starter": "node server.js",
-        "start": "set NODE_ENV=development & nodemon server.js",
+        "start": "nodemon --ignore \"./data\" server.js",
         "server:dev": "set NODE_ENV=development & nodemon server.js",
         "server:prod": "node server.js"
     },
