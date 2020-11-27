@@ -67,10 +67,12 @@ export default {
 <style lang="scss" scoped>
 .card-ghost {
     transition: transform 0.18s ease;
-    transform: scale(0.9);
+    transform: rotateZ(5deg);
+    // transform: scale(0.9);
 }
 .card-ghost-drop {
     transition: transform 0.18s ease-in-out;
-    transform: scale(1);
+    transform: rotateZ(0);
+    // transform: scale(1);
 }
 </style>
