@@ -68,28 +68,3 @@ export default {
     }
 }
 </script>
-<style lang="scss">
-.tab-container {
-    display: flex;
-    width: 100%;
-    button {
-        font-family: monospace;
-        width: 50%;
-        padding: 0.5rem 1rem;
-        background: transparent;
-        border: 0;
-        outline: 0;
-        text-transform: uppercase;
-        padding: 1rem;
-
-        &.selected {
-            background: #2e4ead;
-            color: white;
-            border-radius: 5px;
-        }
-    }
-}
-.nav-item {
-    margin-block-start: 10px;
-}
-</style>
