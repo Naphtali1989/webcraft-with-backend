@@ -20,10 +20,6 @@
         <unsplash-search @setImg="onSetImg" />
     </section>
 </template>
-// background: #597bf4;
-//     color: white;
-//     border-radius: 5px;
-// }
 <script>
 import myRange from '@/cmps/custum-cmps/my-range.cmp.vue';
 import colorPicker from '@/cmps/editor/color-picker.cmp.vue';

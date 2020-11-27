@@ -34,11 +34,9 @@ export default {
         },
         getUrls(results) {
             const res=results.map(result => result.urls)
-            console.log('res:',res);
             return res;
         },
         onImgSelect(photo) {
-            console.log('selcted:',photo.regular);
             this.$emit('setImg',photo.regular)
         }
     },

@@ -61,7 +61,6 @@ export default {
     },
     updated() {
         if(this.cmpToEdit) this.currTab='edit';
-        // else if(this.cmpToEdit) this.currTab='add'
     },
     components: {
         typeList,

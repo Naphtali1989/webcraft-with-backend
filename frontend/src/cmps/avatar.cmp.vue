@@ -1,13 +1,10 @@
 <template>
-    <div
-        class="avatar"
-        :style="{
+    <div class="avatar" :style="{
             width: size + 'px',
             height: size + 'px',
             backgroundColor: color || bgColor,
             lineHeight: size + 'px',
-        }"
-    >
+        }">
         <span v-if="username">{{ computeName }} </span>
         <img v-else :src="imgUrl" />
     </div>
@@ -48,21 +45,21 @@ export default {
 </script>
 
 <style lang="scss">
-  .avatar {
-      border-radius: 50%;
-      text-align: center;
-      img {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-          border-radius: 50%;
-      }
-      span {
-          color: white;
-          font-family: Georgia, 'Times New Roman', Times, serif;
-          letter-spacing: 1px;
-          font-size: 1.125rem;
-      }
-  }
-
+.avatar {
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    font-family: carme;
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    span {
+        color: white;
+        letter-spacing: 1px;
+        font-size: 1.125rem;
+    }
+}
 </style>
