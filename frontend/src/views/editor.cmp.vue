@@ -55,7 +55,7 @@ export default {
             }
         },
         replaceIds(node) {
-            node.id=Math.random().toString().substring(2,10);
+            node.id=utilService.makeId();
             if(node.children) {
                 node.children.forEach((child) => {
                     this.replaceIds(child);

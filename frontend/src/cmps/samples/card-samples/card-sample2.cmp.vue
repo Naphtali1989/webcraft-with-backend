@@ -138,54 +138,53 @@ export default {
 
 
 <style lang="scss" scoped>
-// .card {
-//     position: relative;
-//     border-radius: 6px;
-//     max-width: 300px;
-//     max-height: 380px;
-//     margin: 0 auto;
-//     .header {
-//         height: 120px;
-//         width: 100%;
-//         background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEPu7BceUzLF-DvrMQdcldR3W_5Gn9BhKsiw&usqp=CAU);
-//         .avatar {
-//             width: 80px;
-//             height: 80px;
-//             position: relative;
-//             margin: 0 auto;
-//             img {
-//                 display: block;
-//                 position: absolute;
-//                 bottom: -70px;
-//                 border: 4px solid white;
-//             }
-//         }
-//     }
-//     .card-body {
-//         padding: 30px;
-//         .user-meta {
-//             padding-top: 20px;
-//             .username {
-//                 font-size: 18px;
-//                 font-weight: 600;
-//             }
-//             .position {
-//                 font-size: 90%;
-//                 color: #7f00ff;
-//             }
-//         }
-//     }
-//     .user-bio {
-//         padding-top: 8px;
-//         font-size: 92%;
-//     }
-//     .action {
-//         padding: 16px 20px 16px 20px;
-//         background: #7f00ff;
-//         border-color: #7f00ff;
-//         color: white;
-//         border-radius: 100px;
-//     }
-// }
-//
+.card {
+    position: relative;
+    border-radius: 6px;
+    max-width: 300px;
+    max-height: 380px;
+    margin: 0 auto;
+    .header {
+        height: 120px;
+        width: 100%;
+        background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEPu7BceUzLF-DvrMQdcldR3W_5Gn9BhKsiw&usqp=CAU);
+        .avatar {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            margin: 0 auto;
+            img {
+                display: block;
+                position: absolute;
+                bottom: -70px;
+                border: 4px solid white;
+            }
+        }
+    }
+    .card-body {
+        padding: 30px;
+        .user-meta {
+            padding-top: 20px;
+            .username {
+                font-size: 18px;
+                font-weight: 600;
+            }
+            .position {
+                font-size: 90%;
+                color: #7f00ff;
+            }
+        }
+    }
+    .user-bio {
+        padding-top: 8px;
+        font-size: 92%;
+    }
+    .action {
+        padding: 16px 20px 16px 20px;
+        background: #7f00ff;
+        border-color: #7f00ff;
+        color: white;
+        border-radius: 100px;
+    }
+}
 </style>
