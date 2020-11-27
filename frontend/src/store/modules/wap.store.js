@@ -30,7 +30,7 @@ export const wapStore = {
                             textAlign: '',
                             fontStyle: '',
                             textDecoration: '',
-                            letterSpacing: '',
+                            letterSpacing: '1',
                         }
                     },
                     {
@@ -52,8 +52,8 @@ export const wapStore = {
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
                                     fontSize: "16px",
-                                    lineHeight: '',
-                                    letterSpacing: '',
+                                    lineHeight: '2',
+                                    letterSpacing: '1',
                                     backgroundColor: '',
                                     textDecoration: '',
                                     fontStyle: '',
@@ -71,8 +71,8 @@ export const wapStore = {
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
                                     fontSize: "16px",
-                                    lineHeight: '',
-                                    letterSpacing: '',
+                                    lineHeight: '2',
+                                    letterSpacing: '1',
                                     backgroundColor: '',
                                     textDecoration: '',
                                     fontStyle: '',
@@ -90,8 +90,8 @@ export const wapStore = {
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
                                     fontSize: "16px",
-                                    lineHeight: '',
-                                    letterSpacing: '',
+                                    lineHeight: '2',
+                                    letterSpacing: '1',
                                     backgroundColor: '',
                                     textDecoration: '',
                                     fontStyle: '',
@@ -257,6 +257,7 @@ export const wapStore = {
                     ]
                 }]
             },
+            // next one
             {
                 id: Math.random().toString(36).substring(2, 10),
                 name: "section",
@@ -388,7 +389,97 @@ export const wapStore = {
                     }
 
                 ]
+            },
+            {
+                id: Math.random().toString(36).substring(2, 10),
+                type: "footer",
+                thumbnail: "https://imagizer.imageshack.com/img922/9372/4iyvDo.png",
+                title: "Footer",
+                name: "section",
+                class: "footer flex wrap align-center",
+                style: {
+                    padding: "1rem 5%",
+                    color: "white",
+                    background: "lightblue",
+                    backgroundColor: "lightblue",
+                    borderRadius: 0,
+                },
+                children: [{
+                    id: Math.random().toString(36).substring(2, 10),
+                    name: "txt",
+                    class: "logo",
+                    txt: "Elena Joy",
+                    style: {
+                        lineHeight: "1.5",
+                        backgroundColor: "transparent",
+                        color: 'white',
+                        fontFamily: "Ruhal",
+                        fontSize: "30px",
+                        textAlign: 'inherit',
+                        fontStyle: 'normal',
+                        textDecoration: 'none',
+                        letterSpacing: '1',
+                        flex: "3 1 40rem",
+                    }
+                }, {
+                    id: Math.random().toString(36).substring(2, 10),
+                    name: 'div',
+                    class: "clean-list flex space-between align-center",
+                    style: {
+                        background: "transparent",
+                        flex: "1 1 6rem",
+                        borderRadius: 0,
+                    },
+                    children: [{
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: 'link',
+                        style: {
+                            height: "50px"
+                        },
+                        children: [{
+                            id: Math.random().toString(36).substring(2, 10),
+                            name: "i",
+                            class: "fab fa-twitter",
+                            style: {
+                                fontSize: "36px",
+                                lineHeight: "1.5"
+                            },
+                        }]
+                    }, {
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: 'link',
+                        style: {
+                            height: "50px"
+                        },
+                        children: [{
+                            id: Math.random().toString(36).substring(2, 10),
+                            name: "i",
+                            class: "fab fa-instagram",
+                            style: {
+                                fontSize: "36px",
+                                lineHeight: "1.5"
+                            },
+                        }]
+                    }, {
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: 'link',
+                        style: {
+                            height: "50px"
+                        },
+                        children: [{
+                            id: Math.random().toString(36).substring(2, 10),
+                            name: "i",
+                            class: "fab fa-facebook",
+                            style: {
+                                fontSize: "36px",
+                                lineHeight: "1.5"
+                            },
+                        }]
+                    }]
+                }]
+
             }
+
 
         ]
     },
