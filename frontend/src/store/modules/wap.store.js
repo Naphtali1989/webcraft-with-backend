@@ -30,7 +30,7 @@ export const wapStore = {
                             textAlign: '',
                             fontStyle: '',
                             textDecoration: '',
-                            letterSpacing: '',
+                            letterSpacing: '1',
                         }
                     },
                     {
@@ -52,8 +52,8 @@ export const wapStore = {
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
                                     fontSize: "16px",
-                                    lineHeight: '',
-                                    letterSpacing: '',
+                                    lineHeight: '2',
+                                    letterSpacing: '1',
                                     backgroundColor: '',
                                     textDecoration: '',
                                     fontStyle: '',
@@ -71,8 +71,8 @@ export const wapStore = {
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
                                     fontSize: "16px",
-                                    lineHeight: '',
-                                    letterSpacing: '',
+                                    lineHeight: '2',
+                                    letterSpacing: '1',
                                     backgroundColor: '',
                                     textDecoration: '',
                                     fontStyle: '',
@@ -90,8 +90,8 @@ export const wapStore = {
                                     fontWeight: "700",
                                     paddingInlineStart: "2rem",
                                     fontSize: "16px",
-                                    lineHeight: '',
-                                    letterSpacing: '',
+                                    lineHeight: '2',
+                                    letterSpacing: '1',
                                     backgroundColor: '',
                                     textDecoration: '',
                                     fontStyle: '',
@@ -244,7 +244,7 @@ export const wapStore = {
                                 name: "img",
                                 class: "hero-elena",
                                 style: {
-                                    borderRadius: "2px",
+                                    borderRadius: "",
                                     height: "500px",
                                     width: "100%",
                                     objectFit: "cover"
@@ -256,7 +256,215 @@ export const wapStore = {
 
                     ]
                 }]
+            },
+            // next one
+            {
+                id: Math.random().toString(36).substring(2, 10),
+                name: "section",
+                type: "cards",
+                class: "card-section flex",
+                thumbnail: "https://imagizer.imageshack.com/img922/1905/up2tR2.png",
+                style: {
+                    background: "transparent",
+                    borderRadius: "0px",
+                    height: "400px",
+                },
+                children: [{
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: "div",
+                        type: "card-div",
+                        class: "card flex column align-center text-center",
+                        style: {
+                            borderRadius: '0px',
+                            background: "#69D2E7",
+                            width: '300px',
+                            height: "380px",
+                            position: 'relative'
+                        },
+                        //header
+                        children: [{
+                            id: Math.random().toString(36).substring(2, 10),
+                            name: 'div',
+                            type: 'header-div',
+                            style: {
+                                height: '120px',
+                                width: '100%',
+                                background: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEPu7BceUzLF-DvrMQdcldR3W_5Gn9BhKsiw&usqp=CAU)'
+                            },
+                            children: [{
+                                id: Math.random().toString(36).substring(2, 10),
+                                name: 'div',
+                                class: 'avatar-div',
+                                style: {
+                                    width: "80px",
+                                    height: "80px",
+                                    position: "relative",
+                                    margin: "0 auto"
+                                },
+                                children: [{
+                                    id: Math.random().toString(36).substring(2, 10),
+                                    name: 'img',
+                                    class: 'card-img',
+                                    imgUrl: 'https://yt3.ggpht.com/ytc/AAUvwnjr0yv7VKDZVgTVKU28P9ApPgt8nBaQwZjc78OOiw=s900-c-k-c0x00ffffff-no-rj',
+                                    style: {
+                                        display: 'block',
+                                        position: 'relative',
+                                        bottom: '-70px',
+                                        border: "4px solid white",
+                                        objectFit: 'cover',
+                                        height: '100%',
+                                        borderRadius: '50%'
+                                    }
+                                }]
+                            }]
+                        }],
+
+                    },
+                    {
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: 'div',
+                        type: 'card-div',
+                        class: 'card-body flex column align-center text-center',
+                        style: {
+                            padding: '30px',
+                            position: 'absolute'
+                        },
+                        children: [{
+                                id: Math.random().toString(36).substring(2, 10),
+                                name: 'txt',
+                                txt: "place holder",
+                                style: {
+                                    paddingTop: '20px',
+                                    fontSize: '18px',
+                                    fontweight: '600'
+                                }
+                            },
+                            {
+                                id: Math.random().toString(36).substring(2, 10),
+                                name: 'txt',
+                                txt: "place holder",
+                                style: {
+                                    paddingTop: '20px',
+                                    fontSize: '25px',
+                                    color: '#7f00ff'
+                                }
+                            },
+                            {
+                                id: Math.random().toString(36).substring(2, 10),
+                                name: 'txt',
+                                txt: 'place holder',
+                                style: {
+                                    paddingTop: '8px',
+                                    fontSize: '25px'
+                                }
+                            },
+                            {
+                                id: Math.random().toString(36).substring(2, 10),
+                                name: 'link',
+                                txt: 'place holder',
+                                style: {
+                                    padding: "16px 20px",
+                                    background: '#7f00ff',
+                                    borderColor: '#7f00ff',
+                                    color: 'white',
+                                    borderRadius: '100px'
+                                }
+                            }
+                        ]
+
+                    }
+                ]
+            },
+            {
+                id: Math.random().toString(36).substring(2, 10),
+                type: "footer",
+                thumbnail: "https://imagizer.imageshack.com/img922/9372/4iyvDo.png",
+                title: "Footer",
+                name: "section",
+                class: "footer flex wrap align-center",
+                style: {
+                    padding: "1rem 5%",
+                    color: "white",
+                    background: "lightblue",
+                    backgroundColor: "lightblue",
+                    borderRadius: 0,
+                },
+                children: [{
+                    id: Math.random().toString(36).substring(2, 10),
+                    name: "txt",
+                    class: "logo",
+                    txt: "Elena Joy",
+                    style: {
+                        lineHeight: "1.5",
+                        backgroundColor: "transparent",
+                        color: 'white',
+                        fontFamily: "Ruhal",
+                        fontSize: "30px",
+                        textAlign: 'inherit',
+                        fontStyle: 'normal',
+                        textDecoration: 'none',
+                        letterSpacing: '1',
+                        flex: "3 1 40rem",
+                    }
+                }, {
+                    id: Math.random().toString(36).substring(2, 10),
+                    name: 'div',
+                    class: "clean-list flex space-between align-center",
+                    style: {
+                        background: "transparent",
+                        flex: "1 1 6rem",
+                        borderRadius: 0,
+                    },
+                    children: [{
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: 'link',
+                        style: {
+                            height: "50px"
+                        },
+                        children: [{
+                            id: Math.random().toString(36).substring(2, 10),
+                            name: "i",
+                            class: "fab fa-twitter",
+                            style: {
+                                fontSize: "36px",
+                                lineHeight: "1.5"
+                            },
+                        }]
+                    }, {
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: 'link',
+                        style: {
+                            height: "50px"
+                        },
+                        children: [{
+                            id: Math.random().toString(36).substring(2, 10),
+                            name: "i",
+                            class: "fab fa-instagram",
+                            style: {
+                                fontSize: "36px",
+                                lineHeight: "1.5"
+                            },
+                        }]
+                    }, {
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: 'link',
+                        style: {
+                            height: "50px"
+                        },
+                        children: [{
+                            id: Math.random().toString(36).substring(2, 10),
+                            name: "i",
+                            class: "fab fa-facebook",
+                            style: {
+                                fontSize: "36px",
+                                lineHeight: "1.5"
+                            },
+                        }]
+                    }]
+                }]
+
             }
+
 
         ]
     },

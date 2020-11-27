@@ -5,7 +5,7 @@
             <input type="text" placeholder="Insert a link" v-model="cmpToEdit.href" />
             <i class="fas fa-link"></i>
         </div>
-        <div v-if="cmpToEdit">
+        <div class="flex column align-center" v-if="cmpToEdit">
             <my-select :options="fonts" @change="setFontFamily" class="custom-select" />
             <p class="editor-txt">Font Size</p>
             <my-range :options="{ initVal: fontSize, min: 1, max: 72 }" @input="setFontSize" />
