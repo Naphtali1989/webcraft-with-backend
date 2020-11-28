@@ -856,6 +856,7 @@ export const wapStore = {
                 "id": Math.random().toString(36).substring(2, 10),
                 "name": "section",
                 "type": "map",
+                "title": "Map With Contact Form",
                 "class": "map-section flex space-around align-center",
                 "thumbnail": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0",
                 "style": {
@@ -910,7 +911,7 @@ export const wapStore = {
                                     "textDecoration": "inherit",
                                     "fontStyle": "inherit",
                                     "textAlign": "center",
-                                    "margin-block-end": "1rem"
+                                    "margin-block-end": "2rem"
                                 }
                             },
                             {
@@ -930,7 +931,8 @@ export const wapStore = {
                                     "margin": "0 0 1rem",
                                     "width": "94%",
                                     "outline": "none",
-                                    "border": "none"
+                                    "border": "none",
+                                    "maxWidth": "330px"
                                 }
                             },
                             {
@@ -950,7 +952,8 @@ export const wapStore = {
                                     "margin": "0 0 1rem",
                                     "width": "94%",
                                     "outline": "none",
-                                    "border": "none"
+                                    "border": "none",
+                                    "maxWidth": "330px"
                                 }
                             },
                             {
@@ -970,7 +973,8 @@ export const wapStore = {
                                     "margin": "0 0 1.5rem",
                                     "width": "94%",
                                     "outline": "none",
-                                    "border": "none"
+                                    "border": "none",
+                                    "maxWidth": "330px"
                                 }
                             },
                             {
@@ -983,7 +987,7 @@ export const wapStore = {
                                     "padding": "0.5rem",
                                     "fontSize": "16px",
                                     "lineHeight": 0.7,
-                                    "letterSpacing": "10px",
+                                    "letterSpacing": "1px",
                                     "background": "transparent",
                                     "color": "#7E2D96",
                                     "fontFamily": "inherit",
@@ -992,29 +996,33 @@ export const wapStore = {
                                     "textAlign": "center",
                                     "width": "94%",
                                     "border": "none",
-                                    "borderBottom": "1px solid grey"
+                                    "borderBottom": "1px solid #6c749055",
+                                    "maxWidth": "330px"
                                 }
                             }, {
                                 "id": Math.random().toString(36).substring(2, 10),
                                 "name": "link",
                                 "type": "inner-text",
+                                "txt": "Send",
                                 "class": "map-inner-text",
                                 "placeholder": "Type your message",
                                 "style": {
                                     "display": "block",
                                     "padding": "0.5rem",
-                                    "fontSize": "16px",
-                                    "lineHeight": 0.7,
-                                    "letterSpacing": "10px",
-                                    "background": "transparent",
+                                    "fontSize": "24px",
+                                    "lineHeight": 1,
+                                    "letterSpacing": "2px",
+                                    "background": "rgb(102 177 230)",
                                     "color": "#7E2D96",
                                     "fontFamily": "inherit",
                                     "textDecoration": "inherit",
                                     "fontStyle": "inherit",
                                     "textAlign": "center",
                                     "width": "94%",
-                                    "border": "none",
-                                    "borderBottom": "1px solid grey"
+                                    "margin-block-end": "0.5rem",
+                                    "maxWidth": "330px",
+                                    "borderRadius": "20px",
+                                    "outline": "none"
                                 }
                             },
                             {
@@ -1141,7 +1149,15 @@ export const wapStore = {
     },
     getters: {
         sampleList(state) {
-            return state.samples.map(sample => ({ id: sample.id, name: sample.name, type: sample.type, thumbnail: sample.thumbnail, title: sample.title }))
+            return state.samples.map(sample => {
+                const { id, type, thumbnail, title } = sample
+                return {
+                    id,
+                    type,
+                    thumbnail,
+                    title
+                }
+            })
         },
         sampleToAdd(state) {
             return state.pickedSample
