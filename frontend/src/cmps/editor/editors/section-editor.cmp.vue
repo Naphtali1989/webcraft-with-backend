@@ -1,5 +1,5 @@
 <template>
-    <section class="section-editor flex column align-center">
+    <section class="section section-editor flex column align-center ">
         <p class="editor-txt">Set Round Edges:</p>
         <my-range :options="{ initVal: sectionRadius, min: 0, max: 50 }" @input="setSectionRadius" />
         <!-- <p class="editor-txt">Set Section Height:</p>

@@ -270,7 +270,6 @@ export const wapStore = {
                     background: "url(https://wallpaperset.com/w/full/f/4/1/279879.jpg)",
                     backgroundSize: 'cover',
                     borderRadius: "0px",
-                    height: "400px",
                     // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
                     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
                     placeItems: 'center',
