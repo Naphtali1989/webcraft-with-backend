@@ -34,3 +34,15 @@ h6 {
 a {
     text-decoration: none;
 }
+
+body ::-webkit-scrollbar {
+    width: 1em;
+}
+
+body ::-webkit-scrollbar-track {
+    box-shadow: inset 2px 4px 6px rgba(34, 32, 32, 0.3);
+}
+
+body ::-webkit-scrollbar-thumb {
+    background-color: #2e4ead;
+}
