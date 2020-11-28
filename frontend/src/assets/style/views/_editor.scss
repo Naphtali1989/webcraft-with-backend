@@ -45,3 +45,30 @@
         .controls {
             z-index: 10000;
         }
+        
+        .drop-preview {
+            background-color: #2e4ead25;
+            border: 2px dashed #22222260;
+            text-align: center;
+            justify-content: center;
+            &:after {
+                content: 'Place Section Here';
+                font-size: 72px;
+            }
+        }
+        
+        .empty-workspace {
+            background-color: #2e4ead25;
+            border: 4px dashed #22222260;
+            text-align: center;
+            justify-content: center;
+            position: relative;
+            &:before {
+                content: 'Lets Start Dragging';
+                font-size: 56px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
