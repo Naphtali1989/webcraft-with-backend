@@ -63,7 +63,7 @@ export default {
             return parseInt(borderRadius,10)
         },
         showImgPreview() {
-            return this.cmpToEdit.imgUrl&&!this.cmpToEdit.style.background.includes('#')
+            return this.cmpToEdit.imgUrl&&!this.cmpToEdit.style.background||!this.cmpToEdit.style.background.includes('#')
         }
     },
     components: {

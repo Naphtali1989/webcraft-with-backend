@@ -1,5 +1,5 @@
 <template>
-    <section class="user-prefs-nav flex">
+    <section class="user-controls nav flex">
         <button class="btn choice-btn">Save</button>
         <button class="btn choice-btn">Publish</button>
     </section>
@@ -7,9 +7,10 @@
 
 <script>
 export default {
-    name: 'user-prefs-nav',
+    name: 'user-controls',
     data() {
         return {
+
         }
     },
     components: {
