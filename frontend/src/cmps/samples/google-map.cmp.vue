@@ -1,4 +1,5 @@
 <template>
+
     <GmapMap
         :center="{ lat: 32.088028, lng: 34.803222 }"
         :zoom="15"
