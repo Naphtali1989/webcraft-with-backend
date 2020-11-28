@@ -1,16 +1,16 @@
-[{
-    "id": "123546",
+{
     "name": "section",
     "type": "map",
+    "title": "Contact Form Left",
     "class": "map-section flex space-around align-center",
-    "thumbnail": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0",
+    "thumbnail": "",
     "style": {
         "background": "url(https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0) center center / cover no-repeat",
         "borderRadius": "0px",
         "height": "500px"
     },
     "children": [{
-            "id": "123546",
+            "id": "ouhyewygfyrtytfqy3y44",
             "name": "div",
             "type": "inner-div",
             "class": "inner-div flex column justify-center align-center",
@@ -22,7 +22,7 @@
                 "padding": "2.5rem 1rem 1rem"
             },
             "children": [{
-                    "id": "123546",
+                    "id": "alerfggwuyf2954",
                     "name": "txt",
                     "type": "inner-text",
                     "class": "map-inner-text",
@@ -41,7 +41,7 @@
                     }
                 },
                 {
-                    "id": "123546",
+                    "id": "iouyryt254u4we",
                     "name": "txt",
                     "type": "inner-text",
                     "class": "map-inner-text",
@@ -56,11 +56,11 @@
                         "textDecoration": "inherit",
                         "fontStyle": "inherit",
                         "textAlign": "center",
-                        "margin-block-end": "1rem"
+                        "margin-block-end": "2rem"
                     }
                 },
                 {
-                    "id": "123546",
+                    "id": "ewg9457t27543w",
                     "name": "input",
                     "type": "inner-input",
                     "class": "map-inner-input",
@@ -76,11 +76,12 @@
                         "margin": "0 0 1rem",
                         "width": "94%",
                         "outline": "none",
-                        "border": "none"
+                        "border": "none",
+                        "maxWidth": "330px"
                     }
                 },
                 {
-                    "id": "123546",
+                    "id": "430r872g57tg4cwj",
                     "name": "input",
                     "type": "inner-input",
                     "class": "map-inner-input",
@@ -96,11 +97,12 @@
                         "margin": "0 0 1rem",
                         "width": "94%",
                         "outline": "none",
-                        "border": "none"
+                        "border": "none",
+                        "maxWidth": "330px"
                     }
                 },
                 {
-                    "id": "123546",
+                    "id": "oyrugt3274r3y2bqwo",
                     "name": "input",
                     "type": "inner-input",
                     "class": "map-inner-input",
@@ -116,11 +118,12 @@
                         "margin": "0 0 1.5rem",
                         "width": "94%",
                         "outline": "none",
-                        "border": "none"
+                        "border": "none",
+                        "maxWidth": "330px"
                     }
                 },
                 {
-                    "id": "123546",
+                    "id": "o4iruyg3yqwyw4",
                     "name": "input",
                     "type": "inner-text",
                     "class": "map-inner-text",
@@ -129,7 +132,7 @@
                         "padding": "0.5rem",
                         "fontSize": "16px",
                         "lineHeight": 0.7,
-                        "letterSpacing": "10px",
+                        "letterSpacing": "1px",
                         "background": "transparent",
                         "color": "#7E2D96",
                         "fontFamily": "inherit",
@@ -138,33 +141,37 @@
                         "textAlign": "center",
                         "width": "94%",
                         "border": "none",
-                        "borderBottom": "1px solid grey"
+                        "borderBottom": "1px solid #6c749055",
+                        "maxWidth": "330px"
                     }
                 }, {
-                    "id": "123546",
+                    "id": "34ut2yg3h49283",
                     "name": "link",
                     "type": "inner-text",
+                    "txt": "Send",
                     "class": "map-inner-text",
                     "placeholder": "Type your message",
                     "style": {
                         "display": "block",
                         "padding": "0.5rem",
-                        "fontSize": "16px",
-                        "lineHeight": 0.7,
-                        "letterSpacing": "10px",
-                        "background": "transparent",
-                        "color": "#7E2D96",
+                        "fontSize": "24px",
+                        "lineHeight": 1,
+                        "letterSpacing": "2px",
+                        "background": "#66b1ff",
+                        "color": "rgb(21, 28, 51)",
                         "fontFamily": "inherit",
                         "textDecoration": "inherit",
                         "fontStyle": "inherit",
                         "textAlign": "center",
                         "width": "94%",
-                        "border": "none",
-                        "borderBottom": "1px solid grey"
+                        "margin": "1rem",
+                        "maxWidth": "330px",
+                        "borderRadius": "20px",
+                        "outline": "none"
                     }
                 },
                 {
-                    "id": "123546",
+                    "id": "4yug29rg76qwerq34",
                     "name": "div",
                     "type": "inner-div",
                     "class": "inner-div flex column justify-center align-center",
@@ -175,7 +182,7 @@
                         "width": "100%"
                     },
                     "children": [{
-                            "id": "123546",
+                            "id": "ui4yrg24y3bewOIUEW",
                             "name": "txt",
                             "type": "inner-text",
                             "class": "map-inner-text",
@@ -185,29 +192,31 @@
                                 "lineHeight": 0.7,
                                 "letterSpacing": "4px",
                                 "background": "inherit",
-                                "color": "#7E2D96",
+                                "color": "#6c7490",
                                 "fontFamily": "inherit",
                                 "textDecoration": "inherit",
                                 "fontStyle": "inherit",
-                                "textAlign": "center"
+                                "textAlign": "center",
+                                "margin-block-end": "0.75rem"
                             }
                         },
                         {
-                            "id": "123546",
+                            "id": "qwfu3iy3r3oiwe",
                             "name": "txt",
                             "type": "inner-text",
                             "class": "map-inner-text",
                             "txt": "Phone: +972-666-6666",
                             "style": {
-                                "fontSize": "24px",
+                                "fontSize": "20px",
                                 "lineHeight": 0.7,
                                 "letterSpacing": "1px",
                                 "background": "inherit",
-                                "color": "#7E2D96",
+                                "color": "#6c7490",
                                 "fontFamily": "inherit",
                                 "textDecoration": "inherit",
                                 "fontStyle": "inherit",
-                                "textAlign": "center"
+                                "textAlign": "center",
+                                "margin-block-end": "0.75rem"
                             }
                         }
                     ]
@@ -215,7 +224,7 @@
             ]
         },
         {
-            "id": "123546",
+            "id": "ewh2giu34ydwdhsbauerw",
             "name": "google-map",
             "type": "map",
             "class": "google-map none-drag-area-selector",
@@ -227,4 +236,4 @@
             }
         }
     ]
-}]
+}

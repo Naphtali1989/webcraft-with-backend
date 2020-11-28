@@ -1,0 +1,93 @@
+{
+    "id": "ey39kbw2",
+    "type": "footer",
+    "thumbnail": "https://imagizer.imageshack.com/img922/9372/4iyvDo.png",
+    "title": "Footer",
+    "name": "section",
+    "class": "footer flex wrap align-center",
+    "style": {
+        "padding": "1rem 5%",
+        "color": "white",
+        "background": "lightblue",
+        "backgroundColor": "lightblue",
+        "borderRadius": 0
+    },
+    "children": [{
+            "id": "bkyjf994",
+            "name": "txt",
+            "class": "logo",
+            "txt": "Elena Joy",
+            "style": {
+                "lineHeight": "1.5",
+                "backgroundColor": "transparent",
+                "color": "white",
+                "fontFamily": "Ruhl",
+                "fontSize": "30px",
+                "textAlign": "inherit",
+                "fontStyle": "normal",
+                "textDecoration": "none",
+                "letterSpacing": "1",
+                "flex": "3 1 40rem"
+            }
+        },
+        {
+            "id": "c7xpjy7n",
+            "name": "div",
+            "class": "clean-list flex space-between align-center",
+            "style": {
+                "background": "transparent",
+                "flex": "1 1 6rem",
+                "borderRadius": 0
+            },
+            "children": [{
+                    "id": "5y4pmypo",
+                    "name": "link",
+                    "style": {
+                        "height": "50px"
+                    },
+                    "children": [{
+                        "id": "l9sz6lc2",
+                        "name": "i",
+                        "class": "fab fa-twitter",
+                        "style": {
+                            "fontSize": "36px",
+                            "lineHeight": "1.5"
+                        }
+                    }]
+                },
+                {
+                    "id": "affze1og",
+                    "name": "link",
+                    "style": {
+                        "height": "50px"
+                    },
+                    "children": [{
+                        "id": "ajwffgch",
+                        "name": "i",
+                        "class": "fab fa-instagram",
+                        "style": {
+                            "fontSize": "36px",
+                            "lineHeight": "1.5"
+                        }
+                    }]
+                },
+                {
+                    "id": "88xwallk",
+                    "name": "link",
+                    "style": {
+                        "height": "50px"
+                    },
+                    "children": [{
+                        "id": "fe0r1tgm",
+                        "name": "i",
+                        "class": "fab fa-facebook",
+                        "style": {
+                            "fontSize": "36px",
+                            "lineHeight": "1.5"
+                        }
+                    }]
+                }
+            ]
+        }
+    ]
+}
