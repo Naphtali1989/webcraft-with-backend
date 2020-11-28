@@ -1,84 +1,97 @@
-        .editor-container {
-            &.hide-editor {
-                .editor-dashboard {
-                    transform: translateX(-95%);
-                }
-                .editor-workspace {
-                    margin: 0;
-                }
-            }
-        }
-        
-        .custom-select {
-            width: 70%;
-        }
-        
+.editor-container {
+    &.hide-editor {
         .editor-dashboard {
-            position: fixed;
-            /* position: sticky; */
-            min-height: 100vh;
-            background-color: #e6e9ec;
-            overflow-y: auto;
-            width: 20rem;
-            transition: all .3s ease-in-out;
-            /* position: sticky; */
-            z-index: 100003;
+            transform: translateX(-95%);
         }
-        
-        .toggle-dashboard {
-            position: absolute;
-            right: -10px;
-            top: 50%;
-        }
-        
         .editor-workspace {
-            margin-inline-start: 20rem;
-            transition: .5s ease;
-            padding: 1rem;
-            section {
-                position: relative;
-                &:hover {
-                    .controls {
-                        transition: opacity .5s ease;
-                        opacity: 1;
-                    }
-                }
+            margin: 0;
+        }
+    }
+}
+
+.custom-select {
+    width: 70%;
+}
+
+.editor-dashboard {
+    position: fixed;
+    /* position: sticky; */
+    min-height: 100vh;
+    background-color: #e6e9ec;
+    overflow-y: auto;
+    width: 20rem;
+    transition: all .3s ease-in-out;
+    /* position: sticky; */
+    z-index: 100003;
+    .editor-body {
+        max-height: 850px;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            width: 1em;
+        }
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 2px 4px 6px rgba(34, 32, 32, 0.3);
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #2e4ead95;
+        }
+    }
+}
+
+.toggle-dashboard {
+    position: absolute;
+    right: -10px;
+    top: 50%;
+}
+
+.editor-workspace {
+    margin-inline-start: 20rem;
+    transition: .5s ease;
+    padding: 1rem;
+    section {
+        position: relative;
+        &:hover {
+            .controls {
+                transition: opacity .5s ease;
+                opacity: 1;
             }
         }
-        
-        //add controls above imgs
-        .controls {
-            z-index: 10000;
-        }
-        
-        .drop-preview {
-            background-color: #2e4ead25;
-            border: 2px dashed #22222260;
-            text-align: center;
-            justify-content: center;
-            &:after {
-                content: 'Place Section Here';
-                font-size: 65px;
-                padding: 1.5rem;
-                // position: absolute;
-                // left: 50%;
-                // top: 50%;
-                // transform: translate(-50%, -50%);
-            }
-        }
-        
-        .empty-workspace {
-            background-color: #2e4ead25;
-            border: 4px dashed #22222260;
-            text-align: center;
-            justify-content: center;
-            position: relative;
-            &:before {
-                content: 'Lets Start Dragging';
-                font-size: 56px;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
+    }
+}
+
+//add controls above imgs
+.controls {
+    z-index: 10000;
+}
+
+.drop-preview {
+    background-color: #2e4ead25;
+    border: 2px dashed #22222260;
+    text-align: center;
+    justify-content: center;
+    &:after {
+        content: 'Place Section Here';
+        font-size: 65px;
+        padding: 1.5rem;
+        // position: absolute;
+        // left: 50%;
+        // top: 50%;
+        // transform: translate(-50%, -50%);
+    }
+}
+
+.empty-workspace {
+    background-color: #2e4ead25;
+    border: 4px dashed #22222260;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    &:before {
+        content: 'Lets Start Dragging';
+        font-size: 56px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

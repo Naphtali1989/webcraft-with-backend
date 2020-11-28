@@ -24,11 +24,20 @@
         grid-gap: 0.6rem;
         justify-items: center;
         align-items: center;
-        height: 850px;
+        max-height: 850px;
         width: 250px;
         overflow-y: auto;
         gap: 1rem;
         padding: 1rem;
+        &::-webkit-scrollbar {
+            width: 1em;
+        }
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 2px 4px 6px rgba(34, 32, 32, 0.3);
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #2e4ead;
+        }
         .unsplash-img-card {
             background: gainsboro;
             box-shadow: 0 0 4px black;
