@@ -1,5 +1,5 @@
 <template>
-    <section class="user-controls nav flex">
+    <section class="user-controls flex">
         <button class="btn choice-btn">Save</button>
         <button class="btn choice-btn">Publish</button>
     </section>
