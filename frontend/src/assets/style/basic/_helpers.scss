@@ -92,3 +92,10 @@
     border: 0;
     background: transparent;
 }
+
+
+/*think about better name*/
+
+.hover-scale:hover {
+    transform: scale(1.1);
+}

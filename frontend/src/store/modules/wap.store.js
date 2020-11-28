@@ -257,17 +257,25 @@ export const wapStore = {
                     ]
                 }]
             },
-            // next one
+            // next one - cards
             {
                 id: Math.random().toString(36).substring(2, 10),
                 name: "section",
                 type: "cards",
-                class: "card-section flex",
-                thumbnail: "https://imagizer.imageshack.com/img922/1905/up2tR2.png",
+                class: "card-section grid",
+                thumbnail: "https://imagizer.imageshack.com/img922/7981/WgIDFl.png",
+                title: 'Gaming Cards',
                 style: {
-                    background: "transparent",
+                    background: "url(https://wallpaperset.com/w/full/f/4/1/279879.jpg)",
+                    backgroundSize: 'cover',
                     borderRadius: "0px",
                     height: "400px",
+                    // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                    placeItems: 'center',
+                    gridGap: '15px'
+
+
                 },
                 children: [{
                         id: Math.random().toString(36).substring(2, 10),
@@ -275,11 +283,12 @@ export const wapStore = {
                         type: "card-div",
                         class: "card flex column align-center text-center",
                         style: {
-                            borderRadius: '0px',
-                            background: "#69D2E7",
-                            width: '300px',
+                            borderRadius: '15px',
+                            backgroundColor: "#fff",
+                            width: '320px',
                             height: "380px",
-                            position: 'relative'
+                            position: 'relative',
+                            boxShadow: '0 0 4px'
                         },
                         //header
                         children: [{
@@ -287,9 +296,10 @@ export const wapStore = {
                             name: 'div',
                             type: 'header-div',
                             style: {
-                                height: '120px',
+                                height: '127px',
                                 width: '100%',
-                                background: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEPu7BceUzLF-DvrMQdcldR3W_5Gn9BhKsiw&usqp=CAU)'
+                                background: 'url(https://images2.alphacoders.com/249/thumb-1920-249150.jpg)',
+                                backgroundSize: 'cover'
                             },
                             children: [{
                                     id: Math.random().toString(36).substring(2, 10),
@@ -309,7 +319,7 @@ export const wapStore = {
                                         style: {
                                             display: 'block',
                                             position: 'relative',
-                                            bottom: '-70px',
+                                            bottom: '-82px',
                                             border: "4px solid white",
                                             objectFit: 'cover',
                                             height: '100%',
@@ -328,7 +338,7 @@ export const wapStore = {
                                     children: [{
                                             id: Math.random().toString(36).substring(2, 10),
                                             name: 'txt',
-                                            txt: "place holder",
+                                            txt: "Title",
                                             style: {
                                                 fontSize: '20px',
                                                 fontWeight: '600',
@@ -345,7 +355,7 @@ export const wapStore = {
                                         {
                                             id: Math.random().toString(36).substring(2, 10),
                                             name: 'txt',
-                                            txt: 'Web craft for the win',
+                                            txt: 'Add Text...',
                                             style: {
                                                 fontSize: '18px',
                                                 color: '#999',
@@ -363,21 +373,379 @@ export const wapStore = {
                                             id: Math.random().toString(36).substring(2, 10),
                                             name: 'link',
                                             txt: 'Click Me',
+                                            class: 'button hover-scale',
                                             style: {
                                                 padding: "16px 20px",
-                                                borderColor: '#7f00ff',
                                                 color: 'white',
                                                 borderRadius: '100px',
                                                 marginBlockStart: '20px',
                                                 lineHeight: '',
                                                 letterSpacing: '',
-                                                backgroundColor: '#7f00ff',
+                                                backgroundColor: 'rgb(32 65 173)',
                                                 textDecoration: '',
                                                 fontStyle: '',
                                                 textAlign: '',
                                                 fontFamily: '',
-                                                fontSize: '18px'
+                                                fontSize: '18px',
+                                                transition: '.3s ease'
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }],
 
+                    },
+                    {
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: "div",
+                        type: "card-div",
+                        class: "card flex column align-center text-center",
+                        style: {
+                            borderRadius: '15px',
+                            backgroundColor: "#fff",
+                            width: '320px',
+                            height: "380px",
+                            position: 'relative',
+                            boxShadow: '0 0 4px'
+                        },
+                        //header
+                        children: [{
+                            id: Math.random().toString(36).substring(2, 10),
+                            name: 'div',
+                            type: 'header-div',
+                            style: {
+                                height: '127px',
+                                width: '100%',
+                                background: 'url(https://wallpapercave.com/wp/wp1099692.jpg)',
+                                backgroundSize: 'cover'
+
+                            },
+                            children: [{
+                                    id: Math.random().toString(36).substring(2, 10),
+                                    name: 'div',
+                                    class: 'avatar-div',
+                                    style: {
+                                        width: "80px",
+                                        height: "80px",
+                                        position: "relative",
+                                        margin: "0 auto"
+                                    },
+                                    children: [{
+                                        id: Math.random().toString(36).substring(2, 10),
+                                        name: 'img',
+                                        class: 'card-img',
+                                        imgUrl: 'https://yt3.ggpht.com/ytc/AAUvwnjr0yv7VKDZVgTVKU28P9ApPgt8nBaQwZjc78OOiw=s900-c-k-c0x00ffffff-no-rj',
+                                        style: {
+                                            display: 'block',
+                                            position: 'relative',
+                                            bottom: '-82px',
+                                            border: "4px solid white",
+                                            objectFit: 'cover',
+                                            height: '100%',
+                                            borderRadius: '50%'
+                                        }
+                                    }]
+                                },
+                                {
+                                    id: Math.random().toString(36).substring(2, 10),
+                                    name: 'div',
+                                    type: 'card-div',
+                                    class: 'card-body flex column align-center text-center',
+                                    style: {
+                                        padding: '68px'
+                                    },
+                                    children: [{
+                                            id: Math.random().toString(36).substring(2, 10),
+                                            name: 'txt',
+                                            txt: "Title",
+                                            style: {
+                                                fontSize: '20px',
+                                                fontWeight: '600',
+                                                marginBlockStart: '20px',
+                                                lineHeight: '',
+                                                letterSpacing: '',
+                                                backgroundColor: 'transparent',
+                                                textDecoration: '',
+                                                fontStyle: '',
+                                                textAlign: '',
+                                                fontFamily: ''
+                                            }
+                                        },
+                                        {
+                                            id: Math.random().toString(36).substring(2, 10),
+                                            name: 'txt',
+                                            txt: 'Add Text...',
+                                            style: {
+                                                fontSize: '18px',
+                                                color: '#999',
+                                                marginBlockStart: '20px',
+                                                lineHeight: '',
+                                                letterSpacing: '',
+                                                backgroundColor: 'transparent',
+                                                textDecoration: '',
+                                                fontStyle: '',
+                                                textAlign: '',
+                                                fontFamily: 'carme'
+                                            }
+                                        },
+                                        {
+                                            id: Math.random().toString(36).substring(2, 10),
+                                            name: 'link',
+                                            txt: 'Click Me',
+                                            class: 'button hover-scale',
+                                            style: {
+                                                padding: "16px 20px",
+                                                color: 'white',
+                                                borderRadius: '100px',
+                                                marginBlockStart: '20px',
+                                                lineHeight: '',
+                                                letterSpacing: '',
+                                                backgroundColor: 'rgb(32 65 173)',
+                                                textDecoration: '',
+                                                fontStyle: '',
+                                                textAlign: '',
+                                                fontFamily: '',
+                                                fontSize: '18px',
+                                                transition: '.3s ease'
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }],
+
+                    },
+                    {
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: "div",
+                        type: "card-div",
+                        class: "card flex column align-center text-center",
+                        style: {
+                            borderRadius: '15px',
+                            backgroundColor: "#fff",
+                            width: '320px',
+                            height: "380px",
+                            position: 'relative',
+                            boxShadow: '0 0 4px'
+                        },
+                        //header
+                        children: [{
+                            id: Math.random().toString(36).substring(2, 10),
+                            name: 'div',
+                            type: 'header-div',
+                            style: {
+                                height: '127px',
+                                width: '100%',
+                                background: 'url(https://pe56d.s3.amazonaws.com/o_1bbg3l2up1so1lm0ihcc6b1dekm.jpg)',
+                                backgroundSize: 'cover'
+                            },
+                            children: [{
+                                    id: Math.random().toString(36).substring(2, 10),
+                                    name: 'div',
+                                    class: 'avatar-div',
+                                    style: {
+                                        width: "80px",
+                                        height: "80px",
+                                        position: "relative",
+                                        margin: "0 auto"
+                                    },
+                                    children: [{
+                                        id: Math.random().toString(36).substring(2, 10),
+                                        name: 'img',
+                                        class: 'card-img',
+                                        imgUrl: 'https://yt3.ggpht.com/ytc/AAUvwnjr0yv7VKDZVgTVKU28P9ApPgt8nBaQwZjc78OOiw=s900-c-k-c0x00ffffff-no-rj',
+                                        style: {
+                                            display: 'block',
+                                            position: 'relative',
+                                            bottom: '-82px',
+                                            border: "4px solid white",
+                                            objectFit: 'cover',
+                                            height: '100%',
+                                            borderRadius: '50%'
+                                        }
+                                    }]
+                                },
+                                {
+                                    id: Math.random().toString(36).substring(2, 10),
+                                    name: 'div',
+                                    type: 'card-div',
+                                    class: 'card-body flex column align-center text-center',
+                                    style: {
+                                        padding: '68px'
+                                    },
+                                    children: [{
+                                            id: Math.random().toString(36).substring(2, 10),
+                                            name: 'txt',
+                                            txt: "Title",
+                                            style: {
+                                                fontSize: '20px',
+                                                fontWeight: '600',
+                                                marginBlockStart: '20px',
+                                                lineHeight: '',
+                                                letterSpacing: '',
+                                                backgroundColor: 'transparent',
+                                                textDecoration: '',
+                                                fontStyle: '',
+                                                textAlign: '',
+                                                fontFamily: ''
+                                            }
+                                        },
+                                        {
+                                            id: Math.random().toString(36).substring(2, 10),
+                                            name: 'txt',
+                                            txt: 'Add Text..',
+                                            style: {
+                                                fontSize: '18px',
+                                                color: '#999',
+                                                marginBlockStart: '20px',
+                                                lineHeight: '',
+                                                letterSpacing: '',
+                                                backgroundColor: 'transparent',
+                                                textDecoration: '',
+                                                fontStyle: '',
+                                                textAlign: '',
+                                                fontFamily: 'carme'
+                                            }
+                                        },
+                                        {
+                                            id: Math.random().toString(36).substring(2, 10),
+                                            name: 'link',
+                                            txt: 'Click Me',
+                                            class: 'button hover-scale',
+                                            style: {
+                                                padding: "16px 20px",
+                                                color: 'white',
+                                                borderRadius: '100px',
+                                                marginBlockStart: '20px',
+                                                lineHeight: '',
+                                                letterSpacing: '',
+                                                backgroundColor: 'rgb(32 65 173)',
+                                                textDecoration: '',
+                                                fontStyle: '',
+                                                textAlign: '',
+                                                fontFamily: '',
+                                                fontSize: '18px',
+                                                transition: '.3s ease'
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }],
+
+                    },
+                    {
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: "div",
+                        type: "card-div",
+                        class: "card flex column align-center text-center",
+                        style: {
+                            borderRadius: '15px',
+                            backgroundColor: "#fff",
+                            width: '320px',
+                            height: "380px",
+                            position: 'relative',
+                            boxShadow: '0 0 4px'
+                        },
+                        //header
+                        children: [{
+                            id: Math.random().toString(36).substring(2, 10),
+                            name: 'div',
+                            type: 'header-div',
+                            style: {
+                                height: '127px',
+                                width: '100%',
+                                background: 'url(https://wallpapercave.com/wp/57mpmUZ.jpg)',
+                                backgroundSize: 'cover'
+                            },
+                            children: [{
+                                    id: Math.random().toString(36).substring(2, 10),
+                                    name: 'div',
+                                    class: 'avatar-div',
+                                    style: {
+                                        width: "80px",
+                                        height: "80px",
+                                        position: "relative",
+                                        margin: "0 auto"
+                                    },
+                                    children: [{
+                                        id: Math.random().toString(36).substring(2, 10),
+                                        name: 'img',
+                                        class: 'card-img',
+                                        imgUrl: 'https://yt3.ggpht.com/ytc/AAUvwnjr0yv7VKDZVgTVKU28P9ApPgt8nBaQwZjc78OOiw=s900-c-k-c0x00ffffff-no-rj',
+                                        style: {
+                                            display: 'block',
+                                            position: 'relative',
+                                            bottom: '-82px',
+                                            border: "4px solid white",
+                                            objectFit: 'cover',
+                                            height: '100%',
+                                            borderRadius: '50%'
+                                        }
+                                    }]
+                                },
+                                {
+                                    id: Math.random().toString(36).substring(2, 10),
+                                    name: 'div',
+                                    type: 'card-div',
+                                    class: 'card-body flex column align-center text-center',
+                                    style: {
+                                        padding: '68px'
+                                    },
+                                    children: [{
+                                            id: Math.random().toString(36).substring(2, 10),
+                                            name: 'txt',
+                                            txt: "Title",
+                                            style: {
+                                                fontSize: '20px',
+                                                fontWeight: '600',
+                                                marginBlockStart: '20px',
+                                                lineHeight: '',
+                                                letterSpacing: '',
+                                                backgroundColor: 'transparent',
+                                                textDecoration: '',
+                                                fontStyle: '',
+                                                textAlign: '',
+                                                fontFamily: ''
+                                            }
+                                        },
+                                        {
+                                            id: Math.random().toString(36).substring(2, 10),
+                                            name: 'txt',
+                                            txt: 'Add Text...',
+                                            style: {
+                                                fontSize: '18px',
+                                                color: '#999',
+                                                marginBlockStart: '20px',
+                                                lineHeight: '',
+                                                letterSpacing: '',
+                                                backgroundColor: 'transparent',
+                                                textDecoration: '',
+                                                fontStyle: '',
+                                                textAlign: '',
+                                                fontFamily: 'carme'
+                                            }
+                                        },
+                                        {
+                                            id: Math.random().toString(36).substring(2, 10),
+                                            name: 'link',
+                                            txt: 'Click Me',
+                                            class: 'button hover-scale',
+                                            style: {
+                                                padding: "16px 20px",
+                                                color: 'white',
+                                                borderRadius: '100px',
+                                                marginBlockStart: '20px',
+                                                lineHeight: '',
+                                                letterSpacing: '',
+                                                backgroundColor: 'rgb(32 65 173)',
+                                                textDecoration: '',
+                                                fontStyle: '',
+                                                textAlign: '',
+                                                fontFamily: '',
+                                                fontSize: '18px',
+                                                transition: '.3s ease'
                                             }
                                         }
                                     ]

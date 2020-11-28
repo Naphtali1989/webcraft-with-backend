@@ -182,7 +182,7 @@ export default {
                                 },
                             },
                             {
-                                id: "awegahtesryjrtsfdvsvgwe",
+                                id: Math.random().toString(36).substring(2,10),
                                 name: "input",
                                 type: "inner-input",
                                 class: "map-inner-input",
@@ -197,7 +197,7 @@ export default {
                                 },
                             },
                             {
-                                id: "awegahtesryjrtsfdvsvgwe",
+                                id: Math.random().toString(36).substring(2,10),
                                 name: "input",
                                 type: "inner-input",
                                 class: "map-inner-input",
@@ -212,7 +212,7 @@ export default {
                                 },
                             },
                             {
-                                id: "awegahtesryjrtsfdvsvgwe",
+                                id: Math.random().toString(36).substring(2,10),
                                 name: "input",
                                 type: "inner-input",
                                 class: "map-inner-input",
@@ -227,7 +227,7 @@ export default {
                                 },
                             },
                             {
-                                id: "awegahtesryjrtsfdvsvgwe",
+                                id: Math.random().toString(36).substring(2,10),
                                 name: "textarea",
                                 type: "inner-text",
                                 class: "map-inner-text",
@@ -257,7 +257,7 @@ export default {
                                 },
                                 children: [
                                     {
-                                        id: "awegahtesryjrtsfdvsvgwe",
+                                        id: Math.random().toString(36).substring(2,10),
                                         name: "txt",
                                         type: "inner-text",
                                         class: "map-inner-text",
@@ -275,7 +275,7 @@ export default {
                                         },
                                     },
                                     {
-                                        id: "awegahtesryjrtsfdvsvgwe",
+                                        id: Math.random().toString(36).substring(2,10),
                                         name: "txt",
                                         type: "inner-text",
                                         class: "map-inner-text",
