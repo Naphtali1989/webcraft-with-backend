@@ -1012,14 +1012,14 @@ export const wapStore = {
                                     "fontSize": "24px",
                                     "lineHeight": 1,
                                     "letterSpacing": "2px",
-                                    "background": "rgb(21, 28, 51)",
-                                    "color": "#7E2D96",
+                                    "background": "#66b1ff",
+                                    "color": "rgb(21, 28, 51)",
                                     "fontFamily": "inherit",
                                     "textDecoration": "inherit",
                                     "fontStyle": "inherit",
                                     "textAlign": "center",
                                     "width": "94%",
-                                    "margin-block-end": "0.5rem",
+                                    "margin": "1rem",
                                     "maxWidth": "330px",
                                     "borderRadius": "20px",
                                     "outline": "none"
@@ -1047,11 +1047,12 @@ export const wapStore = {
                                             "lineHeight": 0.7,
                                             "letterSpacing": "4px",
                                             "background": "inherit",
-                                            "color": "#7E2D96",
+                                            "color": "#6c7490",
                                             "fontFamily": "inherit",
                                             "textDecoration": "inherit",
                                             "fontStyle": "inherit",
-                                            "textAlign": "center"
+                                            "textAlign": "center",
+                                            "margin-block-end": "0.75rem"
                                         }
                                     },
                                     {
@@ -1061,15 +1062,16 @@ export const wapStore = {
                                         "class": "map-inner-text",
                                         "txt": "Phone: +972-666-6666",
                                         "style": {
-                                            "fontSize": "24px",
+                                            "fontSize": "20px",
                                             "lineHeight": 0.7,
                                             "letterSpacing": "1px",
                                             "background": "inherit",
-                                            "color": "#7E2D96",
+                                            "color": "#6c7490",
                                             "fontFamily": "inherit",
                                             "textDecoration": "inherit",
                                             "fontStyle": "inherit",
-                                            "textAlign": "center"
+                                            "textAlign": "center",
+                                            "margin-block-end": "0.75rem"
                                         }
                                     }
                                 ]

@@ -46,9 +46,8 @@ export default {
         currPicker() {
             return this.selectedElem;
         },
-        filterdSamples() {
-            return this.samples
-            // this.samples.filter((sample) => sample.name === this.selectedType)
+        filterdSamples() {  
+            return this.samples.filter(sample => sample.type === this.selectedType)
         }
     },
     components: {
