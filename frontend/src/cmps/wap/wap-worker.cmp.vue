@@ -9,6 +9,7 @@
         @clicked="onClick"
         @blur="updateTxt"
         :contenteditable="editable"
+        :placeholder="cmp.placeholder"
     >
         <slot v-if="cmp.name === 'img' || cmp.name === 'section'">
             <controls
