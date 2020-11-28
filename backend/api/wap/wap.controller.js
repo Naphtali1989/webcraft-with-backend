@@ -32,32 +32,33 @@ async function deleteWap(req, res) {
     }
 }
 
-// async function addWap(req, res) {
-//     try {
-//         const wap = req.body
-//         await wapService.add(wap)
-//         res.json(wap)
+async function addWap(req, res) {
+    try {
+        const wap = req.body
+        console.log('wap:', wap);
+        await wapService.add(wap)
+        res.json(wap)
 
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
-// async function updateWap(req, res) {
-//     try {
-//         const wap = req.body;
-//         await wapService.update(wap)
-//         res.json(wap);
+async function updateWap(req, res) {
+    try {
+        const wap = req.body;
+        await wapService.update(wap)
+        res.json(wap);
 
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 module.exports = {
     getWaps,
     getWapById,
-    // addWap,
-    // updateWap,
+    addWap,
+    updateWap,
     deleteWap,
 }
