@@ -314,7 +314,7 @@ export const wapStore = {
                                     children: [{
                                         id: Math.random().toString(36).substring(2, 10),
                                         name: 'img',
-                                        class: 'card-img',
+                                        class: 'card-img hover-scale',
                                         imgUrl: 'https://yt3.ggpht.com/ytc/AAUvwnjr0yv7VKDZVgTVKU28P9ApPgt8nBaQwZjc78OOiw=s900-c-k-c0x00ffffff-no-rj',
                                         style: {
                                             display: 'block',
@@ -323,7 +323,8 @@ export const wapStore = {
                                             border: "4px solid white",
                                             objectFit: 'cover',
                                             height: '100%',
-                                            borderRadius: '50%'
+                                            borderRadius: '50%',
+                                            transition: '.3s ease'
                                         }
                                     }]
                                 },
@@ -434,7 +435,7 @@ export const wapStore = {
                                     children: [{
                                         id: Math.random().toString(36).substring(2, 10),
                                         name: 'img',
-                                        class: 'card-img',
+                                        class: 'card-img hover-scale',
                                         imgUrl: 'https://yt3.ggpht.com/ytc/AAUvwnjr0yv7VKDZVgTVKU28P9ApPgt8nBaQwZjc78OOiw=s900-c-k-c0x00ffffff-no-rj',
                                         style: {
                                             display: 'block',
@@ -443,7 +444,8 @@ export const wapStore = {
                                             border: "4px solid white",
                                             objectFit: 'cover',
                                             height: '100%',
-                                            borderRadius: '50%'
+                                            borderRadius: '50%',
+                                            transition: '.3s ease'
                                         }
                                     }]
                                 },
@@ -553,7 +555,7 @@ export const wapStore = {
                                     children: [{
                                         id: Math.random().toString(36).substring(2, 10),
                                         name: 'img',
-                                        class: 'card-img',
+                                        class: 'card-img hover-scale',
                                         imgUrl: 'https://yt3.ggpht.com/ytc/AAUvwnjr0yv7VKDZVgTVKU28P9ApPgt8nBaQwZjc78OOiw=s900-c-k-c0x00ffffff-no-rj',
                                         style: {
                                             display: 'block',
@@ -562,7 +564,8 @@ export const wapStore = {
                                             border: "4px solid white",
                                             objectFit: 'cover',
                                             height: '100%',
-                                            borderRadius: '50%'
+                                            borderRadius: '50%',
+                                            transition: '.3s ease'
                                         }
                                     }]
                                 },
@@ -672,7 +675,7 @@ export const wapStore = {
                                     children: [{
                                         id: Math.random().toString(36).substring(2, 10),
                                         name: 'img',
-                                        class: 'card-img',
+                                        class: 'card-img hover-scale',
                                         imgUrl: 'https://yt3.ggpht.com/ytc/AAUvwnjr0yv7VKDZVgTVKU28P9ApPgt8nBaQwZjc78OOiw=s900-c-k-c0x00ffffff-no-rj',
                                         style: {
                                             display: 'block',
@@ -681,7 +684,8 @@ export const wapStore = {
                                             border: "4px solid white",
                                             objectFit: 'cover',
                                             height: '100%',
-                                            borderRadius: '50%'
+                                            borderRadius: '50%',
+                                            transition: '.3s ease'
                                         }
                                     }]
                                 },
@@ -757,6 +761,7 @@ export const wapStore = {
 
                 ]
             },
+            //next one 
             {
                 id: Math.random().toString(36).substring(2, 10),
                 type: "footer",
@@ -1076,10 +1081,62 @@ export const wapStore = {
                         }
                     }
                 ]
-            }
+            },
             // Next!
+            {
+                id: Math.random().toString(36).substring(2, 10),
+                name: "section",
+                type: "gallery",
+                class: "gallery flex",
+                title: 'Gaming Gallery',
+                thumbnail: "https://imagizer.imageshack.com/img922/3412/094zQy.png",
+                style: {
+                    background: "",
+                    borderRadius: "0px",
+                    height: "0px",
+                    width: '100%',
+                    height: '35vw',
+                },
+                children: [{
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: "div",
+                        type: "gallery",
+                        class: "",
+                        style: {
+                            borderRadius: '0px',
+                            width: '100%',
+                            background: 'url(https://i.pinimg.com/originals/ce/51/f6/ce51f6e88f1a81dfb5d5621f7ac56762.jpg) center center / cover no-repeat scroll',
 
+                        },
+                    },
+                    {
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: "div",
+                        type: "gallery",
+                        class: "",
+                        style: {
+                            borderRadius: '0px',
+                            background: "#69D2E7",
+                            width: '100%',
+                            background: 'url(https://s2.best-wallpaper.net/wallpaper/iphone/1712/Tekken-7-Fated-Retribution_iphone_1080x1920.jpg) center center / cover no-repeat scroll',
 
+                        },
+                    },
+                    {
+                        id: Math.random().toString(36).substring(2, 10),
+                        name: "div",
+                        type: "gallery",
+                        class: "",
+                        style: {
+                            borderRadius: '0px',
+                            width: '100%',
+                            background: 'url(https://i.pinimg.com/originals/a8/df/a0/a8dfa0e9d3c70be9bc8ac312245823d0.jpg) center center / cover no-repeat scroll',
+
+                        },
+                    }
+
+                ]
+            }
         ]
     },
     getters: {
