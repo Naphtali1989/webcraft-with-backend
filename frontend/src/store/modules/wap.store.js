@@ -856,7 +856,7 @@ export const wapStore = {
                 "id": Math.random().toString(36).substring(2, 10),
                 "name": "section",
                 "type": "map",
-                "title": "Map With Contact Form",
+                "title": "Contact Form Left",
                 "class": "map-section flex space-around align-center",
                 "thumbnail": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0",
                 "style": {
@@ -1092,7 +1092,251 @@ export const wapStore = {
                     }
                 ]
             },
+
             // Next!
+            {
+                "id": Math.random().toString(36).substring(2, 10),
+                "name": "section",
+                "type": "map",
+                "title": "Contact Form Right",
+                "class": "map-section flex space-around align-center",
+                "thumbnail": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0",
+                "style": {
+                    "background": "url(https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0) center center / cover no-repeat",
+                    "borderRadius": "0px",
+                    "height": "500px"
+                },
+                "children": [{
+                        "id": Math.random().toString(36).substring(2, 10),
+                        "name": "google-map",
+                        "type": "map",
+                        "class": "google-map none-drag-area-selector",
+                        "style": {
+                            "background": "transparent",
+                            "borderRadius": "2px",
+                            "height": "100%",
+                            "width": "100%"
+                        }
+                    }, {
+                        "id": Math.random().toString(36).substring(2, 10),
+                        "name": "div",
+                        "type": "inner-div",
+                        "class": "inner-div flex column justify-center align-center",
+                        "style": {
+                            "background": "rgb(21, 28, 51)",
+                            "borderRadius": "0px",
+                            "height": "100%",
+                            "width": "100%",
+                            "padding": "2.5rem 1rem 1rem"
+                        },
+                        "children": [{
+                                "id": Math.random().toString(36).substring(2, 10),
+                                "name": "txt",
+                                "type": "inner-text",
+                                "class": "map-inner-text",
+                                "txt": "CONTACT US",
+                                "style": {
+                                    "fontSize": "24px",
+                                    "lineHeight": 1,
+                                    "letterSpacing": "2px",
+                                    "background": "inherit",
+                                    "color": "rgb(212,212,212)",
+                                    "fontFamily": "inherit",
+                                    "textDecoration": "inherit",
+                                    "fontStyle": "inherit",
+                                    "textAlign": "center",
+                                    "margin-block-end": "0.5rem"
+                                }
+                            },
+                            {
+                                "id": Math.random().toString(36).substring(2, 10),
+                                "name": "txt",
+                                "type": "inner-text",
+                                "class": "map-inner-text",
+                                "txt": "We are always here to help out whenever we can :)",
+                                "style": {
+                                    "fontSize": "14px",
+                                    "lineHeight": 0.8,
+                                    "letterSpacing": "0px",
+                                    "background": "inherit",
+                                    "color": "#c5c5c5",
+                                    "fontFamily": "inherit",
+                                    "textDecoration": "inherit",
+                                    "fontStyle": "inherit",
+                                    "textAlign": "center",
+                                    "margin-block-end": "2rem"
+                                }
+                            },
+                            {
+                                "id": Math.random().toString(36).substring(2, 10),
+                                "name": "input",
+                                "type": "inner-input",
+                                "class": "map-inner-input",
+                                "placeholder": "Name",
+                                "style": {
+                                    "padding": "0.5rem",
+                                    "lineHeight": 0.8,
+                                    "background": "#1c274a",
+                                    "color": "#6c7490",
+                                    "fontFamily": "inherit",
+                                    "fontSize": "18px",
+                                    "borderRadius": "20px",
+                                    "margin": "0 0 1rem",
+                                    "width": "94%",
+                                    "outline": "none",
+                                    "border": "none",
+                                    "maxWidth": "330px"
+                                }
+                            },
+                            {
+                                "id": Math.random().toString(36).substring(2, 10),
+                                "name": "input",
+                                "type": "inner-input",
+                                "class": "map-inner-input",
+                                "placeholder": "Email",
+                                "style": {
+                                    "padding": "0.5rem",
+                                    "lineHeight": 0.8,
+                                    "background": "#1c274a",
+                                    "color": "#6c7490",
+                                    "fontFamily": "inherit",
+                                    "fontSize": "18px",
+                                    "borderRadius": "20px",
+                                    "margin": "0 0 1rem",
+                                    "width": "94%",
+                                    "outline": "none",
+                                    "border": "none",
+                                    "maxWidth": "330px"
+                                }
+                            },
+                            {
+                                "id": Math.random().toString(36).substring(2, 10),
+                                "name": "input",
+                                "type": "inner-input",
+                                "class": "map-inner-input",
+                                "placeholder": "Phone",
+                                "style": {
+                                    "padding": "0.5rem",
+                                    "lineHeight": 0.8,
+                                    "background": "#1c274a",
+                                    "color": "#6c7490",
+                                    "fontFamily": "inherit",
+                                    "fontSize": "18px",
+                                    "borderRadius": "20px",
+                                    "margin": "0 0 1.5rem",
+                                    "width": "94%",
+                                    "outline": "none",
+                                    "border": "none",
+                                    "maxWidth": "330px"
+                                }
+                            },
+                            {
+                                "id": Math.random().toString(36).substring(2, 10),
+                                "name": "input",
+                                "type": "inner-text",
+                                "class": "map-inner-text",
+                                "placeholder": "Type your message",
+                                "style": {
+                                    "padding": "0.5rem",
+                                    "fontSize": "16px",
+                                    "lineHeight": 0.7,
+                                    "letterSpacing": "1px",
+                                    "background": "transparent",
+                                    "color": "#7E2D96",
+                                    "fontFamily": "inherit",
+                                    "textDecoration": "inherit",
+                                    "fontStyle": "inherit",
+                                    "textAlign": "center",
+                                    "width": "94%",
+                                    "border": "none",
+                                    "borderBottom": "1px solid #6c749055",
+                                    "maxWidth": "330px"
+                                }
+                            }, {
+                                "id": Math.random().toString(36).substring(2, 10),
+                                "name": "link",
+                                "type": "inner-text",
+                                "txt": "Send",
+                                "class": "map-inner-text",
+                                "placeholder": "Type your message",
+                                "style": {
+                                    "display": "block",
+                                    "padding": "0.5rem",
+                                    "fontSize": "24px",
+                                    "lineHeight": 1,
+                                    "letterSpacing": "2px",
+                                    "background": "#66b1ff",
+                                    "color": "rgb(21, 28, 51)",
+                                    "fontFamily": "inherit",
+                                    "textDecoration": "inherit",
+                                    "fontStyle": "inherit",
+                                    "textAlign": "center",
+                                    "width": "94%",
+                                    "margin": "1rem",
+                                    "maxWidth": "330px",
+                                    "borderRadius": "20px",
+                                    "outline": "none"
+                                }
+                            },
+                            {
+                                "id": Math.random().toString(36).substring(2, 10),
+                                "name": "div",
+                                "type": "inner-div",
+                                "class": "inner-div flex column justify-center align-center",
+                                "style": {
+                                    "background": "transparent",
+                                    "borderRadius": "0px",
+                                    "height": "100%",
+                                    "width": "100%"
+                                },
+                                "children": [{
+                                        "id": Math.random().toString(36).substring(2, 10),
+                                        "name": "txt",
+                                        "type": "inner-text",
+                                        "class": "map-inner-text",
+                                        "txt": "contact@youremail.com",
+                                        "style": {
+                                            "fontSize": "18px",
+                                            "lineHeight": 0.7,
+                                            "letterSpacing": "4px",
+                                            "background": "inherit",
+                                            "color": "#6c7490",
+                                            "fontFamily": "inherit",
+                                            "textDecoration": "inherit",
+                                            "fontStyle": "inherit",
+                                            "textAlign": "center",
+                                            "margin-block-end": "0.75rem"
+                                        }
+                                    },
+                                    {
+                                        "id": Math.random().toString(36).substring(2, 10),
+                                        "name": "txt",
+                                        "type": "inner-text",
+                                        "class": "map-inner-text",
+                                        "txt": "Phone: +972-666-6666",
+                                        "style": {
+                                            "fontSize": "20px",
+                                            "lineHeight": 0.7,
+                                            "letterSpacing": "1px",
+                                            "background": "inherit",
+                                            "color": "#6c7490",
+                                            "fontFamily": "inherit",
+                                            "textDecoration": "inherit",
+                                            "fontStyle": "inherit",
+                                            "textAlign": "center",
+                                            "margin-block-end": "0.75rem"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+
+                ]
+            },
+
+            // Next!
+
             {
                 id: Math.random().toString(36).substring(2, 10),
                 name: "section",
@@ -1158,26 +1402,26 @@ export const wapStore = {
                     type,
                     thumbnail,
                     title
-                }
-            })
+                };
+            });
         },
         sampleToAdd(state) {
-            return state.pickedSample
+            return state.pickedSample;
         }
     },
     mutations: {
         setPickedSample(state, sample) {
-            state.pickedSample = sample
+            state.pickedSample = sample;
         }
     },
     actions: {
         pickedSample({ commit, state }, { id }) {
-            const sample = state.samples.find(sample => sample.id === id)
+            const sample = state.samples.find(sample => sample.id === id);
             commit({
                 type: 'setPickedSample',
                 sample
             })
-            return sample
+            return sample;
         },
     }
 }
