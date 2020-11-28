@@ -1,0 +1,15 @@
+.user-controls {
+    height: 48px;
+    background: #2e4ead;
+    border-left: 1px solid #e6e9ec;
+    font-family: carme;
+    button {
+        color: white;
+        background: #0076df;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        &:nth-child(1) {
+            border-left: 1px solid white;
+        }
+    }
+}

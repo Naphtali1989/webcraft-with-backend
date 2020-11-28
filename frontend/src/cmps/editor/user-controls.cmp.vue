@@ -1,7 +1,7 @@
 <template>
-    <section class="user-controls flex">
-        <button class="btn choice-btn">Save</button>
+    <section class="user-controls flex row-reverse">
         <button class="btn choice-btn">Publish</button>
+        <button class="btn choice-btn">Save</button>
     </section>
 </template>
 
@@ -17,4 +17,5 @@ export default {
 
     }
 }
+
 </script>
