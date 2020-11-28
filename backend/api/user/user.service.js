@@ -4,7 +4,23 @@ const ObjectId = require('mongodb').ObjectId
 module.exports = {
     getById,
     update,
-    add
+    add,
+    query
+}
+
+
+async function query(filterBy = {}) {
+    //connect to the user db 
+    const collection = await dbService.getCollection('user')
+    try {
+        //get all users from the db and delete the password property from each of them
+        const users = await collection.find({}).toArray();
+        users.forEach(user => delete user.password);
+        return users
+    } catch (err) {
+        console.log('ERROR: cannot find users')
+        throw err;
+    }
 }
 
 async function getById(userId) {

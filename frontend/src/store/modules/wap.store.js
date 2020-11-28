@@ -265,6 +265,7 @@ export const wapStore = {
                 class: "card-section grid",
                 thumbnail: "https://imagizer.imageshack.com/img922/7981/WgIDFl.png",
                 title: 'Gaming Cards',
+                imgUrl: 'https://wallpaperset.com/w/full/f/4/1/279879.jpg',
                 style: {
                     background: "url(https://wallpaperset.com/w/full/f/4/1/279879.jpg)",
                     backgroundSize: 'cover',
@@ -295,6 +296,7 @@ export const wapStore = {
                             id: Math.random().toString(36).substring(2, 10),
                             name: 'div',
                             type: 'header-div',
+                            imgUrl: 'https://images2.alphacoders.com/249/thumb-1920-249150.jpg',
                             style: {
                                 height: '127px',
                                 width: '100%',
@@ -415,6 +417,7 @@ export const wapStore = {
                             id: Math.random().toString(36).substring(2, 10),
                             name: 'div',
                             type: 'header-div',
+                            imgUrl: 'https://wallpapercave.com/wp/wp1099692.jpg',
                             style: {
                                 height: '127px',
                                 width: '100%',
@@ -536,6 +539,7 @@ export const wapStore = {
                             id: Math.random().toString(36).substring(2, 10),
                             name: 'div',
                             type: 'header-div',
+                            imgUrl: 'https://pe56d.s3.amazonaws.com/o_1bbg3l2up1so1lm0ihcc6b1dekm.jpg',
                             style: {
                                 height: '127px',
                                 width: '100%',
@@ -656,6 +660,7 @@ export const wapStore = {
                             id: Math.random().toString(36).substring(2, 10),
                             name: 'div',
                             type: 'header-div',
+                            imgUrl: 'https://wallpapercave.com/wp/57mpmUZ.jpg',
                             style: {
                                 height: '127px',
                                 width: '100%',
@@ -1336,7 +1341,6 @@ export const wapStore = {
             },
 
             // Next!
-
             {
                 id: Math.random().toString(36).substring(2, 10),
                 name: "section",
@@ -1356,6 +1360,7 @@ export const wapStore = {
                         name: "div",
                         type: "gallery",
                         class: "",
+                        imgUrl: 'https://i.pinimg.com/originals/ce/51/f6/ce51f6e88f1a81dfb5d5621f7ac56762.jpg',
                         style: {
                             borderRadius: '0px',
                             width: '100%',
@@ -1368,6 +1373,7 @@ export const wapStore = {
                         name: "div",
                         type: "gallery",
                         class: "",
+                        imgUrl: 'https://s2.best-wallpaper.net/wallpaper/iphone/1712/Tekken-7-Fated-Retribution_iphone_1080x1920.jpg',
                         style: {
                             borderRadius: '0px',
                             background: "#69D2E7",
@@ -1381,6 +1387,7 @@ export const wapStore = {
                         name: "div",
                         type: "gallery",
                         class: "",
+                        imgUrl: 'https://i.pinimg.com/originals/a8/df/a0/a8dfa0e9d3c70be9bc8ac312245823d0.jpg',
                         style: {
                             borderRadius: '0px',
                             width: '100%',
