@@ -1,142 +1,133 @@
 <template>
-  <section class="editor-container flex column" :class="hideEditor">
-    <editor-dashboard
-      :samples="samples"
-      :cmpToEdit="currCmpToEdit"
-      @pickedSample="pickSample"
-      @updated="updateCmpToShow"
-      @switched="emptyCmpToEdit"
-    >
-      <slot>
-        <button @click="toggleEditor" class="toggle-dashboard">
-          Toggle Me
-        </button>
-      </slot>
-    </editor-dashboard>
-    <editor-workspace
-      @droppedSample="pickSample"
-      :cmps="cmps"
-      @clicked="setCmpToEdit"
-      @updatedTxt="updateTxt"
-      @copy="copySection"
-      @delete="deleteSection"
-      @moveSection="moveSection"
-      @droppedSection="dropSection"
-    />
-  </section>
+    <section class="editor-container flex column" :class="hideEditor">
+        <editor-dashboard :samples="samples" :cmpToEdit="currCmpToEdit" @pickedSample="pickSample" @updated="updateCmpToShow" @switched="emptyCmpToEdit">
+            <slot>
+                <button @click="toggleEditor" class="toggle-dashboard">
+                    Toggle Me
+                </button>
+            </slot>
+        </editor-dashboard>
+        <section class="flex column">
+            <user-controls />
+            <editor-workspace @droppedSample="pickSample" :cmps="cmps" @clicked="setCmpToEdit" @updatedTxt="updateTxt" @copy="copySection" @delete="deleteSection" @moveSection="moveSection" @droppedSection="dropSection" />
+        </section>
+    </section>
 </template>
 
 <script>
 import editorDashboard from "@/cmps/editor/editor-dashboard.cmp.vue";
 import editorWorkspace from "@/cmps/editor/editor-workspace.cmp.vue";
+import userControls from '@/cmps/editor/user-controls.cmp.vue';
 import { utilService } from "@/services/util.service";
 
+
 export default {
-  name: "editor",
-  data() {
-    return {
-      cmps: null,
-      currCmpToEdit: null,
-      currWap: null,
-      isEditorShow: true,
-    };
-  },
-  computed: {
-    hideEditor() {
-      return { "hide-editor": !this.isEditorShow };
+    name: "editor",
+    data() {
+        return {
+            cmps: null,
+            currCmpToEdit: null,
+            currWap: null,
+            isEditorShow: true,
+        };
     },
-    samples() {
-      return this.$store.getters.sampleList;
+    computed: {
+        hideEditor() {
+            return { "hide-editor": !this.isEditorShow };
+        },
+        samples() {
+            return this.$store.getters.sampleList;
+        },
     },
-  },
-  components: {
-    editorDashboard,
-    editorWorkspace,
-  },
-  methods: {
-    findByIdRecursive(nodes, id) {
-      for (let i = 0; i < nodes.length; i++) {
-        const child = nodes[i];
-        if (child.id === id) {
-          return child;
-        } else {
-          if (child.children) {
-            const found = this.findByIdRecursive(child.children, id);
-            if (found) {
-              return found;
+    components: {
+        editorDashboard,
+        editorWorkspace,
+        userControls
+    },
+    methods: {
+        findByIdRecursive(nodes,id) {
+            for(let i=0;i<nodes.length;i++) {
+                const child=nodes[i];
+                if(child.id===id) {
+                    return child;
+                } else {
+                    if(child.children) {
+                        const found=this.findByIdRecursive(child.children,id);
+                        if(found) {
+                            return found;
+                        }
+                    }
+                }
             }
-          }
-        }
-      }
+        },
+        replaceIds(node) {
+            node.id=Math.random().toString().substring(2,10);
+            if(node.children) {
+                node.children.forEach((child) => {
+                    this.replaceIds(child);
+                });
+            }
+        },
+        setCmpToEdit(id) {
+            var cmpToEdit=this.findByIdRecursive(this.cmps,id);
+            this.currCmpToEdit=cmpToEdit;
+        },
+        updateCmpToShow(updatedCmp) {
+            this.currCmpToEdit=updatedCmp;
+        },
+        updateTxt(txtValue) {
+            this.currCmpToEdit.txt=txtValue;
+        },
+        toggleEditor() {
+            this.isEditorShow=!this.isEditorShow;
+        },
+        async pickSample(id,idx) {
+            console.log("id:",id);
+            console.log("idx:",idx);
+            const res=await this.$store.dispatch({
+                type: "pickedSample",
+                id,
+            });
+            console.log("res is:",res);
+            let sample=JSON.parse(JSON.stringify(res));
+            //replace the ids of sample in order to differ from section to section
+            this.replaceIds(sample);
+            const dragResult={
+                payload: sample,
+                addedIndex: idx,
+                removedIndex: null,
+            };
+            console.log("drag result:",dragResult);
+            this.dropSection(dragResult);
+        },
+        copySection(id) {
+            const section=this.cmps.find((cmp) => cmp.id===id);
+            const cmp=JSON.parse(JSON.stringify(section));
+            this.replaceIds(cmp);
+            const idx=this.cmps.findIndex((cmp) => cmp.id===id);
+            this.cmps.splice(idx,0,cmp);
+        },
+        dropSection(dragResult) {
+            this.cmps=utilService.applyDrag(this.cmps,dragResult);
+        },
+        deleteSection(id) {
+            const idx=this.cmps.findIndex((cmp) => cmp.id===id);
+            this.cmps.splice(idx,1);
+        },
+        moveSection(id,diff) {
+            const section=this.cmps.find((cmp) => cmp.id===id);
+            const idx=this.cmps.findIndex((cmp) => cmp.id===id);
+            if(idx===0&&diff===-1) return;
+            this.cmps.splice(idx,1);
+            this.cmps.splice(idx+diff,0,section);
+        },
+        emptyCmpToEdit() {
+            this.currCmpToEdit=null;
+        },
     },
-    replaceIds(node) {
-      node.id = Math.random().toString().substring(2, 10);
-      if (node.children) {
-        node.children.forEach((child) => {
-          this.replaceIds(child);
-        });
-      }
-    },
-    setCmpToEdit(id) {
-      var cmpToEdit = this.findByIdRecursive(this.cmps, id);
-      this.currCmpToEdit = cmpToEdit;
-    },
-    updateCmpToShow(updatedCmp) {
-      this.currCmpToEdit = updatedCmp;
-    },
-    updateTxt(txtValue) {
-      this.currCmpToEdit.txt = txtValue;
-    },
-    toggleEditor() {
-      this.isEditorShow = !this.isEditorShow;
-    },
-    async pickSample(id, idx) {
-      console.log("id:", id);
-      console.log("idx:", idx);
-      const res = await this.$store.dispatch({
-        type: "pickedSample",
-        id,
-      });
-      console.log("res is:", res);
-      let sample = JSON.parse(JSON.stringify(res));
-      //replace the ids of sample in order to differ from section to section
-      this.replaceIds(sample);
-      const dragResult = {
-        payload: sample,
-        addedIndex: idx,
-        removedIndex: null,
-      };
-      console.log("drag result:", dragResult);
-      this.dropSection(dragResult);
-    },
-    copySection(id) {
-      const section = this.cmps.find((cmp) => cmp.id === id);
-      const cmp = JSON.parse(JSON.stringify(section));
-      this.replaceIds(cmp);
-      const idx = this.cmps.findIndex((cmp) => cmp.id === id);
-      this.cmps.splice(idx, 0, cmp);
-    },
-    dropSection(dragResult) {
-      this.cmps = utilService.applyDrag(this.cmps, dragResult);
-    },
-    deleteSection(id) {
-      const idx = this.cmps.findIndex((cmp) => cmp.id === id);
-      this.cmps.splice(idx, 1);
-    },
-    moveSection(id, diff) {
-      const section = this.cmps.find((cmp) => cmp.id === id);
-      const idx = this.cmps.findIndex((cmp) => cmp.id === id);
-      if (idx === 0 && diff === -1) return;
-      this.cmps.splice(idx, 1);
-      this.cmps.splice(idx + diff, 0, section);
-    },
-    emptyCmpToEdit() {
-      this.currCmpToEdit = null;
-    },
-  },
-  created() {
-    this.cmps = []
-  }
+    created() {
+        this.cmps=[]
+    }
 }
 </script>
 
