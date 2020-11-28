@@ -15,7 +15,7 @@ const routes = [{
         component: homePage
     },
     {
-        path: '/editor',
+        path: '/editor/:id?',
         component: editor
     },
     {

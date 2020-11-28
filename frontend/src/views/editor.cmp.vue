@@ -8,7 +8,7 @@
             </slot>
         </editor-dashboard>
         <section class="flex column">
-            <user-controls />
+            <user-controls @saveWap="saveWap" />
             <editor-workspace @droppedSample="pickSample" :cmps="cmps" @clicked="setCmpToEdit" @updatedTxt="updateTxt" @copy="copySection" @delete="deleteSection" @moveSection="moveSection" @droppedSection="dropSection" />
         </section>
     </section>
@@ -25,9 +25,9 @@ export default {
     name: "editor",
     data() {
         return {
-            cmps: null,
-            currCmpToEdit: null,
             currWap: null,
+            cmps: [],
+            currCmpToEdit: null,
             isEditorShow: true,
         };
     },
@@ -38,6 +38,11 @@ export default {
         samples() {
             return this.$store.getters.sampleList;
         },
+        // getWap() {
+        //     return
+        //     this.cmps=this.$store.getters.getWap;
+
+        // }
     },
     components: {
         editorDashboard,
@@ -45,6 +50,9 @@ export default {
         userControls
     },
     methods: {
+        saveWap() {
+            this.$store.dispatch({ type: 'saveWap',wap: this.cmps })
+        },
         findByIdRecursive(nodes,id) {
             for(let i=0;i<nodes.length;i++) {
                 const child=nodes[i];
@@ -82,13 +90,10 @@ export default {
             this.isEditorShow=!this.isEditorShow;
         },
         async pickSample(id,idx) {
-            console.log("id:",id);
-            console.log("idx:",idx);
             const res=await this.$store.dispatch({
                 type: "pickedSample",
                 id,
             });
-            console.log("res is:",res);
             let sample=JSON.parse(JSON.stringify(res));
             //replace the ids of sample in order to differ from section to section
             this.replaceIds(sample);
@@ -97,7 +102,7 @@ export default {
                 addedIndex: idx,
                 removedIndex: null,
             };
-            console.log("drag result:",dragResult);
+            // console.log("drag result:",dragResult);
             this.dropSection(dragResult);
         },
         copySection(id) {
@@ -125,8 +130,14 @@ export default {
             this.currCmpToEdit=null;
         },
     },
-    created() {
-        this.cmps=[]
+    async created() {
+        const id=this.$route.params.id;
+        if(id) {
+            this.currWap=await this.$store.dispatch({ type: 'loadWap',id })
+        }
+        else {
+            this.currWap={ name: '',children: [] }
+        }
     }
 }
 </script>

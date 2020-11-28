@@ -15,11 +15,14 @@
         
         .editor-dashboard {
             position: fixed;
+            /* position: sticky; */
             min-height: 100vh;
             background-color: #e6e9ec;
             overflow-y: auto;
             width: 20rem;
             transition: all .3s ease-in-out;
+            /* position: sticky; */
+            z-index: 100003;
         }
         
         .toggle-dashboard {
@@ -43,6 +46,7 @@
             }
         }
         
+        //add controls above imgs
         .controls {
             z-index: 10000;
         }
@@ -54,7 +58,11 @@
             justify-content: center;
             &:after {
                 content: 'Place Section Here';
-                font-size: 72px;
+                font-size: 50px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
             }
         }
         

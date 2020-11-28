@@ -30,16 +30,18 @@ async function getById(wapId) {
 }
 
 
-// //add a yser
+
 async function add(wap) {
+    console.log('*********wap in service backend***********', wap);
     const collection = await dbService.getCollection('wap')
+    console.log('collection?:', collection);
     try {
-        //add a user object to the collection
         wap.createdAt = Date.now();
-        await collection.insertOne(wap);
+        await collection.insertOne({ wap });
+        console.log('after adding.........');
         return wap;
     } catch (err) {
-        console.log(`ERROR: cannot insert user`)
+        console.log(`ERROR: cannot insert wap`)
         throw err;
     }
 }

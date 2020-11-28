@@ -33,9 +33,10 @@ async function deleteWap(req, res) {
 }
 
 async function addWap(req, res) {
+    // console.log('getting to backend add', req.body);
     try {
         const wap = req.body
-        console.log('wap:', wap);
+            // console.log('wap:', wap);
         await wapService.add(wap)
         res.json(wap)
 
@@ -47,6 +48,7 @@ async function addWap(req, res) {
 async function updateWap(req, res) {
     try {
         const wap = req.body;
+        console.log('get wap to update:', wap);
         await wapService.update(wap)
         res.json(wap);
 

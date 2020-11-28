@@ -1,3 +1,5 @@
+import { wapService } from '../../services/wap.service';
+
 export const wapStore = {
     state: {
         pickedSample: null,
@@ -1397,9 +1399,13 @@ export const wapStore = {
 
                 ]
             }
-        ]
+        ],
+        wap: null
     },
     getters: {
+        getWap(state) {
+            return state.wap.cmps
+        },
         sampleList(state) {
             return state.samples.map(sample => {
                 const { id, type, thumbnail, title } = sample
@@ -1418,9 +1424,27 @@ export const wapStore = {
     mutations: {
         setPickedSample(state, sample) {
             state.pickedSample = sample;
+        },
+        saveCurrWap(state, { cmps }) {
+            state.currWap = cmps
+        },
+        loadWap(state, { wap }) {
+            state.wap = wap;
         }
     },
     actions: {
+        async loadWap({ commit }, { id }) {
+            console.log('id:', id);
+            const wap = await wapService.getById(id);
+            console.log('loading wap from backend:', wap);
+            commit({ type: 'loadWap', wap })
+        },
+        async saveWap({ commit, state }, { wap }) {
+            // cmps
+            console.log('wap to save:', wap);
+            await wapService.save(wap);
+            // commit({ type: 'saveCurrWap', wap })
+        },
         pickedSample({ commit, state }, { id }) {
             const sample = state.samples.find(sample => sample.id === id);
             commit({

@@ -1,7 +1,7 @@
 <template>
     <section class="user-controls flex row-reverse">
         <button class="btn choice-btn">Publish</button>
-        <button class="btn choice-btn">Save</button>
+        <button class="btn choice-btn" @click="saveWap">Save</button>
     </section>
 </template>
 
@@ -11,6 +11,11 @@ export default {
     data() {
         return {
 
+        }
+    },
+    methods: {
+        saveWap() {
+            this.$emit('saveWap')
         }
     },
     components: {
