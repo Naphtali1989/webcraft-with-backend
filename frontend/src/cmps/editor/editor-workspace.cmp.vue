@@ -1,5 +1,5 @@
 <template>
-    <section class="editor-workspace flex column">
+    <section :class="emptyWorkspace" class="editor-workspace flex column">
         <Container
             class="dnd-container"
             drag-class="card-ghost"
@@ -75,10 +75,14 @@ export default {
         emitMoveSection(id, diff) {
             this.$emit('moveSection', id, diff)
         }
+    },
+    computed: {
+        emptyWorkspace() {
+            return { "empty-workspace": !this.cmps.length }
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-
 </style>
