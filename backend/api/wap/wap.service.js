@@ -7,9 +7,14 @@ async function query() {
     console.log('query mother!');
     const collection = await dbService.getCollection('wap')
     try {
-        const waps = await collection.find({})
-            // console.log('waps:', waps);
-        return waps
+        const waps = await collection.find({});
+        // console.log('waps:', waps);
+        return await new Promise((resolve, reject) => {
+            waps.toArray(function(err, result) {
+                if (err) reject(err);
+                resolve(result);
+            });
+        });
     } catch (error) {
         console.log('error:', error);
         throw error;
