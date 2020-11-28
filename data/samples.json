@@ -1,0 +1,1274 @@
+{
+    "samples": [{
+            "id": "tsaaxole",
+            "name": "section",
+            "type": "cards",
+            "title": "Photography",
+            "thumbnail": "https://imagizer.imageshack.com/img924/9650/3eU0qi.png",
+            "class": "flex",
+            "style": {
+                "maxHeight": "500px",
+                "padding": "",
+                "background": "beige",
+                "width": "100%",
+                "borderRadius": 0
+            },
+            "children": [{
+                "id": "uxv1fian",
+                "name": "div",
+                "class": "hero flex wrap",
+                "style": {
+                    "lineHeight": "4",
+                    "backgroundColor": "",
+                    "color": "black",
+                    "flex": "1 1 20rem",
+                    "fontFamily": "Ruhl",
+                    "fontSize": "16px",
+                    "textAlign": "",
+                    "fontStyle": "",
+                    "textDecoration": "",
+                    "letterSpacing": "1",
+                    "width": "95%",
+                    "flexWrap": "wrap",
+                    "margin": "0 0 0 auto",
+                    "overflow": "hidden"
+                },
+                "children": [{
+                        "id": "11lzs7qe",
+                        "name": "div",
+                        "class": "flex column hero-introduction",
+                        "style": {
+                            "background": "",
+                            "flex": "2 1 40rem",
+                            "textAlign": "center",
+                            "borderRadius": 0
+                        },
+                        "children": [{
+                                "name": "txt",
+                                "id": "cuhoc3yb",
+                                "type": "text",
+                                "txt": "Elena Joy",
+                                "style": {
+                                    "fontSize": "24px",
+                                    "lineHeight": "4",
+                                    "letterSpacing": "1",
+                                    "background": "",
+                                    "color": "rgb(63,63,63)",
+                                    "fontFamily": "Ruhl",
+                                    "textDecoration": "",
+                                    "fontStyle": "",
+                                    "textAlign": "",
+                                    "marginBlockEnd": "8px",
+                                    "marginBlockStart": "8px"
+                                }
+                            },
+                            {
+                                "id": "h5cr17mf",
+                                "type": "text",
+                                "name": "txt",
+                                "txt": "Photography",
+                                "style": {
+                                    "fontSize": "24px",
+                                    "lineHeight": "4",
+                                    "letterSpacing": "1",
+                                    "background": "",
+                                    "color": "rgb(63,63,63)",
+                                    "fontFamily": "Ruhl",
+                                    "textDecoration": "",
+                                    "fontStyle": "",
+                                    "textAlign": ""
+                                }
+                            },
+                            {
+                                "id": "b2nb75q2",
+                                "type": "text",
+                                "name": "txt",
+                                "class": "",
+                                "txt": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque minima assumenda expedita similique quaerat maiores ab, itaque hic explicabo eaque!",
+                                "style": {
+                                    "lineHeight": "2",
+                                    "backgroundColor": "",
+                                    "color": "rgb(63,63,63)",
+                                    "fontFamily": "Ruhl",
+                                    "fontSize": "16px",
+                                    "textAlign": "",
+                                    "fontStyle": "",
+                                    "textDecoration": "",
+                                    "letterSpacing": "1",
+                                    "padding": "1rem 3rem",
+                                    "marginBottom": "1.5rem"
+                                }
+                            },
+                            {
+                                "id": "wgfupf51",
+                                "type": "link",
+                                "name": "link",
+                                "class": "",
+                                "txt": "Gallery",
+                                "href": "#Gallery",
+                                "style": {
+                                    "lineHeight": "1",
+                                    "backgroundColor": "",
+                                    "color": "rgb(63,63,63)",
+                                    "fontFamily": "Ruhl",
+                                    "fontSize": "16px",
+                                    "textAlign": "",
+                                    "fontStyle": "",
+                                    "textDecoration": "",
+                                    "letterSpacing": "1",
+                                    "padding": "2rem 4rem",
+                                    "border": "3px solid black",
+                                    "margin": "0 auto"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "dsmo3g98",
+                        "name": "div",
+                        "class": "hero-images",
+                        "style": {
+                            "background": "linear-gradient(#dad8dd, #dad1d4)",
+                            "flex": "1 1 20rem",
+                            "borderRadius": 0,
+                            "zIndex": 1,
+                            "height": "500px"
+                        },
+                        "children": [{
+                            "id": "e7hsn4bz",
+                            "name": "img",
+                            "class": "hero-elena",
+                            "style": {
+                                "borderRadius": "",
+                                "height": "500px",
+                                "width": "100%",
+                                "objectFit": "cover"
+                            },
+                            "imgUrl": "https://imagizer.imageshack.com/img924/5680/fy20r8.png"
+                        }]
+                    }
+                ]
+            }]
+        },
+        {
+            "id": "ibvignmh",
+            "name": "section",
+            "type": "cards",
+            "class": "card-section grid",
+            "thumbnail": "https://imagizer.imageshack.com/img922/7981/WgIDFl.png",
+            "title": "Gaming Cards",
+            "imgUrl": "https://wallpaperset.com/w/full/f/4/1/279879.jpg",
+            "style": {
+                "background": "url(https://wallpaperset.com/w/full/f/4/1/279879.jpg)",
+                "backgroundSize": "cover",
+                "borderRadius": "0px",
+                "gridTemplateColumns": "repeat(auto-fit, minmax(300px, 1fr))",
+                "placeItems": "center",
+                "gridGap": "15px"
+            },
+            "children": [{
+                    "id": "z4dvetr1",
+                    "name": "div",
+                    "type": "card-div",
+                    "class": "card flex column align-center text-center",
+                    "style": {
+                        "borderRadius": "15px",
+                        "backgroundColor": "#fff",
+                        "width": "320px",
+                        "height": "380px",
+                        "position": "relative",
+                        "boxShadow": "0 0 4px"
+                    },
+                    "children": [{
+                        "id": "e3vyf2l9",
+                        "name": "div",
+                        "type": "header-div",
+                        "imgUrl": "https://images2.alphacoders.com/249/thumb-1920-249150.jpg",
+                        "style": {
+                            "height": "127px",
+                            "width": "100%",
+                            "background": "url(https://images2.alphacoders.com/249/thumb-1920-249150.jpg)",
+                            "backgroundSize": "cover"
+                        },
+                        "children": [{
+                                "id": "hjcm1e1j",
+                                "name": "div",
+                                "class": "avatar-div",
+                                "style": {
+                                    "width": "80px",
+                                    "height": "80px",
+                                    "position": "relative",
+                                    "margin": "0 auto"
+                                },
+                                "children": [{
+                                    "id": "sjbltw7s",
+                                    "name": "img",
+                                    "class": "card-img hover-scale",
+                                    "imgUrl": "https://yt3.ggpht.com/ytc/AAUvwnjr0yv7VKDZVgTVKU28P9ApPgt8nBaQwZjc78OOiw=s900-c-k-c0x00ffffff-no-rj",
+                                    "style": {
+                                        "display": "block",
+                                        "position": "relative",
+                                        "bottom": "-82px",
+                                        "border": "4px solid white",
+                                        "objectFit": "cover",
+                                        "height": "100%",
+                                        "borderRadius": "50%",
+                                        "transition": ".3s ease"
+                                    }
+                                }]
+                            },
+                            {
+                                "id": "4yix2lp9",
+                                "name": "div",
+                                "type": "card-div",
+                                "class": "card-body flex column align-center text-center",
+                                "style": {
+                                    "padding": "68px"
+                                },
+                                "children": [{
+                                        "id": "cti6xnp2",
+                                        "name": "txt",
+                                        "txt": "Title",
+                                        "style": {
+                                            "fontSize": "20px",
+                                            "fontWeight": "600",
+                                            "marginBlockStart": "20px",
+                                            "lineHeight": "",
+                                            "letterSpacing": "",
+                                            "backgroundColor": "transparent",
+                                            "textDecoration": "",
+                                            "fontStyle": "",
+                                            "textAlign": "",
+                                            "fontFamily": ""
+                                        }
+                                    },
+                                    {
+                                        "id": "une5dxtp",
+                                        "name": "txt",
+                                        "txt": "Add Text...",
+                                        "style": {
+                                            "fontSize": "18px",
+                                            "color": "#999",
+                                            "marginBlockStart": "20px",
+                                            "lineHeight": "",
+                                            "letterSpacing": "",
+                                            "backgroundColor": "transparent",
+                                            "textDecoration": "",
+                                            "fontStyle": "",
+                                            "textAlign": "",
+                                            "fontFamily": "carme"
+                                        }
+                                    },
+                                    {
+                                        "id": "pvy1wbgl",
+                                        "name": "link",
+                                        "txt": "Click Me",
+                                        "class": "button hover-scale",
+                                        "style": {
+                                            "padding": "16px 20px",
+                                            "color": "white",
+                                            "borderRadius": "100px",
+                                            "marginBlockStart": "20px",
+                                            "lineHeight": "",
+                                            "letterSpacing": "",
+                                            "backgroundColor": "rgb(32 65 173)",
+                                            "textDecoration": "",
+                                            "fontStyle": "",
+                                            "textAlign": "",
+                                            "fontFamily": "",
+                                            "fontSize": "18px",
+                                            "transition": ".3s ease"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }]
+                },
+                {
+                    "id": "h6y1r2vy",
+                    "name": "div",
+                    "type": "card-div",
+                    "class": "card flex column align-center text-center",
+                    "style": {
+                        "borderRadius": "15px",
+                        "backgroundColor": "#fff",
+                        "width": "320px",
+                        "height": "380px",
+                        "position": "relative",
+                        "boxShadow": "0 0 4px"
+                    },
+                    "children": [{
+                        "id": "h7jx5ut4",
+                        "name": "div",
+                        "type": "header-div",
+                        "imgUrl": "https://wallpapercave.com/wp/wp1099692.jpg",
+                        "style": {
+                            "height": "127px",
+                            "width": "100%",
+                            "background": "url(https://wallpapercave.com/wp/wp1099692.jpg)",
+                            "backgroundSize": "cover"
+                        },
+                        "children": [{
+                                "id": "hnga5n7z",
+                                "name": "div",
+                                "class": "avatar-div",
+                                "style": {
+                                    "width": "80px",
+                                    "height": "80px",
+                                    "position": "relative",
+                                    "margin": "0 auto"
+                                },
+                                "children": [{
+                                    "id": "wh9yc9a9",
+                                    "name": "img",
+                                    "class": "card-img hover-scale",
+                                    "imgUrl": "https://yt3.ggpht.com/ytc/AAUvwnjr0yv7VKDZVgTVKU28P9ApPgt8nBaQwZjc78OOiw=s900-c-k-c0x00ffffff-no-rj",
+                                    "style": {
+                                        "display": "block",
+                                        "position": "relative",
+                                        "bottom": "-82px",
+                                        "border": "4px solid white",
+                                        "objectFit": "cover",
+                                        "height": "100%",
+                                        "borderRadius": "50%",
+                                        "transition": ".3s ease"
+                                    }
+                                }]
+                            },
+                            {
+                                "id": "9mithvax",
+                                "name": "div",
+                                "type": "card-div",
+                                "class": "card-body flex column align-center text-center",
+                                "style": {
+                                    "padding": "68px"
+                                },
+                                "children": [{
+                                        "id": "b0hxcv50",
+                                        "name": "txt",
+                                        "txt": "Title",
+                                        "style": {
+                                            "fontSize": "20px",
+                                            "fontWeight": "600",
+                                            "marginBlockStart": "20px",
+                                            "lineHeight": "",
+                                            "letterSpacing": "",
+                                            "backgroundColor": "transparent",
+                                            "textDecoration": "",
+                                            "fontStyle": "",
+                                            "textAlign": "",
+                                            "fontFamily": ""
+                                        }
+                                    },
+                                    {
+                                        "id": "u0vbigy0",
+                                        "name": "txt",
+                                        "txt": "Add Text...",
+                                        "style": {
+                                            "fontSize": "18px",
+                                            "color": "#999",
+                                            "marginBlockStart": "20px",
+                                            "lineHeight": "",
+                                            "letterSpacing": "",
+                                            "backgroundColor": "transparent",
+                                            "textDecoration": "",
+                                            "fontStyle": "",
+                                            "textAlign": "",
+                                            "fontFamily": "carme"
+                                        }
+                                    },
+                                    {
+                                        "id": "61gzf8ap",
+                                        "name": "link",
+                                        "txt": "Click Me",
+                                        "class": "button hover-scale",
+                                        "style": {
+                                            "padding": "16px 20px",
+                                            "color": "white",
+                                            "borderRadius": "100px",
+                                            "marginBlockStart": "20px",
+                                            "lineHeight": "",
+                                            "letterSpacing": "",
+                                            "backgroundColor": "rgb(32 65 173)",
+                                            "textDecoration": "",
+                                            "fontStyle": "",
+                                            "textAlign": "",
+                                            "fontFamily": "",
+                                            "fontSize": "18px",
+                                            "transition": ".3s ease"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }]
+                },
+                {
+                    "id": "jnvt83ag",
+                    "name": "div",
+                    "type": "card-div",
+                    "class": "card flex column align-center text-center",
+                    "style": {
+                        "borderRadius": "15px",
+                        "backgroundColor": "#fff",
+                        "width": "320px",
+                        "height": "380px",
+                        "position": "relative",
+                        "boxShadow": "0 0 4px"
+                    },
+                    "children": [{
+                        "id": "pgr198pe",
+                        "name": "div",
+                        "type": "header-div",
+                        "imgUrl": "https://pe56d.s3.amazonaws.com/o_1bbg3l2up1so1lm0ihcc6b1dekm.jpg",
+                        "style": {
+                            "height": "127px",
+                            "width": "100%",
+                            "background": "url(https://pe56d.s3.amazonaws.com/o_1bbg3l2up1so1lm0ihcc6b1dekm.jpg)",
+                            "backgroundSize": "cover"
+                        },
+                        "children": [{
+                                "id": "v4cr14l3",
+                                "name": "div",
+                                "class": "avatar-div",
+                                "style": {
+                                    "width": "80px",
+                                    "height": "80px",
+                                    "position": "relative",
+                                    "margin": "0 auto"
+                                },
+                                "children": [{
+                                    "id": "4dm35dqi",
+                                    "name": "img",
+                                    "class": "card-img hover-scale",
+                                    "imgUrl": "https://yt3.ggpht.com/ytc/AAUvwnjr0yv7VKDZVgTVKU28P9ApPgt8nBaQwZjc78OOiw=s900-c-k-c0x00ffffff-no-rj",
+                                    "style": {
+                                        "display": "block",
+                                        "position": "relative",
+                                        "bottom": "-82px",
+                                        "border": "4px solid white",
+                                        "objectFit": "cover",
+                                        "height": "100%",
+                                        "borderRadius": "50%",
+                                        "transition": ".3s ease"
+                                    }
+                                }]
+                            },
+                            {
+                                "id": "qo6xcmie",
+                                "name": "div",
+                                "type": "card-div",
+                                "class": "card-body flex column align-center text-center",
+                                "style": {
+                                    "padding": "68px"
+                                },
+                                "children": [{
+                                        "id": "zn69brd6",
+                                        "name": "txt",
+                                        "txt": "Title",
+                                        "style": {
+                                            "fontSize": "20px",
+                                            "fontWeight": "600",
+                                            "marginBlockStart": "20px",
+                                            "lineHeight": "",
+                                            "letterSpacing": "",
+                                            "backgroundColor": "transparent",
+                                            "textDecoration": "",
+                                            "fontStyle": "",
+                                            "textAlign": "",
+                                            "fontFamily": ""
+                                        }
+                                    },
+                                    {
+                                        "id": "hmwmpis3",
+                                        "name": "txt",
+                                        "txt": "Add Text..",
+                                        "style": {
+                                            "fontSize": "18px",
+                                            "color": "#999",
+                                            "marginBlockStart": "20px",
+                                            "lineHeight": "",
+                                            "letterSpacing": "",
+                                            "backgroundColor": "transparent",
+                                            "textDecoration": "",
+                                            "fontStyle": "",
+                                            "textAlign": "",
+                                            "fontFamily": "carme"
+                                        }
+                                    },
+                                    {
+                                        "id": "7ndkvak4",
+                                        "name": "link",
+                                        "txt": "Click Me",
+                                        "class": "button hover-scale",
+                                        "style": {
+                                            "padding": "16px 20px",
+                                            "color": "white",
+                                            "borderRadius": "100px",
+                                            "marginBlockStart": "20px",
+                                            "lineHeight": "",
+                                            "letterSpacing": "",
+                                            "backgroundColor": "rgb(32 65 173)",
+                                            "textDecoration": "",
+                                            "fontStyle": "",
+                                            "textAlign": "",
+                                            "fontFamily": "",
+                                            "fontSize": "18px",
+                                            "transition": ".3s ease"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }]
+                },
+                {
+                    "id": "whgode6n",
+                    "name": "div",
+                    "type": "card-div",
+                    "class": "card flex column align-center text-center",
+                    "style": {
+                        "borderRadius": "15px",
+                        "backgroundColor": "#fff",
+                        "width": "320px",
+                        "height": "380px",
+                        "position": "relative",
+                        "boxShadow": "0 0 4px"
+                    },
+                    "children": [{
+                        "id": "i6vgwsgj",
+                        "name": "div",
+                        "type": "header-div",
+                        "imgUrl": "https://wallpapercave.com/wp/57mpmUZ.jpg",
+                        "style": {
+                            "height": "127px",
+                            "width": "100%",
+                            "background": "url(https://wallpapercave.com/wp/57mpmUZ.jpg)",
+                            "backgroundSize": "cover"
+                        },
+                        "children": [{
+                                "id": "koqy7mj0",
+                                "name": "div",
+                                "class": "avatar-div",
+                                "style": {
+                                    "width": "80px",
+                                    "height": "80px",
+                                    "position": "relative",
+                                    "margin": "0 auto"
+                                },
+                                "children": [{
+                                    "id": "xsf71zo6",
+                                    "name": "img",
+                                    "class": "card-img hover-scale",
+                                    "imgUrl": "https://yt3.ggpht.com/ytc/AAUvwnjr0yv7VKDZVgTVKU28P9ApPgt8nBaQwZjc78OOiw=s900-c-k-c0x00ffffff-no-rj",
+                                    "style": {
+                                        "display": "block",
+                                        "position": "relative",
+                                        "bottom": "-82px",
+                                        "border": "4px solid white",
+                                        "objectFit": "cover",
+                                        "height": "100%",
+                                        "borderRadius": "50%",
+                                        "transition": ".3s ease"
+                                    }
+                                }]
+                            },
+                            {
+                                "id": "i1quxgua",
+                                "name": "div",
+                                "type": "card-div",
+                                "class": "card-body flex column align-center text-center",
+                                "style": {
+                                    "padding": "68px"
+                                },
+                                "children": [{
+                                        "id": "lk4agh7i",
+                                        "name": "txt",
+                                        "txt": "Title",
+                                        "style": {
+                                            "fontSize": "20px",
+                                            "fontWeight": "600",
+                                            "marginBlockStart": "20px",
+                                            "lineHeight": "",
+                                            "letterSpacing": "",
+                                            "backgroundColor": "transparent",
+                                            "textDecoration": "",
+                                            "fontStyle": "",
+                                            "textAlign": "",
+                                            "fontFamily": ""
+                                        }
+                                    },
+                                    {
+                                        "id": "sfjpwwd0",
+                                        "name": "txt",
+                                        "txt": "Add Text...",
+                                        "style": {
+                                            "fontSize": "18px",
+                                            "color": "#999",
+                                            "marginBlockStart": "20px",
+                                            "lineHeight": "",
+                                            "letterSpacing": "",
+                                            "backgroundColor": "transparent",
+                                            "textDecoration": "",
+                                            "fontStyle": "",
+                                            "textAlign": "",
+                                            "fontFamily": "carme"
+                                        }
+                                    },
+                                    {
+                                        "id": "jfloljgg",
+                                        "name": "link",
+                                        "txt": "Click Me",
+                                        "class": "button hover-scale",
+                                        "style": {
+                                            "padding": "16px 20px",
+                                            "color": "white",
+                                            "borderRadius": "100px",
+                                            "marginBlockStart": "20px",
+                                            "lineHeight": "",
+                                            "letterSpacing": "",
+                                            "backgroundColor": "rgb(32 65 173)",
+                                            "textDecoration": "",
+                                            "fontStyle": "",
+                                            "textAlign": "",
+                                            "fontFamily": "",
+                                            "fontSize": "18px",
+                                            "transition": ".3s ease"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }]
+                }
+            ]
+        },
+        {
+            "id": "hxk3a38o",
+            "type": "footer",
+            "thumbnail": "https://imagizer.imageshack.com/img922/9372/4iyvDo.png",
+            "title": "Footer",
+            "name": "section",
+            "class": "footer flex wrap align-center",
+            "style": {
+                "padding": "1rem 5%",
+                "color": "white",
+                "background": "lightblue",
+                "backgroundColor": "lightblue",
+                "borderRadius": 0
+            },
+            "children": [{
+                    "id": "4mfgn3cb",
+                    "name": "txt",
+                    "class": "logo",
+                    "txt": "Elena Joy",
+                    "style": {
+                        "lineHeight": "1.5",
+                        "backgroundColor": "transparent",
+                        "color": "white",
+                        "fontFamily": "Ruhal",
+                        "fontSize": "30px",
+                        "textAlign": "inherit",
+                        "fontStyle": "normal",
+                        "textDecoration": "none",
+                        "letterSpacing": "1",
+                        "flex": "3 1 40rem"
+                    }
+                },
+                {
+                    "id": "r24imq3m",
+                    "name": "div",
+                    "class": "clean-list flex space-between align-center",
+                    "style": {
+                        "background": "transparent",
+                        "flex": "1 1 6rem",
+                        "borderRadius": 0
+                    },
+                    "children": [{
+                            "id": "03bitt8p",
+                            "name": "link",
+                            "style": {
+                                "height": "50px"
+                            },
+                            "children": [{
+                                "id": "jilo2k00",
+                                "name": "i",
+                                "class": "fab fa-twitter",
+                                "style": {
+                                    "fontSize": "36px",
+                                    "lineHeight": "1.5"
+                                }
+                            }]
+                        },
+                        {
+                            "id": "muv2u1mx",
+                            "name": "link",
+                            "style": {
+                                "height": "50px"
+                            },
+                            "children": [{
+                                "id": "d9e33wsj",
+                                "name": "i",
+                                "class": "fab fa-instagram",
+                                "style": {
+                                    "fontSize": "36px",
+                                    "lineHeight": "1.5"
+                                }
+                            }]
+                        },
+                        {
+                            "id": "fbbi6wyw",
+                            "name": "link",
+                            "style": {
+                                "height": "50px"
+                            },
+                            "children": [{
+                                "id": "yb2shyoj",
+                                "name": "i",
+                                "class": "fab fa-facebook",
+                                "style": {
+                                    "fontSize": "36px",
+                                    "lineHeight": "1.5"
+                                }
+                            }]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ummut39w",
+            "name": "section",
+            "type": "map",
+            "title": "Contact Form Left",
+            "class": "map-section flex space-around align-center",
+            "thumbnail": "https://imageshack.com/i/poBxDQ3sp",
+            "style": {
+                "background": "url(https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0) center center / cover no-repeat",
+                "borderRadius": "0px",
+                "height": "500px"
+            },
+            "children": [{
+                    "id": "3hc0fyxm",
+                    "name": "div",
+                    "type": "inner-div",
+                    "class": "inner-div flex column justify-center align-center",
+                    "style": {
+                        "background": "rgb(21, 28, 51)",
+                        "borderRadius": "0px",
+                        "height": "100%",
+                        "width": "100%",
+                        "padding": "2.5rem 1rem 1rem"
+                    },
+                    "children": [{
+                            "id": "tx1yz87z",
+                            "name": "txt",
+                            "type": "inner-text",
+                            "class": "map-inner-text",
+                            "txt": "CONTACT US",
+                            "style": {
+                                "fontSize": "24px",
+                                "lineHeight": 1,
+                                "letterSpacing": "2px",
+                                "background": "inherit",
+                                "color": "rgb(212,212,212)",
+                                "fontFamily": "inherit",
+                                "textDecoration": "inherit",
+                                "fontStyle": "inherit",
+                                "textAlign": "center",
+                                "margin-block-end": "0.5rem"
+                            }
+                        },
+                        {
+                            "id": "w4oteavz",
+                            "name": "txt",
+                            "type": "inner-text",
+                            "class": "map-inner-text",
+                            "txt": "We are always here to help out whenever we can :)",
+                            "style": {
+                                "fontSize": "14px",
+                                "lineHeight": 0.8,
+                                "letterSpacing": "0px",
+                                "background": "inherit",
+                                "color": "#c5c5c5",
+                                "fontFamily": "inherit",
+                                "textDecoration": "inherit",
+                                "fontStyle": "inherit",
+                                "textAlign": "center",
+                                "margin-block-end": "2rem"
+                            }
+                        },
+                        {
+                            "id": "bk8cp0x0",
+                            "name": "input",
+                            "type": "inner-input",
+                            "class": "map-inner-input",
+                            "placeholder": "Name",
+                            "style": {
+                                "padding": "0.5rem",
+                                "lineHeight": 0.8,
+                                "background": "#1c274a",
+                                "color": "#6c7490",
+                                "fontFamily": "inherit",
+                                "fontSize": "18px",
+                                "borderRadius": "20px",
+                                "margin": "0 0 1rem",
+                                "width": "94%",
+                                "outline": "none",
+                                "border": "none",
+                                "maxWidth": "330px"
+                            }
+                        },
+                        {
+                            "id": "bniveq52",
+                            "name": "input",
+                            "type": "inner-input",
+                            "class": "map-inner-input",
+                            "placeholder": "Email",
+                            "style": {
+                                "padding": "0.5rem",
+                                "lineHeight": 0.8,
+                                "background": "#1c274a",
+                                "color": "#6c7490",
+                                "fontFamily": "inherit",
+                                "fontSize": "18px",
+                                "borderRadius": "20px",
+                                "margin": "0 0 1rem",
+                                "width": "94%",
+                                "outline": "none",
+                                "border": "none",
+                                "maxWidth": "330px"
+                            }
+                        },
+                        {
+                            "id": "83yq7u9l",
+                            "name": "input",
+                            "type": "inner-input",
+                            "class": "map-inner-input",
+                            "placeholder": "Phone",
+                            "style": {
+                                "padding": "0.5rem",
+                                "lineHeight": 0.8,
+                                "background": "#1c274a",
+                                "color": "#6c7490",
+                                "fontFamily": "inherit",
+                                "fontSize": "18px",
+                                "borderRadius": "20px",
+                                "margin": "0 0 1.5rem",
+                                "width": "94%",
+                                "outline": "none",
+                                "border": "none",
+                                "maxWidth": "330px"
+                            }
+                        },
+                        {
+                            "id": "xilsu0fb",
+                            "name": "input",
+                            "type": "inner-text",
+                            "class": "map-inner-text",
+                            "placeholder": "Type your message",
+                            "style": {
+                                "padding": "0.5rem",
+                                "fontSize": "16px",
+                                "lineHeight": 0.7,
+                                "letterSpacing": "1px",
+                                "background": "transparent",
+                                "color": "#7E2D96",
+                                "fontFamily": "inherit",
+                                "textDecoration": "inherit",
+                                "fontStyle": "inherit",
+                                "textAlign": "center",
+                                "width": "94%",
+                                "border": "none",
+                                "borderBottom": "1px solid #6c749055",
+                                "maxWidth": "330px"
+                            }
+                        },
+                        {
+                            "id": "dlsgvu26",
+                            "name": "link",
+                            "type": "inner-text",
+                            "txt": "Send",
+                            "class": "map-inner-text",
+                            "placeholder": "Type your message",
+                            "style": {
+                                "display": "block",
+                                "padding": "0.5rem",
+                                "fontSize": "24px",
+                                "lineHeight": 1,
+                                "letterSpacing": "2px",
+                                "background": "#66b1ff",
+                                "color": "rgb(21, 28, 51)",
+                                "fontFamily": "inherit",
+                                "textDecoration": "inherit",
+                                "fontStyle": "inherit",
+                                "textAlign": "center",
+                                "width": "94%",
+                                "margin": "1rem",
+                                "maxWidth": "330px",
+                                "borderRadius": "20px",
+                                "outline": "none"
+                            }
+                        },
+                        {
+                            "id": "fgbgri16",
+                            "name": "div",
+                            "type": "inner-div",
+                            "class": "inner-div flex column justify-center align-center",
+                            "style": {
+                                "background": "transparent",
+                                "borderRadius": "0px",
+                                "height": "100%",
+                                "width": "100%"
+                            },
+                            "children": [{
+                                    "id": "jh7vwbr2",
+                                    "name": "txt",
+                                    "type": "inner-text",
+                                    "class": "map-inner-text",
+                                    "txt": "contact@youremail.com",
+                                    "style": {
+                                        "fontSize": "18px",
+                                        "lineHeight": 0.7,
+                                        "letterSpacing": "4px",
+                                        "background": "inherit",
+                                        "color": "#6c7490",
+                                        "fontFamily": "inherit",
+                                        "textDecoration": "inherit",
+                                        "fontStyle": "inherit",
+                                        "textAlign": "center",
+                                        "margin-block-end": "0.75rem"
+                                    }
+                                },
+                                {
+                                    "id": "43f7oqzt",
+                                    "name": "txt",
+                                    "type": "inner-text",
+                                    "class": "map-inner-text",
+                                    "txt": "Phone: +972-666-6666",
+                                    "style": {
+                                        "fontSize": "20px",
+                                        "lineHeight": 0.7,
+                                        "letterSpacing": "1px",
+                                        "background": "inherit",
+                                        "color": "#6c7490",
+                                        "fontFamily": "inherit",
+                                        "textDecoration": "inherit",
+                                        "fontStyle": "inherit",
+                                        "textAlign": "center",
+                                        "margin-block-end": "0.75rem"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "2tlltbqt",
+                    "name": "google-map",
+                    "type": "map",
+                    "class": "google-map none-drag-area-selector",
+                    "style": {
+                        "background": "transparent",
+                        "borderRadius": "2px",
+                        "height": "100%",
+                        "width": "100%"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "0wm02wp0",
+            "name": "section",
+            "type": "map",
+            "title": "Contact Form Right",
+            "class": "map-section flex space-around align-center",
+            "thumbnail": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0",
+            "style": {
+                "background": "url(https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0) center center / cover no-repeat",
+                "borderRadius": "0px",
+                "height": "500px"
+            },
+            "children": [{
+                    "id": "fn49f9l5",
+                    "name": "google-map",
+                    "type": "map",
+                    "class": "google-map none-drag-area-selector",
+                    "style": {
+                        "background": "transparent",
+                        "borderRadius": "2px",
+                        "height": "100%",
+                        "width": "100%"
+                    }
+                },
+                {
+                    "id": "6bsy8q1x",
+                    "name": "div",
+                    "type": "inner-div",
+                    "class": "inner-div flex column justify-center align-center",
+                    "style": {
+                        "background": "rgb(21, 28, 51)",
+                        "borderRadius": "0px",
+                        "height": "100%",
+                        "width": "100%",
+                        "padding": "2.5rem 1rem 1rem"
+                    },
+                    "children": [{
+                            "id": "us0r58am",
+                            "name": "txt",
+                            "type": "inner-text",
+                            "class": "map-inner-text",
+                            "txt": "CONTACT US",
+                            "style": {
+                                "fontSize": "24px",
+                                "lineHeight": 1,
+                                "letterSpacing": "2px",
+                                "background": "inherit",
+                                "color": "rgb(212,212,212)",
+                                "fontFamily": "inherit",
+                                "textDecoration": "inherit",
+                                "fontStyle": "inherit",
+                                "textAlign": "center",
+                                "margin-block-end": "0.5rem"
+                            }
+                        },
+                        {
+                            "id": "taklj0f8",
+                            "name": "txt",
+                            "type": "inner-text",
+                            "class": "map-inner-text",
+                            "txt": "We are always here to help out whenever we can :)",
+                            "style": {
+                                "fontSize": "14px",
+                                "lineHeight": 0.8,
+                                "letterSpacing": "0px",
+                                "background": "inherit",
+                                "color": "#c5c5c5",
+                                "fontFamily": "inherit",
+                                "textDecoration": "inherit",
+                                "fontStyle": "inherit",
+                                "textAlign": "center",
+                                "margin-block-end": "2rem"
+                            }
+                        },
+                        {
+                            "id": "fsjejn2v",
+                            "name": "input",
+                            "type": "inner-input",
+                            "class": "map-inner-input",
+                            "placeholder": "Name",
+                            "style": {
+                                "padding": "0.5rem",
+                                "lineHeight": 0.8,
+                                "background": "#1c274a",
+                                "color": "#6c7490",
+                                "fontFamily": "inherit",
+                                "fontSize": "18px",
+                                "borderRadius": "20px",
+                                "margin": "0 0 1rem",
+                                "width": "94%",
+                                "outline": "none",
+                                "border": "none",
+                                "maxWidth": "330px"
+                            }
+                        },
+                        {
+                            "id": "97sfk9c4",
+                            "name": "input",
+                            "type": "inner-input",
+                            "class": "map-inner-input",
+                            "placeholder": "Email",
+                            "style": {
+                                "padding": "0.5rem",
+                                "lineHeight": 0.8,
+                                "background": "#1c274a",
+                                "color": "#6c7490",
+                                "fontFamily": "inherit",
+                                "fontSize": "18px",
+                                "borderRadius": "20px",
+                                "margin": "0 0 1rem",
+                                "width": "94%",
+                                "outline": "none",
+                                "border": "none",
+                                "maxWidth": "330px"
+                            }
+                        },
+                        {
+                            "id": "403yoofu",
+                            "name": "input",
+                            "type": "inner-input",
+                            "class": "map-inner-input",
+                            "placeholder": "Phone",
+                            "style": {
+                                "padding": "0.5rem",
+                                "lineHeight": 0.8,
+                                "background": "#1c274a",
+                                "color": "#6c7490",
+                                "fontFamily": "inherit",
+                                "fontSize": "18px",
+                                "borderRadius": "20px",
+                                "margin": "0 0 1.5rem",
+                                "width": "94%",
+                                "outline": "none",
+                                "border": "none",
+                                "maxWidth": "330px"
+                            }
+                        },
+                        {
+                            "id": "2atnxd83",
+                            "name": "input",
+                            "type": "inner-text",
+                            "class": "map-inner-text",
+                            "placeholder": "Type your message",
+                            "style": {
+                                "padding": "0.5rem",
+                                "fontSize": "16px",
+                                "lineHeight": 0.7,
+                                "letterSpacing": "1px",
+                                "background": "transparent",
+                                "color": "#7E2D96",
+                                "fontFamily": "inherit",
+                                "textDecoration": "inherit",
+                                "fontStyle": "inherit",
+                                "textAlign": "center",
+                                "width": "94%",
+                                "border": "none",
+                                "borderBottom": "1px solid #6c749055",
+                                "maxWidth": "330px"
+                            }
+                        },
+                        {
+                            "id": "oonhhv5x",
+                            "name": "link",
+                            "type": "inner-text",
+                            "txt": "Send",
+                            "class": "map-inner-text",
+                            "placeholder": "Type your message",
+                            "style": {
+                                "display": "block",
+                                "padding": "0.5rem",
+                                "fontSize": "24px",
+                                "lineHeight": 1,
+                                "letterSpacing": "2px",
+                                "background": "#66b1ff",
+                                "color": "rgb(21, 28, 51)",
+                                "fontFamily": "inherit",
+                                "textDecoration": "inherit",
+                                "fontStyle": "inherit",
+                                "textAlign": "center",
+                                "width": "94%",
+                                "margin": "1rem",
+                                "maxWidth": "330px",
+                                "borderRadius": "20px",
+                                "outline": "none"
+                            }
+                        },
+                        {
+                            "id": "qkta7bts",
+                            "name": "div",
+                            "type": "inner-div",
+                            "class": "inner-div flex column justify-center align-center",
+                            "style": {
+                                "background": "transparent",
+                                "borderRadius": "0px",
+                                "height": "100%",
+                                "width": "100%"
+                            },
+                            "children": [{
+                                    "id": "4jr17609",
+                                    "name": "txt",
+                                    "type": "inner-text",
+                                    "class": "map-inner-text",
+                                    "txt": "contact@youremail.com",
+                                    "style": {
+                                        "fontSize": "18px",
+                                        "lineHeight": 0.7,
+                                        "letterSpacing": "4px",
+                                        "background": "inherit",
+                                        "color": "#6c7490",
+                                        "fontFamily": "inherit",
+                                        "textDecoration": "inherit",
+                                        "fontStyle": "inherit",
+                                        "textAlign": "center",
+                                        "margin-block-end": "0.75rem"
+                                    }
+                                },
+                                {
+                                    "id": "zi251v0j",
+                                    "name": "txt",
+                                    "type": "inner-text",
+                                    "class": "map-inner-text",
+                                    "txt": "Phone: +972-666-6666",
+                                    "style": {
+                                        "fontSize": "20px",
+                                        "lineHeight": 0.7,
+                                        "letterSpacing": "1px",
+                                        "background": "inherit",
+                                        "color": "#6c7490",
+                                        "fontFamily": "inherit",
+                                        "textDecoration": "inherit",
+                                        "fontStyle": "inherit",
+                                        "textAlign": "center",
+                                        "margin-block-end": "0.75rem"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "x7lh9wjn",
+            "name": "section",
+            "type": "gallery",
+            "class": "gallery flex",
+            "title": "Gaming Gallery",
+            "thumbnail": "https://imagizer.imageshack.com/img922/3412/094zQy.png",
+            "style": {
+                "background": "",
+                "borderRadius": "0px",
+                "height": "35vw",
+                "width": "100%"
+            },
+            "children": [{
+                    "id": "yb3wyyyj",
+                    "name": "div",
+                    "type": "gallery",
+                    "class": "",
+                    "imgUrl": "https://i.pinimg.com/originals/ce/51/f6/ce51f6e88f1a81dfb5d5621f7ac56762.jpg",
+                    "style": {
+                        "borderRadius": "0px",
+                        "width": "100%",
+                        "background": "url(https://i.pinimg.com/originals/ce/51/f6/ce51f6e88f1a81dfb5d5621f7ac56762.jpg) center center / cover no-repeat scroll"
+                    }
+                },
+                {
+                    "id": "0csr4pza",
+                    "name": "div",
+                    "type": "gallery",
+                    "class": "",
+                    "imgUrl": "https://s2.best-wallpaper.net/wallpaper/iphone/1712/Tekken-7-Fated-Retribution_iphone_1080x1920.jpg",
+                    "style": {
+                        "borderRadius": "0px",
+                        "background": "url(https://s2.best-wallpaper.net/wallpaper/iphone/1712/Tekken-7-Fated-Retribution_iphone_1080x1920.jpg) center center / cover no-repeat scroll",
+                        "width": "100%"
+                    }
+                },
+                {
+                    "id": "vb6a9dkt",
+                    "name": "div",
+                    "type": "gallery",
+                    "class": "",
+                    "imgUrl": "https://i.pinimg.com/originals/a8/df/a0/a8dfa0e9d3c70be9bc8ac312245823d0.jpg",
+                    "style": {
+                        "borderRadius": "0px",
+                        "width": "100%",
+                        "background": "url(https://i.pinimg.com/originals/a8/df/a0/a8dfa0e9d3c70be9bc8ac312245823d0.jpg) center center / cover no-repeat scroll"
+                    }
+                }
+            ]
+        }
+    ]
+}

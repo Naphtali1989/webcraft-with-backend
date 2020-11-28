@@ -4,7 +4,7 @@ export const utilService = {
 }
 
 function makeId() {
-    return Math.random().toString(36).substring(2, 10)
+    return Math.random().toString(36).substring(2, 12)
 }
 
 function applyDrag(cmps, dragResult) {

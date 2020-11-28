@@ -1,17 +1,18 @@
-[{
-    "id": "Math.random().toString(36).substring(2, 10)",
+{
     "type": "header",
+    "thumbnail": "https://imagizer.imageshack.com/img924/5872/s3ba6B.png",
+    "title": "Nav Bar",
     "name": "section",
-    "class": "flex align - center ",
+    "class": "flex align-center",
     "style": {
-        "minHeight": "7.25 rem",
-        "padding": "2 rem 2 rem ",
-        "background": "beige ",
+        "minHeight": "7.25rem",
+        "padding": "2rem 2rem",
+        "background": "beige",
         "width": "100%",
         "borderRadius": 0
     },
     "children": [{
-            "id": "Math.random().toString(36).substring(2, 10)",
+            "_id": "6plxjiq3",
             "name": "txt",
             "class": "logo",
             "txt": "Elena Joy",
@@ -19,26 +20,26 @@
                 "lineHeight": "1.5",
                 "backgroundColor": "",
                 "color": "black",
-                "flex": "1 1 20 rem",
+                "flex": "1 1 20rem",
                 "fontFamily": "Vibes",
-                "fontSize": "1.5 rem",
+                "fontSize": "24px",
                 "textAlign": "",
                 "fontStyle": "",
                 "textDecoration": "",
-                "letterSpacing": "",
+                "letterSpacing": "1"
             }
         },
         {
-            "id": "Math.random().toString(36).substring(2, 10)",
+            "_id": "dtsm0wkj",
             "name": "div",
-            "class": "nav-links flex  clean-list space-around",
+            "class": "nav-links flex clean-list space-around",
             "style": {
                 "background": "",
                 "width": "40%",
-                "borderRadius": "0"
+                "borderRadius": 0
             },
             "children": [{
-                    "id": "Math.random().toString(36).substring(2, 10)",
+                    "_id": "7fzim944",
                     "name": "link",
                     "txt": "home",
                     "style": {
@@ -46,18 +47,18 @@
                         "color": "black",
                         "fontWeight": "700",
                         "paddingInlineStart": "2rem",
-                        "fontSize": "1rem",
-                        "lineHeight": "",
-                        "letterSpacing": "",
+                        "fontSize": "16px",
+                        "lineHeight": "2",
+                        "letterSpacing": "1",
                         "backgroundColor": "",
                         "textDecoration": "",
                         "fontStyle": "",
-                        "textAlign": "",
+                        "textAlign": ""
                     },
                     "href": "#home"
                 },
                 {
-                    "id": "Math.random().toString(36).substring(2, 10)",
+                    "_id": "8ckb11fn",
                     "name": "link",
                     "txt": "work",
                     "style": {
@@ -65,19 +66,18 @@
                         "color": "black",
                         "fontWeight": "700",
                         "paddingInlineStart": "2rem",
-                        "fontSize": "1rem",
-                        "lineHeight": "",
-                        "letterSpacing": "",
+                        "fontSize": "16px",
+                        "lineHeight": "2",
+                        "letterSpacing": "1",
                         "backgroundColor": "",
                         "textDecoration": "",
                         "fontStyle": "",
-                        "textAlign": "",
+                        "textAlign": ""
                     },
-
                     "href": "#work"
                 },
                 {
-                    "id": "Math.random().toString(36).substring(2, 10)",
+                    "_id": "3np0bh6w",
                     "name": "link",
                     "txt": "contact",
                     "style": {
@@ -85,17 +85,17 @@
                         "color": "black",
                         "fontWeight": "700",
                         "paddingInlineStart": "2rem",
-                        "fontSize": "1rem",
-                        "lineHeight": "",
-                        "letterSpacing": "",
+                        "fontSize": "16px",
+                        "lineHeight": "2",
+                        "letterSpacing": "1",
                         "backgroundColor": "",
                         "textDecoration": "",
                         "fontStyle": "",
-                        "textAlign": "",
+                        "textAlign": ""
                     },
                     "href": "#contact"
                 }
             ]
         }
     ]
-}]
+}
