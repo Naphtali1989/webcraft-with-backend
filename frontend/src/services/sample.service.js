@@ -2,7 +2,6 @@ import httpService from './http.service.js';
 
 function query() {
     const samples = httpService.get('sample');
-    // console.log('samples:', samples);
     return samples;
 }
 
