@@ -1012,7 +1012,7 @@ export const wapStore = {
                                     "fontSize": "24px",
                                     "lineHeight": 1,
                                     "letterSpacing": "2px",
-                                    "background": "rgb(102 177 230)",
+                                    "background": "rgb(21, 28, 51)",
                                     "color": "#7E2D96",
                                     "fontFamily": "inherit",
                                     "textDecoration": "inherit",
