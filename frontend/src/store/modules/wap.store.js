@@ -109,7 +109,7 @@ export const wapStore = {
                 name: "section",
                 type: "cards",
                 title: "Photography",
-                thumbnail: "https://imagizer.imageshack.com/img922/1905/up2tR2.png",
+                thumbnail: "https://imagizer.imageshack.com/img924/9650/3eU0qi.png",
                 class: "flex",
                 style: {
                     maxHeight: "500px",
@@ -863,7 +863,7 @@ export const wapStore = {
                 "type": "map",
                 "title": "Contact Form Left",
                 "class": "map-section flex space-around align-center",
-                "thumbnail": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0",
+                "thumbnail": "https://imageshack.com/i/poBxDQ3sp",
                 "style": {
                     "background": "url(https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0) center center / cover no-repeat",
                     "borderRadius": "0px",
