@@ -80,19 +80,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.smooth-dnd-container {
-    position: relative;
-    min-height: 850px;
-    min-width: 250px;
-}
-.card-ghost {
-    transition: transform 0.18s ease;
-    transform: rotateZ(5deg);
-    // transform: scale(0.9);
-}
-.card-ghost-drop {
-    transition: transform 0.18s ease-in-out;
-    transform: rotateZ(0);
-    // transform: scale(1);
-}
+
 </style>
