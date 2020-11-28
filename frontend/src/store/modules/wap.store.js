@@ -1,15 +1,12 @@
 import { wapService } from '@/services/wap.service';
+import { sampleService } from '@/services/sample.service';
 
 export const wapStore = {
     state: {
         pickedSample: null,
         samples: [],
-        wap: null
     },
     getters: {
-        getWap(state) {
-            return state.wap.cmps
-        },
         sampleList(state) {
             return state.samples.map(sample => {
                 const { _id, type, thumbnail, title } = sample
@@ -32,22 +29,28 @@ export const wapStore = {
         saveCurrWap(state, { cmps }) {
             state.currWap = cmps
         },
-        loadWap(state, { wap }) {
-            state.wap = wap;
+        setSamples(state, { samples }) {
+            state.samples = samples
         }
     },
     actions: {
+        async loadSamples({ commit }) {
+            const samples = await sampleService.query();
+            console.log('Samples from db:', samples);
+            commit({ type: 'setSamples', samples })
+        },
         async loadWap({ commit }, { _id }) {
             console.log('id:', _id);
             const wap = await wapService.getById(_id);
             console.log('loading wap from backend:', wap);
-            commit({ type: 'loadWap', wap })
+            return wap;
+            // commit({ type: 'loadWap', wap })
         },
-        async saveWap({ commit, state }, { wap }) {
+        async saveWap({ commit }, { wap }) {
             // cmps
-            console.log('wap to save:', wap);
-            await wapService.save(wap);
-            // commit({ type: 'saveCurrWap', wap })
+            console.log('wap to save in store:', wap);
+            const savedWap = await wapService.save(wap);
+            return savedWap
         },
         pickedSample({ commit, state }, { _id }) {
             const sample = state.samples.find(sample => sample._id === _id);

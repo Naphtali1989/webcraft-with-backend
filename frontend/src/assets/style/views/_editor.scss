@@ -58,11 +58,12 @@
             justify-content: center;
             &:after {
                 content: 'Place Section Here';
-                font-size: 50px;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
+                font-size: 65px;
+                padding: 1.5rem;
+                // position: absolute;
+                // left: 50%;
+                // top: 50%;
+                // transform: translate(-50%, -50%);
             }
         }
         

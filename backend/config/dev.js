@@ -1,3 +1,3 @@
 module.exports = {
-  "dbURL": "mongodb://localhost:27017",
+    "dbURL": "mongodb+srv://admin:admin@webcraft.7g8ep.mongodb.net/webcraft_db?retryWrites=true&w=majority",
 }

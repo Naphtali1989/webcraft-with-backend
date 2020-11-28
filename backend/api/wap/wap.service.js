@@ -37,7 +37,7 @@ async function add(wap) {
     console.log('collection?:', collection);
     try {
         wap.createdAt = Date.now();
-        await collection.insertOne({ wap });
+        await collection.insertOne(wap);
         console.log('after adding.........');
         return wap;
     } catch (err) {

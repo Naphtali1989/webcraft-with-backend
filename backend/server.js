@@ -34,10 +34,12 @@ if (process.env.NODE_ENV === 'production') {
 const authRoutes = require('./api/auth/auth.routes');
 const userRoutes = require('./api/user/user.routes');
 const wapRoutes = require('./api/wap/wap.routes');
+const sampleRoutes = require('./api/sample/sample.routes');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/wap', wapRoutes);
+app.use('/api/sample', sampleRoutes);
 
 
 // app.get('/**', (req, res) => {
