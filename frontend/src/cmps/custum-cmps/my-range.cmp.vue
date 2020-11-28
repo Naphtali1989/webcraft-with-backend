@@ -1,6 +1,11 @@
 <template>
     <div class="block custom-range">
-        <el-slider :max="options.max" :min="options.min" v-model="value" @input="emitChange"></el-slider>
+        <el-slider
+            :max="options.max"
+            :min="options.min"
+            v-model="value"
+            @input="emitChange"
+        ></el-slider>
     </div>
 </template>
 
@@ -17,7 +22,7 @@ export default {
 
     methods: {
         emitChange() {
-            this.$emit('input',this.value)
+            this.$emit('input', this.value)
         }
     }
 }

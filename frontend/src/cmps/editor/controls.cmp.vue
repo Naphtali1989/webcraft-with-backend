@@ -12,19 +12,19 @@
 export default {
     name: 'controls',
     props: {
-        id: {
+        _id: {
             type: String
         }
     },
     methods: {
         onCopy() {
-            this.$emit('copy',this.id)
+            this.$emit('copy',this._id)
         },
         onDelete() {
-            this.$emit('delete',this.id)
+            this.$emit('delete',this._id)
         },
         onMoveSection(diff) {
-            this.$emit('moveSection',this.id,diff)
+            this.$emit('moveSection',this._id,diff)
         }
     }
 }

@@ -3,9 +3,9 @@
         <!-- Saving a spot to the user that there is no component to edit -->
         <h1 class="text-center" v-if="cmpToEdit">{{ editorName }} editor</h1>
         <component
+            v-if="cmpToEdit"
             :is="currEditorName"
             :cmpToEdit="cmpToEdit"
-            v-if="cmpToEdit"
             @updated="emitUpdated"
             @uploading="emitUploadImg"
         />

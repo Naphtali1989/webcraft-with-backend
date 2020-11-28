@@ -1,4 +1,5 @@
 {
+    "id": "ey39kbw2",
     "type": "footer",
     "thumbnail": "https://imagizer.imageshack.com/img922/9372/4iyvDo.png",
     "title": "Footer",
@@ -9,10 +10,10 @@
         "color": "white",
         "background": "lightblue",
         "backgroundColor": "lightblue",
-        "borderRadius": "0px"
+        "borderRadius": 0
     },
     "children": [{
-            "_id": "4mfgn3cb",
+            "id": "bkyjf994",
             "name": "txt",
             "class": "logo",
             "txt": "Elena Joy",
@@ -20,7 +21,7 @@
                 "lineHeight": "1.5",
                 "backgroundColor": "transparent",
                 "color": "white",
-                "fontFamily": "Ruhal",
+                "fontFamily": "Ruhl",
                 "fontSize": "30px",
                 "textAlign": "inherit",
                 "fontStyle": "normal",
@@ -30,7 +31,7 @@
             }
         },
         {
-            "_id": "r24imq3m",
+            "id": "c7xpjy7n",
             "name": "div",
             "class": "clean-list flex space-between align-center",
             "style": {
@@ -39,13 +40,13 @@
                 "borderRadius": 0
             },
             "children": [{
-                    "_id": "03bitt8p",
+                    "id": "5y4pmypo",
                     "name": "link",
                     "style": {
                         "height": "50px"
                     },
                     "children": [{
-                        "_id": "jilo2k00",
+                        "id": "l9sz6lc2",
                         "name": "i",
                         "class": "fab fa-twitter",
                         "style": {
@@ -55,13 +56,13 @@
                     }]
                 },
                 {
-                    "_id": "muv2u1mx",
+                    "id": "affze1og",
                     "name": "link",
                     "style": {
                         "height": "50px"
                     },
                     "children": [{
-                        "_id": "d9e33wsj",
+                        "id": "ajwffgch",
                         "name": "i",
                         "class": "fab fa-instagram",
                         "style": {
@@ -71,13 +72,13 @@
                     }]
                 },
                 {
-                    "_id": "fbbi6wyw",
+                    "id": "88xwallk",
                     "name": "link",
                     "style": {
                         "height": "50px"
                     },
                     "children": [{
-                        "_id": "yb2shyoj",
+                        "id": "fe0r1tgm",
                         "name": "i",
                         "class": "fab fa-facebook",
                         "style": {

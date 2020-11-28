@@ -2,24 +2,26 @@
     <section :class="emptyWorkspace" class="editor-workspace flex column">
         <Container
             class="dnd-container"
+            group-name="editor"
             drag-class="card-ghost"
             drop-class="card-ghost-drop"
             :drop-placeholder="dropPlaceholderOptions"
             :get-child-payload="getChildPayload"
-            group-name="editor"
             @drop="onDrop"
         >
-            <Draggable v-for="cmp in cmps" :key="cmp.id">
-                <wap-worker
-                    :cmp="cmp"
-                    @clicked="emitUserChoice"
-                    @updatedTxt="emitUpdateTxt"
-                    @copy="emitCopy"
-                    @delete="emitDelete"
-                    @moveSection="emitMoveSection"
-                >
-                </wap-worker>
-            </Draggable>
+            <template v-if="cmps">
+                <Draggable v-for="cmp in cmps" :key="cmp._id">
+                    <wap-worker
+                        :cmp="cmp"
+                        @copy="emitCopy"
+                        @delete="emitDelete"
+                        @clicked="emitUserChoice"
+                        @updatedTxt="emitUpdateTxt"
+                        @moveSection="emitMoveSection"
+                    >
+                    </wap-worker>
+                </Draggable>
+            </template>
         </Container>
     </section>
 </template>
@@ -52,7 +54,7 @@ export default {
         onDrop(dropResult) {
             //if there is no removed index
             if (!dropResult.removedIndex && dropResult.removedIndex === null) {
-                this.$emit('droppedSample', dropResult.payload.id, dropResult.addedIndex)
+                this.$emit('droppedSample', dropResult.payload._id, dropResult.addedIndex)
             } else {
                 this.$emit('droppedSection', dropResult)
             }
@@ -60,29 +62,27 @@ export default {
         getChildPayload(index) {
             return this.cmps[index];
         },
-        emitUserChoice(id) {
-            this.$emit('clicked', id);
+        emitUserChoice(_id) {
+            this.$emit('clicked', _id);
         },
         emitUpdateTxt(txtValue) {
             this.$emit('updatedTxt', txtValue);
         },
-        emitCopy(id) {
-            this.$emit('copy', id)
+        emitCopy(_id) {
+            this.$emit('copy', _id)
         },
-        emitDelete(id) {
-            this.$emit('delete', id)
+        emitDelete(_id) {
+            this.$emit('delete', _id)
         },
-        emitMoveSection(id, diff) {
-            this.$emit('moveSection', id, diff)
+        emitMoveSection(_id, diff) {
+            this.$emit('moveSection', _id, diff)
         }
     },
     computed: {
         emptyWorkspace() {
-            return { "empty-workspace": !this.cmps.length }
+            return { "empty-workspace": !this.cmps || !this.cmps.length }
         }
     }
 }
 </script>
 
-<style lang="scss" scoped>
-</style>

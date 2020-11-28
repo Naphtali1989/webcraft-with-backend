@@ -4,8 +4,8 @@
             <h3 class="wap-title">{{ wap.title }}</h3>
             <img :src="wap.imgUrl" />
             <div class="wap-prev-controls flex place-center">
-                <router-link><i class="fas fa-eye"></i></router-link>
-                <router-link><i class="fas fa-pen"></i></router-link>
+                <router-link :to="`/wap/${wap._id}`"><i class="fas fa-eye"></i></router-link>
+                <router-link :to="`/editor/${wap._id}`"><i class="fas fa-pen"></i></router-link>
             </div>
         </div>
     </section>
@@ -27,5 +27,3 @@ export default {
 }
 </script>
 
-<style>
-</style>

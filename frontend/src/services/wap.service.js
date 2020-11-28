@@ -1,4 +1,3 @@
-import axios from 'axios'
 import httpService from './http.service.js';
 
 
@@ -7,10 +6,6 @@ function query() {
     return waps;
 }
 
-
-// function buildQuery({ name, type, sortBy, inStock }) {
-//     return `toy?name=${name}&type=${type}&sortBy=${sortBy}&inStock=${inStock}`;
-// }
 
 function getById(wapId) {
     return httpService.get(`wap/${wapId}`)
@@ -23,20 +18,18 @@ function remove(wapId) {
 
 function save(wap) {
     console.log('getting wap to save :', wap);
-    // delete wap.id
     const saveWap = wap._id ? _update(wap.wap) : _add(wap);
-    return saveWap
+    return saveWap;
 }
 
 
 function _add(wap) {
-    console.log('getting to add mother fucker');
-    return httpService.post(`wap`, wap)
+    return httpService.post(`wap`, wap);
 }
 
 function _update(wap) {
     console.log('getting to update');
-    return httpService.put(`wap/${wap._id}`, wap)
+    return httpService.put(`wap/${wap._id}`, wap);
 }
 
 
@@ -45,7 +38,7 @@ export const wapService = {
     getById,
     save,
     remove
-}
+};
 
 
 // function getWap(userWap) {
@@ -79,4 +72,9 @@ export const wapService = {
 //     if (attributes.type) node.type = attributes.type.value;
 //     if (attributes.href) node.href = attributes.href.value;
 //     return node;
+// }
+
+
+// function buildQuery({ name, type, sortBy, inStock }) {
+//     return `toy?name=${name}&type=${type}&sortBy=${sortBy}&inStock=${inStock}`;
 // }

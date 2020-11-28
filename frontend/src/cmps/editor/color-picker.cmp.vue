@@ -1,11 +1,32 @@
 <template>
     <section class="color-picker-container">
-        <span class="color-circle transparent" :class="colorSelected('transparent')" @click="onSelectColor('transparent')">
+        <span
+            class="color-circle transparent"
+            :class="colorSelected('transparent')"
+            @click="onSelectColor('transparent')"
+        >
             <i class="far fa-times-circle fa-2x"></i>
         </span>
-        <span class="color-circle white" :class="colorSelected('white')" :style="{ backgroundColor: 'white' }" @click="onSelectColor('white')"></span>
-        <span class="color-circle" :class="colorSelected('black')" :style="{ backgroundColor: 'black' }" @click="onSelectColor('black')"></span>
-        <span class="color-circle" v-for="(color, idx) in currColorsPage" :key="idx" :style="{ backgroundColor: color }" :class="colorSelected(color)" @click="onSelectColor(color)">
+        <span
+            class="color-circle white"
+            :class="colorSelected('white')"
+            :style="{ backgroundColor: 'white' }"
+            @click="onSelectColor('white')"
+        ></span>
+        <span
+            class="color-circle"
+            :class="colorSelected('black')"
+            :style="{ backgroundColor: 'black' }"
+            @click="onSelectColor('black')"
+        ></span>
+        <span
+            class="color-circle"
+            v-for="(color, idx) in currColorsPage"
+            :key="idx"
+            :style="{ backgroundColor: color }"
+            :class="colorSelected(color)"
+            @click="onSelectColor(color)"
+        >
         </span>
         <span @click="showMore" class="color-circle next">
             <i class="far fa-arrow-alt-circle-right fa-2x"></i>
@@ -14,8 +35,8 @@
 </template>
 
 <script>
-const colors=require('nice-color-palettes/100');
-const _=require('lodash');
+const colors = require('nice-color-palettes/100');
+const _ = require('lodash');
 export default {
     name: "color-picker",
     data() {
@@ -28,26 +49,26 @@ export default {
     },
     methods: {
         colorSelected(color) {
-            return { selected: this.selectedColor===color }
+            return { selected: this.selectedColor === color }
         },
         onSelectColor(color) {
-            this.selectedColor=color
-            this.$emit('changeColor',color);
+            this.selectedColor = color
+            this.$emit('changeColor', color);
         },
         showMore() {
-            if(this.pageNum*this.pageSize>=this.colors.length-this.pageSize) {
-                this.pageNum=0;
+            if (this.pageNum * this.pageSize >= this.colors.length - this.pageSize) {
+                this.pageNum = 0;
             }
             else {
-                this.pageNum+=1;
+                this.pageNum += 1;
             }
         }
     },
     computed: {
         currColorsPage() {
-            const fromIdx=this.pageNum*this.pageSize;
-            const endIdx=fromIdx+this.pageSize;
-            return this.colors.slice(fromIdx,endIdx);
+            const fromIdx = this.pageNum * this.pageSize;
+            const endIdx = fromIdx + this.pageSize;
+            return this.colors.slice(fromIdx, endIdx);
         }
 
 

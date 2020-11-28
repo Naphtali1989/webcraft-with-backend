@@ -1,7 +1,12 @@
 <template>
-    <div class="sample-list ">
-        <Container behaviour="copy" group-name="editor" :get-child-payload="getChildPayload" :get-ghost-parent="getGhostParent">
-            <Draggable v-for="sample in samples" :key="sample.id">
+    <div class="sample-list">
+        <Container
+            behaviour="copy"
+            group-name="editor"
+            :get-child-payload="getChildPayload"
+            :get-ghost-parent="getGhostParent"
+        >
+            <Draggable v-for="sample in samples" :key="sample._id">
                 <div class="sample-preview">
                     <h3 class="sample-title">{{ sample.title }}</h3>
                     <img :src="sample.thumbnail" />
@@ -12,7 +17,7 @@
 </template>
 
 <script>
-import { Container,Draggable } from 'vue-smooth-dnd';
+import { Container, Draggable } from 'vue-smooth-dnd';
 export default {
     name: 'sample-list',
     props: {
@@ -22,7 +27,7 @@ export default {
     },
     methods: {
         onDrop(dropResult) {
-            this.$emit('droppedSample',dropResult)
+            this.$emit('droppedSample', dropResult)
         },
         getChildPayload(index) {
             return this.samples[index];
@@ -40,5 +45,3 @@ export default {
 
 </script>
 
-<style>
-</style>

@@ -2,18 +2,18 @@
     <component
         class="editable"
         :is="name"
+        :src="urlSrc"
         :style="cmp.style"
         :class="cmp.class"
-        :src="urlSrc"
-        @click.stop.prevent="onClick(cmp.id)"
-        @clicked="onClick"
-        @blur="updateTxt"
         :contenteditable="editable"
         :placeholder="cmp.placeholder"
+        @blur="updateTxt"
+        @clicked="onClick"
+        @click.stop.prevent="onClick(cmp._id)"
     >
         <slot v-if="cmp.name === 'img' || cmp.name === 'section'">
             <controls
-                :id="cmp.id"
+                :_id="cmp._id"
                 @copy="emitCopy"
                 @delete="emitDelete"
                 @moveSection="emitMoveSection"
@@ -23,7 +23,7 @@
         <template v-if="cmp.children">
             <wap-worker
                 v-for="child in cmp.children"
-                :key="child.id"
+                :key="child._id"
                 :cmp="child"
                 @clicked="onClick"
                 @updatedTxt="emitUpdateTxt"
@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import googleMap from '@/cmps/samples/google-map.cmp.vue';
 import heroSample from "@/cmps/samples/hero-sample.cmp.vue";
+import googleMap from '@/cmps/samples/google-map.cmp.vue';
 import controls from '@/cmps/editor/controls.cmp.vue';
 export default {
     name: 'wap-worker',
@@ -64,8 +64,8 @@ export default {
         },
         convertedUrl() {
             if (this.cmp.vidUrl.includes("?v=")) {
-                const id = this.cmp.vidUrl.split("?v=")[1];
-                return `https://www.youtube.com/embed/${id}`;
+                const _id = this.cmp.vidUrl.split("?v=")[1];
+                return `https://www.youtube.com/embed/${_id}`;
             }
             return this.cmp.vidUrl
         },
@@ -75,14 +75,14 @@ export default {
         }
     },
     methods: {
-        emitCopy(id) {
-            this.$emit('copy', id)
+        emitCopy(_id) {
+            this.$emit('copy', _id)
         },
-        emitDelete(id) {
-            this.$emit('delete', id)
+        emitDelete(_id) {
+            this.$emit('delete', _id)
         },
-        onClick(id) {
-            this.$emit('clicked', id)
+        onClick(_id) {
+            this.$emit('clicked', _id)
         },
         updateTxt(ev) {
             if (this.cmp.name === 'img') return
@@ -91,8 +91,8 @@ export default {
         emitUpdateTxt(txtValue) {
             this.$emit('updatedTxt', txtValue)
         },
-        emitMoveSection(id, diff) {
-            this.$emit('moveSection', id, diff)
+        emitMoveSection(_id, diff) {
+            this.$emit('moveSection', _id, diff)
         }
     },
     components: {

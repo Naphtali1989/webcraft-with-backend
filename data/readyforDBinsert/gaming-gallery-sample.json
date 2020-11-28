@@ -1,0 +1,50 @@
+{
+    "name": "section",
+    "type": "gallery",
+    "class": "gallery flex",
+    "title": "Gaming Gallery",
+    "thumbnail": "https://imagizer.imageshack.com/img922/3412/094zQy.png",
+    "style": {
+        "background": "",
+        "borderRadius": "0px",
+        "height": "35vw",
+        "width": "100%"
+    },
+    "children": [{
+            "_id": "yb3wyyyj",
+            "name": "div",
+            "type": "gallery",
+            "class": "",
+            "imgUrl": "https://i.pinimg.com/originals/ce/51/f6/ce51f6e88f1a81dfb5d5621f7ac56762.jpg",
+            "style": {
+                "borderRadius": "0px",
+                "width": "100%",
+                "background": "url(https://i.pinimg.com/originals/ce/51/f6/ce51f6e88f1a81dfb5d5621f7ac56762.jpg) center center / cover no-repeat scroll"
+            }
+        },
+        {
+            "_id": "0csr4pza",
+            "name": "div",
+            "type": "gallery",
+            "class": "",
+            "imgUrl": "https://s2.best-wallpaper.net/wallpaper/iphone/1712/Tekken-7-Fated-Retribution_iphone_1080x1920.jpg",
+            "style": {
+                "borderRadius": "0px",
+                "background": "url(https://s2.best-wallpaper.net/wallpaper/iphone/1712/Tekken-7-Fated-Retribution_iphone_1080x1920.jpg) center center / cover no-repeat scroll",
+                "width": "100%"
+            }
+        },
+        {
+            "_id": "vb6a9dkt",
+            "name": "div",
+            "type": "gallery",
+            "class": "",
+            "imgUrl": "https://i.pinimg.com/originals/a8/df/a0/a8dfa0e9d3c70be9bc8ac312245823d0.jpg",
+            "style": {
+                "borderRadius": "0px",
+                "width": "100%",
+                "background": "url(https://i.pinimg.com/originals/a8/df/a0/a8dfa0e9d3c70be9bc8ac312245823d0.jpg) center center / cover no-repeat scroll"
+            }
+        }
+    ]
+}
