@@ -1,7 +1,9 @@
 <template>
     <section class="editors-container">
         <!-- Saving a spot to the user that there is no component to edit -->
-        <h1 class="editor-name text-center" v-if="cmpToEdit">{{ editorName }} editor</h1>
+        <h1 class="editor-name text-center" v-if="cmpToEdit">
+            {{ editorName }} editor
+        </h1>
         <component
             v-if="cmpToEdit"
             :is="currEditorName"
@@ -10,7 +12,7 @@
             @uploading="emitUploadImg"
         />
         <div v-else class="editor-message flex justify-center">
-            <h1 >Please click on an element to edit</h1>
+            <h1>Please click on an element to edit</h1>
         </div>
     </section>
 </template>
@@ -36,7 +38,7 @@ export default {
         },
         editorName() {
             if (this.cmpToEdit.name === 'txt') return 'Text';
-            if( this.cmpToEdit.name === 'link') return 'Link'
+            if (this.cmpToEdit.name === 'link') return 'Link'
             if (this.cmpToEdit.name === 'img') return 'Image';
             if (this.cmpToEdit.name === 'section') return 'Section';
             return this.cmpToEdit.name;
@@ -51,10 +53,10 @@ export default {
         },
     },
     updated() {
-        if (this.cmpToEdit && 
-        (this.cmpToEdit.name === 'txt' ||
-         this.cmpToEdit.name === 'link'|| 
-         this.cmpToEdit.name === 'input')) this.currEditor = 'text'
+        if (this.cmpToEdit &&
+            (this.cmpToEdit.name === 'txt' ||
+                this.cmpToEdit.name === 'link' ||
+                this.cmpToEdit.name === 'input')) this.currEditor = 'text'
         else this.currEditor = 'section'
     },
     components: {

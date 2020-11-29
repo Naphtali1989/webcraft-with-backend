@@ -41,7 +41,9 @@ export default {
     align-items: center;
     transform: translateX(10px);
     &.rotateArrow {
-        transform: rotate(180deg);
+        // transform: rotate(180deg);
+        .arrow {
+            border-color:transparent #909399d6   #909399d6 transparent}
     }
 }
 

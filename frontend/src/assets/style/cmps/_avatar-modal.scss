@@ -1,25 +1,21 @@
 .avatar-modal {
+    background: #fff;
+    position: absolute;
     width: 200px;
     height: 300px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 7px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
-    border: 1px solid #ccc;
-    border-color: rgba(0, 0, 0, .2);
-    position: absolute;
     right: 0.8rem;
     top: 4.2rem;
     z-index: 10000;
-    background: #fff;
-    border-radius: 7px;
-    background: #fff;
     .info,
     .modal-links {
         padding: 1.3rem;
     }
     .info {
+        span,
         h3 {
-            margin-block-start: 5px;
-        }
-        span {
             margin-block-start: 5px;
         }
     }
@@ -28,8 +24,7 @@
         width: 100%;
     }
     .modal-links>* {
-        margin-block-start: 5px;
-        margin-block-end: 5px;
+        margin: 5px 0;
         cursor: pointer;
     }
 }

@@ -8,17 +8,12 @@
 @import './basic/layout';
 @import './basic/helpers';
 @import './basic/buttons';
-//Cmps
+// Cmps:
 @import './cmps/app-header';
 @import './cmps/wap-list';
-@import './cmps/wap-preview';
-@import './cmps/editor';
 @import './cmps/unsplash-search';
-@import './cmps/editor-dashboard';
 @import './cmps/avatar-modal';
-@import './cmps/user-controls';
-@import './cmps/section-editor';
-//Views
+// Views:
 @import './views/editor';
 @import './views/wap-gallery';
 @import './views/home';

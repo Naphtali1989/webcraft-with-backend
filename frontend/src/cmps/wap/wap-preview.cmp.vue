@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="wap-preview">
+        <div class="wap-preview text-center">
             <h3 class="wap-title">{{ wap.title }}</h3>
             <img :src="wap.imgUrl" />
             <div class="wap-prev-controls flex align-center space-around">
