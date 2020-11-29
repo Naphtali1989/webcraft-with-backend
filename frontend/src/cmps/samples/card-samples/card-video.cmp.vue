@@ -22,12 +22,10 @@ export default {
     name: 'card-video',
     data() {
         return {
-            //parent
-            _id: "asdjksdakljsdaklj",
             name: "section",
             type: "video",
             class: "video-card",
-            thumbnail: '',
+            thumbnail: 'https://imagizer.imageshack.com/img922/7981/WgIDFl.png',
             style: {
                 background: "transparent",
                 borderRadius: "0px",
@@ -38,11 +36,10 @@ export default {
                 gridGap: '40px'
             },
             imgUrl: '',
-            //childrens
             children: [
                 {
-                    //card
-                    _id: "lkddsamvcbsduisaf",
+
+                    _id: "xn50tooepx",
                     name: "div",
                     type: "card-div",
                     class: "card flex column align-center text-center",
@@ -54,9 +51,9 @@ export default {
                         borderRadius: '0px',
                         background: "#69D2E7",
                     },
-                    //card header
+
                     children: [{
-                        id: "kdkjsalkljasdljkdsa",
+                        _id: "vnb3tubivs",
                         name: 'div',
                         type: 'header-card-img',
                         imgUrl: '',
@@ -67,30 +64,81 @@ export default {
                             overflow: 'hidden',
                             position: 'relative'
                         },
-
                         children: [{
-                            id: 'dskjlsdkljsdsad',
+                            _id: "vvlb93hww7",
                             name: 'div',
-                            class: 'avatar-div',
+                            class: 'avatar-img',
                             style: {
                                 width: "100%",
                                 top: "50%",
                                 left: "50%",
                                 transform: "translate(-50%, -50%)"
                             },
-                            children: [{
-                                id: "jkxdskljdsakjldas",
-                                name: 'img',
-                                class: 'card-img',
-                                style: {
-                                    display: 'block',
-                                    position: 'relative',
-                                    bottom: '-70px',
-                                    border: "4px solid white"
-                                }
-                            }]
                         }]
-                    }],
+                    },
+                    {
+                        _id: "lwjp5shaov",
+                        name: 'div',
+                        style: {
+                            background: '',
+                            padding: "20px",
+                        },
+                        children: [{
+                            _id: "3llf3wiqii",
+                            name: 'txt',
+                            marginBottom: "20px"
+                        },
+                        {
+                            _id: "4xb16ruz1i",
+                            name: 'div',
+                            class: 'flex align-center',
+                            style: {
+                                alignSelf: 'end',
+                            },
+                            children: [
+                                {
+                                    _id: "odwpathhr2",
+                                    name: 'txt',
+                                    txt: 'lorem ipsum momo pomo',
+                                    style: {
+                                        fontSize: '16px',
+                                        lineHeight: '20px',
+                                        fontWeight: "400px",
+                                        color: "#ecf0f1",
+                                        "letterSpacing": "",
+                                        "textDecoration": "",
+                                        "fontStyle": "",
+                                        "textAlign": "",
+                                        "fontFamily": "carme"
+                                    }
+
+                                },
+                                {
+                                    _id: "lyowt49vlg",
+                                    name: 'txt',
+                                    txt: 'lorem ipsum momo pomo',
+                                    style: {
+                                        marginLeft: 'auto',
+                                        padding: "5px 20px",
+                                        borderRadius: "20px",
+                                        backgroundColor: '#303032',
+                                        fontSize: '16px',
+                                        lineHeight: '20px',
+                                        fontWeight: "400px",
+                                        color: "#ecf0f1",
+                                        "letterSpacing": "",
+                                        "textDecoration": "",
+                                        "fontStyle": "",
+                                        "textAlign": "",
+                                        "fontFamily": "carme"
+                                    }
+                                }
+                            ]
+                        }
+                        ]
+                    }
+                    ],
+
 
                 },
             ]
@@ -99,6 +147,8 @@ export default {
     }
 }
 </script>
+
+
 
 
 <style scope lang="scss">

@@ -9,9 +9,9 @@
         "background": "url(https://wallpaperset.com/w/full/f/4/1/279879.jpg)",
         "backgroundSize": "cover",
         "borderRadius": "0px",
-        "gridTemplateColumns": "repeat(auto-fit, minmax(300px, 1fr))",
+        "gridTemplateColumns": "repeat(auto-fit, minmax(100px, 1fr))",
         "placeItems": "center",
-        "gridGap": "15px"
+        "gridGap": "0.8rem"
     },
     "children": [{
             "_id": "z4dvetr1",
@@ -24,7 +24,8 @@
                 "width": "320px",
                 "height": "380px",
                 "position": "relative",
-                "boxShadow": "0 0 4px"
+                "boxShadow": "0 0 4px",
+                "margin": "1rem"
             },
             "children": [{
                 "_id": "e3vyf2l9",
@@ -143,7 +144,8 @@
                 "width": "320px",
                 "height": "380px",
                 "position": "relative",
-                "boxShadow": "0 0 4px"
+                "boxShadow": "0 0 4px",
+                "margin": "1rem"
             },
             "children": [{
                 "_id": "h7jx5ut4",
@@ -155,6 +157,7 @@
                     "width": "100%",
                     "background": "url(https://wallpapercave.com/wp/wp1099692.jpg)",
                     "backgroundSize": "cover"
+
                 },
                 "children": [{
                         "_id": "hnga5n7z",
@@ -262,7 +265,8 @@
                 "width": "320px",
                 "height": "380px",
                 "position": "relative",
-                "boxShadow": "0 0 4px"
+                "boxShadow": "0 0 4px",
+                "margin": "1rem"
             },
             "children": [{
                 "_id": "pgr198pe",
@@ -381,7 +385,8 @@
                 "width": "320px",
                 "height": "380px",
                 "position": "relative",
-                "boxShadow": "0 0 4px"
+                "boxShadow": "0 0 4px",
+                "margin": "1rem"
             },
             "children": [{
                 "_id": "i6vgwsgj",
@@ -393,6 +398,7 @@
                     "width": "100%",
                     "background": "url(https://wallpapercave.com/wp/57mpmUZ.jpg)",
                     "backgroundSize": "cover"
+
                 },
                 "children": [{
                         "_id": "koqy7mj0",
