@@ -92,6 +92,7 @@ export default {
         justify-content: center;
         height: 2rem;
         width: 2rem;
+        border: 1px solid #2e4ead59;
         border-radius: 50%;
         cursor: pointer;
         margin: 0.175rem;

@@ -3,20 +3,6 @@
         .editor-dashboard {
             transform: translateX(-95%);
         }
-        .editor-workspace {
-            margin: 0;
-            max-height: 850px;
-            overflow-y: auto;
-            &::-webkit-scrollbar {
-                width: 1em;
-            }
-            &::-webkit-scrollbar-track {
-                box-shadow: inset 2px 4px 6px rgba(34, 32, 32, 0.3);
-            }
-            &::-webkit-scrollbar-thumb {
-                background-color: #2e4ead95;
-            }
-        }
     }
 }
 
@@ -26,16 +12,14 @@
 
 .editor-dashboard {
     position: fixed;
-    /* position: sticky; */
     min-height: 100vh;
     background-color: #e6e9ec;
     overflow-y: auto;
     width: 20rem;
     transition: all .3s ease-in-out;
-    /* position: sticky; */
     z-index: 1003;
     .editor-body {
-        max-height: 850px;
+        max-height: 1000px;
         overflow-y: auto;
         &::-webkit-scrollbar {
             width: 0.5rem;
@@ -44,14 +28,21 @@
             box-shadow: inset 2px 4px 6px rgba(34, 32, 32, 0.3);
         }
         &::-webkit-scrollbar-thumb {
-            background-color: #2e4ead95;
+            background-color: #42579595;
         }
     }
     .editor-message {
-        background-color: #fff;
+        background-color: #2e4ead22;
+        border-radius: 1rem;
         padding: 2rem;
         margin: 1rem;
+        font-size: 2rem;
         text-align: center;
+    }
+    .editor-name {
+        padding: 1rem;
+        text-transform: capitalize;
+        font-size: 1.25rem;
     }
 }
 
@@ -93,18 +84,38 @@
     }
 }
 
-.empty-workspace {
-    background-color: #2e4ead25;
-    border: 4px dashed #22222260;
-    text-align: center;
-    justify-content: center;
-    position: relative;
-    &:before {
-        content: 'Lets Start Dragging';
-        font-size: 56px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+.editor-workspace {
+    // margin: 0;
+    min-height: 850px;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 2px 4px 6px rgba(34, 32, 32, 0.3);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #2e4ead95;
+    }
+    &.empty-workspace {
+        background-color: #2e4ead25;
+        border: 4px dashed #22222260;
+        text-align: center;
+        justify-content: center;
+        position: relative;
+        &:before {
+            content: 'Drag an element here';
+            font-size: 56px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .smooth-dnd-container {
+        position: relative;
+        min-height: 770px;
+        min-width: 100%;
+        box-shadow: 0px 0px 4px #00000054
     }
 }

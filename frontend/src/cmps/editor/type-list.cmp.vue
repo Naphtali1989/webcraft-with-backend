@@ -63,12 +63,14 @@ export default {
 .element-picker-container {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: repeat(2, 100px);
+    grid-template-columns: repeat(2, 115px);
     justify-content: center;
     button {
-        font-family: carme;
-        padding: 0.5rem 1rem;
         background: transparent;
+        font-family: carme;
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 1.5rem;
         border: 0;
         outline: 0;
         text-transform: uppercase;

@@ -1,7 +1,7 @@
 <template>
     <section class="editors-container">
         <!-- Saving a spot to the user that there is no component to edit -->
-        <h1 class="text-center" v-if="cmpToEdit">{{ editorName }} editor</h1>
+        <h1 class="editor-name text-center" v-if="cmpToEdit">{{ editorName }} editor</h1>
         <component
             v-if="cmpToEdit"
             :is="currEditorName"
@@ -10,7 +10,7 @@
             @uploading="emitUploadImg"
         />
         <div v-else class="editor-message flex justify-center">
-            <h1 >Please Click on a section to begin</h1>
+            <h1 >Please click on an element to edit</h1>
         </div>
     </section>
 </template>
