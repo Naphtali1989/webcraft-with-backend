@@ -24,7 +24,7 @@ export default {
     },
     data() {
         return {
-            types: ['header','cards','footer','text','form','gallery','map','video'],
+            types: ['header','cards','footer','gallery','map','video'], //form , text removed for ui show
             selectedType: ''
         }
     },
