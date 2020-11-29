@@ -35,6 +35,11 @@
         &::-webkit-scrollbar-thumb {
             background-color: #2e4ead95;
         }
+        .el-select-dropdown {
+            &.el-popper {
+                z-index: 100000 !important;
+            }
+        }
     }
 }
 

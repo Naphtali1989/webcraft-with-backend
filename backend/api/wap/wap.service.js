@@ -4,7 +4,6 @@ const ObjectId = require('mongodb').ObjectId
 
 //get all toys
 async function query() {
-    console.log('query mother!');
     const collection = await dbService.getCollection('wap')
     try {
         const waps = await collection.find({}).toArray();

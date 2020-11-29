@@ -3,9 +3,7 @@
     <GmapMap
         :center="{ lat: 32.088028, lng: 34.803222 }"
         :zoom="15"
-        map-type-id="terrain"
-        @click.stop.prevent="doNothing"
-        
+        map-type-id="terrain"        
     >
         <GmapMarker
             :key="index"
@@ -34,9 +32,6 @@ export default {
         }
     },
     methods:{
-        doNothing(){
-            console.log('Doing nothing!')
-        }
     },
     computed:{
         

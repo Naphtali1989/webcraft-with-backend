@@ -35,10 +35,7 @@ export default {
             return this.username.split(' ').map(letter => letter.charAt(0)).join('').toUpperCase()
         },
         bgColor() {
-            console.log('admin:?',this.admin)
             if(!this.admin) return `#${Math.random().toString().slice(2,8)}`
-
-
         }
     }
 }

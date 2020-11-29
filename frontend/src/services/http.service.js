@@ -29,7 +29,6 @@ async function ajax(endpoint, method = 'get', data = null) {
             method,
             data
         });
-        console.log('res:', res);
         return res.data;
     } catch (err) {
         if (err.response.status === 401) {

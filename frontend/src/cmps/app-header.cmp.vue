@@ -27,7 +27,6 @@ export default {
     },
     methods: {
         toggle() {
-            console.log('toggle:',this.showModal);
             this.showModal=!this.showModal;
         }
     },
