@@ -59,15 +59,15 @@ export const wapService = {
 // function _createNode(data) {
 //     const { localName, style, className, attributes } = data;
 //     const node = {
-//         id: Math.random().toString(36).slice(2),
-//         el: localName,
+//         _id: Math.random().toString(36).slice(2),
+//         name: localName,
 //         style: style.cssText,
 //         class: className,
 //         children: []
 //     };
-//     if (node.class === 'vue-map-container') node.el = 'google-map';
-//     if (node.el === 'img') node.imgUrl = attributes.src.value;
-//     if (node.el === 'iframe') node.vidUrl = attributes.src.value;
+//     if (node.class === 'vue-map-container') node.name = 'google-map';
+//     if (node.name === 'img') node.imgUrl = attributes.src.value;
+//     if (node.name === 'iframe') node.vidUrl = attributes.src.value;
 //     if (attributes.type) node.type = attributes.type.value;
 //     if (attributes.href) node.href = attributes.href.value;
 //     return node;
