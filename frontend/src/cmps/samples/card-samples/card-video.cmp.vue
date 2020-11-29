@@ -29,7 +29,6 @@ export default {
             style: {
                 background: "transparent",
                 borderRadius: "0px",
-                height: "0px",
                 display: 'grid',
                 gridTemplateColumns: 'repeat(12, minmax(auto, 60px))',
                 gridColumn: '2 / span 12',
@@ -51,7 +50,6 @@ export default {
                         borderRadius: '0px',
                         background: "#69D2E7",
                     },
-
                     children: [{
                         _id: "vnb3tubivs",
                         name: 'div',
@@ -216,3 +214,132 @@ export default {
     border-radius: 20px;
 }
 </style>
+
+//  {
+//                         name: "section",
+//                         type: "video",
+//                         class: "video-card",
+//                         thumbnail: 'https://imagizer.imageshack.com/img922/7981/WgIDFl.png',
+//                         style: {
+//                             background: "transparent",
+//                             borderRadius: "0px",
+//                             display: 'grid',
+//                             gridTemplateColumns: 'repeat(12, minmax(auto, 300px))',
+//                             gridColumn: '2 / span 12',
+//                             gridGap: '40px'
+//                         },
+//                         imgUrl: '',
+//                         children: [
+//                             {
+//                                 _id: "xn50tooepx",
+//                                 name: "div",
+//                                 type: "card-div",
+//                                 class: "card flex column",
+//                                 style: {
+//                                     gridColumnEnd: 'span 4',
+//                                     borderRadius: '0px',
+//                                     background: "",
+//                                 },
+
+//                                 children: [{
+//                                     _id: "vnb3tubivs",
+//                                     name: 'div',
+//                                     type: 'header-card-img',
+//                                     imgUrl: '',
+//                                     style: {
+//                                         background: '',
+//                                         width: '100%',
+//                                         paddingTop: '56.25%',
+//                                         overflow: 'hidden',
+//                                         position: 'relative'
+//                                     },
+
+//                                     children: [{
+//                                         _id: "vvlb93hww7",
+//                                         name: 'img',
+//                                         class: 'avatar-img',
+//                                         imgUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=80',
+//                                         style: {
+//                                             position: 'absolute',
+//                                             width: "100%",
+//                                             top: "50%",
+//                                             left: "50%",
+//                                             transform: "translate(-50%, -50%)"
+//                                         },
+//                                     }]
+//                                 },
+//                                 {
+//                                     _id: "lwjp5shaov",
+//                                     name: 'div',
+//                                     style: {
+//                                         background: '',
+//                                         padding: "35px",
+//                                     },
+//                                     children: [{
+//                                         _id: "3llf3wiqii",
+//                                         name: 'txt',
+//                                         marginBottom: "20px",
+//                                         txt: 'This is an awesome card',
+//                                         style: {
+//                                             fontSize: "16px",
+//                                             lineHeight: "25px",
+//                                             fontWeight: "400",
+//                                             color: "#ecf0f1"
+//                                         }
+//                                     },
+//                                     {
+//                                         _id: "4xb16ruz1i",
+//                                         name: 'div',
+//                                         class: 'flex align-center',
+//                                         style: {
+//                                             alignSelf: 'end',
+//                                         },
+//                                         children: [
+//                                             {
+//                                                 _id: "odwpathhr2",
+//                                                 name: 'txt',
+//                                                 txt: '30 Min',
+//                                                 style: {
+//                                                     fontSize: '16px',
+//                                                     lineHeight: '20px',
+//                                                     fontWeight: "400px",
+//                                                     color: "#ecf0f1",
+//                                                     "letterSpacing": "",
+//                                                     "textDecoration": "",
+//                                                     "fontStyle": "",
+//                                                     "textAlign": "",
+//                                                     "fontFamily": "carme"
+//                                                 }
+
+//                                             },
+//                                             {
+//                                                 _id: "lyowt49vlg",
+//                                                 name: 'txt',
+//                                                 txt: 'Free',
+//                                                 style: {
+//                                                     marginLeft: 'auto',
+//                                                     padding: "5px 20px",
+//                                                     borderRadius: "20px",
+//                                                     backgroundColor: '#303032',
+//                                                     fontSize: '16px',
+//                                                     lineHeight: '20px',
+//                                                     fontWeight: "400px",
+//                                                     color: "#ecf0f1",
+//                                                     "letterSpacing": "",
+//                                                     "textDecoration": "",
+//                                                     "fontStyle": "",
+//                                                     "textAlign": "",
+//                                                     "fontFamily": "carme"
+//                                                 }
+//                                             }
+//                                         ]
+//                                     }
+//                                     ]
+//                                 }
+//                                 ],
+
+
+//                             },
+//                         ]
+
+//                     }
