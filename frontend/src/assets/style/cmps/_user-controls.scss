@@ -4,7 +4,6 @@
     width: 100%;
     background: #2e4ead;
     border-left: 1px solid #e6e9ec;
-    font-family: carme;
     top: 0;
     z-index: 100001;
     button {
@@ -12,5 +11,7 @@
         background: #0076df;
         padding: 0.5rem;
         font-size: 1.2rem;
+        margin-inline-start: 5px;
+        font-family: carme;
     }
 }

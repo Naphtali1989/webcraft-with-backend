@@ -27,10 +27,15 @@ nav {
     width: 90%;
     margin: auto;
     flex: 1;
-    font-family: carme;
+    font-family: bungee;
     h2 {
-        font-size: 8rem;
+        font-size: 5rem;
         padding-top: 2rem;
+        // font-family: bungee;
+    }
+    h3 {
+        font-size: 1.5rem;
+        margin-inline-start: 10px;
     }
 }
 
@@ -55,14 +60,13 @@ nav {
 
 .main-footer {
     width: 100%;
-    background: black;
-    height: 70px;
     background: #063762;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: cursive;
+    font-family: bungee;
+    letter-spacing: 2px;
     padding: 10px;
     .social-links span {
         font-size: 30px;
