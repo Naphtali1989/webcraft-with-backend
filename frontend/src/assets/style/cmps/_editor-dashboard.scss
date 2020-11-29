@@ -29,13 +29,12 @@
     font-size: 1.2rem;
     position: relative;
     margin: 1rem;
-    cursor: pointer;
     img {
         width: 100%;
         object-fit: cover
     }
     h3 {
-        height: 2.5rem;
+        padding: 0.25rem;
         text-transform: capitalize;
     }
 }

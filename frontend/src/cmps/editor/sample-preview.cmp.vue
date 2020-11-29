@@ -1,5 +1,5 @@
 <template>
-    <div class="sample-preview">
+    <div class="sample-preview flex column">
         <h3 class="sample-title">{{ title }}</h3>
             <img :src="imgUrl" />
     </div>
