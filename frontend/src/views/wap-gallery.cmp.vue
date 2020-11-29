@@ -76,6 +76,7 @@ export default {
                     imgUrl: "https://images.unsplash.com/photo-1554889914-a5c84570ea3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=658&q=80",
                     title: "parkour",
                 },
+
             ]
         }
     },

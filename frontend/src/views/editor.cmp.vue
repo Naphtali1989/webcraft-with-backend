@@ -137,368 +137,779 @@ export default {
         }
         else {
             this.currWap={
-                name: '',cmps: [
-                    // here it starts
+                name: '',
+                cmps: [
+                    {
+                        _id: Math.random().toString(36).substring(2,12),
+                        name: 'section',
+                        type: 'footer',
+                        class: 'flex space-around',
+                        style: {
+                            background: 'rgb(22, 22, 22)',
+                            borderRadius: '0px',
+                            width: '100%',
+                            padding: '3rem 1rem',
+
+
+                        },
+                        children: [
+                            {
+
+                                _id: Math.random().toString(36).substring(2,12),
+                                name: 'div',
+                                style: {
+                                    background: '',
+                                    borderRadius: '0px',
+                                    display: 'flex',
+                                },
+                                children:
+                                    [
+                                        {
+                                            _id: Math.random().toString(36).substring(2,12),
+                                            name: 'div',
+                                            class: 'flex column align-center',
+                                            style: {
+                                                background: '',
+                                                borderRadius: '0px'
+                                            },
+                                            children:
+                                                [
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 1",
+                                                        style: {
+                                                            fontSize: "20px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: 'bold',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            lineHeight: "1.5",
+                                                            textDecoration: "",
+                                                            fontStyle: "",
+                                                            textAlign: "",
+                                                            fontFamily: "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 2",
+                                                        style: {
+                                                            fontSize: "14px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: '600px',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            lineHeight: "",
+                                                            textDecoration: "",
+                                                            fontStyle: "",
+                                                            textAlign: "",
+                                                            fontFamily: "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 3",
+                                                        style: {
+                                                            "fontSize": "14px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: '600px',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            "lineHeight": "",
+                                                            "textDecoration": "",
+                                                            "fontStyle": "",
+                                                            "textAlign": "",
+                                                            "fontFamily": "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 4",
+                                                        style: {
+                                                            "fontSize": "14px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: '600px',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            "lineHeight": "",
+                                                            "textDecoration": "",
+                                                            "fontStyle": "",
+                                                            "textAlign": "",
+                                                            "fontFamily": "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+
+                                                ]
+                                        },
+                                        {
+                                            _id: Math.random().toString(36).substring(2,12),
+                                            name: 'div',
+                                            class: 'flex column align-center',
+                                            style: {
+                                                background: '',
+                                                borderRadius: '0px'
+                                            },
+                                            children:
+                                                [
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 1",
+                                                        style: {
+                                                            fontSize: "1.25rem",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: 'bold',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            lineHeight: "1.5",
+                                                            textDecoration: "",
+                                                            fontStyle: "",
+                                                            textAlign: "",
+                                                            fontFamily: "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 2",
+                                                        style: {
+                                                            fontSize: "14px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: '600px',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            lineHeight: "",
+                                                            textDecoration: "",
+                                                            fontStyle: "",
+                                                            textAlign: "",
+                                                            fontFamily: "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 3",
+                                                        style: {
+                                                            "fontSize": "14px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: '600px',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            "lineHeight": "",
+                                                            "textDecoration": "",
+                                                            "fontStyle": "",
+                                                            "textAlign": "",
+                                                            "fontFamily": "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 4",
+                                                        style: {
+                                                            "fontSize": "14px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: '600px',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            "lineHeight": "",
+                                                            "textDecoration": "",
+                                                            "fontStyle": "",
+                                                            "textAlign": "",
+                                                            "fontFamily": "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+
+                                                ]
+                                        },
+                                        {
+                                            _id: Math.random().toString(36).substring(2,12),
+                                            name: 'div',
+                                            class: 'flex column align-center',
+                                            style: {
+                                                background: '',
+                                                borderRadius: '0px'
+                                            },
+                                            children:
+                                                [
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 1",
+                                                        style: {
+                                                            fontSize: "20px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: 'bold',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            lineHeight: "1.5",
+                                                            textDecoration: "",
+                                                            fontStyle: "",
+                                                            textAlign: "",
+                                                            fontFamily: "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 2",
+                                                        style: {
+                                                            fontSize: "14px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: '600px',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            lineHeight: "",
+                                                            textDecoration: "",
+                                                            fontStyle: "",
+                                                            textAlign: "",
+                                                            fontFamily: "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 3",
+                                                        style: {
+                                                            "fontSize": "14px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: '600px',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            "lineHeight": "",
+                                                            "textDecoration": "",
+                                                            "fontStyle": "",
+                                                            "textAlign": "",
+                                                            "fontFamily": "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 4",
+                                                        style: {
+                                                            "fontSize": "14px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: '600px',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            "lineHeight": "",
+                                                            "textDecoration": "",
+                                                            "fontStyle": "",
+                                                            "textAlign": "",
+                                                            "fontFamily": "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+
+                                                ]
+                                        },
+                                        {
+                                            _id: Math.random().toString(36).substring(2,12),
+                                            name: 'div',
+                                            class: 'flex column align-center',
+                                            style: {
+                                                background: '',
+                                                borderRadius: '0px'
+                                            },
+                                            children:
+                                                [
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 1",
+                                                        style: {
+                                                            fontSize: "20px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: 'bold',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            lineHeight: "1.5",
+                                                            textDecoration: "",
+                                                            fontStyle: "",
+                                                            textAlign: "",
+                                                            fontFamily: "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 2",
+                                                        style: {
+                                                            fontSize: "14px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: '600px',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            lineHeight: "",
+                                                            textDecoration: "",
+                                                            fontStyle: "",
+                                                            textAlign: "",
+                                                            fontFamily: "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 3",
+                                                        style: {
+                                                            fontSize: "14px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: '600px',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            "lineHeight": "",
+                                                            "textDecoration": "",
+                                                            "fontStyle": "",
+                                                            "textAlign": "",
+                                                            "fontFamily": "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+                                                    {
+                                                        id: Math.random().toString(36).substring(2,12),
+                                                        name: 'txt',
+                                                        txt: "Item 4",
+                                                        style: {
+                                                            fontSize: "14px",
+                                                            letterSpacing: '1px',
+                                                            fontWeight: '600px',
+                                                            background: '',
+                                                            padding: '12px 40px',
+                                                            border: 'none',
+                                                            lineHeight: "",
+                                                            textDecoration: "",
+                                                            fontStyle: "",
+                                                            textAlign: "",
+                                                            fontFamily: "",
+                                                            color: '#fff'
+                                                        }
+                                                    },
+
+                                                ]
+                                        }
+                                    ]
+
+                            }
+                        ]
+                    }
+                    // //start here
                     // {
-                    //     name: "section",
-                    //     type: "video",
-                    //     class: "video-card",
-                    //     thumbnail: 'https://imagizer.imageshack.com/img922/7981/WgIDFl.png',
+                    //     type: 'section',
+                    //     class: 'gallery-slider flex column align-center',
+                    //     name: 'section',
+                    //     thumbnail: 'https://imagizer.imageshack.com/img922/37/Gy8un8.png',
                     //     style: {
                     //         background: "transparent",
                     //         borderRadius: "0px",
-                    //         display: 'grid',
-                    //         gridTemplateColumns: 'repeat(12, minmax(auto, 300px))',
-                    //         gridColumn: '2 / span 12',
-                    //         gridGap: '40px'
+                    //         //figure out height
+                    //         height: '500px'
                     //     },
-                    //     imgUrl: '',
-                    //     children: [
-                    //         {
-                    //             _id: "xn50tooepx",
-                    //             name: "div",
-                    //             type: "card-div",
-                    //             class: "card flex column",
-                    //             style: {
-                    //                 gridColumnEnd: 'span 4',
-                    //                 borderRadius: '0px',
-                    //                 background: "",
-                    //             },
-
-                    //             children: [{
-                    //                 _id: "vnb3tubivs",
-                    //                 name: 'iframe',
-                    //                 vidUrl: 'https://www.youtube.com/watch?v=qJf8N46OEMk',
+                    //     //HEADER + H1  + P
+                    //     children: [{
+                    //         _id: Math.random().toString(36).substring(2,12),
+                    //         name: 'div',
+                    //         class: 'flex column align-center',
+                    //         style: {
+                    //             background: "transparent",
+                    //             borderRadius: "0px",
+                    //         },
+                    //         children: [
+                    //             {
+                    //                 id: Math.random().toString(36).substring(2,12),
+                    //                 name: 'txt',
+                    //                 txt: "Special Menu",
                     //                 style: {
-                    //                     background: '',
-                    //                     width: '100%',
-                    //                     height: '100%',
-                    //                     height: "230px",
-                    //                     overflow: 'hidden',
-                    //                     position: 'relative',
-
-                    //                 },
-                    //                 frameborder: "0",
-                    //                 allowfullscreen: "allowfullscreen",
-                    //                 children: [{
-                    //                     _id: "vvlb93hww7",
-                    //                     name: 'img',
-                    //                     class: 'avatar-img',
-                    //                     imgUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=80',
-                    //                     style: {
-                    //                         position: 'absolute',
-                    //                         width: "100%",
-                    //                         top: "50%",
-                    //                         left: "50%",
-                    //                         transform: "translate(-50%, -50%)"
-                    //                     },
-                    //                 }]
+                    //                     "fontSize": "28px",
+                    //                     "fontWeight": "600",
+                    //                     "marginBlockStart": "",
+                    //                     "lineHeight": "2",
+                    //                     "letterSpacing": "",
+                    //                     "backgroundColor": "transparent",
+                    //                     "textDecoration": "",
+                    //                     "fontStyle": "",
+                    //                     "textAlign": "",
+                    //                     "fontFamily": "",
+                    //                     "color": '#010101',
+                    //                 }
                     //             },
                     //             {
-                    //                 _id: "lwjp5shaov",
-                    //                 name: 'div',
+                    //                 id: Math.random().toString(36).substring(2,12),
+                    //                 name: 'txt',
+                    //                 txt: "Lorem Ipsum is simply dummy text of the printing and typesetting",
                     //                 style: {
-                    //                     background: '',
-                    //                     padding: "35px",
-                    //                 },
-                    //                 children: [{
-                    //                     _id: "3llf3wiqii",
+                    //                     "fontSize": "18px",
+                    //                     "fontWeight": "200",
+                    //                     "lineHeight": "3",
+                    //                     "letterSpacing": "",
+                    //                     "backgroundColor": "transparent",
+                    //                     "textDecoration": "",
+                    //                     "fontStyle": "",
+                    //                     "textAlign": "",
+                    //                     "fontFamily": "",
+                    //                     "color": '#010101'
+                    //                 }
+                    //             }
+                    //         ]
+
+                    //     },
+                    //     {
+                    //         //START NAV
+                    //         _id: Math.random().toString(36).substring(2,12),
+                    //         name: "div",
+                    //         type: 'nav-section',
+                    //         class: 'flex align-center',
+                    //         style: {
+                    //             background: '',
+                    //             borderRadius: '4px',
+                    //             border: '1px solid #e4e4e4',
+                    //             margin: '10px 15px',
+                    //         },
+                    //         //NAV UL
+                    //         children:
+                    //             [
+                    //                 {
+                    //                     id: Math.random().toString(36).substring(2,12),
                     //                     name: 'txt',
-                    //                     marginBottom: "20px",
-                    //                     txt: 'This is an awesome card',
+                    //                     txt: "ALL",
                     //                     style: {
-                    //                         fontSize: "16px",
-                    //                         lineHeight: "25px",
-                    //                         fontWeight: "400",
-                    //                         color: "#ecf0f1"
+                    //                         boxShadow: '2px 20px 45px 5px rgba(0,0,0,.2)',
+                    //                         "fontSize": "14px",
+                    //                         letterSpacing: '1px',
+                    //                         fontWeight: '600px',
+                    //                         background: '#cfa671',
+                    //                         padding: '12px 40px',
+                    //                         border: 'none',
+                    //                         "color": '#fff'
                     //                     }
                     //                 },
                     //                 {
-                    //                     _id: "4xb16ruz1i",
-                    //                     name: 'div',
-                    //                     class: 'flex align-center',
-                    //                     style: {
-                    //                         alignSelf: 'end',
-                    //                     },
-                    //                     children: [
-                    //                         {
-                    //                             _id: "odwpathhr2",
-                    //                             name: 'txt',
-                    //                             txt: '30 Min',
-                    //                             style: {
-                    //                                 fontSize: '16px',
-                    //                                 lineHeight: '20px',
-                    //                                 fontWeight: "400px",
-                    //                                 color: "#ecf0f1",
-                    //                                 "letterSpacing": "",
-                    //                                 "textDecoration": "",
-                    //                                 "fontStyle": "",
-                    //                                 "textAlign": "",
-                    //                                 "fontFamily": "carme"
-                    //                             }
-
-                    //                         },
-                    //                         {
-                    //                             _id: "lyowt49vlg",
-                    //                             name: 'txt',
-                    //                             txt: 'Free',
-                    //                             style: {
-                    //                                 marginLeft: 'auto',
-                    //                                 padding: "5px 20px",
-                    //                                 borderRadius: "20px",
-                    //                                 background: "black",
-                    //                                 fontSize: '16px',
-                    //                                 lineHeight: '20px',
-                    //                                 fontWeight: "400px",
-                    //                                 color: "#ecf0f1",
-                    //                                 "letterSpacing": "",
-                    //                                 "textDecoration": "",
-                    //                                 "fontStyle": "",
-                    //                                 "textAlign": "",
-                    //                                 "fontFamily": "carme"
-                    //                             }
-                    //                         }
-                    //                     ]
-                    //                 }
-                    //                 ]
-                    //             }
-                    //             ],
-
-
-                    //         },
-
-                    //         {
-                    //             _id: "xn50tooepx",
-                    //             name: "div",
-                    //             type: "card-div",
-                    //             class: "card flex column",
-                    //             style: {
-                    //                 gridColumnEnd: 'span 4',
-                    //                 borderRadius: '0px',
-                    //                 background: "",
-                    //             },
-
-                    //             children: [{
-                    //                 _id: "vnb3tubivs",
-                    //                 name: 'iframe',
-                    //                 vidUrl: 'https://www.youtube.com/watch?v=qJf8N46OEMk',
-                    //                 style: {
-                    //                     background: '',
-                    //                     width: '100%',
-                    //                     height: '100%',
-                    //                     height: "230px",
-                    //                     overflow: 'hidden',
-                    //                     position: 'relative',
-
-                    //                 },
-                    //                 frameborder: "0",
-                    //                 allowfullscreen: "allowfullscreen",
-                    //                 children: [{
-                    //                     _id: "vvlb93hww7",
-                    //                     name: 'img',
-                    //                     class: 'avatar-img',
-                    //                     imgUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=80',
-                    //                     style: {
-                    //                         position: 'absolute',
-                    //                         width: "100%",
-                    //                         top: "50%",
-                    //                         left: "50%",
-                    //                         transform: "translate(-50%, -50%)"
-                    //                     },
-                    //                 }]
-                    //             },
-                    //             {
-                    //                 _id: "lwjp5shaov",
-                    //                 name: 'div',
-                    //                 style: {
-                    //                     background: '',
-                    //                     padding: "35px",
-                    //                 },
-                    //                 children: [{
-                    //                     _id: "3llf3wiqii",
+                    //                     id: 'dsjkdsakjkjsadj',
                     //                     name: 'txt',
-                    //                     marginBottom: "20px",
-                    //                     txt: 'This is an awesome card',
+                    //                     txt: "DRINKS",
                     //                     style: {
-                    //                         fontSize: "16px",
-                    //                         lineHeight: "25px",
-                    //                         fontWeight: "400",
-                    //                         color: "#ecf0f1"
+                    //                         "fontSize": "14px",
+                    //                         letterSpacing: '1px',
+                    //                         fontWeight: '600px',
+                    //                         background: '#fff',
+                    //                         padding: '12px 40px',
+                    //                         border: 'none',
+                    //                         "lineHeight": "",
+                    //                         "textDecoration": "",
+                    //                         "fontStyle": "",
+                    //                         "textAlign": "",
+                    //                         "fontFamily": "",
+                    //                         "color": '333'
                     //                     }
                     //                 },
                     //                 {
-                    //                     _id: "4xb16ruz1i",
-                    //                     name: 'div',
-                    //                     class: 'flex align-center',
-                    //                     style: {
-                    //                         alignSelf: 'end',
-                    //                     },
-                    //                     children: [
-                    //                         {
-                    //                             _id: "odwpathhr2",
-                    //                             name: 'txt',
-                    //                             txt: '30 Min',
-                    //                             style: {
-                    //                                 fontSize: '16px',
-                    //                                 lineHeight: '20px',
-                    //                                 fontWeight: "400px",
-                    //                                 color: "#ecf0f1",
-                    //                                 "letterSpacing": "",
-                    //                                 "textDecoration": "",
-                    //                                 "fontStyle": "",
-                    //                                 "textAlign": "",
-                    //                                 "fontFamily": "carme"
-                    //                             }
-
-                    //                         },
-                    //                         {
-                    //                             _id: "lyowt49vlg",
-                    //                             name: 'txt',
-                    //                             txt: 'Free',
-                    //                             style: {
-                    //                                 marginLeft: 'auto',
-                    //                                 padding: "5px 20px",
-                    //                                 borderRadius: "20px",
-                    //                                 background: "black",
-                    //                                 fontSize: '16px',
-                    //                                 lineHeight: '20px',
-                    //                                 fontWeight: "400px",
-                    //                                 color: "#ecf0f1",
-                    //                                 "letterSpacing": "",
-                    //                                 "textDecoration": "",
-                    //                                 "fontStyle": "",
-                    //                                 "textAlign": "",
-                    //                                 "fontFamily": "carme"
-                    //                             }
-                    //                         }
-                    //                     ]
-                    //                 }
-                    //                 ]
-                    //             }
-                    //             ],
-
-
-                    //         },
-
-                    //         {
-                    //             _id: "xn50tooepx",
-                    //             name: "div",
-                    //             type: "card-div",
-                    //             class: "card flex column",
-                    //             style: {
-                    //                 gridColumnEnd: 'span 4',
-                    //                 borderRadius: '0px',
-                    //                 background: "",
-                    //             },
-
-                    //             children: [{
-                    //                 _id: "vnb3tubivs",
-                    //                 name: 'iframe',
-                    //                 vidUrl: 'https://www.youtube.com/watch?v=qJf8N46OEMk',
-                    //                 style: {
-                    //                     background: '',
-                    //                     width: '100%',
-                    //                     height: '100%',
-                    //                     height: "230px",
-                    //                     overflow: 'hidden',
-                    //                     position: 'relative',
-
-                    //                 },
-                    //                 frameborder: "0",
-                    //                 allowfullscreen: "allowfullscreen",
-                    //                 children: [{
-                    //                     _id: "vvlb93hww7",
-                    //                     name: 'img',
-                    //                     class: 'avatar-img',
-                    //                     imgUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=80',
-                    //                     style: {
-                    //                         position: 'absolute',
-                    //                         width: "100%",
-                    //                         top: "50%",
-                    //                         left: "50%",
-                    //                         transform: "translate(-50%, -50%)"
-                    //                     },
-                    //                 }]
-                    //             },
-                    //             {
-                    //                 _id: "lwjp5shaov",
-                    //                 name: 'div',
-                    //                 style: {
-                    //                     background: '',
-                    //                     padding: "35px",
-                    //                 },
-                    //                 children: [{
-                    //                     _id: "3llf3wiqii",
+                    //                     id: Math.random().toString(36).substring(2,12),
                     //                     name: 'txt',
-                    //                     marginBottom: "20px",
-                    //                     txt: 'This is an awesome card',
+                    //                     txt: "LUCNH",
                     //                     style: {
-                    //                         fontSize: "16px",
-                    //                         lineHeight: "25px",
-                    //                         fontWeight: "400",
-                    //                         color: "#ecf0f1"
+                    //                         "fontSize": "14px",
+                    //                         letterSpacing: '1px',
+                    //                         fontWeight: '600px',
+                    //                         background: '#fff',
+                    //                         padding: '12px 40px',
+                    //                         border: 'none',
+                    //                         "lineHeight": "",
+                    //                         "textDecoration": "",
+                    //                         "fontStyle": "",
+                    //                         "textAlign": "",
+                    //                         "fontFamily": "",
+                    //                         "color": '333'
                     //                     }
                     //                 },
                     //                 {
-                    //                     _id: "4xb16ruz1i",
-                    //                     name: 'div',
-                    //                     class: 'flex align-center',
+                    //                     id: Math.random().toString(36).substring(2,12),
+                    //                     name: 'txt',
+                    //                     txt: "DINNER",
                     //                     style: {
-                    //                         alignSelf: 'end',
-                    //                     },
-                    //                     children: [
-                    //                         {
-                    //                             _id: "odwpathhr2",
-                    //                             name: 'txt',
-                    //                             txt: '30 Min',
-                    //                             style: {
-                    //                                 fontSize: '16px',
-                    //                                 lineHeight: '20px',
-                    //                                 fontWeight: "400px",
-                    //                                 color: "#ecf0f1",
-                    //                                 "letterSpacing": "",
-                    //                                 "textDecoration": "",
-                    //                                 "fontStyle": "",
-                    //                                 "textAlign": "",
-                    //                                 "fontFamily": "carme"
-                    //                             }
+                    //                         "fontSize": "14px",
+                    //                         letterSpacing: '1px',
+                    //                         fontWeight: '600px',
+                    //                         background: '#fff',
+                    //                         padding: '12px 40px',
+                    //                         border: 'none',
+                    //                         "lineHeight": "",
+                    //                         "textDecoration": "",
+                    //                         "fontStyle": "",
+                    //                         "textAlign": "",
+                    //                         "fontFamily": "",
+                    //                         "color": '333'
+                    //                     }
+                    //                 },
+                    //             ]
+                    //     },
+                    //     {
 
-                    //                         },
-                    //                         {
-                    //                             _id: "lyowt49vlg",
-                    //                             name: 'txt',
-                    //                             txt: 'Free',
-                    //                             style: {
-                    //                                 marginLeft: 'auto',
-                    //                                 padding: "5px 20px",
-                    //                                 borderRadius: "20px",
-                    //                                 background: "black",
-                    //                                 fontSize: '16px',
-                    //                                 lineHeight: '20px',
-                    //                                 fontWeight: "400px",
-                    //                                 color: "#ecf0f1",
-                    //                                 "letterSpacing": "",
-                    //                                 "textDecoration": "",
-                    //                                 "fontStyle": "",
-                    //                                 "textAlign": "",
-                    //                                 "fontFamily": "carme"
-                    //                             }
-                    //                         }
-                    //                     ]
-                    //                 }
-                    //                 ]
-                    //             }
-                    //             ],
-
-
+                    //         //begin of gallery
+                    //         _id: Math.random().toString(36).substring(2,12),
+                    //         name: 'div',
+                    //         type: 'gallery-img',
+                    //         class: 'grid',
+                    //         style: {
+                    //             display: 'grid',
+                    //             gridTemplateColumns: 'repeat(auto-fill, minmax(16rem, 1fr)',
+                    //             justifyItems: 'center',
+                    //             alignItems: 'center',
+                    //             gridGap: '15px'
                     //         },
-                    //     ]
+                    //         children:
+                    //             [
+                    //                 {
+                    //                     _id: Math.random().toString(36).substring(2,12),
+                    //                     name: 'div',
+                    //                     style: {
+                    //                         background: 'transparent',
+                    //                         borderRadius: '0px',
+                    //                         width: '200px'
+                    //                         // height: '350px',
+                    //                         // width: '200px',
+                    //                     },
+                    //                     children:
+                    //                         [
+                    //                             {
+                    //                                 _id: Math.random().toString(36).substring(2,12),
+                    //                                 name: 'img',
+                    //                                 class: 'card-img',
+                    //                                 imgUrl: 'https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
+                    //                                 style: {
+                    //                                     width: '100%',
+                    //                                     objectFit: 'cover',
+                    //                                 }
+
+                    //                             }
+                    //                         ]
+
+                    //                 },
+                    //                 {
+                    //                     _id: Math.random().toString(36).substring(2,12),
+                    //                     name: 'div',
+                    //                     style: {
+                    //                         background: 'transparent',
+                    //                         borderRadius: '0px',
+                    //                         width: '200px'
+                    //                         // height: '350px',
+                    //                         // width: '200px',
+                    //                     },
+                    //                     children:
+                    //                         [
+                    //                             {
+                    //                                 _id: Math.random().toString(36).substring(2,12),
+                    //                                 name: 'img',
+                    //                                 class: 'card-img',
+                    //                                 imgUrl: 'https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
+                    //                                 style: {
+                    //                                     width: '100%',
+                    //                                     objectFit: 'cover',
+                    //                                     background: 'https://images.unsplash.com/photo-1552689486-f6773047d19f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0'
+                    //                                 }
+
+                    //                             }
+                    //                         ]
+
+                    //                 },
+                    //                 {
+                    //                     _id: Math.random().toString(36).substring(2,12),
+                    //                     name: 'div',
+                    //                     style: {
+                    //                         background: 'transparent',
+                    //                         borderRadius: '0px',
+                    //                         width: '200px'
+                    //                         // height: '350px',
+                    //                         // width: '200px',
+                    //                     },
+                    //                     children:
+                    //                         [
+                    //                             {
+                    //                                 _id: Math.random().toString(36).substring(2,12),
+                    //                                 name: 'img',
+                    //                                 class: 'card-img',
+                    //                                 imgUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
+                    //                                 style: {
+                    //                                     width: '200px',
+                    //                                     objectFit: 'cover',
+                    //                                 }
+
+                    //                             }
+                    //                         ]
+
+                    //                 },
+                    //                 {
+                    //                     _id: Math.random().toString(36).substring(2,12),
+                    //                     name: 'div',
+                    //                     style: {
+                    //                         background: 'transparent',
+                    //                         borderRadius: '0px',
+                    //                         width: '200px'
+                    //                         // gridColumnEnd: 'span 3',
+                    //                         // height: '350px',
+                    //                         // width: '200px',
+                    //                     },
+                    //                     children:
+                    //                         [
+                    //                             {
+                    //                                 _id: Math.random().toString(36).substring(2,12),
+                    //                                 name: 'img',
+                    //                                 class: 'card-img',
+                    //                                 imgUrl: 'https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
+                    //                                 style: {
+                    //                                     width: '100%',
+                    //                                     objectFit: 'cover',
+                    //                                 }
+
+                    //                             }
+                    //                         ]
+
+                    //                 },
+                    //                 {
+                    //                     _id: Math.random().toString(36).substring(2,12),
+                    //                     name: 'div',
+                    //                     style: {
+                    //                         background: 'transparent',
+                    //                         borderRadius: '0px',
+                    //                         width: '200px'
+                    //                         // height: '350px',
+                    //                         // width: '200px',
+                    //                     },
+                    //                     children:
+                    //                         [
+                    //                             {
+                    //                                 _id: Math.random().toString(36).substring(2,12),
+                    //                                 name: 'img',
+                    //                                 class: 'card-img',
+                    //                                 imgUrl: 'https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
+                    //                                 style: {
+                    //                                     width: '100%',
+                    //                                     objectFit: 'cover',
+                    //                                 }
+
+                    //                             }
+                    //                         ]
+
+                    //                 },
+                    //                 {
+                    //                     _id: Math.random().toString(36).substring(2,12),
+                    //                     name: 'div',
+                    //                     style: {
+                    //                         background: 'transparent',
+                    //                         borderRadius: '0px',
+                    //                         width: '200px'
+                    //                         // height: '350px',
+                    //                         // width: '200px',
+                    //                     },
+                    //                     children:
+                    //                         [
+                    //                             {
+                    //                                 _id: Math.random().toString(36).substring(2,12),
+                    //                                 name: 'img',
+                    //                                 class: 'card-img',
+                    //                                 imgUrl: 'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
+                    //                                 style: {
+                    //                                     width: '100%',
+                    //                                     objectFit: 'cover',
+                    //                                 }
+
+                    //                             }
+                    //                         ]
+
+                    //                 },
+                    //                 {
+                    //                     _id: Math.random().toString(36).substring(2,12),
+                    //                     name: 'div',
+                    //                     style: {
+                    //                         background: 'transparent',
+                    //                         borderRadius: '0px',
+                    //                         width: '200px'
+                    //                         // height: '350px',
+                    //                         // width: '200px',
+                    //                     },
+                    //                     children:
+                    //                         [
+                    //                             {
+                    //                                 _id: Math.random().toString(36).substring(2,12),
+                    //                                 name: 'img',
+                    //                                 class: 'card-img',
+                    //                                 imgUrl: 'https://images.unsplash.com/photo-1552689486-f6773047d19f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
+                    //                                 style: {
+                    //                                     width: '100%',
+                    //                                     objectFit: 'cover',
+                    //                                     background: 'https://images.unsplash.com/photo-1552689486-f6773047d19f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0'
+                    //                                 }
+
+                    //                             }
+                    //                         ]
+
+                    //                 },
+                    //                 {
+                    //                     _id: Math.random().toString(36).substring(2,12),
+                    //                     name: 'div',
+                    //                     style: {
+                    //                         background: 'transparent',
+                    //                         borderRadius: '0px',
+                    //                         width: '200px'
+
+                    //                         // height: '350px',
+                    //                         // width: '200px',
+                    //                     },
+                    //                     children:
+                    //                         [
+                    //                             {
+                    //                                 _id: Math.random().toString(36).substring(2,12),
+                    //                                 name: 'img',
+                    //                                 class: 'card-img',
+                    //                                 imgUrl: 'https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
+                    //                                 style: {
+                    //                                     width: '100%',
+                    //                                     objectFit: 'cover',
+                    //                                     background: 'https://images.unsplash.com/photo-1552689486-f6773047d19f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0'
+                    //                                 }
+
+                    //                             }
+                    //                         ]
+
+                    //                 },
+
+
+                    //             ]
+                    //     }
+                    //     ],
 
                     // }
-
-
-
-
                     // here it ends
                 ]
             }
