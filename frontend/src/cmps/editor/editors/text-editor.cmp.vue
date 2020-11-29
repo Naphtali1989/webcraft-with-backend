@@ -35,7 +35,7 @@
                 @input="setLetterSpacing"
             />
         </div>
-        <div class="align-controls">
+        <div class="align-controls flex space-between">
             <button class="btn align-btn" @click="toggleTextAlign('left')">
                 <i class="fas fa-align-left"></i>
             </button>
@@ -46,7 +46,7 @@
                 <i class="fas fa-align-right"></i>
             </button>
         </div>
-        <div class="decoration-controls">
+        <div class="decoration-controls flex space-between">
             <button
                 class="btn align-btn"
                 @click="toggleTxtDecoration('underline')"
