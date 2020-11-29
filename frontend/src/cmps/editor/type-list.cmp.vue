@@ -8,10 +8,8 @@
         </div>
         <div v-if="selectedType">
             <span><i class="fas fa-arrow-left" @click="selectedType = ''"></i></span>
-            <<<<<<< HEAD <sample-list @pickedSample="emitPickSample" :samples="filterdSamples" />
-            =======
             <sample-list @pickedSample="emitPickSample" :samples="filterdSamples" />
-            >>>>>>> ee0449198e12929279a91a65ffbe40a5ee699a58
+            <sample-list @pickedSample="emitPickSample" :samples="filterdSamples" />
         </div>
     </section>
 </template>
