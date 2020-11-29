@@ -14,6 +14,7 @@
         <!-- <card-sample2 /> -->
         <!-- <card-sample3 /> -->
         <card-video />
+        <hero />
     </section>
 </template>
 
@@ -26,7 +27,7 @@ import cardVideo from '@/cmps/samples/card-samples/card-video.cmp.vue';
 // import navbarSample from '@/cmps/samples/header-samples/navbar-sample.cmp.vue';
 // import cardSample from '@/cmps/samples/card-samples/card-sample.cmp.vue';
 // import avatarModal from '@/cmps/avatar-modal.cmp.vue';
-// import heroSample from '@/cmps/samples/idantest/hero-sample.cmp.vue';
+import hero from '@/cmps/samples/idantest/hero.vue';
 // import GridSample from '../cmps/samples/header-samples/grid-sample.vue';
 // import unsplashSearch from '@/cmps/editor/editors/unsplash-search.cmp.vue';
 export default {
@@ -34,7 +35,7 @@ export default {
     components: {
         // avatarModal
         // headerSample,
-        // hero,
+        hero,
         // gridSample,
         // unsplashSearch
         // navbarSample,

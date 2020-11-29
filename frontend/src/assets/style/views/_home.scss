@@ -1,16 +1,77 @@
-.home-container {
-    min-height: 100vh;
+.main-head {
+    width: 100%;
+    margin: 0 0 0 auto;
+}
+
+nav {
+    min-height: 10vh;
+    width: 60%;
     .logo {
-        width: 500px;
-    }
-    footer {
-        width: 100%;
-        height: 70px;
-        background: #202327;
-        color: white;
-        font-size: cursive;
-        .links>* {
-            padding: 0.5rem;
+        flex: 1 1 10rem;
+        p {
+            padding-top: 2rem;
+            color: #2c2c2c;
         }
     }
+    .links {
+        flex: 1 1 40rem;
+        >* {
+            font-size: 2rem;
+            padding: 10px;
+        }
+    }
+}
+
+.intro {
+    min-height: 90vh;
+    width: 90%;
+    margin: auto;
+    z-index: 2;
+    flex: 1;
+    h2 {
+        font-size: 8rem;
+        padding-top: 2rem;
+    }
+}
+
+.intro-social span {
+    margin-inline-start: 10px;
+}
+
+.splash {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: -1;
+}
+
+.active {
+    background: #2c2c2c;
+    color: white;
+    padding: 0.5rem 3rem;
+    border-radius: 2rem;
+}
+
+.main-footer {
+    width: 100%;
+    background: black;
+    height: 70px;
+    background: #063762;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: cursive;
+    padding: 10px;
+    .social-links span {
+        font-size: 30px;
+        padding-inline-start: 1rem;
+    }
+}
+
+.me {
+    position: absolute;
+    right: 0;
+    top: 20%;
 }
