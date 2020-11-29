@@ -33,6 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 #arrowAnim {
+    cursor: pointer;
     height: 22px;
     width: 60px;
     display: flex;

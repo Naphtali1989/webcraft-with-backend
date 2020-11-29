@@ -7,15 +7,27 @@
     flex-wrap: wrap;
     background-color: #fafafa;
     box-shadow: 1px 6px 20px #00000054;
-    .logo img {
-        width: 50px;
-        height: 50px;
+    .logo {
+        margin-inline-start: 1rem;
+        span {
+            font-family: bungee;
+            font-size: 1.4rem;
+        }
     }
     .nav-links {
-        margin-inline-start: 5px;
+        margin-inline-start: 10px;
         margin-inline-end: 5px;
         a {
-            padding: 10px;
+            padding: 0.5rem 0.8rem;
+            color: black;
+            font-size: 1rem;
+            border-radius: 10px;
+            margin-inline-start: 0.8rem;
+            margin-inline-end: 0.8rem;
         }
+    }
+    a.router-link-active {
+        background: rgb(3, 169, 244);
+        color: white;
     }
 }

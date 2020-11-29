@@ -17,10 +17,10 @@
             <h2>Webcraft</h2>
             <!-- <h3>Build website with ease</h3> -->
             <h3>Building websites is fun!</h3>
-            <div class="intro-social">
+            <!-- <div class="intro-social">
                 <span><i class="fab fa-github fa-3x"></i></span>
                 <span><i class="fab fa-linkedin-in fa-3x"></i></span>
-            </div>
+            </div> -->
         </section>
         <div class="intro-images">
             <img src="@/assets/img/splash.svg" alt="" class="splash">

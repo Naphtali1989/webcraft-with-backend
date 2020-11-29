@@ -84,4 +84,14 @@ export default {
         }
     }
 }
+
+.fa-arrow-left {
+    font-size: 30px;
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+.fa-arrow-left:hover {
+    transform: scale(1.1);
+}
 </style>

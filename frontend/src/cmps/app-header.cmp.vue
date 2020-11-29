@@ -1,14 +1,13 @@
 <template>
     <section class="app-header">
         <div class="logo">
-            <!-- <img src="@/assets/img/logo1.png" alt="" class="app-logo"> -->
-            Logo
+            <i class="fas fa-hammer fa-2x"></i> <span> Webcraft</span>
         </div>
         <div class="nav-links flex align-center">
-            <router-link to="/">Home</router-link>
-            <router-link to="/wap">Templates</router-link>
-            <router-link to="/editor">Editor</router-link>
-            <router-link to="/playground">Playground</router-link>
+            <router-link to="/" exact>Home</router-link>
+            <router-link to="/wap" exact>Templates</router-link>
+            <router-link to="/editor" exact>Editor</router-link>
+            <!-- <router-link to="/playground">Playground</router-link> -->
             <avatar :username="'matan cohen'" :size="45" :color="'#03A9F4'" @click.native="toggle" />
         </div>
         <avatar-modal v-if="showModal" />
@@ -28,7 +27,8 @@ export default {
     methods: {
         toggle() {
             this.showModal=!this.showModal;
-        }
+        },
+
     },
     components: {
         avatar,
