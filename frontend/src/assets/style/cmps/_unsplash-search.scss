@@ -1,5 +1,7 @@
 .unsplash-search {
     .form-container {
+        display: flex;
+        justify-content: center;
         position: relative;
     }
     form {
@@ -14,9 +16,9 @@
         }
         .btn-search {
             position: absolute;
-            right: 48px;
             bottom: 4px;
-            font-size: 17px;
+            right: 20px;
+            font-size: 17px
         }
     }
     .unsplash-imgs-container {

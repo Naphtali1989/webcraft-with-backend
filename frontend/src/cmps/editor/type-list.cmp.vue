@@ -1,19 +1,13 @@
 <template>
-    <section class="type-list">
-        <h1>This is add mode</h1>
+    <section class="type-list flex align-center column">
+        <h1>Pick an element</h1>
         <div class="element-picker-container" v-if="!selectedType">
-            <button
-                v-for="type in types"
-                :key="type"
-                @click="pickType(type)"
-            >
+            <button v-for="type in types" :key="type" @click="pickType(type)">
                 {{ type }}
             </button>
         </div>
         <div v-if="selectedType">
-            <span
-                ><i class="fas fa-arrow-left" @click="selectedType = ''"></i
-            ></span>
+            <span><i class="fas fa-arrow-left" @click="selectedType = ''"></i></span>
             <sample-list @pickedSample="emitPickSample" :samples="filterdSamples" />
         </div>
     </section>
@@ -30,15 +24,15 @@ export default {
     },
     data() {
         return {
-            types: ['header', 'cards', 'footer', 'text', 'form', 'gallery', 'map', 'video'],
+            types: ['header','cards','footer','text','form','gallery','map','video'],
             selectedType: ''
         }
     },
     methods: {
-        pickType(type){
-            this.selectedType = type
+        pickType(type) {
+            this.selectedType=type
         },
-        emitPickSample(id){
+        emitPickSample(id) {
             this.$emit('pickedSample',id)
         }
     },
@@ -46,8 +40,8 @@ export default {
         currPicker() {
             return this.selectedElem;
         },
-        filterdSamples() {  
-            return this.samples.filter(sample => sample.type === this.selectedType)
+        filterdSamples() {
+            return this.samples.filter(sample => sample.type===this.selectedType)
         }
     },
     components: {
@@ -57,13 +51,22 @@ export default {
 </script>
 
 <style lang="scss">
+.type-list {
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+
+    h1 {
+        padding: 0.5rem;
+        font-size: 20px;
+    }
+}
 .element-picker-container {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(2, 100px);
     justify-content: center;
     button {
-        font-family: cursive;
+        font-family: carme;
         padding: 0.5rem 1rem;
         background: transparent;
         border: 0;
