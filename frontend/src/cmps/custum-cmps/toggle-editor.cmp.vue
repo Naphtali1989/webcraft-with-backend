@@ -47,7 +47,7 @@ export default {
 .arrow {
     width: 22px;
     height: 22px;
-    border: 12px solid;
+    border: 4px solid;
     border-color: #909399d6 transparent transparent #909399d6;
     transform: rotate(-45deg);
 }
@@ -83,3 +83,4 @@ export default {
     }
 }
 </style>
+
