@@ -1,20 +1,16 @@
 <template>
     <section class="type-list">
-        <h1>This is add mode</h1>
         <div class="element-picker-container" v-if="!selectedType">
-            <button
-                v-for="type in types"
-                :key="type"
-                @click="pickType(type)"
-            >
+            <button v-for="type in types" :key="type" @click="pickType(type)">
                 {{ type }}
             </button>
         </div>
         <div v-if="selectedType">
-            <span
-                ><i class="fas fa-arrow-left" @click="selectedType = ''"></i
-            ></span>
-            <sample-list @pickedSample="emitPickSample" :samples="filterdSamples" />
+            <span><i class="fas fa-arrow-left" @click="selectedType = ''"></i></span>
+            <sample-list
+                @pickedSample="emitPickSample"
+                :samples="filterdSamples"
+            />
         </div>
     </section>
 </template>
@@ -35,18 +31,18 @@ export default {
         }
     },
     methods: {
-        pickType(type){
+        pickType(type) {
             this.selectedType = type
         },
-        emitPickSample(id){
-            this.$emit('pickedSample',id)
+        emitPickSample(id) {
+            this.$emit('pickedSample', id)
         }
     },
     computed: {
         currPicker() {
             return this.selectedElem;
         },
-        filterdSamples() {  
+        filterdSamples() {
             return this.samples.filter(sample => sample.type === this.selectedType)
         }
     },
