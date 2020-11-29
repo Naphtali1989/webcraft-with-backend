@@ -9,7 +9,6 @@
         <div v-if="selectedType">
             <span><i class="fas fa-arrow-left" @click="selectedType = ''"></i></span>
             <sample-list @pickedSample="emitPickSample" :samples="filterdSamples" />
-            <sample-list @pickedSample="emitPickSample" :samples="filterdSamples" />
         </div>
     </section>
 </template>
