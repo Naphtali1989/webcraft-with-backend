@@ -1,0 +1,148 @@
+{
+    "name": "section",
+    "type": "cards",
+    "title": "Photography",
+    "thumbnail": "https://imagizer.imageshack.com/img923/9422/XKYXzS.png",
+    "class": "flex",
+    "style": {
+        "maxHeight": "500px",
+        "padding": "",
+        "background": "lightblue",
+        "width": "100%",
+        "borderRadius": 0
+    },
+    "children": [{
+        "_id": "joq0xwm9mz",
+        "name": "div",
+        "class": "hero flex wrap",
+        "style": {
+            "lineHeight": "4",
+            "backgroundColor": "",
+            "color": "black",
+            "flex": "1 1 20rem",
+            "fontFamily": "Ruhl",
+            "fontSize": "16px",
+            "textAlign": "",
+            "fontStyle": "",
+            "textDecoration": "",
+            "letterSpacing": "1",
+            "width": "95%",
+            "flexWrap": "wrap",
+            "margin": "0 0 0 auto",
+            "overflow": "hidden"
+        },
+        "children": [{
+            "_id": "lmariuivm7",
+            "name": "div",
+            "class": "hero-images",
+            "style": {
+                "background": "linear-gradient(#dad8dd, #dad1d4)",
+                "flex": "1 1 20rem",
+                "borderRadius": 0,
+                "zIndex": 1,
+                "height": "500px"
+            },
+            "children": [{
+                "_id": "dpy0wjr23k",
+                "name": "img",
+                "class": "hero-elena",
+                "style": {
+                    "borderRadius": "",
+                    "height": "500px",
+                    "width": "100%",
+                    "objectFit": "cover"
+                },
+                "imgUrl": "https://images.unsplash.com/photo-1513031300226-c8fb12de9ade?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0"
+            }]
+        }, {
+            "_id": "rcshxz1yt",
+            "name": "div",
+            "class": "flex column hero-introduction",
+            "style": {
+                "background": "",
+                "flex": "2 1 40rem",
+                "textAlign": "center",
+                "borderRadius": 0
+            },
+            "children": [{
+                    "name": "txt",
+                    "_id": "ue31r10865",
+                    "type": "text",
+                    "txt": "About me",
+                    "style": {
+                        "fontSize": "24px",
+                        "lineHeight": "4",
+                        "letterSpacing": "1",
+                        "background": "",
+                        "color": "rgb(63,63,63)",
+                        "fontFamily": "Ruhl",
+                        "textDecoration": "",
+                        "fontStyle": "",
+                        "textAlign": "",
+                        "marginBlockEnd": "8px",
+                        "marginBlockStart": "8px"
+                    }
+                },
+                {
+                    "_id": "3vmb34keia",
+                    "type": "text",
+                    "name": "txt",
+                    "txt": "Professional Photographer",
+                    "style": {
+                        "fontSize": "24px",
+                        "lineHeight": "4",
+                        "letterSpacing": "1",
+                        "background": "",
+                        "color": "rgb(63,63,63)",
+                        "fontFamily": "Ruhl",
+                        "textDecoration": "",
+                        "fontStyle": "",
+                        "textAlign": ""
+                    }
+                },
+                {
+                    "_id": "x9skvwejwb",
+                    "type": "text",
+                    "name": "txt",
+                    "class": "",
+                    "txt": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est quia alias quibusdam id ab maiores commodi doloremque vero magnam at sunt dolore tempora ullam eveniet, molestias laudantium magni?",
+                    "style": {
+                        "lineHeight": "2",
+                        "backgroundColor": "",
+                        "color": "rgb(63,63,63)",
+                        "fontFamily": "Ruhl",
+                        "fontSize": "16px",
+                        "textAlign": "",
+                        "fontStyle": "",
+                        "textDecoration": "",
+                        "letterSpacing": "1",
+                        "padding": "1rem 3rem",
+                        "marginBottom": "1.5rem"
+                    }
+                },
+                {
+                    "_id": "picfmfyagc",
+                    "type": "link",
+                    "name": "link",
+                    "class": "",
+                    "txt": "About Me",
+                    "href": "#about",
+                    "style": {
+                        "lineHeight": "1",
+                        "backgroundColor": "beige",
+                        "color": "rgb(63,63,63)",
+                        "fontFamily": "Ruhl",
+                        "fontSize": "24px",
+                        "textAlign": "",
+                        "fontStyle": "",
+                        "textDecoration": "",
+                        "letterSpacing": "1",
+                        "padding": "2rem 4rem",
+                        "border": "3px solid black",
+                        "margin": "0 auto"
+                    }
+                }
+            ]
+        }]
+    }]
+}
