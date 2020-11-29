@@ -16,7 +16,7 @@
         <section class="intro">
             <h2>Webcraft</h2>
             <!-- <h3>Build website with ease</h3> -->
-            <p>Building websites is fun!</p>
+            <h3>Building websites is fun!</h3>
             <div class="intro-social">
                 <span><i class="fab fa-github fa-3x"></i></span>
                 <span><i class="fab fa-linkedin-in fa-3x"></i></span>
