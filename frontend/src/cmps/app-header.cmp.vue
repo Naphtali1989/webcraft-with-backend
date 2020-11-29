@@ -6,7 +6,7 @@
         </div>
         <div class="nav-links flex align-center">
             <router-link to="/">Home</router-link>
-            <router-link to="/wap">templates</router-link>
+            <router-link to="/wap">Templates</router-link>
             <router-link to="/editor">Editor</router-link>
             <router-link to="/playground">Playground</router-link>
             <avatar :username="'matan cohen'" :size="45" :color="'#03A9F4'" @click.native="toggle" />

@@ -36,7 +36,8 @@ export const wapService = {
     query,
     getById,
     save,
-    remove
+    remove,
+    // getWap
 };
 
 
