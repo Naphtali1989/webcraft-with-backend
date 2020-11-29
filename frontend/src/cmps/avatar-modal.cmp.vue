@@ -3,7 +3,7 @@
         <div class="info flex column align-center">
             <avatar :username="'matan cohen'" :size="80" :color="'#03A9F4'" />
             <h3>Matan Cohen</h3>
-            <span>emailgaming@gmail.com</span>
+            <span>email@gmail.com</span>
         </div>
         <div class="seperator"></div>
         <section class="modal-links flex column">
