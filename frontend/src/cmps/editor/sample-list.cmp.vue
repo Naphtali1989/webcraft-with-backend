@@ -7,7 +7,7 @@
             :get-ghost-parent="getGhostParent"
         >
             <Draggable v-for="sample in samples" :key="sample._id">
-                <div class="sample-preview">
+                <div class="sample-preview flex column">
                     <h3 class="sample-title">{{ sample.title }}</h3>
                     <img :src="sample.thumbnail" />
                 </div>

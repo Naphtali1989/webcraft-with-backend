@@ -9,30 +9,22 @@
         font-size: 1.2rem;
         position: relative;
         cursor: pointer;
-
-
-        &:hover {
-            .wap-prev-controls {
-                opacity: 1;
-            }
-        }
         img {
             height: 21.25rem;
             width: 100%;
             object-fit: cover
-            
         }
         h3 {
-            height: 2.5rem;
+            padding: 0.5rem;
             text-transform: capitalize;
-          
         }
         .wap-prev-controls {
+            background-color: #22222270;
             position: absolute;
             bottom: 0;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
+            width: 100%;
+            height: 130px;
+            transform: scaleY(0);
             transition: .5s ease;
             backface-visibility: hidden;
             >* {
@@ -42,6 +34,10 @@
                 color: white;
                 font-size: 2rem;
             }
-
+        }
+        &:hover {
+            .wap-prev-controls {
+                transform: scaleY(1);
+            }
         }
     }
