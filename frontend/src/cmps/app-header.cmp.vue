@@ -1,7 +1,7 @@
 <template>
     <section class="app-header">
-        <div class="logo">
-            <i class="fas fa-hammer fa-2x"></i> <span> Webcraft</span>
+        <div class="logo" @click="home">
+            <i class="fas fa-hammer fa-2x"></i><span> Webcraft</span>
         </div>
         <div class="nav-links flex align-center">
             <router-link to="/" exact>Home</router-link>
@@ -28,6 +28,9 @@ export default {
         toggle() {
             this.showModal=!this.showModal;
         },
+        home() {
+            this.$router.push('/')
+        }
 
     },
     components: {

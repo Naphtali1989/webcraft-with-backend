@@ -8,6 +8,7 @@
     background-color: #fafafa;
     box-shadow: 1px 6px 20px #00000054;
     .logo {
+        cursor: pointer;
         margin-inline-start: 1rem;
         span {
             font-family: bungee;
@@ -24,6 +25,10 @@
             border-radius: 10px;
             margin-inline-start: 0.8rem;
             margin-inline-end: 0.8rem;
+            transition: opacity .3s ease;
+            &:hover {
+                opacity: 0.8;
+            }
         }
     }
     a.router-link-active {
