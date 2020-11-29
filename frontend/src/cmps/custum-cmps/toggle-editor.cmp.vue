@@ -39,8 +39,8 @@ export default {
     justify-content: center;
     align-items: center;
     transform: translateX(10px);
-    &.rotateArrow{
-        transform:rotate(180deg)
+    &.rotateArrow {
+        transform: rotate(180deg);
     }
 }
 
@@ -48,7 +48,7 @@ export default {
     width: 22px;
     height: 22px;
     border: 12px solid;
-    border-color: black transparent transparent black;
+    border-color: #909399d6 transparent transparent #909399d6;
     transform: rotate(-45deg);
 }
 
