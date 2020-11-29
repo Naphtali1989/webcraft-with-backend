@@ -13,7 +13,7 @@
         <!-- <gallery-sample /> -->
         <!-- <card-sample2 /> -->
         <!-- <card-sample3 /> -->
-        <card-video />
+        <!-- <card-video /> -->
         <!-- <hero /> -->
     </section>
 </template>
@@ -23,11 +23,11 @@
 // import gallerySample from '@/cmps/samples/gallery-samples/gallery-sample.cmp.vue';
 // import cardSample2 from '@/cmps/samples/card-samples/card-sample2.cmp.vue';
 // import cardSample3 from '@/cmps/samples/card-samples/card-sample3.cmp.vue';
-import cardVideo from '@/cmps/samples/card-samples/card-video.cmp.vue';
+// import cardVideo from '@/cmps/samples/card-samples/card-video.cmp.vue';
 // import navbarSample from '@/cmps/samples/header-samples/navbar-sample.cmp.vue';
 // import cardSample from '@/cmps/samples/card-samples/card-sample.cmp.vue';
 // import avatarModal from '@/cmps/avatar-modal.cmp.vue';
-import hero from '@/cmps/samples/idantest/hero.vue';
+// import hero from '@/cmps/samples/idantest/hero.vue';
 // import GridSample from '../cmps/samples/header-samples/grid-sample.vue';
 // import unsplashSearch from '@/cmps/editor/editors/unsplash-search.cmp.vue';
 // import wapService from '@/services/wap.service'
@@ -46,7 +46,6 @@ export default {
         // footerSample
         // footerSample,
         // gallerySample
-        cardVideo
         // cardSample3
 
     },
