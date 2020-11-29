@@ -13,7 +13,7 @@
                 </button>
             </div>
         </section>
-        <!-- <slot></slot> -->
+        <slot></slot>
         <section class="editor-body">
             <component
                 :is="currDashboard"

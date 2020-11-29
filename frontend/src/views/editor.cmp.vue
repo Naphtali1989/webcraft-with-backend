@@ -1,6 +1,7 @@
 <template>
     <section class="editor-container flex column" :class="hideEditor">
         <editor-dashboard
+            :class="hideEditor"
             :samples="samples"
             :cmpToEdit="currCmpToEdit"
             @pickedSample="pickSample"
@@ -8,9 +9,11 @@
             @switched="emptyCmpToEdit"
         >
             <slot>
-                <button @click="toggleEditor" class="toggle-dashboard">
-                    Toggle Me
-                </button>
+                <toggle-editor
+                    class="toggle-dashboard"
+                    :isEditorShow="this.isEditorShow"
+                    @toggled="toggleEditor"
+                />
             </slot>
         </editor-dashboard>
         <section class="flex column">
@@ -34,6 +37,7 @@
 import editorDashboard from '@/cmps/editor/editor-dashboard.cmp.vue';
 import editorWorkspace from '@/cmps/editor/editor-workspace.cmp.vue';
 import userControls from '@/cmps/editor/user-controls.cmp.vue';
+import toggleEditor from '@/cmps/custum-cmps/toggle-editor.cmp.vue';
 import { utilService } from "@/services/util.service";
 
 
@@ -57,7 +61,8 @@ export default {
     components: {
         editorDashboard,
         editorWorkspace,
-        userControls
+        userControls,
+        toggleEditor
     },
     methods: {
         async saveWap() {
@@ -100,6 +105,7 @@ export default {
             this.currCmpToEdit.txt = txtValue;
         },
         toggleEditor() {
+            console.log('imhere')
             this.isEditorShow = !this.isEditorShow;
         },
         copySection(_id) {
