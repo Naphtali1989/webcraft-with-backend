@@ -8,7 +8,10 @@
         </div>
         <div v-if="selectedType">
             <span><i class="fas fa-arrow-left" @click="selectedType = ''"></i></span>
+            <<<<<<< HEAD <sample-list @pickedSample="emitPickSample" :samples="filterdSamples" />
+            =======
             <sample-list @pickedSample="emitPickSample" :samples="filterdSamples" />
+            >>>>>>> ee0449198e12929279a91a65ffbe40a5ee699a58
         </div>
     </section>
 </template>
@@ -30,10 +33,17 @@ export default {
     },
     methods: {
         pickType(type) {
+<<<<<<< HEAD
             this.selectedType=type
         },
         emitPickSample(id) {
             this.$emit('pickedSample',id)
+=======
+            this.selectedType = type
+        },
+        emitPickSample(id) {
+            this.$emit('pickedSample', id)
+>>>>>>> ee0449198e12929279a91a65ffbe40a5ee699a58
         }
     },
     computed: {
@@ -41,7 +51,11 @@ export default {
             return this.selectedElem;
         },
         filterdSamples() {
+<<<<<<< HEAD
             return this.samples.filter(sample => sample.type===this.selectedType)
+=======
+            return this.samples.filter(sample => sample.type === this.selectedType)
+>>>>>>> ee0449198e12929279a91a65ffbe40a5ee699a58
         }
     },
     components: {
