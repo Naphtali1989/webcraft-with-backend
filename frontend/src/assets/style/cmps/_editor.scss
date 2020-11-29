@@ -29,13 +29,6 @@
             cursor: grab;
         }
         
-        .smooth-dnd-container {
-            position: relative;
-            min-height: 850px;
-            min-width: 100%;
-            box-shadow: 0px 0px 4px #00000054
-        }
-        
         .card-ghost {
             transition: transform 0.18s ease;
             transform: rotateZ(2deg);
