@@ -20,7 +20,7 @@
             />
         </slot>
         {{ cmpTxt }}
-        <template v-if="cmp.children">
+        <template v-if="cmp.children" >
             <wap-worker
                 v-for="child in cmp.children"
                 :key="child._id"
