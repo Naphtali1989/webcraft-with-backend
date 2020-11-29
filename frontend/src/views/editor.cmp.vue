@@ -157,17 +157,19 @@ export default {
             this.currWap = wap;
         }
         else {
-            this.currWap = { name: '', cmps: [
+            this.currWap = {
+                name: '', cmps: [
 
-                  // here it starts
-                   
+                    // here it starts
+
 
 
 
 
 
                     // here it ends
-            ] }
+                ]
+            }
         }
     }
 }
