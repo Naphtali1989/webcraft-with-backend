@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <app-header />
+        <app-header v-if="webcraft" />
         <router-view />
     </div>
 </template>
@@ -12,5 +12,10 @@ export default {
     components: {
         appHeader,
     },
+    computed: {
+        webcraft() {
+            return this.$store.getters.webcraft
+        }
+    }
 };
 </script>

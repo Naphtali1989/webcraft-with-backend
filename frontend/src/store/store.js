@@ -9,8 +9,19 @@ vue.use(vuex);
 
 export default new vuex.Store({
     strict: true,
-    state: {},
-    mutations: {},
+    state: {
+        isUserSiteclosed: true
+    },
+    getters: {
+        webcraft(state) {
+            return state.isUserSiteclosed
+        }
+    },
+    mutations: {
+        setUserSiteOpen(state) {
+            state.isUserSiteclosed = !state.isUserSiteclosed
+        }
+    },
     actions: {},
     modules: {
         userStore,

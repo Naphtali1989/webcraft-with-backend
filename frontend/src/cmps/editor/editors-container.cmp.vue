@@ -51,7 +51,10 @@ export default {
         },
     },
     updated() {
-        if (this.cmpToEdit && (this.cmpToEdit.name === 'txt' || this.cmpToEdit.name === 'link')) this.currEditor = 'text'
+        if (this.cmpToEdit && 
+        (this.cmpToEdit.name === 'txt' ||
+         this.cmpToEdit.name === 'link'|| 
+         this.cmpToEdit.name === 'input')) this.currEditor = 'text'
         else this.currEditor = 'section'
     },
     components: {

@@ -31,7 +31,7 @@ const routes = [{
         component: playGround
     },
     {
-        path: '/:id',
+        path: '/wap/:id',
         component: wap
     },
 ];

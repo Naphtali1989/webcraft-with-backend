@@ -26,14 +26,14 @@ export default {
                     _id: "5fc391b6355fe63da848a82c"
                 },
                 {
+                    imgUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+                    title: "gaming",
+                    _id: "5fc3b2b10dc5eb5368180b14"
+                },
+                {
                     imgUrl: "https://images.unsplash.com/photo-1560343776-97e7d202ff0e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
                     title: "grooti",
                     _id: "5fc2d397de678429e801edf6"
-                },
-                {
-                    imgUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-                    title: "gaming",
-                    _id: "5fc36b6970a7273f445e975b"
                 },
                 {
                     imgUrl: "https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
