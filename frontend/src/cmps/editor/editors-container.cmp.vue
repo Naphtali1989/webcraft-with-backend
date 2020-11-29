@@ -9,8 +9,8 @@
             @updated="emitUpdated"
             @uploading="emitUploadImg"
         />
-        <div v-else class="flex align-center">
-            <h1>Please Click on a section to begin</h1>
+        <div v-else class="editor-message flex justify-center">
+            <h1 >Please Click on a section to begin</h1>
         </div>
     </section>
 </template>

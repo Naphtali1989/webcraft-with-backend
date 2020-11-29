@@ -33,7 +33,7 @@
     width: 20rem;
     transition: all .3s ease-in-out;
     /* position: sticky; */
-    z-index: 100003;
+    z-index: 1003;
     .editor-body {
         max-height: 850px;
         overflow-y: auto;
@@ -46,11 +46,12 @@
         &::-webkit-scrollbar-thumb {
             background-color: #2e4ead95;
         }
-        .el-select-dropdown {
-            &.el-popper {
-                z-index: 100000 !important;
-            }
-        }
+    }
+    .editor-message {
+        background-color: #fff;
+        padding: 2rem;
+        margin: 1rem;
+        text-align: center;
     }
 }
 
@@ -77,7 +78,7 @@
 
 //add controls above imgs
 .controls {
-    z-index: 10000;
+    z-index: 1001;
 }
 
 .drop-preview {
