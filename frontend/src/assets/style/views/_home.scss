@@ -67,10 +67,15 @@ nav {
     justify-content: space-between;
     font-family: bungee;
     letter-spacing: 2px;
-    padding: 10px;
+    h3 {
+        padding: 1rem;
+        font-size: 2.2rem;
+    }
     .social-links span {
-        font-size: 30px;
-        padding-inline-start: 1rem;
+        font-size: 2.2rem;
+        padding-inline-start: 2rem;
+        padding-inline-end: 2rem;
+        cursor: pointer;
     }
 }
 

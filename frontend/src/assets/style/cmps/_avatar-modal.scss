@@ -6,7 +6,7 @@
     border-color: rgba(0, 0, 0, .2);
     position: absolute;
     right: 0.8rem;
-    top: 3.5rem;
+    top: 4.2rem;
     z-index: 10000;
     background: #fff;
     border-radius: 7px;
@@ -15,8 +15,13 @@
     .modal-links {
         padding: 1.3rem;
     }
-    .info span {
-        padding: 2px;
+    .info {
+        h3 {
+            margin-block-start: 5px;
+        }
+        span {
+            margin-block-start: 5px;
+        }
     }
     .seperator {
         border: 1px solid #eee9e9;
@@ -25,5 +30,6 @@
     .modal-links>* {
         margin-block-start: 5px;
         margin-block-end: 5px;
+        cursor: pointer;
     }
 }
