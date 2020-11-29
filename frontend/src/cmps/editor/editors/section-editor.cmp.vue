@@ -9,8 +9,8 @@
             <color-picker @changeColor="setColor" />
         </template>
         <div class="img-uploader">
-            <div class="preview" v-if="showImgPreview">
-                <img :src="cmpToEdit.imgUrl" />
+            <div class="preview" :style="{backgroundColor: cmpToEdit.style.background}">
+                <img v-if="cmpToEdit.imgUrl" :src="cmpToEdit.imgUrl" />
             </div>
             <p class="editor-txt">Or Add An Image As A Background</p>
             <label class="user-input input-file"><i class="fas fa-cloud-upload-alt"></i>
@@ -40,6 +40,7 @@ export default {
             this.cmpToEdit.imgUrl=res.url;
         },
         setColor(color) {
+            if(this.cmpToEdit.imgUrl) this.cmpToEdit.imgUrl=null
             this.cmpToEdit.style.background=color;
         },
         onSetImg(imgUrl) {
@@ -63,7 +64,7 @@ export default {
             return parseInt(borderRadius,10)
         },
         showImgPreview() {
-            return this.cmpToEdit.imgUrl&&!this.cmpToEdit.style.background||!this.cmpToEdit.style.background.includes('#')
+            return this.cmpToEdit.imgUrl||this.cmpToEdit.style.background
         }
     },
     components: {

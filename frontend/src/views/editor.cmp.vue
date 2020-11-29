@@ -176,9 +176,10 @@ export default {
                                         height: "230px",
                                         overflow: 'hidden',
                                         position: 'relative',
-                                        frameBorder: "0"
-                                    },
 
+                                    },
+                                    frameborder: "0",
+                                    allowfullscreen: "allowfullscreen",
                                     children: [{
                                         _id: "vvlb93hww7",
                                         name: 'img',
