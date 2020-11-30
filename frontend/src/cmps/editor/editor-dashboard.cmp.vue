@@ -1,29 +1,25 @@
 <template>
     <section class="editor-dashboard">
-        <section class="editor-nav flex">
-            <div class="tab-container flex">
-                <button
-                    v-for="tab in tabs"
-                    :key="tab"
-                    @click="toggleTabs(tab)"
-                    :class="{ selected: currTab === tab }"
-                    class="tab-item btn"
-                >
-                    {{ tab }}
-                </button>
-            </div>
-        </section>
-        <slot></slot>
-        <section class="editor-body">
-            <component
-                :is="currDashboard"
-                :samples="samples"
-                :cmpToEdit="cmpToEdit"
-                @updated="emitUpdate"
-                @pickedSample="emitPickSample"
+        <section class="tab-container flex">
+            <button
+                v-for="tab in tabs"
+                :key="tab"
+                class="btn tab-btn"
+                :class="{ selected: currTab === tab }"
+                @click="toggleTabs(tab)"
             >
-            </component>
+                {{ tab }}
+            </button>
         </section>
+        <slot name="toggle-editor-btn"></slot>
+        <component
+            class="editor-body"
+            :is="currDashboard"
+            :samples="samples"
+            :cmpToEdit="cmpToEdit"
+            @pickedSample="emitPickedSample"
+        >
+        </component>
     </section>
 </template>
 
@@ -45,33 +41,24 @@ export default {
         return {
             currTab: 'add',
             tabs: ['add', 'edit'],
-
         }
     },
     methods: {
         toggleTabs(tab) {
             this.currTab = tab;
             if (this.currTab === 'add') {
-                this.$emit('switched')
+                this.$emit('switchedTab')
             }
-
         },
-        emitUpdate(updatedCmp) {
-            this.$emit('updated', updatedCmp);
-        },
-        emitPickSample(_id) {
+        emitPickedSample(_id) {
             this.$emit('pickedSample', _id)
         }
     },
     computed: {
-        selectedTab(tabName) {
-            return { selected: this.currTab === tabName };
-        },
         currDashboard() {
             if (this.currTab === 'edit') return 'editors-container';
             return 'type-list';
         }
-
     },
     updated() {
         if (this.cmpToEdit) this.currTab = 'edit';

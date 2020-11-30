@@ -1,5 +1,6 @@
 <template>
     <section>
+        <!-- TODO: change this button to an empty template that leads to an empty editor -->
         <div class="page-controls flex">
             <h1 class="site-saying">Create a website as you wish</h1>
             <button class="big-btn btn" @click="openEditor">
@@ -13,12 +14,15 @@
 <script>
 import wapList from '@/cmps/wap/wap-list.cmp.vue';
 export default {
-    name: 'wapGallery',
+    name: 'wap-gallery',
     components: {
         wapList
     },
     data() {
         return {
+
+            // TODO: refactor code to get waps from data base //
+
             waps: [
                 {
                     imgUrl: "https://imagizer.imageshack.com/img924/451/ldxasA.png",

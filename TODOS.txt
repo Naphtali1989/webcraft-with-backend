@@ -1,0 +1,16 @@
+wap-gallery:
+
+<!-- TODO: change this button to an empty template that leads to an empty editor -->
+ // TODO: refactor code to get waps from data base //
+
+ user-profile:
+
+// TODO: Construct a user base and connect users here
+
+home:
+
+<!-- TODO: New landing page that rocks! -->
+
+editor:
+
+<!-- TODO: think of a better way to explain this pickSample function -->

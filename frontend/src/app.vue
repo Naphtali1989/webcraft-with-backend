@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <app-header v-if="webcraft" />
+        <app-header v-if="!isViewMode" />
         <router-view />
     </div>
 </template>
@@ -13,8 +13,8 @@ export default {
         appHeader,
     },
     computed: {
-        webcraft() {
-            return this.$store.getters.webcraft
+        isViewMode() {
+            return this.$store.getters.isViewMode;
         }
     }
 };

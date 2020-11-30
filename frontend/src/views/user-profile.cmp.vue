@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name:'userProfile',
-    
+    name:'user-profile',
+    // TODO: Construct a user base and connect users here
 };
 </script>

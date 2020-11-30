@@ -13,8 +13,8 @@ export default new vuex.Store({
         isUserSiteclosed: true
     },
     getters: {
-        webcraft(state) {
-            return state.isUserSiteclosed;
+        isViewMode(state) {
+            return !state.isUserSiteclosed;
         }
     },
     mutations: {

@@ -1,13 +1,33 @@
 <template>
-    <section class="editor-container flex column" :class="hideEditor">
-        <editor-dashboard :class="hideEditor" :samples="samples" :cmpToEdit="currCmpToEdit" @pickedSample="pickSample" @updated="updateCmpToShow" @switched="emptyCmpToEdit">
-            <slot>
-                <toggle-editor class="toggle-dashboard" :isEditorShow="this.isEditorShow" @toggled="toggleEditor" />
-            </slot>
+    <section class="editor-container flex column" :class="isEditorShown">
+        <!-- TODO: think of a better way to explain this pickSample function -->
+        <editor-dashboard
+            :samples="samples"
+            :cmpToEdit="currCmpToEdit"
+            @pickedSample="pickSample"
+            @switchedTab="emptyCmpToEdit"
+        >
+            <toggle-editor
+                slot="toggle-editor-btn"
+                class="toggle-dashboard"
+                :isEditorShow="this.isEditorShow"
+                @toggled="toggleEditor"
+            />
         </editor-dashboard>
         <section class="flex column">
             <user-controls @saveWap="saveWap" />
-            <editor-workspace v-if="currWap" @droppedSample="pickSample" :cmps="currWap.cmps" @clicked="setCmpToEdit" @updatedTxt="updateTxt" @copy="copySection" @delete="deleteSection" @moveSection="moveSection" @droppedSection="dropSection" />
+            <!--  -->
+            <editor-workspace
+                v-if="currWap"
+                :cmps="currWap.cmps"
+                @clicked="setCmpToEdit"
+                @updatedTxt="updateTxt"
+                @delete="deleteSection"
+                @copy="copySection"
+                @moveSection="moveSection"
+                @droppedSample="pickSample"
+                @droppedSection="dropSection"
+            />
         </section>
     </section>
 </template>
@@ -20,7 +40,6 @@ import toggleEditor from '@/cmps/custum-cmps/toggle-editor.cmp.vue';
 import { utilService } from '@/services/util.service';
 import { wapService } from '@/services/util.service';
 
-
 export default {
     name: 'editor',
     data() {
@@ -31,7 +50,7 @@ export default {
         };
     },
     computed: {
-        hideEditor() {
+        isEditorShown() {
             return { 'hide-editor': !this.isEditorShow };
         },
         samples() {
@@ -45,858 +64,107 @@ export default {
         toggleEditor
     },
     methods: {
-        async saveWap() {
-            this.currWap=await this.$store.dispatch({
-                type: 'saveWap',
-                wap: this.currWap
-            });
+        toggleEditor() {
+            this.isEditorShow = !this.isEditorShow;
         },
-        findByIdRecursive(nodes,_id) {
-            for(let i=0;i<nodes.length;i++) {
-                const child=nodes[i];
-                if(child._id===_id) {
+        setCmpToEdit(_id) {
+            var cmpToEdit = this.findByIdRecursive(this.currWap.cmps, _id);
+            this.currCmpToEdit = cmpToEdit;
+        },
+        emptyCmpToEdit() {
+            this.currCmpToEdit = null;
+        },
+        updateTxt(txtValue) {
+            this.currCmpToEdit.txt = txtValue;
+        },
+        deleteSection(_id) {
+            const idx = this.currWap.cmps.findIndex(cmp => cmp._id === _id);
+            this.currWap.cmps.splice(idx, 1);
+        },
+        copySection(_id) {
+            const idx = this.currWap.cmps.findIndex(cmp => cmp._id === _id);
+            const section = this.currWap.cmps.find(cmp => cmp._id === _id);
+            const sectionCopy = JSON.parse(JSON.stringify(section));
+            this.replaceIds(sectionCopy);
+            this.currWap.cmps.splice(idx, 0, sectionCopy);
+        },
+        dropSection(dragResult) {
+            // dragResult holds the indexes of the current position of the section
+            // and the new position for it to drop to, and the section object itself
+            this.currWap.cmps = utilService.applyDrag(this.currWap.cmps, dragResult);
+        },
+        moveSection(_id, diff) {
+            // Find the section index and replace its position according to the difference
+            const idx = this.currWap.cmps.findIndex(cmp => cmp._id === _id);
+            if (idx === 0 && diff === -1) return;
+            const section = this.currWap.cmps.splice(idx, 1);
+            this.currWap.cmps.splice(idx + diff, 0, section[0]);
+        },
+        findByIdRecursive(nodes, _id) {
+            //Find the id of an element even if it is a child of another element
+            for (let i = 0; i < nodes.length; i++) {
+                const child = nodes[i];
+                if (child._id === _id) {
                     return child;
                 } else {
-                    if(child.children) {
-                        const found=this.findByIdRecursive(child.children,_id);
-                        if(found) {
-                            return found;
+                    if (child.children) {
+                        const foundElement = this.findByIdRecursive(child.children, _id);
+                        if (foundElement) {
+                            return foundElement;
                         }
                     }
                 }
             }
         },
         replaceIds(node) {
-            node._id=utilService.makeId();
-            if(node.children) {
+            //replace the ids of sample in order to differ from section to section
+            node._id = utilService.makeId();
+            if (node.children) {
                 node.children.forEach(child => {
                     this.replaceIds(child);
                 });
             }
         },
-        setCmpToEdit(_id) {
-            var cmpToEdit=this.findByIdRecursive(this.currWap.cmps,_id);
-            this.currCmpToEdit=cmpToEdit;
+        async saveWap() {
+            this.currWap = await this.$store.dispatch({
+                type: 'saveWap',
+                wap: this.currWap
+            });
         },
-        updateCmpToShow(updatedCmp) {
-            this.currCmpToEdit=updatedCmp;
-        },
-        updateTxt(txtValue) {
-            this.currCmpToEdit.txt=txtValue;
-        },
-        toggleEditor() {
-            this.isEditorShow=!this.isEditorShow;
-        },
-        copySection(_id) {
-            const section=this.currWap.cmps.find((cmp) => cmp._id===_id);
-            const cmp=JSON.parse(JSON.stringify(section));
-            this.replaceIds(cmp);
-            const idx=this.currWap.cmps.findIndex((cmp) => cmp._id===_id);
-            this.currWap.cmps.splice(idx,0,cmp);
-        },
-        dropSection(dragResult) {
-            this.currWap.cmps=utilService.applyDrag(this.currWap.cmps,dragResult);
-        },
-        deleteSection(_id) {
-            const idx=this.currWap.cmps.findIndex((cmp) => cmp._id===_id);
-            this.currWap.cmps.splice(idx,1);
-        },
-        moveSection(_id,diff) {
-            // const section = this.currWap.cmps.find((cmp) => cmp._id === _id);
-            const idx=this.currWap.cmps.findIndex((cmp) => cmp._id===_id);
-            if(idx===0&&diff===-1) return;
-            const section=this.currWap.cmps.splice(idx,1);
-            // this.currWap.cmps.splice(idx, 1);
-            this.currWap.cmps.splice(idx+diff,0,section[0]);
-            // this.currWap.cmps.splice(idx + diff, 0, section);
-        },
-        emptyCmpToEdit() {
-            this.currCmpToEdit=null;
-        },
-        async pickSample(_id,idx) {
-            const res=await this.$store.dispatch({
+        async pickSample(_id, idx) {
+            // Getting the sample from the store to copy
+            const sampleToCopy = await this.$store.dispatch({
                 type: 'pickedSample',
                 _id,
             });
-            let sample=JSON.parse(JSON.stringify(res));
-            //replace the ids of sample in order to differ from section to section
-            this.replaceIds(sample);
-            const dragResult={
-                payload: sample,
+            let sampleCopy = JSON.parse(JSON.stringify(sampleToCopy));
+            this.replaceIds(sampleCopy);
+            const dragResult = {
+                payload: sampleCopy,
                 addedIndex: idx,
                 removedIndex: null,
             };
+            // Drop the section in the correct drop zone
             this.dropSection(dragResult);
         },
     },
     async created() {
-        //load sample for type list
+        //load samples for the sample list
         await this.$store.dispatch({ type: 'loadSamples' });
-        const _id=this.$route.params.id;
-        if(_id) {
-            const wap=await this.$store.dispatch({
+        const _id = this.$route.params.id;
+        if (_id) {
+            const wap = await this.$store.dispatch({
                 type: 'loadWap',
                 _id
             });
-            this.currWap=wap;
+            this.currWap = wap;
         }
         else {
-            this.currWap={
+            this.currWap = {
                 name: '',
                 cmps: [
-                    {
-                        _id: 'dlkdsksdkljadjsklvvs',
-                        name: 'section',
-                        type: 'footer',
-                        class: 'flex space-around',
-                        style: {
-                            background: 'rgb(22, 22, 22)',
-                            borderRadius: '0px',
-                            width: '100%',
-                            padding: '3rem 1rem',
-                            fontFamily: 'carme',
-                            alignItems: 'stretch'
-
-                        },
-                        children: [
-                            {
-                                _id: Math.random().toString(36).substring(2,12),
-                                name: 'div',
-                                class: 'flex column align-center',
-                                style: {
-                                    background: '',
-                                    borderRadius: '0px'
-                                },
-                                children:
-                                    [
-                                        {
-                                            id: 'ksksksdkasjkldjlksa',
-                                            name: 'txt',
-                                            txt: "ABOUT US",
-                                            style: {
-                                                fontSize: "20px",
-                                                letterSpacing: '1px',
-                                                fontWeight: 'bold',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "1.5",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                                color: '#fff'
-                                            }
-                                        },
-                                        {
-                                            _id: 'vasjkmaiwjafia',
-                                            name: 'txt',
-                                            txt: "Integer cursus scelerisque ipsum id efficitur. Donec a dui fringilla, gravida lorem ac, semper magna. Aenean rhoncus ac lectus a interdum. Vivamus semper posuere dui, at ornare turpis ultrices sit amet. Nulla cursus lorem ut nisi porta, ac eleifend arcu ultrices",
-                                            style: {
-                                                fontSize: "14px",
-                                                letterSpacing: '1px',
-                                                fontWeight: '600',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                                color: '#fff',
-                                                maxWidth: '40ch'
-                                            }
-                                        },
-
-                                    ]
-                            },
-                            {
-                                _id: 'jsdsayuequwiskajd',
-                                name: 'div',
-                                class: 'flex column align-center',
-                                style: {
-                                    background: '',
-                                    borderRadius: '0px'
-                                },
-                                children:
-                                    [
-                                        {
-                                            _id: 'sjkasjdkjaskdbnvruy',
-                                            name: 'txt',
-                                            txt: "OPENING HOURS",
-                                            style: {
-                                                fontSize: "20px",
-                                                letterSpacing: '1px',
-                                                fontWeight: 'bold',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "1.5",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                                color: '#fff'
-                                            }
-                                        },
-                                        {
-                                            _id: Math.random().toString(36).substring(2,12),
-                                            name: 'txt',
-                                            txt: "Monday: Closed",
-                                            style: {
-                                                fontSize: "14px",
-                                                letterSpacing: '1px',
-                                                fontWeight: '600',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                                color: '#fff'
-                                            }
-                                        },
-                                        {
-                                            _id: Math.random().toString(36).substring(2,12),
-                                            name: 'txt',
-                                            txt: "Tue-Wed : 9:Am - 10PM",
-                                            style: {
-                                                "fontSize": "14px",
-                                                letterSpacing: '1px',
-                                                fontWeight: '600',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                                color: '#fff'
-                                            }
-                                        },
-                                        {
-                                            _id: Math.random().toString(36).substring(2,12),
-                                            name: 'txt',
-                                            txt: "Thu-Fri : 9:Am - 10PM",
-                                            style: {
-                                                fontSize: "14px",
-                                                letterSpacing: '1px',
-                                                fontWeight: '600',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                                color: '#fff'
-                                            }
-                                        },
-
-                                    ]
-                            },
-                            {
-                                _id: Math.random().toString(36).substring(2,12),
-                                name: 'div',
-                                class: 'flex column align-center',
-                                style: {
-                                    background: '',
-                                    borderRadius: '0px'
-                                },
-                                children:
-                                    [
-                                        {
-                                            _id: Math.random().toString(36).substring(2,12),
-                                            name: 'txt',
-                                            txt: "CONTACT INFROMATION",
-                                            style: {
-                                                fontSize: "20px",
-                                                letterSpacing: '1px',
-                                                fontWeight: 'bold',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "1.5",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                                color: '#fff'
-                                            }
-                                        },
-                                        {
-                                            _id: Math.random().toString(36).substring(2,12),
-                                            name: 'txt',
-                                            txt: "Ipsum Street, Lorem Tower, MO, Columbia, 508000",
-                                            style: {
-                                                fontSize: "14px",
-                                                letterSpacing: '1px',
-                                                fontWeight: '600',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                                color: '#fff',
-                                            }
-                                        },
-                                        {
-                                            _id: Math.random().toString(36).substring(2,12),
-                                            name: 'txt',
-                                            txt: "+01 2000 800 9999",
-                                            style: {
-                                                fontSize: "14px",
-                                                letterSpacing: '1px',
-                                                fontWeight: '600',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                                color: '#fff'
-                                            }
-                                        },
-                                        {
-                                            _id: Math.random().toString(36).substring(2,12),
-                                            name: 'txt',
-                                            txt: "info@admin.com",
-                                            style: {
-                                                fontSize: "14px",
-                                                letterSpacing: '1px',
-                                                fontWeight: '600',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                                color: '#fff'
-                                            }
-                                        },
-
-                                    ]
-                            },
-                            {
-                                _id: Math.random().toString(36).substring(2,12),
-                                name: 'div',
-                                class: 'flex column align-center',
-                                style: {
-                                    background: '',
-                                    borderRadius: '0px'
-                                },
-                                children:
-                                    [
-                                        {
-                                            _id: Math.random().toString(36).substring(2,12),
-                                            name: 'txt',
-                                            txt: "SUBSCRIBE",
-                                            style: {
-                                                fontSize: "20px",
-                                                letterSpacing: '1px',
-                                                fontWeight: 'bold',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "1.5",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                                color: '#fff'
-                                            }
-                                        },
-
-                                        {
-                                            _id: Math.random().toString(36).substring(2,12),
-                                            name: "link",
-                                            style: {
-                                                color: '#fff',
-                                                fontSize: "14px",
-                                                letterSpacing: '1px',
-                                                fontWeight: '600',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                            },
-                                            children: [{
-                                                _id: Math.random().toString(36).substring(2,12),
-                                                name: 'i',
-                                                class: "fab fa-facebook",
-                                                style: {
-                                                    fontSize: "30px",
-                                                    color: '#fff',
-
-                                                }
-                                            }]
-                                        },
-                                        {
-                                            _id: "muv2u1mx",
-                                            name: "link",
-                                            style: {
-                                                color: '#fff',
-                                                fontSize: "14px",
-                                                letterSpacing: '1px',
-                                                fontWeight: '600',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                            },
-                                            children: [{
-                                                _id: "d9e33wsj",
-                                                name: "i",
-                                                class: "fab fa-instagram",
-                                                style: {
-                                                    fontSize: "30px",
-                                                    color: '#fff',
-
-                                                }
-                                            }]
-                                        },
-                                        {
-                                            _id: "03bitt8p",
-                                            name: "link",
-                                            style: {
-                                                color: '#fff',
-                                                fontSize: "14px",
-                                                letterSpacing: '1px',
-                                                fontWeight: '600',
-                                                background: '',
-                                                padding: '12px 40px',
-                                                border: 'none',
-                                                lineHeight: "",
-                                                textDecoration: "",
-                                                fontStyle: "",
-                                                textAlign: "",
-                                                fontFamily: "",
-                                            },
-                                            children: [{
-                                                _id: "jilo2k00",
-                                                name: "i",
-                                                class: "fab fa-twitter",
-                                                style: {
-                                                    fontSize: "30px",
-                                                    color: '#fff',
-
-                                                }
-                                            }]
-                                        },
-
-
-                                    ]
-
-
-
-                            }
-                        ]
-                    }
                     // //start here
-                    // {
-                    //     type: 'section',
-                    //     class: 'gallery-slider flex column align-center',
-                    //     name: 'section',
-                    //     thumbnail: 'https://imagizer.imageshack.com/img922/37/Gy8un8.png',
-                    //     style: {
-                    //         background: "transparent",
-                    //         borderRadius: "0px",
-                    //         //figure out height
-                    //         height: '500px'
-                    //     },
-                    //     //HEADER + H1  + P
-                    //     children: [{
-                    //         _id: Math.random().toString(36).substring(2,12),
-                    //         name: 'div',
-                    //         class: 'flex column align-center',
-                    //         style: {
-                    //             background: "transparent",
-                    //             borderRadius: "0px",
-                    //         },
-                    //         children: [
-                    //             {
-                    //                 id: Math.random().toString(36).substring(2,12),
-                    //                 name: 'txt',
-                    //                 txt: "Special Menu",
-                    //                 style: {
-                    //                     "fontSize": "28px",
-                    //                     "fontWeight": "600",
-                    //                     "marginBlockStart": "",
-                    //                     "lineHeight": "2",
-                    //                     "letterSpacing": "",
-                    //                     "backgroundColor": "transparent",
-                    //                     "textDecoration": "",
-                    //                     "fontStyle": "",
-                    //                     "textAlign": "",
-                    //                     "fontFamily": "",
-                    //                     "color": '#010101',
-                    //                 }
-                    //             },
-                    //             {
-                    //                 id: Math.random().toString(36).substring(2,12),
-                    //                 name: 'txt',
-                    //                 txt: "Lorem Ipsum is simply dummy text of the printing and typesetting",
-                    //                 style: {
-                    //                     "fontSize": "18px",
-                    //                     "fontWeight": "200",
-                    //                     "lineHeight": "3",
-                    //                     "letterSpacing": "",
-                    //                     "backgroundColor": "transparent",
-                    //                     "textDecoration": "",
-                    //                     "fontStyle": "",
-                    //                     "textAlign": "",
-                    //                     "fontFamily": "",
-                    //                     "color": '#010101'
-                    //                 }
-                    //             }
-                    //         ]
 
-                    //     },
-                    //     {
-                    //         //START NAV
-                    //         _id: Math.random().toString(36).substring(2,12),
-                    //         name: "div",
-                    //         type: 'nav-section',
-                    //         class: 'flex align-center',
-                    //         style: {
-                    //             background: '',
-                    //             borderRadius: '4px',
-                    //             border: '1px solid #e4e4e4',
-                    //             margin: '10px 15px',
-                    //         },
-                    //         //NAV UL
-                    //         children:
-                    //             [
-                    //                 {
-                    //                     id: Math.random().toString(36).substring(2,12),
-                    //                     name: 'txt',
-                    //                     txt: "ALL",
-                    //                     style: {
-                    //                         boxShadow: '2px 20px 45px 5px rgba(0,0,0,.2)',
-                    //                         "fontSize": "14px",
-                    //                         letterSpacing: '1px',
-                    //                         fontWeight: '600px',
-                    //                         background: '#cfa671',
-                    //                         padding: '12px 40px',
-                    //                         border: 'none',
-                    //                         "color": '#fff'
-                    //                     }
-                    //                 },
-                    //                 {
-                    //                     id: 'dsjkdsakjkjsadj',
-                    //                     name: 'txt',
-                    //                     txt: "DRINKS",
-                    //                     style: {
-                    //                         "fontSize": "14px",
-                    //                         letterSpacing: '1px',
-                    //                         fontWeight: '600px',
-                    //                         background: '#fff',
-                    //                         padding: '12px 40px',
-                    //                         border: 'none',
-                    //                         "lineHeight": "",
-                    //                         "textDecoration": "",
-                    //                         "fontStyle": "",
-                    //                         "textAlign": "",
-                    //                         "fontFamily": "",
-                    //                         "color": '333'
-                    //                     }
-                    //                 },
-                    //                 {
-                    //                     id: Math.random().toString(36).substring(2,12),
-                    //                     name: 'txt',
-                    //                     txt: "LUCNH",
-                    //                     style: {
-                    //                         "fontSize": "14px",
-                    //                         letterSpacing: '1px',
-                    //                         fontWeight: '600px',
-                    //                         background: '#fff',
-                    //                         padding: '12px 40px',
-                    //                         border: 'none',
-                    //                         "lineHeight": "",
-                    //                         "textDecoration": "",
-                    //                         "fontStyle": "",
-                    //                         "textAlign": "",
-                    //                         "fontFamily": "",
-                    //                         "color": '333'
-                    //                     }
-                    //                 },
-                    //                 {
-                    //                     id: Math.random().toString(36).substring(2,12),
-                    //                     name: 'txt',
-                    //                     txt: "DINNER",
-                    //                     style: {
-                    //                         "fontSize": "14px",
-                    //                         letterSpacing: '1px',
-                    //                         fontWeight: '600px',
-                    //                         background: '#fff',
-                    //                         padding: '12px 40px',
-                    //                         border: 'none',
-                    //                         "lineHeight": "",
-                    //                         "textDecoration": "",
-                    //                         "fontStyle": "",
-                    //                         "textAlign": "",
-                    //                         "fontFamily": "",
-                    //                         "color": '333'
-                    //                     }
-                    //                 },
-                    //             ]
-                    //     },
-                    //     {
-
-                    //         //begin of gallery
-                    //         _id: Math.random().toString(36).substring(2,12),
-                    //         name: 'div',
-                    //         type: 'gallery-img',
-                    //         class: 'grid',
-                    //         style: {
-                    //             display: 'grid',
-                    //             gridTemplateColumns: 'repeat(auto-fill, minmax(16rem, 1fr)',
-                    //             justifyItems: 'center',
-                    //             alignItems: 'center',
-                    //             gridGap: '15px'
-                    //         },
-                    //         children:
-                    //             [
-                    //                 {
-                    //                     _id: Math.random().toString(36).substring(2,12),
-                    //                     name: 'div',
-                    //                     style: {
-                    //                         background: 'transparent',
-                    //                         borderRadius: '0px',
-                    //                         width: '200px'
-                    //                         // height: '350px',
-                    //                         // width: '200px',
-                    //                     },
-                    //                     children:
-                    //                         [
-                    //                             {
-                    //                                 _id: Math.random().toString(36).substring(2,12),
-                    //                                 name: 'img',
-                    //                                 class: 'card-img',
-                    //                                 imgUrl: 'https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
-                    //                                 style: {
-                    //                                     width: '100%',
-                    //                                     objectFit: 'cover',
-                    //                                 }
-
-                    //                             }
-                    //                         ]
-
-                    //                 },
-                    //                 {
-                    //                     _id: Math.random().toString(36).substring(2,12),
-                    //                     name: 'div',
-                    //                     style: {
-                    //                         background: 'transparent',
-                    //                         borderRadius: '0px',
-                    //                         width: '200px'
-                    //                         // height: '350px',
-                    //                         // width: '200px',
-                    //                     },
-                    //                     children:
-                    //                         [
-                    //                             {
-                    //                                 _id: Math.random().toString(36).substring(2,12),
-                    //                                 name: 'img',
-                    //                                 class: 'card-img',
-                    //                                 imgUrl: 'https://images.unsplash.com/photo-1506354666786-959d6d497f1a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
-                    //                                 style: {
-                    //                                     width: '100%',
-                    //                                     objectFit: 'cover',
-                    //                                     background: 'https://images.unsplash.com/photo-1552689486-f6773047d19f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0'
-                    //                                 }
-
-                    //                             }
-                    //                         ]
-
-                    //                 },
-                    //                 {
-                    //                     _id: Math.random().toString(36).substring(2,12),
-                    //                     name: 'div',
-                    //                     style: {
-                    //                         background: 'transparent',
-                    //                         borderRadius: '0px',
-                    //                         width: '200px'
-                    //                         // height: '350px',
-                    //                         // width: '200px',
-                    //                     },
-                    //                     children:
-                    //                         [
-                    //                             {
-                    //                                 _id: Math.random().toString(36).substring(2,12),
-                    //                                 name: 'img',
-                    //                                 class: 'card-img',
-                    //                                 imgUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
-                    //                                 style: {
-                    //                                     width: '200px',
-                    //                                     objectFit: 'cover',
-                    //                                 }
-
-                    //                             }
-                    //                         ]
-
-                    //                 },
-                    //                 {
-                    //                     _id: Math.random().toString(36).substring(2,12),
-                    //                     name: 'div',
-                    //                     style: {
-                    //                         background: 'transparent',
-                    //                         borderRadius: '0px',
-                    //                         width: '200px'
-                    //                         // gridColumnEnd: 'span 3',
-                    //                         // height: '350px',
-                    //                         // width: '200px',
-                    //                     },
-                    //                     children:
-                    //                         [
-                    //                             {
-                    //                                 _id: Math.random().toString(36).substring(2,12),
-                    //                                 name: 'img',
-                    //                                 class: 'card-img',
-                    //                                 imgUrl: 'https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
-                    //                                 style: {
-                    //                                     width: '100%',
-                    //                                     objectFit: 'cover',
-                    //                                 }
-
-                    //                             }
-                    //                         ]
-
-                    //                 },
-                    //                 {
-                    //                     _id: Math.random().toString(36).substring(2,12),
-                    //                     name: 'div',
-                    //                     style: {
-                    //                         background: 'transparent',
-                    //                         borderRadius: '0px',
-                    //                         width: '200px'
-                    //                         // height: '350px',
-                    //                         // width: '200px',
-                    //                     },
-                    //                     children:
-                    //                         [
-                    //                             {
-                    //                                 _id: Math.random().toString(36).substring(2,12),
-                    //                                 name: 'img',
-                    //                                 class: 'card-img',
-                    //                                 imgUrl: 'https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
-                    //                                 style: {
-                    //                                     width: '100%',
-                    //                                     objectFit: 'cover',
-                    //                                 }
-
-                    //                             }
-                    //                         ]
-
-                    //                 },
-                    //                 {
-                    //                     _id: Math.random().toString(36).substring(2,12),
-                    //                     name: 'div',
-                    //                     style: {
-                    //                         background: 'transparent',
-                    //                         borderRadius: '0px',
-                    //                         width: '200px'
-                    //                         // height: '350px',
-                    //                         // width: '200px',
-                    //                     },
-                    //                     children:
-                    //                         [
-                    //                             {
-                    //                                 _id: Math.random().toString(36).substring(2,12),
-                    //                                 name: 'img',
-                    //                                 class: 'card-img',
-                    //                                 imgUrl: 'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
-                    //                                 style: {
-                    //                                     width: '100%',
-                    //                                     objectFit: 'cover',
-                    //                                 }
-
-                    //                             }
-                    //                         ]
-
-                    //                 },
-                    //                 {
-                    //                     _id: Math.random().toString(36).substring(2,12),
-                    //                     name: 'div',
-                    //                     style: {
-                    //                         background: 'transparent',
-                    //                         borderRadius: '0px',
-                    //                         width: '200px'
-                    //                         // height: '350px',
-                    //                         // width: '200px',
-                    //                     },
-                    //                     children:
-                    //                         [
-                    //                             {
-                    //                                 _id: Math.random().toString(36).substring(2,12),
-                    //                                 name: 'img',
-                    //                                 class: 'card-img',
-                    //                                 imgUrl: 'https://images.unsplash.com/photo-1552689486-f6773047d19f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
-                    //                                 style: {
-                    //                                     width: '100%',
-                    //                                     objectFit: 'cover',
-                    //                                     background: 'https://images.unsplash.com/photo-1552689486-f6773047d19f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0'
-                    //                                 }
-
-                    //                             }
-                    //                         ]
-
-                    //                 },
-                    //                 {
-                    //                     _id: Math.random().toString(36).substring(2,12),
-                    //                     name: 'div',
-                    //                     style: {
-                    //                         background: 'transparent',
-                    //                         borderRadius: '0px',
-                    //                         width: '200px'
-
-                    //                         // height: '350px',
-                    //                         // width: '200px',
-                    //                     },
-                    //                     children:
-                    //                         [
-                    //                             {
-                    //                                 _id: Math.random().toString(36).substring(2,12),
-                    //                                 name: 'img',
-                    //                                 class: 'card-img',
-                    //                                 imgUrl: 'https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0',
-                    //                                 style: {
-                    //                                     width: '100%',
-                    //                                     objectFit: 'cover',
-                    //                                     background: 'https://images.unsplash.com/photo-1552689486-f6773047d19f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE4NTQxOX0'
-                    //                                 }
-
-                    //                             }
-                    //                         ]
-
-                    //                 },
-
-
-                    //             ]
-                    //     }
-                    //     ],
-
-                    // }
                     // here it ends
                 ]
             }
