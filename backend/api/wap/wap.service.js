@@ -95,5 +95,5 @@ module.exports = {
     getById,
     remove,
     add,
-    update,
+    update
 }
