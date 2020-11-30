@@ -1,7 +1,7 @@
 <template>
     <section class="unsplash-search">
         <form @submit.prevent="searchPhotos">
-            <div class="form-container">
+            <div class="form-container flex justify-center">
                 <input
                     type="text"
                     placeholder="Search photo..."

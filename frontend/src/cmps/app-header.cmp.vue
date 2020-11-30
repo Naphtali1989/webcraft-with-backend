@@ -1,6 +1,6 @@
 <template>
-    <section class="app-header">
-        <div class="logo" @click="home">
+    <section class="app-header flex wrap space-between">
+        <div class="logo align-center" @click="home">
             <i class="fas fa-hammer fa-2x"></i><span> Webcraft</span>
         </div>
         <div class="nav-links flex align-center">

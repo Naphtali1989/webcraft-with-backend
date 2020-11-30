@@ -2,15 +2,15 @@
     <div class="footer flex wrap align-center">
         <h4>Elena Joy</h4>
         <ul class="clean-list flex space-between align-center">
-            <li>
+            <div>
                 <a href="#"><img src="@/assets/svgs/youtube-symbol1.svg" alt="youtube-social-media" /></a>
-            </li>
-            <li>
-                <a href="#"><img src="@/assets/svgs/twitter1.svg" alt="twitter-social-media" /></a>
-            </li>
-            <li>
-                <a href="#"><img src="@/assets/svgs/instagram1.svg" alt="instagram" /></a>
-            </li>
+                <div>
+                    <li>
+                        <a href="#"><img src="@/assets/svgs/twitter1.svg" alt="twitter-social-media" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="@/assets/svgs/instagram1.svg" alt="instagram" /></a>
+                    </li>
         </ul>
     </div>
 </template>
@@ -23,3 +23,4 @@ export default {
 
 <style>
 </style>
+

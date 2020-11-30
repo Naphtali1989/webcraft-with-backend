@@ -140,7 +140,7 @@ export default {
                 name: '',
                 cmps: [
                     {
-                        _id: Math.random().toString(36).substring(2,12),
+                        _id: 'dlkdsksdkljadjsklvvs',
                         name: 'section',
                         type: 'footer',
                         class: 'flex space-around',
@@ -149,378 +149,360 @@ export default {
                             borderRadius: '0px',
                             width: '100%',
                             padding: '3rem 1rem',
-
+                            fontFamily: 'carme',
+                            alignItems: 'stretch'
 
                         },
                         children: [
                             {
-
                                 _id: Math.random().toString(36).substring(2,12),
                                 name: 'div',
+                                class: 'flex column align-center',
                                 style: {
                                     background: '',
-                                    borderRadius: '0px',
-                                    display: 'flex',
+                                    borderRadius: '0px'
+                                },
+                                children:
+                                    [
+                                        {
+                                            id: 'ksksksdkasjkldjlksa',
+                                            name: 'txt',
+                                            txt: "ABOUT US",
+                                            style: {
+                                                fontSize: "20px",
+                                                letterSpacing: '1px',
+                                                fontWeight: 'bold',
+                                                background: '',
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "1.5",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                                color: '#fff'
+                                            }
+                                        },
+                                        {
+                                            _id: 'vasjkmaiwjafia',
+                                            name: 'txt',
+                                            txt: "Integer cursus scelerisque ipsum id efficitur. Donec a dui fringilla, gravida lorem ac, semper magna. Aenean rhoncus ac lectus a interdum. Vivamus semper posuere dui, at ornare turpis ultrices sit amet. Nulla cursus lorem ut nisi porta, ac eleifend arcu ultrices",
+                                            style: {
+                                                fontSize: "14px",
+                                                letterSpacing: '1px',
+                                                fontWeight: '600',
+                                                background: '',
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                                color: '#fff',
+                                                maxWidth: '40ch'
+                                            }
+                                        },
+
+                                    ]
+                            },
+                            {
+                                _id: 'jsdsayuequwiskajd',
+                                name: 'div',
+                                class: 'flex column align-center',
+                                style: {
+                                    background: '',
+                                    borderRadius: '0px'
+                                },
+                                children:
+                                    [
+                                        {
+                                            _id: 'sjkasjdkjaskdbnvruy',
+                                            name: 'txt',
+                                            txt: "OPENING HOURS",
+                                            style: {
+                                                fontSize: "20px",
+                                                letterSpacing: '1px',
+                                                fontWeight: 'bold',
+                                                background: '',
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "1.5",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                                color: '#fff'
+                                            }
+                                        },
+                                        {
+                                            _id: Math.random().toString(36).substring(2,12),
+                                            name: 'txt',
+                                            txt: "Monday: Closed",
+                                            style: {
+                                                fontSize: "14px",
+                                                letterSpacing: '1px',
+                                                fontWeight: '600',
+                                                background: '',
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                                color: '#fff'
+                                            }
+                                        },
+                                        {
+                                            _id: Math.random().toString(36).substring(2,12),
+                                            name: 'txt',
+                                            txt: "Tue-Wed : 9:Am - 10PM",
+                                            style: {
+                                                "fontSize": "14px",
+                                                letterSpacing: '1px',
+                                                fontWeight: '600',
+                                                background: '',
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                                color: '#fff'
+                                            }
+                                        },
+                                        {
+                                            _id: Math.random().toString(36).substring(2,12),
+                                            name: 'txt',
+                                            txt: "Thu-Fri : 9:Am - 10PM",
+                                            style: {
+                                                fontSize: "14px",
+                                                letterSpacing: '1px',
+                                                fontWeight: '600',
+                                                background: '',
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                                color: '#fff'
+                                            }
+                                        },
+
+                                    ]
+                            },
+                            {
+                                _id: Math.random().toString(36).substring(2,12),
+                                name: 'div',
+                                class: 'flex column align-center',
+                                style: {
+                                    background: '',
+                                    borderRadius: '0px'
                                 },
                                 children:
                                     [
                                         {
                                             _id: Math.random().toString(36).substring(2,12),
-                                            name: 'div',
-                                            class: 'flex column align-center',
+                                            name: 'txt',
+                                            txt: "CONTACT INFROMATION",
                                             style: {
+                                                fontSize: "20px",
+                                                letterSpacing: '1px',
+                                                fontWeight: 'bold',
                                                 background: '',
-                                                borderRadius: '0px'
-                                            },
-                                            children:
-                                                [
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 1",
-                                                        style: {
-                                                            fontSize: "20px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: 'bold',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            lineHeight: "1.5",
-                                                            textDecoration: "",
-                                                            fontStyle: "",
-                                                            textAlign: "",
-                                                            fontFamily: "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 2",
-                                                        style: {
-                                                            fontSize: "14px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: '600px',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            lineHeight: "",
-                                                            textDecoration: "",
-                                                            fontStyle: "",
-                                                            textAlign: "",
-                                                            fontFamily: "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 3",
-                                                        style: {
-                                                            "fontSize": "14px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: '600px',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            "lineHeight": "",
-                                                            "textDecoration": "",
-                                                            "fontStyle": "",
-                                                            "textAlign": "",
-                                                            "fontFamily": "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 4",
-                                                        style: {
-                                                            "fontSize": "14px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: '600px',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            "lineHeight": "",
-                                                            "textDecoration": "",
-                                                            "fontStyle": "",
-                                                            "textAlign": "",
-                                                            "fontFamily": "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-
-                                                ]
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "1.5",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                                color: '#fff'
+                                            }
                                         },
                                         {
                                             _id: Math.random().toString(36).substring(2,12),
-                                            name: 'div',
-                                            class: 'flex column align-center',
+                                            name: 'txt',
+                                            txt: "Ipsum Street, Lorem Tower, MO, Columbia, 508000",
                                             style: {
+                                                fontSize: "14px",
+                                                letterSpacing: '1px',
+                                                fontWeight: '600',
                                                 background: '',
-                                                borderRadius: '0px'
-                                            },
-                                            children:
-                                                [
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 1",
-                                                        style: {
-                                                            fontSize: "1.25rem",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: 'bold',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            lineHeight: "1.5",
-                                                            textDecoration: "",
-                                                            fontStyle: "",
-                                                            textAlign: "",
-                                                            fontFamily: "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 2",
-                                                        style: {
-                                                            fontSize: "14px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: '600px',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            lineHeight: "",
-                                                            textDecoration: "",
-                                                            fontStyle: "",
-                                                            textAlign: "",
-                                                            fontFamily: "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 3",
-                                                        style: {
-                                                            "fontSize": "14px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: '600px',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            "lineHeight": "",
-                                                            "textDecoration": "",
-                                                            "fontStyle": "",
-                                                            "textAlign": "",
-                                                            "fontFamily": "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 4",
-                                                        style: {
-                                                            "fontSize": "14px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: '600px',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            "lineHeight": "",
-                                                            "textDecoration": "",
-                                                            "fontStyle": "",
-                                                            "textAlign": "",
-                                                            "fontFamily": "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-
-                                                ]
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                                color: '#fff',
+                                            }
                                         },
                                         {
                                             _id: Math.random().toString(36).substring(2,12),
-                                            name: 'div',
-                                            class: 'flex column align-center',
+                                            name: 'txt',
+                                            txt: "+01 2000 800 9999",
                                             style: {
+                                                fontSize: "14px",
+                                                letterSpacing: '1px',
+                                                fontWeight: '600',
                                                 background: '',
-                                                borderRadius: '0px'
-                                            },
-                                            children:
-                                                [
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 1",
-                                                        style: {
-                                                            fontSize: "20px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: 'bold',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            lineHeight: "1.5",
-                                                            textDecoration: "",
-                                                            fontStyle: "",
-                                                            textAlign: "",
-                                                            fontFamily: "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 2",
-                                                        style: {
-                                                            fontSize: "14px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: '600px',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            lineHeight: "",
-                                                            textDecoration: "",
-                                                            fontStyle: "",
-                                                            textAlign: "",
-                                                            fontFamily: "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 3",
-                                                        style: {
-                                                            "fontSize": "14px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: '600px',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            "lineHeight": "",
-                                                            "textDecoration": "",
-                                                            "fontStyle": "",
-                                                            "textAlign": "",
-                                                            "fontFamily": "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 4",
-                                                        style: {
-                                                            "fontSize": "14px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: '600px',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            "lineHeight": "",
-                                                            "textDecoration": "",
-                                                            "fontStyle": "",
-                                                            "textAlign": "",
-                                                            "fontFamily": "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-
-                                                ]
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                                color: '#fff'
+                                            }
                                         },
                                         {
                                             _id: Math.random().toString(36).substring(2,12),
-                                            name: 'div',
-                                            class: 'flex column align-center',
+                                            name: 'txt',
+                                            txt: "info@admin.com",
                                             style: {
+                                                fontSize: "14px",
+                                                letterSpacing: '1px',
+                                                fontWeight: '600',
                                                 background: '',
-                                                borderRadius: '0px'
-                                            },
-                                            children:
-                                                [
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 1",
-                                                        style: {
-                                                            fontSize: "20px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: 'bold',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            lineHeight: "1.5",
-                                                            textDecoration: "",
-                                                            fontStyle: "",
-                                                            textAlign: "",
-                                                            fontFamily: "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 2",
-                                                        style: {
-                                                            fontSize: "14px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: '600px',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            lineHeight: "",
-                                                            textDecoration: "",
-                                                            fontStyle: "",
-                                                            textAlign: "",
-                                                            fontFamily: "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 3",
-                                                        style: {
-                                                            fontSize: "14px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: '600px',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            "lineHeight": "",
-                                                            "textDecoration": "",
-                                                            "fontStyle": "",
-                                                            "textAlign": "",
-                                                            "fontFamily": "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
-                                                    {
-                                                        id: Math.random().toString(36).substring(2,12),
-                                                        name: 'txt',
-                                                        txt: "Item 4",
-                                                        style: {
-                                                            fontSize: "14px",
-                                                            letterSpacing: '1px',
-                                                            fontWeight: '600px',
-                                                            background: '',
-                                                            padding: '12px 40px',
-                                                            border: 'none',
-                                                            lineHeight: "",
-                                                            textDecoration: "",
-                                                            fontStyle: "",
-                                                            textAlign: "",
-                                                            fontFamily: "",
-                                                            color: '#fff'
-                                                        }
-                                                    },
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                                color: '#fff'
+                                            }
+                                        },
 
-                                                ]
-                                        }
                                     ]
+                            },
+                            {
+                                _id: Math.random().toString(36).substring(2,12),
+                                name: 'div',
+                                class: 'flex column align-center',
+                                style: {
+                                    background: '',
+                                    borderRadius: '0px'
+                                },
+                                children:
+                                    [
+                                        {
+                                            _id: Math.random().toString(36).substring(2,12),
+                                            name: 'txt',
+                                            txt: "SUBSCRIBE",
+                                            style: {
+                                                fontSize: "20px",
+                                                letterSpacing: '1px',
+                                                fontWeight: 'bold',
+                                                background: '',
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "1.5",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                                color: '#fff'
+                                            }
+                                        },
+
+                                        {
+                                            _id: Math.random().toString(36).substring(2,12),
+                                            name: "link",
+                                            style: {
+                                                color: '#fff',
+                                                fontSize: "14px",
+                                                letterSpacing: '1px',
+                                                fontWeight: '600',
+                                                background: '',
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                            },
+                                            children: [{
+                                                _id: Math.random().toString(36).substring(2,12),
+                                                name: 'i',
+                                                class: "fab fa-facebook",
+                                                style: {
+                                                    fontSize: "30px",
+                                                    color: '#fff',
+
+                                                }
+                                            }]
+                                        },
+                                        {
+                                            _id: "muv2u1mx",
+                                            name: "link",
+                                            style: {
+                                                color: '#fff',
+                                                fontSize: "14px",
+                                                letterSpacing: '1px',
+                                                fontWeight: '600',
+                                                background: '',
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                            },
+                                            children: [{
+                                                _id: "d9e33wsj",
+                                                name: "i",
+                                                class: "fab fa-instagram",
+                                                style: {
+                                                    fontSize: "30px",
+                                                    color: '#fff',
+
+                                                }
+                                            }]
+                                        },
+                                        {
+                                            _id: "03bitt8p",
+                                            name: "link",
+                                            style: {
+                                                color: '#fff',
+                                                fontSize: "14px",
+                                                letterSpacing: '1px',
+                                                fontWeight: '600',
+                                                background: '',
+                                                padding: '12px 40px',
+                                                border: 'none',
+                                                lineHeight: "",
+                                                textDecoration: "",
+                                                fontStyle: "",
+                                                textAlign: "",
+                                                fontFamily: "",
+                                            },
+                                            children: [{
+                                                _id: "jilo2k00",
+                                                name: "i",
+                                                class: "fab fa-twitter",
+                                                style: {
+                                                    fontSize: "30px",
+                                                    color: '#fff',
+
+                                                }
+                                            }]
+                                        },
+
+
+                                    ]
+
+
 
                             }
                         ]

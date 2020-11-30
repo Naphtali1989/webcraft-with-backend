@@ -1,5 +1,5 @@
 <template>
-    <div class="wap-container grid">
+    <div class="wap-container place-center grid">
         <wap-preview v-for="wap in waps" :key="wap._id" :wap="wap">
         </wap-preview>
     </div>
@@ -8,16 +8,15 @@
 <script>
 import wapPreview from '@/cmps/wap/wap-preview.cmp.vue'
 export default {
-    name:'wapList',
-    props:{
-        waps:Array
+    name: 'wapList',
+    props: {
+        waps: Array
     },
-    components:{
+    components: {
         wapPreview
     }
 }
 </script>
 
 <style>
-
 </style>

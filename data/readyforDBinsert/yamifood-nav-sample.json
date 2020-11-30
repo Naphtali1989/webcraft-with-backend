@@ -1,0 +1,162 @@
+{
+    "name": "section",
+    "class": "nav-links flex space-between clean-list",
+    "title": "Resturant Navbar",
+    "thumbnail": "https://imagizer.imageshack.com/img922/37/Gy8un8.png",
+    "type": "header",
+    "style": {
+        "background": "#f8f9fa",
+        "width": "100%",
+        "borderRadius": 0
+    },
+    "children": [{
+            "_id": "b1v6taad7n",
+            "type": "header",
+            "thumbnail": "https://imagizer.imageshack.com/img924/5872/s3ba6B.png",
+            "title": "Nav Bar",
+            "name": "div",
+            "class": "flex align-center",
+            "style": {
+                "padding": "15px 0px",
+                "background": "",
+                "width": "100%",
+                "borderRadius": 0,
+                "marginLeft": "30px"
+            },
+            "children": [{
+                "_id": "5lpbtomymu",
+                "name": "img",
+                "type": "gallery",
+                "class": "navbar-brand",
+                "imgUrl": "https://imagizer.imageshack.com/img924/484/wUmtlZ.png"
+            }]
+        },
+        {
+            "_id": "oq9j4fzsea",
+            "name": "div",
+            "class": "nav-links flex space-between clean-list align-center",
+            "style": {
+                "background": "",
+                "width": "100%",
+                "borderRadius": 0,
+                "marginRight": "30px"
+            },
+            "children": [{
+                    "_id": "ekt33c7mjg",
+                    "name": "link",
+                    "txt": "Home",
+                    "class": "yami-food-link",
+                    "style": {
+                        "fontFamily": "athiti",
+                        "color": "#fff",
+                        "fontSize": "18px",
+                        "padding": "0px 20px",
+                        "lineHeight": "2",
+                        "letterSpacing": "1",
+                        "backgroundColor": "#d0a772",
+                        "textDecoration": "",
+                        "fontStyle": "",
+                        "textAlign": "",
+                        "borderRadius": "4px"
+                    },
+                    "href": "#home"
+                },
+                {
+                    "_id": "spei1exfqp",
+                    "name": "link",
+                    "txt": "Menu",
+                    "style": {
+                        "fontFamily": "athiti",
+                        "color": "#010101",
+                        "fontSize": "18px",
+                        "padding": "0px 20px",
+                        "lineHeight": "2",
+                        "letterSpacing": "1",
+                        "backgroundColor": "",
+                        "textDecoration": "",
+                        "fontStyle": "",
+                        "textAlign": ""
+                    },
+                    "class": "yami-food-link",
+                    "href": "#menu"
+                },
+                {
+                    "_id": "rv2vynuarz",
+                    "name": "link",
+                    "txt": "Pages",
+                    "style": {
+                        "fontFamily": "athiti",
+                        "color": "#010101",
+                        "fontSize": "18px",
+                        "lineHeight": "2",
+                        "padding": "0px 20px",
+                        "letterSpacing": "1",
+                        "backgroundColor": "",
+                        "textDecoration": "",
+                        "fontStyle": "",
+                        "textAlign": ""
+                    },
+                    "class": "yami-food-link",
+                    "href": "#pages"
+                },
+                {
+                    "_id": "zrj27w4g8b",
+                    "name": "link",
+                    "txt": "Blog",
+                    "style": {
+                        "fontFamily": "athiti",
+                        "color": "#010101",
+                        "fontSize": "18px",
+                        "padding": "0px 20px",
+                        "lineHeight": "2",
+                        "letterSpacing": "1",
+                        "backgroundColor": "",
+                        "textDecoration": "",
+                        "fontStyle": "",
+                        "textAlign": ""
+                    },
+                    "class": "yami-food-link",
+                    "href": "#blog"
+                },
+                {
+                    "_id": "tfqg9i7gtu",
+                    "name": "link",
+                    "txt": "work",
+                    "style": {
+                        "fontFamily": "athiti",
+                        "color": "#010101",
+                        "fontSize": "18px",
+                        "lineHeight": "2",
+                        "padding": "0px 20px",
+                        "letterSpacing": "1",
+                        "backgroundColor": "",
+                        "textDecoration": "",
+                        "fontStyle": "",
+                        "textAlign": ""
+                    },
+                    "class": "yami-food-link",
+                    "href": "#work"
+                },
+                {
+                    "_id": "89zch7i759",
+                    "name": "link",
+                    "txt": "Contact",
+                    "style": {
+                        "fontFamily": "athiti",
+                        "color": "#010101",
+                        "fontSize": "18px",
+                        "lineHeight": "2",
+                        "padding": "0px 20px",
+                        "letterSpacing": "1",
+                        "backgroundColor": "",
+                        "textDecoration": "",
+                        "fontStyle": "",
+                        "textAlign": ""
+                    },
+                    "class": "yami-food-link",
+                    "href": "#contact"
+                }
+            ]
+        }
+    ]
+}

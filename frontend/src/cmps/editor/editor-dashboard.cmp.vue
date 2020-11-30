@@ -1,13 +1,13 @@
 <template>
     <section class="editor-dashboard">
         <section class="editor-nav flex">
-            <div class="tab-container">
+            <div class="tab-container flex">
                 <button
                     v-for="tab in tabs"
                     :key="tab"
                     @click="toggleTabs(tab)"
                     :class="{ selected: currTab === tab }"
-                    class="tab-item"
+                    class="tab-item btn"
                 >
                     {{ tab }}
                 </button>
@@ -59,8 +59,8 @@ export default {
         emitUpdate(updatedCmp) {
             this.$emit('updated', updatedCmp);
         },
-        emitPickSample(id) {
-            this.$emit('pickedSample', id)
+        emitPickSample(_id) {
+            this.$emit('pickedSample', _id)
         }
     },
     computed: {

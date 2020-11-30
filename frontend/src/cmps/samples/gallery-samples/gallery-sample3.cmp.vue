@@ -135,7 +135,6 @@ export default {
     name: 'gallery-sample3',
     data() {
         return {
-            _id: 'sadkjdsajkjkuvba',
             type: 'section',
             class: 'gallery-slider flex column align-center',
             name: 'section',
@@ -148,7 +147,7 @@ export default {
             },
             //HEADER + H1  + P
             children: [{
-                _id: 'sdksdkaksdlkasdlkv',
+                _id: Math.random().toString(36).substring(2,12),
                 type: 'div',
                 class: '',
                 style: {
@@ -157,7 +156,7 @@ export default {
                 },
                 children: [
                     {
-                        id: 'dsjklssdsdkmdkjsdjkla',
+                        id: Math.random().toString(36).substring(2,12),
                         name: 'txt',
                         txt: "Special Menu",
                         style: {
@@ -175,7 +174,7 @@ export default {
                         }
                     },
                     {
-                        id: 'dsajkasdjkklaasdewf',
+                        id: Math.random().toString(36).substring(2,12),
                         name: 'txt',
                         txt: "Lorem Ipsum is simply dummy text of the printing and typesetting",
                         style: {
@@ -197,7 +196,7 @@ export default {
             },
             {
                 //START NAV
-                _id: 'jkdshjhkasdjkhads',
+                _id: Math.random().toString(36).substring(2,12),
                 name: "div",
                 type: 'nav-section',
                 class: 'flex align-center',
@@ -212,7 +211,7 @@ export default {
                 children:
                     [
                         {
-                            id: 'dsajkasdjkklaasdewf',
+                            id: Math.random().toString(36).substring(2,12),
                             name: 'txt',
                             txt: "ALL",
                             style: {
@@ -232,7 +231,7 @@ export default {
                             }
                         },
                         {
-                            id: 'dsjkdsakjkjsadj',
+                            id: Math.random().toString(36).substring(2,12),
                             name: 'txt',
                             txt: "DRINKS",
                             style: {
@@ -251,7 +250,7 @@ export default {
                             }
                         },
                         {
-                            id: 'dsjkdsakjkjsadj',
+                            id: Math.random().toString(36).substring(2,12),
                             name: 'txt',
                             txt: "LUCNH",
                             style: {
@@ -270,7 +269,7 @@ export default {
                             }
                         },
                         {
-                            id: 'dsjkdsakjkjsadj',
+                            id: Math.random().toString(36).substring(2,12),
                             name: 'txt',
                             txt: "DINNER",
                             style: {

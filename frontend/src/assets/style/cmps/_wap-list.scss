@@ -1,8 +1,40 @@
 .wap-container {
-    margin: 0 auto;
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    margin: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(15.4rem, 1fr));
     grid-gap: 1.25rem;
-    justify-items: center;
-    align-items: center;
-    margin: 2.5rem;
+    .wap-preview {
+        background: gainsboro;
+        position: relative;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.829);
+        border-radius: 2px;
+        width: 250px;
+        max-height: 380px;
+        font-size: 1.2rem;
+        img {
+            height: 21.25rem;
+            object-fit: cover
+        }
+        h3 {
+            padding: 0.5rem;
+            text-transform: capitalize;
+        }
+        .wap-prev-controls {
+            background-color: #222222c9;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            transform: scaleY(0);
+            transition: .5s ease;
+            >* {
+                color: white;
+                font-size: 2rem;
+            }
+        }
+        &:hover {
+            .wap-prev-controls {
+                transform: scaleY(1);
+            }
+        }
+    }
 }

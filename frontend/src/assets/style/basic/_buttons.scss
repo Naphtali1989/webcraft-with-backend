@@ -19,3 +19,14 @@
         border-radius: 12px;
     }
 }
+
+.site-video {
+    position: relative;
+    .iframe-btn {
+        position: absolute;
+        left: 5px;
+        top: 0;
+        font-size: 20px;
+        z-index: 2000;
+    }
+}
