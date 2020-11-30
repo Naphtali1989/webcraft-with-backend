@@ -1,7 +1,7 @@
 <template>
     <!-- The flow goes from the bottom worker upwards -->
     <component
-        class="editable"
+        class="worker-class"
         frameborder="0"
         :is="name"
         :src="urlSrc"

@@ -1,11 +1,12 @@
 <template>
     <section v-if="wapToShow">
-        <wap-worker v-for="cmp in wapToShow.cmps" :key="cmp._id" :cmp="cmp" />
+        <wap-renderer v-for="cmp in wapToShow.cmps" :key="cmp._id" :cmp="cmp" />
     </section>
 </template>
 
 <script>
-import wapWorker from '@/cmps/wap/wap-worker.cmp.vue';
+// import wapWorker from '@/cmps/wap/wap-worker.cmp.vue';
+import wapRenderer from '@/cmps/wap/wap-renderer.cmp.vue';
 import { wapService } from '@/services/wap.service';
 
 export default {
@@ -29,7 +30,8 @@ export default {
         });
     },
     components: {
-        wapWorker
+        // wapWorker,
+        wapRenderer
     }
 };
 </script>

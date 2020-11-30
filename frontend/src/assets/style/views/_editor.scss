@@ -54,6 +54,9 @@
                 transform: translate(-50%, -50%);
             }
         }
+        .worker-class:hover {
+            outline: 3px solid #0076df;
+        }
         section {
             position: relative;
             &:hover {
