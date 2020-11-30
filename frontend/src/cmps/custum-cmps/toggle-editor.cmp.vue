@@ -43,7 +43,7 @@ export default {
     &.rotateArrow {
         // transform: rotate(180deg);
         .arrow {
-            border-color:transparent #909399d6   #909399d6 transparent}
+            border-color:transparent #909399d6 #909399d6 transparent}
     }
 }
 

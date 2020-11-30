@@ -26,7 +26,6 @@ export default {
             value: ''
         }
     },
-
     methods: {
         emitChange() {
             this.$emit('change', this.value)
@@ -35,8 +34,3 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.custom-select {
-    width: 70%;
-}
-</style>

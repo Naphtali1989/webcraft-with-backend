@@ -31,7 +31,7 @@
 <script>
 import { utilService } from '@/services/util.service';
 export default {
-    name: 'unsplash-search',
+    name: 'img-search',
     data() {
         return {
             term: null,

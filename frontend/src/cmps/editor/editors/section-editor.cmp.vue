@@ -5,18 +5,17 @@
             :options="{ initVal: sectionRadius, min: 0, max: 50 }"
             @input="setSectionRadius"
         />
-
         <template v-if="cmpToEdit.name !== 'img'">
             <p class="editor-txt">Set A Background Color</p>
             <color-picker @changeColor="setColor" />
         </template>
         <div class="img-uploader">
             <div
-                v-if="showImgPreview"
+                v-if="showBgPreview"
                 class="preview"
                 :style="'background-color:' + cmpToEdit.style.background + ';'"
             >
-                <img v-if="cmpToEdit.imgUrl"  :src="cmpToEdit.imgUrl" />
+                <img v-if="cmpToEdit.imgUrl" :src="cmpToEdit.imgUrl" />
             </div>
             <p class="editor-txt">Or Add An Image As A Background</p>
             <label class="user-input input-file"
@@ -24,15 +23,15 @@
                 <input class="hide" type="file" @change="emitUploadImg" />
             </label>
         </div>
-        <unsplash-search @setImg="onSetImg" />
+        <img-search @setImg="setImg" />
     </section>
 </template>
 
 <script>
 import myRange from '@/cmps/custum-cmps/my-range.cmp.vue';
 import colorPicker from '@/cmps/editor/color-picker.cmp.vue';
-import unsplashSearch from '@/cmps/editor/editors/unsplash-search.cmp.vue';
-import { uploadImg } from '@/services/upload.service';
+import imgSearch from '@/cmps/editor/editors/img-search.cmp.vue';
+import { utilService } from '@/services/util.service';
 
 export default {
     name: 'section-editor',
@@ -43,7 +42,7 @@ export default {
     },
     methods: {
         async emitUploadImg(ev) {
-            const res = await uploadImg(ev);
+            const res = await utilService.uploadImg(ev);
             this.cmpToEdit.style.background = `url(${res.url}) center / cover no-repeat`;
             this.cmpToEdit.imgUrl = res.url;
         },
@@ -51,32 +50,27 @@ export default {
             if (this.cmpToEdit.imgUrl) this.cmpToEdit.imgUrl = null
             this.cmpToEdit.style.background = color;
         },
-        onSetImg(imgUrl) {
+        setImg(imgUrl) {
             this.cmpToEdit.imgUrl = imgUrl
             this.cmpToEdit.style.background = `url(${imgUrl}) center / cover no-repeat`;
         },
-
         setSectionRadius(radius) {
             this.cmpToEdit.style.borderRadius = radius + 'px';
         }
     },
     computed: {
-        sectionHeight() {
-            const { height } = this.cmpToEdit.style;
-            return parseInt(height, 10);
-        },
         sectionRadius() {
             const { borderRadius } = this.cmpToEdit.style;
             return parseInt(borderRadius, 10)
         },
-        showImgPreview() {
+        showBgPreview() {
             return this.cmpToEdit.imgUrl || this.cmpToEdit.style.background !== 'transparent';
         }
     },
     components: {
         myRange,
         colorPicker,
-        unsplashSearch
+        imgSearch
     }
 };
 </script>

@@ -9,12 +9,13 @@
             :get-child-payload="getChildPayload"
             @drop="onDrop"
         >
+        <!-- TODO: Make sure that drag and drop doesnt take img into the drag -->
             <Draggable v-for="cmp in cmps" :key="cmp._id">
                 <wap-worker
                     :cmp="cmp"
                     @copy="emitCopy"
                     @delete="emitDelete"
-                    @clicked="emitUserChoice"
+                    @focused="emitFocusCmp"
                     @updatedTxt="emitUpdateTxt"
                     @moveSection="emitMoveSection"
                 >
@@ -51,8 +52,8 @@ export default {
     methods: {
         onDrop(dropResult) {
             //if there is no removed index
-            if (!dropResult.removedIndex && dropResult.removedIndex === null) {
-                this.$emit('droppedSample', dropResult.payload._id, dropResult.addedIndex)
+            if (dropResult.removedIndex === null) {
+                this.$emit('droppedSample', dropResult)
             } else {
                 this.$emit('droppedSection', dropResult)
             }
@@ -60,8 +61,8 @@ export default {
         getChildPayload(index) {
             return this.cmps[index];
         },
-        emitUserChoice(_id) {
-            this.$emit('clicked', _id);
+        emitFocusCmp(_id) {
+            this.$emit('focusedCmp', _id);
         },
         emitUpdateTxt(txtValue) {
             this.$emit('updatedTxt', txtValue);
@@ -78,9 +79,9 @@ export default {
     },
     computed: {
         emptyWorkspace() {
-            return { "empty-workspace": !this.cmps || !this.cmps.length }
+            return { 'empty-workspace': !this.cmps || !this.cmps.length }
         }
     }
-}
+};
 </script>
 

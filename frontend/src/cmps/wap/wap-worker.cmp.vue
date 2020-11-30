@@ -1,18 +1,47 @@
 <template>
-    <component class="editable" :is="name" :src="urlSrc" :style="cmp.style" :class="cmp.class" :contenteditable="editable" :placeholder="cmp.placeholder" frameborder="0" :allowfullscreen="video" @blur="updateTxt" @clicked="onClick" @click.stop.prevent="onClick(cmp._id)">
-        <slot v-if="cmp.name === 'img' || cmp.name === 'section'">
-            <controls :_id="cmp._id" @copy="emitCopy" @delete="emitDelete" @moveSection="emitMoveSection" />
-        </slot>
-        <slot name="video" v-if="cmp.class === 'video-container'">
-            <div class="site-video">
-                <button class="iframe-btn btn"><i class="fas fa-link"></i></button>
-
-            </div>
-        </slot>
+    <!-- The flow goes from the bottom worker upwards -->
+    <component
+        class="editable"
+        frameborder="0"
+        :is="name"
+        :src="urlSrc"
+        :contenteditable="editable"
+        :allowfullscreen="video"
+        :style="cmp.style"
+        :class="cmp.class"
+        :placeholder="cmp.placeholder"
+        @blur="updateTxt"
+        @focused="onFocus"
+        @click.stop.prevent="onFocus(cmp._id)"
+    >
+        <controls
+            v-if="cmp.name === 'section'"
+            :_id="cmp._id"
+            @copy="emitCopy"
+            @delete="emitDelete"
+            @moveSection="emitMoveSection"
+        />
+        <!-- This Div will be inserted into the slot that each child gets - if the v-if is true -->
+        <div
+            class="site-video"
+            slot="video"
+            v-if="cmp.class === 'video-container'"
+        >
+            <button class="iframe-btn btn">
+                <i class="fas fa-link"></i>
+            </button>
+        </div>
         {{ cmpTxt }}
         <template v-if="cmp.children">
-            <wap-worker v-for="child in cmp.children" :key="child._id" :cmp="child" @clicked="onClick" @updatedTxt="emitUpdateTxt">
-                <slot></slot>
+            <wap-worker
+                v-for="child in cmp.children"
+                :key="child._id"
+                :cmp="child"
+                @blur="updateTxt"
+                @focused="onFocus"
+                @updatedTxt="emitUpdateTxt"
+            >
+                <!-- This Slot will get the site-video div if the v-if is true -->
                 <slot name="video"></slot>
             </wap-worker>
         </template>
@@ -20,7 +49,6 @@
 </template>
 
 <script>
-import heroSample from "@/cmps/samples/hero-sample.cmp.vue";
 import googleMap from '@/cmps/samples/google-map.cmp.vue';
 import controls from '@/cmps/editor/controls.cmp.vue';
 export default {
@@ -34,63 +62,63 @@ export default {
             type: Boolean
         }
     },
-    data() {
-        return {}
-    },
     computed: {
         name() {
-            if(this.cmp.name==='txt') return 'span';
-            if(this.cmp.name==='link') return 'a';
-            if(this.cmp.name==='vid') return 'iframe';
-            else return this.cmp.name
+            const { name } = this.cmp;
+            if (name === 'txt') return 'span';
+            if (name === 'link') return 'a';
+            if (name === 'vid') return 'iframe';
+            else return name
         },
         cmpTxt() {
-            return this.cmp.txt||''
+            return this.cmp.txt || ''
         },
         urlSrc() {
-            return (this.cmp.imgUrl)? this.cmp.imgUrl:((this.cmp.vidUrl)? this.convertedUrl:'');
+            return (this.cmp.imgUrl) ? this.cmp.imgUrl : ((this.cmp.vidUrl) ? this.convertedUrl : '');
         },
         convertedUrl() {
-            if(this.cmp.vidUrl.includes("?v=")) {
-                const _id=this.cmp.vidUrl.split("?v=")[1];
-                return `https://www.youtube.com/embed/${_id}`;
+            if (this.cmp.vidUrl.includes("?v=")) {
+                const vidId = this.cmp.vidUrl.split("?v=")[1];
+                return `https://www.youtube.com/embed/${vidId}`;
             }
             return this.cmp.vidUrl
         },
         editable() {
-            if(this.cmp.name==='txt'||this.cmp.name==='link') return true;
-            // if ((this.cmp.name === 'txt' || this.cmp.name === 'link') && this.siteMode) return true;
+            if (this.cmp.name === 'txt' || this.cmp.name === 'link') return true;
             return false
         },
         video() {
-            if(this.cmp.name==='iframe') return true
+            if (this.cmp.name === 'iframe') return true
             return false
         }
     },
     methods: {
-        emitCopy(_id) {
-            this.$emit('copy',_id)
-        },
-        emitDelete(_id) {
-            this.$emit('delete',_id)
-        },
-        onClick(_id) {
-            this.$emit('clicked',_id)
-        },
         updateTxt(ev) {
-            if(this.cmp.name==='img') return
-            this.$emit('updatedTxt',ev.target.innerText)
+            // This is the first event of "udpateTxt" - which will tell 
+            // the next father worker that update happened
+            if (this.cmp.name !== 'txt' || this.cmp.name !== 'link') return;
+            this.$emit('updatedTxt', ev.target.innerText);
         },
         emitUpdateTxt(txtValue) {
-            this.$emit('updatedTxt',txtValue)
+            // This is the recursive event of "udpateTxt" - which will tell the next 
+            //  father worker that update happened untill it reaches the workspace
+            this.$emit('updatedTxt', txtValue);
         },
-        emitMoveSection(_id,diff) {
-            this.$emit('moveSection',_id,diff)
+        onFocus(_id) {
+            this.$emit('focused', _id)
+        },
+        emitCopy(_id) {
+            this.$emit('copy', _id);
+        },
+        emitDelete(_id) {
+            this.$emit('delete', _id);
+        },
+        emitMoveSection(_id, diff) {
+            this.$emit('moveSection', _id, diff);
         }
     },
     components: {
         googleMap,
-        heroSample,
         controls
     },
 };

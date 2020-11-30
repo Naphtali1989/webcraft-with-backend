@@ -10,7 +10,8 @@ vue.use(vuex);
 export default new vuex.Store({
     strict: true,
     state: {
-        isUserSiteclosed: true
+        isUserSiteclosed: true,
+        isLoading: false
     },
     getters: {
         isViewMode(state) {

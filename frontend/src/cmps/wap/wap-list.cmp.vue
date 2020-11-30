@@ -8,7 +8,7 @@
 <script>
 import wapPreview from '@/cmps/wap/wap-preview.cmp.vue'
 export default {
-    name: 'wapList',
+    name: 'wap-list',
     props: {
         waps: Array
     },

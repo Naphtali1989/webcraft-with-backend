@@ -13,7 +13,7 @@
 
 <script>
 export default {
-    name: 'wapPreview',
+    name: 'wap-preview',
     props: {
         wap: Object
     },
