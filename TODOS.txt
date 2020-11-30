@@ -22,8 +22,8 @@
 **editor-workspace:
 
 <!-- TODO: Make sure that drag and drop doesnt take img into the drag -->
-
-
+**editors :
+<!-- TODO: get text-shadow option , and hover for focus -->
 **over-all:
 
  // TODO: Work on a data tree for the sections.
