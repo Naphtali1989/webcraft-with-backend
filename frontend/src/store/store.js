@@ -14,12 +14,12 @@ export default new vuex.Store({
     },
     getters: {
         webcraft(state) {
-            return state.isUserSiteclosed
+            return state.isUserSiteclosed;
         }
     },
     mutations: {
-        setUserSiteOpen(state) {
-            state.isUserSiteclosed = !state.isUserSiteclosed
+        toggleUserSiteOpen(state) {
+            state.isUserSiteclosed = !state.isUserSiteclosed;
         }
     },
     actions: {},

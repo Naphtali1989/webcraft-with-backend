@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import wapList from '@/cmps/wap/wap-list.cmp.vue'
+import wapList from '@/cmps/wap/wap-list.cmp.vue';
 export default {
     name: 'wapGallery',
     components: {
@@ -81,7 +81,7 @@ export default {
     },
     methods: {
         openEditor() {
-            this.$router.push('/editor')
+            this.$router.push('/editor');
         }
     }
 };
