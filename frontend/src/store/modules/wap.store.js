@@ -36,15 +36,16 @@ export const wapStore = {
     actions: {
         async loadSamples({ commit }) {
             const samples = await sampleService.query();
-            commit({ type: 'setSamples', samples })
+            commit({
+                type: 'setSamples',
+                samples
+            })
         },
         async loadWap({ commit }, { _id }) {
             const wap = await wapService.getById(_id);
             return wap;
-            // commit({ type: 'loadWap', wap })
         },
         async saveWap({ commit }, { wap }) {
-            // cmps
             const savedWap = await wapService.save(wap);
             return savedWap
         },

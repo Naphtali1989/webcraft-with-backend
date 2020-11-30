@@ -1,5 +1,4 @@
 <template>
-    <!-- <div class="">NOTHING HERE TO SEE YET</div> -->
     <section v-if="wapToShow">
         <wap-worker v-for="cmp in wapToShow.cmps" :key="cmp._id" :cmp="cmp" />
     </section>
@@ -21,8 +20,14 @@ export default {
     async created() {
         const _id = this.$route.params.id;
         this.wapToShow = await wapService.getById(_id);
+
         this.$store.commit({
-            type:'setUserSiteOpen',
+            type: 'toggleUserSiteOpen',
+        })
+    },
+    destroyed() {
+        this.$store.commit({
+            type: 'toggleUserSiteOpen',
         })
     },
     components: {

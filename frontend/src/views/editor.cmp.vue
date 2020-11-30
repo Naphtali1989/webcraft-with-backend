@@ -17,11 +17,12 @@ import editorDashboard from '@/cmps/editor/editor-dashboard.cmp.vue';
 import editorWorkspace from '@/cmps/editor/editor-workspace.cmp.vue';
 import userControls from '@/cmps/editor/user-controls.cmp.vue';
 import toggleEditor from '@/cmps/custum-cmps/toggle-editor.cmp.vue';
-import { utilService } from "@/services/util.service";
+import { utilService } from '@/services/util.service';
+import { wapService } from '@/services/util.service';
 
 
 export default {
-    name: "editor",
+    name: 'editor',
     data() {
         return {
             currWap: null,
@@ -48,7 +49,7 @@ export default {
             this.currWap=await this.$store.dispatch({
                 type: 'saveWap',
                 wap: this.currWap
-            })
+            });
         },
         findByIdRecursive(nodes,_id) {
             for(let i=0;i<nodes.length;i++) {
@@ -68,7 +69,7 @@ export default {
         replaceIds(node) {
             node._id=utilService.makeId();
             if(node.children) {
-                node.children.forEach((child) => {
+                node.children.forEach(child => {
                     this.replaceIds(child);
                 });
             }
@@ -84,7 +85,6 @@ export default {
             this.currCmpToEdit.txt=txtValue;
         },
         toggleEditor() {
-            console.log('imhere')
             this.isEditorShow=!this.isEditorShow;
         },
         copySection(_id) {
@@ -102,11 +102,13 @@ export default {
             this.currWap.cmps.splice(idx,1);
         },
         moveSection(_id,diff) {
-            const section=this.currWap.cmps.find((cmp) => cmp._id===_id);
+            // const section = this.currWap.cmps.find((cmp) => cmp._id === _id);
             const idx=this.currWap.cmps.findIndex((cmp) => cmp._id===_id);
             if(idx===0&&diff===-1) return;
-            this.currWap.cmps.splice(idx,1);
-            this.currWap.cmps.splice(idx+diff,0,section);
+            const section=this.currWap.cmps.splice(idx,1);
+            // this.currWap.cmps.splice(idx, 1);
+            this.currWap.cmps.splice(idx+diff,0,section[0]);
+            // this.currWap.cmps.splice(idx + diff, 0, section);
         },
         emptyCmpToEdit() {
             this.currCmpToEdit=null;
@@ -132,7 +134,10 @@ export default {
         await this.$store.dispatch({ type: 'loadSamples' });
         const _id=this.$route.params.id;
         if(_id) {
-            const wap=await this.$store.dispatch({ type: 'loadWap',_id })
+            const wap=await this.$store.dispatch({
+                type: 'loadWap',
+                _id
+            });
             this.currWap=wap;
         }
         else {
@@ -897,5 +902,5 @@ export default {
             }
         }
     }
-}
+};
 </script>
