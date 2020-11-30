@@ -1,6 +1,9 @@
+import axios from 'axios';
+
 export const utilService = {
     applyDrag,
-    makeId
+    makeId,
+    getImgs
 }
 
 function makeId() {
@@ -20,3 +23,10 @@ function applyDrag(cmps, dragResult) {
     }
     return result;
 };
+
+async function getImgs(term) {
+    const apiKey = 'DL-fOJKfzUbQ2irbF2Oleeza3GuX2LyJ-mVPCUJsJc8';
+    const res = await axios.get(`https://api.unsplash.com/search/photos?page=1&per_page=30&query=${term}&client_id=${apiKey}`);
+    const imgs = res.data.results.map(img => img.urls);
+    return imgs;
+}

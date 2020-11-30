@@ -1,6 +1,6 @@
 <template>
     <section class="text-editor flex column align-center">
-        <div class="editor-link-container" v-if="showLink">
+        <div class="editor-link-container" v-if="isLink">
             <p class="editor-txt">Attach a link to this button:</p>
             <input
                 type="text"
@@ -24,39 +24,39 @@
             <my-range
                 :options="{
                     initVal: +cmpToEdit.style.lineHeight,
-                    min: 1,
-                    max: 15,
+                    min: 0,
+                    max: 20,
                 }"
                 @input="setLineHeight"
             />
             <p class="editor-txt">Letter Spacing</p>
             <my-range
-                :options="{ initVal: letterSpacing, min: 1, max: 30 }"
+                :options="{ initVal: letterSpacing, min: 0, max: 30 }"
                 @input="setLetterSpacing"
             />
         </div>
         <div class="align-controls flex space-between">
-            <button class="btn align-btn" @click="toggleTextAlign('left')">
+            <button class="btn align-btn" @click="setTextAlign('left')">
                 <i class="fas fa-align-left"></i>
             </button>
-            <button class="btn align-btn" @click="toggleTextAlign('center')">
+            <button class="btn align-btn" @click="setTextAlign('center')">
                 <i class="fas fa-align-center"></i>
             </button>
-            <button class="btn align-btn" @click="toggleTextAlign('right')">
+            <button class="btn align-btn" @click="setTextAlign('right')">
                 <i class="fas fa-align-right"></i>
             </button>
         </div>
         <div class="decoration-controls flex space-between">
             <button
                 class="btn align-btn"
-                @click="toggleTxtDecoration('underline')"
+                @click="setTxtDecoration('underline')"
             >
                 <i class="fas fa-underline"></i>
             </button>
-            <button class="btn align-btn" @click="toggleFontStyle('italic')">
+            <button class="btn align-btn" @click="setFontStyle('italic')">
                 <i class="fas fa-italic"></i>
             </button>
-            <button class="btn align-btn" @click="toggleFontWeight('bold')">
+            <button class="btn align-btn" @click="setFontWeight('bold')">
                 <i class="fas fa-bold"></i>
             </button>
         </div>
@@ -64,6 +64,7 @@
         <color-picker @changeColor="setColor" />
     </section>
 </template>
+
 <script>
 import mySelect from '@/cmps/custum-cmps/my-select.cmp.vue';
 import myRange from '@/cmps/custum-cmps/my-range.cmp.vue';
@@ -80,28 +81,44 @@ export default {
             fonts: [{
                 label: 'Arial',
                 value: 'Arial'
-            }, {
+            }, 
+            {
                 label: 'Helvetica',
                 value: 'Helvetica'
-            }, {
+            }, 
+            {
                 label: 'Georgia',
                 value: 'Georgia'
-            }, {
+            }, 
+            {
                 label: 'Monospace',
                 value: 'Monospace'
-            }, {
+            }, 
+            {
                 label: 'Cursive',
                 value: 'Cursive'
             },
             {
                 label: 'Ruhl',
-                value: 'Ruhl'
+                value: 'ruhl'
             },
             {
                 label: 'Vibes',
                 value: 'Vibes'
-            },],
-
+            },
+            {
+                label: 'Bungee',
+                value: 'bungee'
+            },
+            {
+                label: 'Carme',
+                value: 'carme'
+            },
+            {
+                label: 'Arbutus',
+                value: 'arbutus'
+            }
+            ]
         }
     },
     methods: {
@@ -112,27 +129,27 @@ export default {
             this.cmpToEdit.style.fontSize = size + 'px';
         },
         setLineHeight(size) {
-            this.cmpToEdit.style.lineHeight = size;
+            this.cmpToEdit.style.lineHeight = size / 2.5;
         },
         setLetterSpacing(size) {
             this.cmpToEdit.style.letterSpacing = size + 'px';
         },
-        toggleTxtDecoration(decoration) {
+        setTxtDecoration(decoration) {
             const { textDecoration } = this.cmpToEdit.style;
             if (textDecoration === decoration) this.cmpToEdit.style.textDecoration = 'revert'
             else this.cmpToEdit.style.textDecoration = decoration
         },
-        toggleFontStyle(txtStyle) {
+        setFontStyle(txtStyle) {
             const { fontStyle } = this.cmpToEdit.style;
             if (fontStyle === txtStyle) this.cmpToEdit.style.fontStyle = 'revert'
             else this.cmpToEdit.style.fontStyle = txtStyle
         },
-        toggleFontWeight(weight) {
+        setFontWeight(weight) {
             const { fontWeight } = this.cmpToEdit.style;
             if (fontWeight !== weight) this.cmpToEdit.style.fontWeight = weight
             else this.cmpToEdit.style.fontWeight = 'normal'
         },
-        toggleTextAlign(direction) {
+        setTextAlign(direction) {
             this.cmpToEdit.style.textAlign = direction;
         },
         setColor(color) {
@@ -140,7 +157,7 @@ export default {
         }
     },
     computed: {
-        showLink() {
+        isLink() {
             if (!this.cmpToEdit) return false;
             return this.cmpToEdit.name === 'link'
         },
@@ -153,11 +170,10 @@ export default {
             return parseInt(letterSpacing, 10);
         }
     },
-
     components: {
         mySelect,
         myRange,
         colorPicker
     }
-}
+};
 </script>

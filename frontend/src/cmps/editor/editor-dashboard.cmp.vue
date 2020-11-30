@@ -13,11 +13,10 @@
         </section>
         <slot name="toggle-editor-btn"></slot>
         <component
-            class="editor-body"
+            class="editor-body "
             :is="currDashboard"
             :samples="samples"
             :cmpToEdit="cmpToEdit"
-            @pickedSample="emitPickedSample"
         >
         </component>
     </section>
@@ -50,9 +49,6 @@ export default {
                 this.$emit('switchedTab')
             }
         },
-        emitPickedSample(_id) {
-            this.$emit('pickedSample', _id)
-        }
     },
     computed: {
         currDashboard() {

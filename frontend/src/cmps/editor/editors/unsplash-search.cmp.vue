@@ -1,10 +1,10 @@
 <template>
     <section class="unsplash-search">
-        <form @submit.prevent="searchPhotos">
+        <form @submit.prevent="searchImgs">
             <div class="form-container flex justify-center">
                 <input
                     type="text"
-                    placeholder="Search photo..."
+                    placeholder="Search Image..."
                     v-model.trim="term"
                 />
                 <button class="btn btn-search">
@@ -15,48 +15,39 @@
         <div class="unsplash-imgs-container grid">
             <div
                 class="unsplash-img-card"
-                v-for="(photo, idx) in photos"
+                v-for="(img, idx) in imgs"
                 :key="idx"
             >
                 <img
                     class="unsplash-img"
-                    :src="photo.thumb"
-                    @click="onImgSelect(photo)"
+                    :src="img.thumb"
+                    @click="onImgSelect(img)"
                 />
             </div>
         </div>
     </section>
 </template>
+
 <script>
+import { utilService } from '@/services/util.service';
 export default {
     name: 'unsplash-search',
     data() {
         return {
-            term: '',
-            photos: []
+            term: null,
+            imgs: []
         }
     },
     methods: {
-        async searchPhotos() {
-            const apiKey = 'DL-fOJKfzUbQ2irbF2Oleeza3GuX2LyJ-mVPCUJsJc8';
-            const res = await fetch(`https://api.unsplash.com/search/photos?page=1&per_page=30&query=${this.term}&client_id=${apiKey}`)
-            const data = await res.json()
-            const photos = this.getUrls(data.results);
-            this.photos = photos;
-            this.term = ''
+        async searchImgs() {
+            this.imgs = await utilService.getImgs(this.term)
+            this.term = null
         },
-        getUrls(results) {
-            const res = results.map(result => result.urls)
-            return res;
-        },
-        onImgSelect(photo) {
-            this.$emit('setImg', photo.regular)
+        onImgSelect(img) {
+            this.$emit('setImg', img.regular)
         }
     },
     components: {
     }
-}
+};
 </script>
-
-<style scoped lang="scss">
-</style>

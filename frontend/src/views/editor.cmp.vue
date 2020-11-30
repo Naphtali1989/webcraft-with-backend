@@ -4,7 +4,6 @@
         <editor-dashboard
             :samples="samples"
             :cmpToEdit="currCmpToEdit"
-            @pickedSample="pickSample"
             @switchedTab="emptyCmpToEdit"
         >
             <toggle-editor

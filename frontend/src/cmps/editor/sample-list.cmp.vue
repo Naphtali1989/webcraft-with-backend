@@ -33,15 +33,12 @@ export default {
             return this.samples[index];
         },
         getGhostParent() {
-
+            //TODO: Figure out how to animate this sample when dragging
         }
     },
     components: {
         Container,
         Draggable
     }
-
-}
-
+};
 </script>
-

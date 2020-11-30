@@ -15,8 +15,6 @@ export default {
     props: {
         cmpToEdit: Object
     }
-}
+};
 </script>
 
-<style>
-</style>

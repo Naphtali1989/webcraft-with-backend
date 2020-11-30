@@ -1,5 +1,5 @@
 <template>
-    <section class="type-list flex column align-center ">
+    <section class="type-list flex column align-center">
         <h1>Pick an element</h1>
         <div class="element-picker-container grid" v-if="!selectedType">
             <button v-for="type in types" :key="type" @click="pickType(type)">
@@ -7,11 +7,8 @@
             </button>
         </div>
         <div v-if="selectedType">
-            <span
-                ><i class="fas fa-arrow-left" @click="selectedType = ''"></i
-            ></span>
+            <span><i class="fas fa-arrow-left" @click="emptyType"></i></span>
             <sample-list
-                @pickedSample="emitPickSample"
                 :samples="filterdSamples"
             />
         </div>
@@ -29,20 +26,20 @@ export default {
     },
     data() {
         return {
-            types: ['header', 'cards', 'footer', 'gallery', 'map', 'video'], //form , text removed for ui show
-            selectedType: ''
+            //TODO: Think of new types of cmps
+            types: ['header', 'cards', 'footer', 'gallery', 'map', 'video', 'form'], 
+            selectedType: null
         }
     },
     methods: {
         pickType(type) {
             this.selectedType = type
         },
-        emitPickSample(id) {
-            this.$emit('pickedSample', id)
-        }
+        emptyType() {
+            this.selectedType = null
+        },
     },
     computed: {
-
         filterdSamples() {
             return this.samples.filter(sample => sample.type === this.selectedType)
         }

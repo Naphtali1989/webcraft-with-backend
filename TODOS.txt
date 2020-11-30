@@ -14,3 +14,11 @@ home:
 editor:
 
 <!-- TODO: think of a better way to explain this pickSample function -->
+
+type-list:
+
+// TODO: Think of new types of cmps
+
+sample-list:
+
+// TODO: Figure out how to animate this sample when dragging

@@ -1,15 +1,16 @@
 <template>
     <section class="editors-container">
         <!-- Saving a spot to the user that there is no component to edit -->
-        <h1 class="editor-name text-center" v-if="cmpToEdit">
-            {{ editorName }} editor
-        </h1>
-        <component
-            v-if="cmpToEdit"
-            :is="currEditorName"
-            :cmpToEdit="cmpToEdit"
-            @uploading="emitUploadImg"
-        />
+        <template v-if="cmpToEdit">
+            <h1 class="editor-name text-center">
+                {{ editorTitle }}
+            </h1>
+            <component
+                :is="renderedEditor"
+                :cmpToEdit="cmpToEdit"
+                @uploading="emitUploadImg"
+            />
+        </template>
         <div v-else class="editor-message flex justify-center">
             <h1>Please click on an element to edit</h1>
         </div>
@@ -33,46 +34,44 @@ export default {
         }
     },
     computed: {
-        currEditorName() {
+        renderedEditor() {
             return this.currEditor + '-editor';
         },
-        editorName() {
-            if (this.cmpToEdit.name === 'txt' || this.cmpToEdit.name === 'i') return 'Text';
-            if (this.cmpToEdit.name === 'link') return 'Link'
-            if (this.cmpToEdit.name === 'img') return 'Image';
-            if (this.cmpToEdit.name === 'section') return 'Section';
-            if (this.cmpToEdit.name === 'iframe') return 'Video'
-            return this.cmpToEdit.name;
+        editorTitle() {
+            if (this.cmpToEdit) {
+                const { name } = this.cmpToEdit;
+                if (name === 'section' || name === 'div') return 'Section Editor';
+                if (name === 'txt' || name === 'i') return 'Text Editor';
+                if (name === 'link') return 'Link Editor';
+                if (name === 'img') return 'Image Editor';
+                if (name === 'iframe') return 'Video Editor';
+                return this.cmpToEdit.name + ' Editor';
+            }
         }
     },
     methods: {
-
+        getEditorsName() {
+            if (this.cmpToEdit) {
+                const { name } = this.cmpToEdit;
+                if (name === 'section' || name === 'div' || name === 'img') this.currEditor = 'section';
+                else if (name === 'iframe' || name === 'google-map') this.currEditor = 'video';
+                else this.currEditor = 'text';
+            }
+        },
         emitUploadImg(ev) {
-            this.$emit('uploading', ev)
+            this.$emit('uploading', ev);
         },
     },
     updated() {
-        if (this.cmpToEdit &&
-            (this.cmpToEdit.name === 'txt' ||
-                this.cmpToEdit.name === 'link' ||
-                this.cmpToEdit.name === 'input' ||
-                this.cmpToEdit.name === 'i')) this.currEditor = 'text'
-        else this.currEditor = 'section'
+        this.getEditorsName();
     },
     created() {
-        // const {name} = this.cmpToEdit;
-        if (this.cmpToEdit &&
-            (this.cmpToEdit.name === 'txt' ||
-                this.cmpToEdit.name === 'link' ||
-                this.cmpToEdit.name === 'input' ||
-                this.cmpToEdit.name === 'i')) this.currEditor = 'text'
-        else if (this.cmpToEdit.name === 'section') this.currEditor = 'section'
-        else this.currEditor = 'video'
+        this.getEditorsName();
     },
     components: {
         textEditor,
         sectionEditor,
         videoEditor
     }
-}
+};
 </script>
