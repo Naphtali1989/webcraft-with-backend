@@ -1,13 +1,6 @@
 <template>
     <section>
-        <!-- TODO: change this button to an empty template that leads to an empty editor -->
-        <div class="page-controls flex">
-            <h1 class="site-saying">Create a website as you wish</h1>
-            <button class="big-btn btn" @click="openEditor">
-                Click here to start!
-            </button>
-        </div>
-        <wap-list v-if="waps" :waps="waps"></wap-list>
+        <wap-list @addWap="pushEditor" v-if="waps" :waps="waps"></wap-list>
     </section>
 </template>
 
@@ -19,7 +12,7 @@ export default {
         wapList
     },
     methods: {
-        openEditor() {
+        pushEditor() {
             this.$router.push('/editor');
         }
     },

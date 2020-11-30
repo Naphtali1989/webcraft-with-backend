@@ -157,9 +157,6 @@ export default {
             this.currWap = {
                 name: '',
                 cmps: [
-                    // //start here
-
-                    // here it ends
                 ]
             }
         }
