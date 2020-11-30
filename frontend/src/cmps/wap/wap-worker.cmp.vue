@@ -5,8 +5,7 @@
         </slot>
         <slot name="video" v-if="video">
             <div class="site-video">
-                <button class="iframe-btn">TEST VIDEO</button>
-                <iframe src="https://test.com" />
+                <button class="iframe-btn"><i class="fas fa-link"></i></button>
             </div>
         </slot>
         {{ cmpTxt }}
