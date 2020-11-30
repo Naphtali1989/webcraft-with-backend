@@ -1,9 +1,12 @@
 <template>
     <section class="editor-container flex column" :class="isEditorShown">
         <editor-dashboard
+            v-if="currWap"
+            :wapTree="wapTree"
             :samples="samples"
             :cmpToEdit="currCmpToEdit"
             @switchedTab="emptyCmpToEdit"
+            @focusedCmp="setCmpToEdit"
         >
             <toggle-editor
                 slot="toggle-editor-btn"
@@ -53,6 +56,10 @@ export default {
         samples() {
             return this.$store.getters.sampleList;
         },
+        wapTree() {
+            const tree = this.getCurrWapTree();
+            return tree;
+        }
     },
     components: {
         editorDashboard,
@@ -61,6 +68,12 @@ export default {
         toggleEditor
     },
     methods: {
+        getCurrWapTree() {
+            const currTree = this.currWap.cmps.map(cmp => {
+                return this.makeTree(cmp);
+            });
+            return currTree;
+        },
         toggleEditor() {
             this.isEditorShow = !this.isEditorShow;
         },
@@ -121,6 +134,19 @@ export default {
                     this.replaceIds(child);
                 });
             }
+        },
+        makeTree(node) {
+            const parent = {
+                name: node.name,
+                _id: node._id,
+                children: []
+            };
+            if (node.children) {
+                node.children.forEach(child => {
+                    parent.children.push(this.makeTree(child));
+                });
+            }
+            return parent;
         },
         async saveWap() {
             this.currWap = await this.$store.dispatch({
