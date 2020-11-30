@@ -14,7 +14,7 @@
             <avatar :username="loggedInUser.username" :size="45" :color="'#03A9F4'" @click.native="toggleModal" v-if="loggedInUser" />
 
         </div>
-        <avatar-modal v-if="showModal" :loggedInUser="loggedInUser" />
+        <avatar-modal v-if="showModal" :loggedInUser="loggedInUser" @closeModal="toggleModal" />
     </section>
 </template>
 

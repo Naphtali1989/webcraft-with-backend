@@ -1,5 +1,5 @@
 <template>
-    <section class="avatar-modal flex column align-center" v-if="loggedInUser">
+    <section class="avatar-modal flex column align-center">
         <div class="info flex column align-center">
             <avatar :username="loggedInUser.username" :size="80" :color="'#03A9F4'" />
             <h3>{{loggedInUser.username}}</h3>
@@ -27,6 +27,7 @@ export default {
     methods: {
         logout() {
             this.$store.dispatch({ type: 'logout' })
+            this.$emit('closeModal')
         }
 
     }

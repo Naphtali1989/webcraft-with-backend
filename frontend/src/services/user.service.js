@@ -19,7 +19,8 @@ async function login(userCreds) {
     try {
         const user = await httpService.post('auth/login', userCreds)
         console.log('user get back from db:', user);
-        // return _handleLogin(user);
+        return user
+            // return _handleLogin(user);
     } catch (error) {
         console.log("🚀 ~ file: user.service.js ~ line 22 ~ login ~ error", error.response)
             //this is how i get the error from the error response

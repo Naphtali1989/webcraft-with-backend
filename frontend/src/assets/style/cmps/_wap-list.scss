@@ -8,7 +8,7 @@
         box-shadow: 0 0 2px rgba(0, 0, 0, 0.829);
         border-radius: 2px;
         width: 250px;
-        max-height: 380px;
+        height: 380px;
         font-size: 1.2rem;
         img {
             height: 21.25rem;
@@ -35,6 +35,17 @@
             .wap-prev-controls {
                 transform: scaleY(1);
             }
+        }
+    }
+    .addWap-btn {
+        background: gainsboro;
+        position: relative;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.829);
+        border-radius: 2px;
+        width: 250px;
+        height: 380px;
+        .fa-plus {
+            font-size: 9rem;
         }
     }
 }

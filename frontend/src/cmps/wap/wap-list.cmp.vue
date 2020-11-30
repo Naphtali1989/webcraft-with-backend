@@ -1,7 +1,9 @@
 <template>
     <div class="wap-container place-center grid">
-        <wap-preview v-for="wap in waps" :key="wap._id" :wap="wap">
-        </wap-preview>
+        <div class="page-controls flex">
+            <button @click="emitAddWap" class="addWap-btn"><i class="fas fa-plus"></i></button>
+        </div>
+        <wap-preview v-for="wap in waps" :key="wap._id" :wap="wap" />
     </div>
 </template>
 
@@ -14,7 +16,12 @@ export default {
     },
     components: {
         wapPreview
-    }
+    },
+    methods: {
+        emitAddWap(){
+            this.$emit('addWap')
+        }
+        }
 }
 </script>
 

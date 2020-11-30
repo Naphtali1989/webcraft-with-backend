@@ -51,13 +51,10 @@ export default {
             this.user={ name: '',email: '',password: '' }
         },
         async login() {
-            try {
-                const userCreds=JSON.parse(JSON.stringify(this.user));
-                await this.$store.dispatch({ type: 'login',userCreds });
-                this.user={ email: '',password: '' }
-            } catch(err) {
-                console.log('err:',err)
-            }
+            const userCreds=JSON.parse(JSON.stringify(this.user));
+            await this.$store.dispatch({ type: 'login',userCreds });
+            this.user={ email: '',password: '' }
+
         },
         toggleFieldType() {
             this.passwordType=this.passwordType==='password'? 'text':'password'
