@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import appHeader from "@/cmps/app-header.cmp.vue";
+import appHeader from '@/cmps/app-header.cmp.vue';
 
 export default {
     components: {

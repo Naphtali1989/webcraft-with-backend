@@ -37,44 +37,43 @@ export const wapService = {
     getById,
     save,
     remove,
-    getWapTree
 };
 
 
-function getWapTree(userWap) {
-    console.log('this is the wap entering:', userWap)
-    return _createTree(userWap.$el)
-}
+// function getWapTree(userWap) {
+//     console.log('this is the wap entering:', userWap)
+//     return _createTree(userWap.$el)
+// }
 
-function _createTree(parentNode) {
-    console.log('parent is:', parentNode)
-    const parentEl = _createNode(parentNode);
-    var childrenEls = parentNode.cmps || parentNode.children
-    if (childrenEls.length &&
-        parentEl.el !== 'google-map') {
-        childrenEls.forEach(child => {
-            parentEl.children.push(_createTree(child));
-        });
-    }
-    return parentEl;
-}
+// function _createTree(parentNode) {
+//     console.log('parent is:', parentNode)
+//     const parentEl = _createNode(parentNode);
+//     var childrenEls = parentNode.cmps || parentNode.children
+//     if (childrenEls.length &&
+//         parentEl.el !== 'google-map') {
+//         childrenEls.forEach(child => {
+//             parentEl.children.push(_createTree(child));
+//         });
+//     }
+//     return parentEl;
+// }
 
-function _createNode(data) {
-    const { localName, style, className, attributes } = data;
-    const node = {
-        _id: Math.random().toString(36).slice(2),
-        name: localName,
-        style: style.cssText,
-        class: className,
-        children: []
-    };
-    if (node.class === 'vue-map-container') node.name = 'google-map';
-    if (node.name === 'img') node.imgUrl = attributes.src.value;
-    if (node.name === 'iframe') node.vidUrl = attributes.src.value;
-    if (attributes.type) node.type = attributes.type.value;
-    if (attributes.href) node.href = attributes.href.value;
-    return node;
-}
+// function _createNode(data) {
+//     const { localName, style, className, attributes } = data;
+//     const node = {
+//         _id: Math.random().toString(36).slice(2),
+//         name: localName,
+//         style: style.cssText,
+//         class: className,
+//         children: []
+//     };
+//     if (node.class === 'vue-map-container') node.name = 'google-map';
+//     if (node.name === 'img') node.imgUrl = attributes.src.value;
+//     if (node.name === 'iframe') node.vidUrl = attributes.src.value;
+//     if (attributes.type) node.type = attributes.type.value;
+//     if (attributes.href) node.href = attributes.href.value;
+//     return node;
+// }
 
 
 // function buildQuery({ name, type, sortBy, inStock }) {

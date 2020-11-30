@@ -1,0 +1,321 @@
+{
+    "name": "section",
+    "type": "video",
+    "class": "video-card",
+    "title": "Video Section",
+    "thumbnail": "https://imagizer.imageshack.com/img924/6061/zCu3EB.png",
+    "style": {
+        "background": "transparent",
+        "borderRadius": "0px",
+        "display": "grid",
+        "gridTemplateColumns": "repeat(12, minmax(auto, 300px))",
+        "gridColumn": "2 / span 12",
+        "gridGap": "40px",
+        "height": "450px"
+    },
+    "imgUrl": "",
+    "children": [{
+            "_id": "xn50tooepx",
+            "name": "div",
+            "type": "card-div",
+            "class": "card flex column",
+            "style": {
+                "gridColumnEnd": "span 4",
+                "borderRadius": "0px",
+                "background": "",
+                "margin": "auto"
+            },
+            "children": [{
+                    "_id": "aerwgtqa3o4teq34e",
+                    "name": "div",
+                    "type": "video-container",
+                    "style": {
+                        "position": "relative"
+                    },
+                    "children": [{
+                        "_id": "vnb3tubivs",
+                        "name": "iframe",
+                        "vidUrl": "https://www.youtube.com/watch?v=qJf8N46OEMk",
+                        "style": {
+                            "background": "",
+                            "width": "100%",
+                            "height": "230px",
+                            "overflow": "hidden",
+                            "position": "relative"
+                        },
+                        "frameborder": "0",
+                        "allowfullscreen": "allowfullscreen"
+                    }]
+                },
+                {
+                    "_id": "lwjp5shaov",
+                    "name": "div",
+                    "style": {
+                        "background": "",
+                        "padding": "35px"
+                    },
+                    "children": [{
+                            "_id": "3llf3wiqii",
+                            "name": "txt",
+                            "marginBottom": "20px",
+                            "txt": "This is an awesome card",
+                            "style": {
+                                "fontSize": "16px",
+                                "lineHeight": "25px",
+                                "fontWeight": "400",
+                                "color": "#ecf0f1"
+                            }
+                        },
+                        {
+                            "_id": "4xb16ruz1i",
+                            "name": "div",
+                            "class": "flex align-center",
+                            "style": {
+                                "alignSelf": "end"
+                            },
+                            "children": [{
+                                    "_id": "odwpathhr2",
+                                    "name": "txt",
+                                    "txt": "30 Min",
+                                    "style": {
+                                        "fontSize": "16px",
+                                        "lineHeight": "20px",
+                                        "fontWeight": "400px",
+                                        "color": "#ecf0f1",
+                                        "letterSpacing": "",
+                                        "textDecoration": "",
+                                        "fontStyle": "",
+                                        "textAlign": "",
+                                        "fontFamily": "carme"
+                                    }
+                                },
+                                {
+                                    "_id": "lyowt49vlg",
+                                    "name": "txt",
+                                    "txt": "Free",
+                                    "style": {
+                                        "marginLeft": "auto",
+                                        "padding": "5px 20px",
+                                        "borderRadius": "20px",
+                                        "background": "black",
+                                        "fontSize": "16px",
+                                        "lineHeight": "20px",
+                                        "fontWeight": "400px",
+                                        "color": "#ecf0f1",
+                                        "letterSpacing": "",
+                                        "textDecoration": "",
+                                        "fontStyle": "",
+                                        "textAlign": "",
+                                        "fontFamily": "carme"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_id": "xn50tooepx",
+            "name": "div",
+            "type": "card-div",
+            "class": "card flex column",
+            "style": {
+                "gridColumnEnd": "span 4",
+                "borderRadius": "0px",
+                "background": "",
+                "margin": "auto"
+            },
+            "children": [{
+                    "_id": "aerwgtqa3o4teq34e",
+                    "name": "div",
+                    "type": "video-container",
+                    "style": {
+                        "position": "relative"
+                    },
+                    "children": [{
+                        "_id": "vnb3tubivs",
+                        "name": "iframe",
+                        "vidUrl": "https://www.youtube.com/watch?v=qJf8N46OEMk",
+                        "style": {
+                            "background": "",
+                            "width": "100%",
+                            "height": "230px",
+                            "overflow": "hidden",
+                            "position": "relative"
+                        },
+                        "frameborder": "0",
+                        "allowfullscreen": "allowfullscreen"
+                    }]
+                },
+                {
+                    "_id": "lwjp5shaov",
+                    "name": "div",
+                    "style": {
+                        "background": "",
+                        "padding": "35px"
+                    },
+                    "children": [{
+                            "_id": "3llf3wiqii",
+                            "name": "txt",
+                            "marginBottom": "20px",
+                            "txt": "This is an awesome card",
+                            "style": {
+                                "fontSize": "16px",
+                                "lineHeight": "25px",
+                                "fontWeight": "400",
+                                "color": "#ecf0f1"
+                            }
+                        },
+                        {
+                            "_id": "4xb16ruz1i",
+                            "name": "div",
+                            "class": "flex align-center",
+                            "style": {
+                                "alignSelf": "end"
+                            },
+                            "children": [{
+                                    "_id": "odwpathhr2",
+                                    "name": "txt",
+                                    "txt": "30 Min",
+                                    "style": {
+                                        "fontSize": "16px",
+                                        "lineHeight": "20px",
+                                        "fontWeight": "400px",
+                                        "color": "#ecf0f1",
+                                        "letterSpacing": "",
+                                        "textDecoration": "",
+                                        "fontStyle": "",
+                                        "textAlign": "",
+                                        "fontFamily": "carme"
+                                    }
+                                },
+                                {
+                                    "_id": "lyowt49vlg",
+                                    "name": "txt",
+                                    "txt": "Free",
+                                    "style": {
+                                        "marginLeft": "auto",
+                                        "padding": "5px 20px",
+                                        "borderRadius": "20px",
+                                        "background": "black",
+                                        "fontSize": "16px",
+                                        "lineHeight": "20px",
+                                        "fontWeight": "400px",
+                                        "color": "#ecf0f1",
+                                        "letterSpacing": "",
+                                        "textDecoration": "",
+                                        "fontStyle": "",
+                                        "textAlign": "",
+                                        "fontFamily": "carme"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "_id": "xn50tooepx",
+            "name": "div",
+            "type": "card-div",
+            "class": "card flex column",
+            "style": {
+                "gridColumnEnd": "span 4",
+                "borderRadius": "0px",
+                "background": "",
+                "margin": "auto"
+            },
+            "children": [{
+                    "_id": "aerwgtqa3o4teq34e",
+                    "name": "div",
+                    "type": "video-container",
+                    "style": {
+                        "position": "relative"
+                    },
+                    "children": [{
+                        "_id": "vnb3tubivs",
+                        "name": "iframe",
+                        "vidUrl": "https://www.youtube.com/watch?v=qJf8N46OEMk",
+                        "style": {
+                            "background": "",
+                            "width": "100%",
+                            "height": "230px",
+                            "overflow": "hidden",
+                            "position": "relative"
+                        },
+                        "frameborder": "0",
+                        "allowfullscreen": "allowfullscreen"
+                    }]
+                },
+                {
+                    "_id": "lwjp5shaov",
+                    "name": "div",
+                    "style": {
+                        "background": "",
+                        "padding": "35px"
+                    },
+                    "children": [{
+                            "_id": "3llf3wiqii",
+                            "name": "txt",
+                            "marginBottom": "20px",
+                            "txt": "This is an awesome card",
+                            "style": {
+                                "fontSize": "16px",
+                                "lineHeight": "25px",
+                                "fontWeight": "400",
+                                "color": "#ecf0f1"
+                            }
+                        },
+                        {
+                            "_id": "4xb16ruz1i",
+                            "name": "div",
+                            "class": "flex align-center",
+                            "style": {
+                                "alignSelf": "end"
+                            },
+                            "children": [{
+                                    "_id": "odwpathhr2",
+                                    "name": "txt",
+                                    "txt": "30 Min",
+                                    "style": {
+                                        "fontSize": "16px",
+                                        "lineHeight": "20px",
+                                        "fontWeight": "400px",
+                                        "color": "#ecf0f1",
+                                        "letterSpacing": "",
+                                        "textDecoration": "",
+                                        "fontStyle": "",
+                                        "textAlign": "",
+                                        "fontFamily": "carme"
+                                    }
+                                },
+                                {
+                                    "_id": "lyowt49vlg",
+                                    "name": "txt",
+                                    "txt": "Free",
+                                    "style": {
+                                        "marginLeft": "auto",
+                                        "padding": "5px 20px",
+                                        "borderRadius": "20px",
+                                        "background": "black",
+                                        "fontSize": "16px",
+                                        "lineHeight": "20px",
+                                        "fontWeight": "400px",
+                                        "color": "#ecf0f1",
+                                        "letterSpacing": "",
+                                        "textDecoration": "",
+                                        "fontStyle": "",
+                                        "textAlign": "",
+                                        "fontFamily": "carme"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -3,9 +3,10 @@
         <slot v-if="cmp.name === 'img' || cmp.name === 'section'">
             <controls :_id="cmp._id" @copy="emitCopy" @delete="emitDelete" @moveSection="emitMoveSection" />
         </slot>
-        <slot name="video" v-if="video">
+        <slot name="video" v-if="cmp.class === 'video-container'">
             <div class="site-video">
-                <button class="iframe-btn"><i class="fas fa-link"></i></button>
+                <button class="iframe-btn btn"><i class="fas fa-link"></i></button>
+
             </div>
         </slot>
         {{ cmpTxt }}
