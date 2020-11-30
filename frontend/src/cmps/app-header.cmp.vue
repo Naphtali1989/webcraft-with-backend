@@ -8,9 +8,13 @@
             <router-link to="/wap" exact>Templates</router-link>
             <router-link to="/editor" exact>Editor</router-link>
             <router-link to="/playground">Playground</router-link>
-            <avatar :username="'matan cohen'" :size="45" :color="'#03A9F4'" @click.native="toggleModal" />
+            <div v-if="loggedInUser">
+                <router-link to="/playground">Profile</router-link>
+            </div>
+            <avatar :username="loggedInUser.username" :size="45" :color="'#03A9F4'" @click.native="toggleModal" v-if="loggedInUser" />
+
         </div>
-        <avatar-modal v-if="showModal" />
+        <avatar-modal v-if="showModal" :loggedInUser="loggedInUser" />
     </section>
 </template>
 
@@ -30,6 +34,11 @@ export default {
         },
         pushHome() {
             this.$router.push('/')
+        },
+    },
+    computed: {
+        loggedInUser() {
+            return this.$store.getters.loggedInUser;
         }
     },
     components: {

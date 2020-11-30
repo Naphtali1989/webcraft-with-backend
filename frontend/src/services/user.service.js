@@ -15,10 +15,11 @@ export const userService = {
 
 //login to app
 async function login(userCreds) {
+    console.log('user creds on service', userCreds);
     try {
         const user = await httpService.post('auth/login', userCreds)
         console.log('user get back from db:', user);
-        return _handleLogin(user);
+        // return _handleLogin(user);
     } catch (error) {
         console.log("🚀 ~ file: user.service.js ~ line 22 ~ login ~ error", error.response)
             //this is how i get the error from the error response
@@ -30,7 +31,7 @@ async function login(userCreds) {
 
 //signup
 async function signup(userCreds) {
-    console.log('inserting to server', userCreds);
+    console.log('signup to server', userCreds);
     const user = await httpService.post('auth/signup', userCreds);
     return user;
     // return _handleLogin(user);
@@ -45,9 +46,6 @@ function getUsers() {
 function remove(userId) {
     return httpService.delete(`user/${userId}`)
 }
-
-
-
 
 
 async function logout() {
