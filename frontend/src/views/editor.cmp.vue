@@ -165,7 +165,7 @@ export default {
             // Re-assign the payload with the copy of the cmp info
             dragResult.payload = sampleCopy;
             // Drop the section in the correct drop zone
-            this.dropSection(dragResult);
+        this.dropSection(dragResult);
         },
     },
     async created() {
