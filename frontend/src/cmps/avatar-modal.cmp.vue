@@ -7,8 +7,8 @@
         </div>
         <div class="seperator"></div>
         <section class="modal-links flex column">
-            <span><i class="far fa-user"></i> Login</span>
-            <span><i class="fas fa-sign-out-alt"></i> Sign up</span>
+            <span><i class="far fa-user"></i>Login</span>
+            <span @click="openModal"><i class="fas fa-sign-out-alt"></i>Sign up</span>
             <span><i class="fas fa-times-circle"></i> Logout</span>
         </section>
     </section>

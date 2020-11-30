@@ -5,7 +5,8 @@ module.exports = {
     getById,
     update,
     add,
-    query
+    query,
+    getByEmail
 }
 
 
@@ -45,6 +46,22 @@ async function update(user) {
         return user
     } catch (err) {
         console.log(`ERROR: cannot update user ${user._id}`)
+        throw err;
+    }
+}
+
+
+//get user by email
+async function getByEmail(email) {
+    //connect to the collection 
+    const collection = await dbService.getCollection('user')
+    try {
+        //find a user with the spefific email
+        const user = await collection.findOne({ email })
+        console.log('found email in db!');
+        return user
+    } catch (err) {
+        console.log(`ERROR: while finding user ${email}`)
         throw err;
     }
 }

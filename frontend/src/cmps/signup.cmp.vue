@@ -1,37 +1,26 @@
 <template>
-
-    <div class="container">
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/wave.png">
+    <section class="signup-modal">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <h2 class="title">Sign in</h2>
+                <form class="flex column align-center" @submit.prevent="signup">
+                    <div class="form-control">
+                        <span class="fas fa-user"></span>
+                        <input type="text" placeholder="Enter Username..." v-model="user.username" required>
+                    </div>
+                    <div class="form-control" v-if="isSignup">
+                        <span><i class="fas fa-envelope"></i></span>
+                        <input type="text" placeholder="Enter Email..." v-model="user.email" required>
+                    </div>
+                    <div class="form-control">
+                        <span @click="toggleFieldType" class="fas fa-lock"></span>
+                        <input :type="passwordType" placeholder="Enter Password..." v-model="user.password" required>
+                    </div>
+                    <button class="btn form-btn">Sign Up</button>
+                </form>
+            </div>
         </div>
-        <div class="login-content">
-            <form action="index.html">
-                <img src="../assets/img/profile.svg">
-                <h2 class="title">Welcome</h2>
-                <div class="input-div one">
-                    <div class="i">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="div">
-                        <h5>Username</h5>
-                        <input type="text" class="input">
-                    </div>
-                </div>
-                <div class="input-div pass">
-                    <div class="i">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div class="div">
-                        <h5>Password</h5>
-                        <input type="password" class="input">
-                    </div>
-                </div>
-                <a href="#">Forgot Password?</a>
-                <input type="submit" class="btn" value="Login">
-            </form>
-        </div>
-    </div>
-
+    </section>
 </template>
 
 <script>
@@ -40,10 +29,16 @@ export default {
     data() {
         return {
             passwordType: 'password',
-            isSignup: true
+            isSignup: true,
+            user: { username: '',email: '',password: '' }
         }
     },
     methods: {
+        async signup() {
+            const userCreds=JSON.parse(JSON.stringify(this.user))
+            await this.$store.dispatch({ type: 'signup',userCreds })
+            this.user={ name: '',email: '',password: '' }
+        },
         toggleFieldType() {
             this.passwordType=this.passwordType==='password'? 'text':'password'
         }

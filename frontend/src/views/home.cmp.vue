@@ -1,9 +1,10 @@
 <template>
     <section>
         <!-- TODO: New landing page that rocks! -->
-        <section class="intro">
+        <!-- <section class="intro">
             <h2>Webcraft</h2>
             <h3>Building websites is fun!</h3>
+
         </section>
         <div class="intro-images">
             <img src="@/assets/img/splash.svg" alt="" class="splash" />
@@ -16,7 +17,8 @@
                 <span><i class="fab fa-youtube"></i></span>
                 <span><i class="fab fa-facebook"></i></span>
             </div>
-        </footer>
+        </footer> -->
+        <h1>Doing tests</h1>
     </section>
 </template>
 
