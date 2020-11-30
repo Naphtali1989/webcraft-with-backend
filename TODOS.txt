@@ -22,3 +22,12 @@ type-list:
 sample-list:
 
 // TODO: Figure out how to animate this sample when dragging
+
+editor-workspace:
+
+<!-- TODO: Make sure that drag and drop doesnt take img into the drag -->
+
+
+over-all:
+
+ // TODO: Work on a data tree for the sections.

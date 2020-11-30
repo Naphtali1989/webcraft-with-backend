@@ -19,13 +19,13 @@
             <editor-workspace
                 v-if="currWap"
                 :cmps="currWap.cmps"
-                @clicked="setCmpToEdit"
+                @focusedCmp="setCmpToEdit"
                 @updatedTxt="updateTxt"
-                @delete="deleteSection"
                 @copy="copySection"
                 @moveSection="moveSection"
-                @droppedSample="pickSample"
+                @droppedSample="dropSample"
                 @droppedSection="dropSection"
+                @delete="deleteSection"
             />
         </section>
     </section>
@@ -130,19 +130,16 @@ export default {
                 wap: this.currWap
             });
         },
-        async pickSample(_id, idx) {
+        async dropSample(dragResult) {
             // Getting the sample from the store to copy
             const sampleToCopy = await this.$store.dispatch({
                 type: 'pickedSample',
-                _id,
+                _id: dragResult.payload._id,
             });
             let sampleCopy = JSON.parse(JSON.stringify(sampleToCopy));
             this.replaceIds(sampleCopy);
-            const dragResult = {
-                payload: sampleCopy,
-                addedIndex: idx,
-                removedIndex: null,
-            };
+            // Re-assign the payload with the copy of the cmp info
+            dragResult.payload = sampleCopy;
             // Drop the section in the correct drop zone
             this.dropSection(dragResult);
         },

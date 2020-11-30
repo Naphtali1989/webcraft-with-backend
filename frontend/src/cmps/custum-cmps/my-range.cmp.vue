@@ -1,9 +1,9 @@
 <template>
     <div class="block custom-range">
         <el-slider
+            v-model="value"
             :max="options.max"
             :min="options.min"
-            v-model="value"
             @input="emitChange"
         ></el-slider>
     </div>
@@ -19,7 +19,6 @@ export default {
             value: this.options.initVal
         }
     },
-
     methods: {
         emitChange() {
             this.$emit('input', this.value)
@@ -28,8 +27,3 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.custom-range {
-    width: 70%;
-}
-</style>

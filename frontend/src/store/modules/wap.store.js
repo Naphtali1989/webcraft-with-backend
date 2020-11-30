@@ -41,11 +41,11 @@ export const wapStore = {
                 samples
             })
         },
-        async loadWap({ commit }, { _id }) {
+        async loadWap(context, { _id }) {
             const wap = await wapService.getById(_id);
             return wap;
         },
-        async saveWap({ commit }, { wap }) {
+        async saveWap(context, { wap }) {
             const savedWap = await wapService.save(wap);
             return savedWap
         },
