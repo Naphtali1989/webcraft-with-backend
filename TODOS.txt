@@ -11,10 +11,6 @@
 
 <!-- TODO: New landing page that rocks! -->
 
-**editor:
-
-<!-- TODO: think of a better way to explain this pickSample function -->
-
 **type-list:
 
 // TODO: Think of new types of cmps
@@ -31,3 +27,6 @@
 **over-all:
 
  // TODO: Work on a data tree for the sections.
+
+ **Loader:
+ // TODO: Add a loader
