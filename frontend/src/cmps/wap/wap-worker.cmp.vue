@@ -3,12 +3,12 @@
         <slot v-if="cmp.name === 'img' || cmp.name === 'section'">
             <controls :_id="cmp._id" @copy="emitCopy" @delete="emitDelete" @moveSection="emitMoveSection" />
         </slot>
-        <!-- <slot name="video" v-if="video">//TODO -> Figure out how to get in the iframe inside this div
+        <slot name="video" v-if="video">
             <div class="site-video">
                 <button class="iframe-btn">TEST VIDEO</button>
                 <iframe src="https://test.com" />
             </div>
-        </slot> -->
+        </slot>
         {{ cmpTxt }}
         <template v-if="cmp.children">
             <wap-worker v-for="child in cmp.children" :key="child._id" :cmp="child" @clicked="onClick" @updatedTxt="emitUpdateTxt">
