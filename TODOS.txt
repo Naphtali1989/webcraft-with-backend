@@ -1,33 +1,32 @@
-wap-gallery:
+**wap-gallery:
 
 <!-- TODO: change this button to an empty template that leads to an empty editor -->
  // TODO: refactor code to get waps from data base //
 
- user-profile:
+ **user-profile:
 
 // TODO: Construct a user base and connect users here
 
-home:
+**home:
 
 <!-- TODO: New landing page that rocks! -->
 
-editor:
-
-<!-- TODO: think of a better way to explain this pickSample function -->
-
-type-list:
+**type-list:
 
 // TODO: Think of new types of cmps
 
-sample-list:
+**sample-list:
 
 // TODO: Figure out how to animate this sample when dragging
 
-editor-workspace:
+**editor-workspace:
 
 <!-- TODO: Make sure that drag and drop doesnt take img into the drag -->
 
 
-over-all:
+**over-all:
 
  // TODO: Work on a data tree for the sections.
+
+ **Loader:
+ // TODO: Add a loader

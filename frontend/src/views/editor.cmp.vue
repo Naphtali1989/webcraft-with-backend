@@ -1,6 +1,5 @@
 <template>
     <section class="editor-container flex column" :class="isEditorShown">
-        <!-- TODO: think of a better way to explain this pickSample function -->
         <editor-dashboard
             :samples="samples"
             :cmpToEdit="currCmpToEdit"
@@ -15,7 +14,6 @@
         </editor-dashboard>
         <section class="flex column">
             <user-controls @saveWap="saveWap" />
-            <!--  -->
             <editor-workspace
                 v-if="currWap"
                 :cmps="currWap.cmps"
