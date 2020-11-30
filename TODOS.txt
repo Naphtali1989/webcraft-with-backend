@@ -1,7 +1,5 @@
 **wap-gallery:
-
 <!-- TODO: change this button to an empty template that leads to an empty editor -->
- // TODO: refactor code to get waps from data base //
 
  **user-profile:
 
@@ -26,7 +24,7 @@
 <!-- TODO: get text-shadow option , and hover for focus -->
 **over-all:
 
- // TODO: Work on a data tree for the sections.
+// TODO: Work on a data tree for the sections.
 
- **Loader:
- // TODO: Add a loader
+**Loader:
+// TODO: Add a loader

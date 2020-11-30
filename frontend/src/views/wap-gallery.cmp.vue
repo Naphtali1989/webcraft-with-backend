@@ -7,7 +7,7 @@
                 Click here to start!
             </button>
         </div>
-        <wap-list :waps="waps"></wap-list>
+        <wap-list v-if="waps" :waps="waps"></wap-list>
     </section>
 </template>
 
@@ -25,7 +25,7 @@ export default {
     },
     computed:{
         waps(){
-            this.$store.wapList
+            return this.$store.getters.getWaps
         }
     },
     async created() {
@@ -33,4 +33,3 @@ export default {
     }
 }
 </script>
-                // TODO: refactor code to get waps from data base //

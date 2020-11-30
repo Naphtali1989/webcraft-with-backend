@@ -7,7 +7,7 @@ export const wapStore = {
 
     },
     getters: {
-        wapList(state) {
+        getWaps(state) {
             return state.waps.map(wap => {
                 const { _id, thumbnail, title } = wap
                 return {
