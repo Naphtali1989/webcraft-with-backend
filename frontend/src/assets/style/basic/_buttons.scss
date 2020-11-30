@@ -24,9 +24,21 @@
     position: relative;
     .iframe-btn {
         position: absolute;
-        left: 5px;
+        left: 0;
         top: 0;
         font-size: 20px;
         z-index: 2000;
     }
+}
+
+.iframe-btn {
+    background-color: #2e4ead;
+    color: #f0f0f0;
+    opacity: 0;
+    padding: 0.5rem;
+    transition: all 0.3s;
+}
+
+.video-container:hover .iframe-btn {
+    opacity: 1;
 }
