@@ -22,9 +22,11 @@ export const userStore = {
             commit({ type: 'setUser', user })
         },
         async login({ commit }, { userCreds }) {
-            console.log('user creds in store:', userCreds);
+            // console.log('user creds in store:', userCreds);
             const user = await userService.login(userCreds)
+            console.log('USER ');
             commit({ type: 'setUser', user })
+            return user;
         },
         async logout(context, state) {
             await userService.logout();

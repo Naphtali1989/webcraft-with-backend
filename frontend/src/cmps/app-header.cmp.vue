@@ -8,13 +8,14 @@
             <router-link to="/wap" exact>Templates</router-link>
             <router-link to="/editor" exact>Editor</router-link>
             <router-link to="/playground">Playground</router-link>
+            <span @click="showSignup">Login</span>
             <div v-if="loggedInUser">
                 <router-link to="/playground">Profile</router-link>
             </div>
             <avatar :username="loggedInUser.username" :size="45" :color="'#03A9F4'" @click.native="toggleModal" v-if="loggedInUser" />
 
         </div>
-        <avatar-modal v-if="showModal" :loggedInUser="loggedInUser" @closeModal="toggleModal" />
+        <avatar-modal v-if="showModal" :loggedInUser="loggedInUser" @closeModal="showModal = false" />
     </section>
 </template>
 
@@ -35,6 +36,9 @@ export default {
         pushHome() {
             this.$router.push('/')
         },
+        showSignup() {
+            this.$emit('openSignupModal')
+        }
     },
     computed: {
         loggedInUser() {

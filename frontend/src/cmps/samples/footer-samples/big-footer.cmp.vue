@@ -7,7 +7,7 @@ export default {
     name: 'big-footer',
     data() {
         return {
-            _id: Math.random().toString(36).substring(2,12),
+            _id: 'wjdlrtxa3w',
             name: 'section',
             type: 'footer',
             class: 'flex space-around',
@@ -22,7 +22,7 @@ export default {
             children: [
                 {
 
-                    _id: Math.random().toString(36).substring(2,12),
+                    _id: "dm5ypdztl1",
                     name: 'div',
                     style: {
                         background: '',
@@ -31,7 +31,7 @@ export default {
                     children:
                         [
                             {
-                                _id: Math.random().toString(36).substring(2,12),
+                                _id: "8ie48zao8a",
                                 name: 'div',
                                 class: 'flex column align-center',
                                 style: {
@@ -41,11 +41,11 @@ export default {
                                 children:
                                     [
                                         {
-                                            id: Math.random().toString(36).substring(2,12),
+                                            id: "xzuzaw7aqz",
                                             name: 'txt',
                                             txt: "Item 1",
                                             style: {
-                                                "fontSize": " 1.25rem",
+                                                fontSize: " 1.25rem",
                                                 letterSpacing: '1px',
                                                 fontWeight: 'bold',
                                                 background: '#fff',
@@ -60,11 +60,11 @@ export default {
                                             }
                                         },
                                         {
-                                            id: Math.random().toString(36).substring(2,12),
+                                            id: "ozcxe8w5o2",
                                             name: 'txt',
                                             txt: "Item 2",
                                             style: {
-                                                "fontSize": "14px",
+                                                fontSize: "14px",
                                                 letterSpacing: '1px',
                                                 fontWeight: '600px',
                                                 background: '#fff',
@@ -79,7 +79,7 @@ export default {
                                             }
                                         },
                                         {
-                                            id: Math.random().toString(36).substring(2,12),
+                                            id: "agbnw21hoe",
                                             name: 'txt',
                                             txt: "Item 3",
                                             style: {
@@ -98,17 +98,17 @@ export default {
                                             }
                                         },
                                         {
-                                            id: Math.random().toString(36).substring(2,12),
+                                            id: "vfjce3s4ix",
                                             name: 'txt',
                                             txt: "Item 4",
                                             style: {
-                                                "fontSize": "14px",
+                                                fontSize: "14px",
                                                 letterSpacing: '1px',
                                                 fontWeight: '600px',
                                                 background: '#fff',
                                                 padding: '12px 40px',
                                                 border: 'none',
-                                                "lineHeight": "",
+                                                lineHeight: "",
                                                 "textDecoration": "",
                                                 "fontStyle": "",
                                                 "textAlign": "",

@@ -28,6 +28,7 @@ export default {
         logout() {
             this.$store.dispatch({ type: 'logout' })
             this.$emit('closeModal')
+
         }
 
     }
