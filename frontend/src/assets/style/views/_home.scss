@@ -1,86 +1,84 @@
-.main-head {
-    width: 100%;
-    margin: 0 0 0 auto;
+.home-layout {
+    display: grid;
+    grid-template-columns: minmax(2rem, 1fr) minmax(auto, 960px) minmax(2rem, 1fr);
 }
 
-nav {
-    min-height: 10vh;
-    width: 60%;
-    .logo {
-        flex: 1 1 10rem;
-        p {
-            padding-top: 2rem;
-            color: #2c2c2c;
-        }
-    }
-    .links {
-        flex: 1 1 40rem;
-        >* {
-            font-size: 2rem;
-            padding: 10px;
-        }
-    }
-}
-
-.intro {
-    min-height: 90vh;
-    width: 90%;
-    margin: auto;
-    flex: 1;
-    font-family: bungee;
-    h2 {
-        font-size: 5rem;
-        padding-top: 2rem;
-        // font-family: bungee;
-    }
-    h3 {
-        font-size: 1.5rem;
-        margin-inline-start: 10px;
-    }
-}
-
-.intro-social span {
-    margin-inline-start: 10px;
-}
-
-.splash {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    z-index: -1;
-}
-
-.active {
-    background: #2c2c2c;
-    color: white;
-    padding: 0.5rem 3rem;
-    border-radius: 2rem;
-}
-
-.main-footer {
-    width: 100%;
-    background: #063762;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: bungee;
-    letter-spacing: 2px;
-    h3 {
-        padding: 1rem;
-        font-size: 2.2rem;
-    }
-    .social-links span {
-        font-size: 2.2rem;
-        padding-inline-start: 2rem;
-        padding-inline-end: 2rem;
-        cursor: pointer;
-    }
-}
-
-.me {
-    position: absolute;
-    right: 0;
-    top: 20%;
-}
+// .main-head {
+//     width: 100%;
+//     margin: 0 0 0 auto;
+// }
+// nav {
+//     min-height: 10vh;
+//     width: 60%;
+//     .logo {
+//         flex: 1 1 10rem;
+//         p {
+//             padding-top: 2rem;
+//             color: #2c2c2c;
+//         }
+//     }
+//     .links {
+//         flex: 1 1 40rem;
+//         >* {
+//             font-size: 2rem;
+//             padding: 10px;
+//         }
+//     }
+// }
+// .intro {
+//     min-height: 90vh;
+//     width: 90%;
+//     margin: auto;
+//     flex: 1;
+//     font-family: bungee;
+//     h2 {
+//         font-size: 5rem;
+//         padding-top: 2rem;
+//         // font-family: bungee;
+//     }
+//     h3 {
+//         font-size: 1.5rem;
+//         margin-inline-start: 10px;
+//     }
+// }
+// .intro-social span {
+//     margin-inline-start: 10px;
+// }
+// .splash {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     height: 100%;
+//     z-index: -1;
+// }
+// .active {
+//     background: #2c2c2c;
+//     color: white;
+//     padding: 0.5rem 3rem;
+//     border-radius: 2rem;
+// }
+// .main-footer {
+//     width: 100%;
+//     background: #063762;
+//     color: white;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     font-family: bungee;
+//     letter-spacing: 2px;
+//     h3 {
+//         padding: 1rem;
+//         font-size: 2.2rem;
+//     }
+//     .social-links span {
+//         font-size: 2.2rem;
+//         padding-inline-start: 2rem;
+//         padding-inline-end: 2rem;
+//         cursor: pointer;
+//     }
+// }
+// .me {
+//     position: absolute;
+//     right: 0;
+//     top: 20%;
+// }

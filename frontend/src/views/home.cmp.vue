@@ -1,29 +1,15 @@
 <template>
-    <section>
-        <h1>Under Construction</h1>
-        <!-- TODO: New landing page that rocks! -->
-        <!-- <section class="intro">
-            <h2>Webcraft</h2>
-            <h3>Building websites is fun!</h3>
+    <section class="content-wrapper">
+        <div class="main-hero">
+            <h1>Get your peresonal website with a few clicks!</h1>
 
-        </section>
-        <div class="intro-images">
-            <img src="@/assets/img/splash.svg" alt="" class="splash" />
-            <img src="@/assets/img/me.svg" class="me" />
         </div>
-        <footer class="main-footer">
-            <h3>Webcraft</h3>
-            <div class="social-links">
-                <span><i class="fab fa-instagram"></i></span>
-                <span><i class="fab fa-youtube"></i></span>
-                <span><i class="fab fa-facebook"></i></span>
-            </div>
-        </footer> -->
-        <!-- <h1>Doing tests</h1> -->
+
     </section>
 </template>
 
 <script>
+
 export default {
     name: 'home',
 };
