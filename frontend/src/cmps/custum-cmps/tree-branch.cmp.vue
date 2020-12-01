@@ -4,15 +4,13 @@
             <h3>
                 {{ cmp.name }}
             </h3>
-            <!-- <div class="accordion-info" v-if="isItemOpen">
-                <slot name="branch-slot" /> -->
             <button class="btn branch-btn" @click.stop.prevent="onFocus(cmp._id)">
-                <!-- show -->
             </button>
             <template v-if="cmp.children && isItemOpen">
+                <transition-group name="open-branch" />
                 <tree-branch slot="branch-slot" v-for="child in cmp.children" :key="child._id" :cmp="child" @focused="onFocus" />
+                <transition-group />
             </template>
-            <!-- </div> -->
         </li>
     </ul>
 </template>

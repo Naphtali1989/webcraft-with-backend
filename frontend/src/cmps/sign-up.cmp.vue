@@ -20,7 +20,7 @@
                         </div>
                         <button class="btn signup">{{modalHeader}}</button>
                     </form>
-                    <a class="cursor" @click="toggleModalMode">You dont have an account? Sign up!</a>
+                    <a class="btn" @click="toggleModalMode">You dont have an account? Sign up!</a>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg">
                     <path xmlns="http://www.w3.org/2000/svg" d="M306.5 -31.4999L882 -31.4998C999 -31.4997 999 -151.22 999 -10V480.5V1082.5C999 1347.06 553.889 1094.34 212.5 932.5C-67.0003 800 -42.9294 593.465 125.001 266C285 -45.9997 206.667 -14.9999 306.5 -31.4999Z" fill="#04befe" />
@@ -39,19 +39,20 @@
 </template>
 
 <script>
+import { userService } from '@/services/user.service';
 export default {
     name: 'sign-up',
     data() {
         return {
             passwordType: 'password',
             isSignup: false,
-            user: {}
+            user: null
         }
     },
     methods: {
         toggleModalMode() {
             this.isSignup=!this.isSignup
-            if(this.isSignup) this.user={ username: '',email: '',password: '' }
+            if(this.isSignup) this.user=userService.getEmptyUser()
             else this.user={ email: '',password: '' }
         },
         modalAction() {
@@ -61,15 +62,13 @@ export default {
         async signup() {
             const userCreds=JSON.parse(JSON.stringify(this.user))
             await this.$store.dispatch({ type: 'signup',userCreds })
-            this.user={ name: '',email: '',password: '' }
+            this.user=userService.getEmptyUser()
         },
         async login() {
             const userCreds=JSON.parse(JSON.stringify(this.user));
             const user=await this.$store.dispatch({ type: 'login',userCreds });
             if(user) this.closeModal()
             this.user={ email: '',password: '' }
-            console.log('user from signup:',user);
-
         },
         toggleFieldType() {
             this.passwordType=this.passwordType==='password'? 'text':'password'
@@ -82,16 +81,13 @@ export default {
         modalHeader() {
             return this.isSignup? 'Sign Up':'Login';
         },
-        placeholder() {
-            return this.isSignup? 'Enter Username....':'Enter Email...'
-        },
         modelMode() {
             return this.isSignup? 'user.username':'user.email'
         }
-
-
-
     },
+    created() {
+        this.user=userService.getEmptyUser()
+    }
 
 }
 </script>
