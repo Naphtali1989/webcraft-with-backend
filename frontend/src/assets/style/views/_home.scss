@@ -3,6 +3,23 @@
     grid-template-columns: minmax(2rem, 1fr) minmax(auto, 960px) minmax(2rem, 1fr);
 }
 
+.main-hero {
+    position: relative;
+}
+
+.img1 {
+    background-image: url('https://imagizer.imageshack.com/img923/30/b0uf5w.png');
+    background-repeat: no-repeat;
+    height: 95vh;
+    background-position: top;
+    background-size: 60%;
+    z-index: -200;
+}
+
+.img2 {
+    width: 680px;
+}
+
 // .main-head {
 //     width: 100%;
 //     margin: 0 0 0 auto;
