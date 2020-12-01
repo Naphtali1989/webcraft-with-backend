@@ -1,5 +1,6 @@
 <template>
     <section>
+        <h1>Under Construction</h1>
         <!-- TODO: New landing page that rocks! -->
         <!-- <section class="intro">
             <h2>Webcraft</h2>

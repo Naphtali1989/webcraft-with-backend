@@ -16,15 +16,11 @@ export const userStore = {
     },
     actions: {
         async signup({ commit }, { userCreds }) {
-            // await userService.signup
-            console.log('getting user creds:', userCreds);
             const user = await userService.signup(userCreds)
             commit({ type: 'setUser', user })
         },
         async login({ commit }, { userCreds }) {
-            // console.log('user creds in store:', userCreds);
             const user = await userService.login(userCreds)
-            console.log('USER ');
             commit({ type: 'setUser', user })
             return user;
         },

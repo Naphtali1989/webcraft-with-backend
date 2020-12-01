@@ -128,7 +128,7 @@
                         transition: .3s ease;
                     }
                     //*change arrow when clicked -> IN WORKS NAPTHELI..
-                    &:active:before {
+                    &.open-branch-enter-active {
                         content: '\f107';
                         transform: rotate(90deg);
                     }

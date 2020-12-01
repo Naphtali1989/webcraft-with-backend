@@ -56,12 +56,7 @@ export default {
             if(this.currTab==='edit') return 'editors-container';
             return 'type-list';
         },
-        //TODO : >>  be tested
-        // icon() {
-        //     if(this.currTab==='tree') return 'fas fa-tree'
-        //     else if(this.currTab==='add') return 'fas fa-plus'
-        //     return 'fas fa-edit'
-        // }
+
     },
     updated() {
         if(this.cmpToEdit) this.currTab='edit';
