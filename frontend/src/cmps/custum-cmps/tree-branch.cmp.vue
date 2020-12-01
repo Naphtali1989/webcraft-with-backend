@@ -2,7 +2,7 @@
     <ul class="tree-branch">
         <li
             class="tree-branch-name"
-            :id="'el-'+workerHoverClass"
+            :id="'el-' + workerHoverClass"
             @focused="onFocus"
             @click.stop="toggleAccordionItem(!isItemOpen)"
         >
@@ -80,8 +80,8 @@ export default {
             }
         }
     },
-    computed:{
-        workerHoverClass(){
+    computed: {
+        workerHoverClass() {
             return this.cmp._id
         }
     },
@@ -90,19 +90,26 @@ export default {
     },
     beforeDestroy() {
         this.$parent.unregisterItem(this)
+        this.$el.removeEventListener("mouseover", () => {
+            // do the same of above
+        }, true);
+        this.$el.removeEventListener("mouseleave", () => {
+            // do the same of above
+        }, true);
+
     },
-    mounted(){
+    mounted() {
         const el = document.querySelectorAll(`#el-${this.cmp._id}`)
-        this.$el.addEventListener('mouseover',(ev)=>{
+        this.$el.addEventListener('mouseover', (ev) => {
             ev.stopPropagation();
             el[1].style.outline = '2.5px dashed blue';
             el[0].style.outline = '1.5px dashed blue';
-            var timer = setTimeout(()=>{
+            var timer = setTimeout(() => {
                 el[1].style.outline = null;
                 el[0].style.outline = null;
             }, 3000)
         })
-        this.$el.addEventListener('mouseleave',(ev)=>{
+        this.$el.addEventListener('mouseleave', (ev) => {
             ev.stopPropagation();
             el[1].style.outline = null;
             el[0].style.outline = null;
