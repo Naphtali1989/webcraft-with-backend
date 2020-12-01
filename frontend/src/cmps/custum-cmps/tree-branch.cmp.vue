@@ -91,10 +91,10 @@ export default {
     beforeDestroy() {
         this.$parent.unregisterItem(this)
         this.$el.removeEventListener("mouseover", () => {
-            // do the same of above
+            // do nothing
         }, true);
         this.$el.removeEventListener("mouseleave", () => {
-            // do the same of above
+            // do nothing again
         }, true);
 
     },
