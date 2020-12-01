@@ -1,5 +1,5 @@
 **wap-gallery:
-<!-- TODO: change this button to an empty template that leads to an empty editor -->
+d<!-- TODO: needs to look better -->
 
  **user-profile:
 
@@ -13,18 +13,25 @@
 
 // TODO: Think of new types of cmps
 
-**sample-list:
-
-// TODO: Figure out how to animate this sample when dragging
-
+**sample-list: 
+// TODO: make Awesome Samples - (more gallerys!!!)
 **editor-workspace:
 
 <!-- TODO: Make sure that drag and drop doesnt take img into the drag -->
 **editors :
-<!-- TODO: get text-shadow option , and hover for focus -->
+<!-- TODO: get text-shadow option -->
 **over-all:
 
-// TODO: Work on a data tree for the sections.
 
 **Loader:
 // TODO: Add a loader
+
+
+
+------------------------------------------------------------------------
+BONUSES! : 
+color picker RGB range to set 
+Collaberating 
+Taking the SS of the website on save
+
+
