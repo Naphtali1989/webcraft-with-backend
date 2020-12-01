@@ -139,6 +139,7 @@ export default {
             const parent = {
                 name: node.name,
                 _id: node._id,
+                class: node.class,
                 children: []
             };
             if (node.children) {
@@ -165,7 +166,7 @@ export default {
             // Re-assign the payload with the copy of the cmp info
             dragResult.payload = sampleCopy;
             // Drop the section in the correct drop zone
-        this.dropSection(dragResult);
+            this.dropSection(dragResult);
         },
     },
     async created() {

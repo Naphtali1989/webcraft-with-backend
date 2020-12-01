@@ -55,7 +55,7 @@
             }
         }
         .worker-class:hover {
-            outline: 3px solid #0076df;
+            outline: 1.5px dashed #0076df;
         }
         section {
             position: relative;
@@ -103,6 +103,22 @@
             position: absolute;
             right: -10px;
             top: 50%;
+        }
+        .tree-branch {
+            list-style-type: "- ";
+            padding: 0 0 0 1rem;
+            li {
+                h3 {
+                    cursor: pointer;
+                }
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                border: 1px solid black;
+                padding: 0.5rem 0 0 0.5rem;
+                font-size: 1.125rem;
+            }
         }
         .editor-body {
             max-height: 900px;
@@ -206,6 +222,9 @@
 .card-ghost {
     transition: transform 0.18s ease;
     transform: rotateZ(2deg) scale(0.9);
+    .sample-title {
+        display: none;
+    }
 }
 
 .card-ghost-drop {

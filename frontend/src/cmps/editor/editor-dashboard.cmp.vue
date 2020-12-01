@@ -44,7 +44,7 @@ export default {
     },
     data() {
         return {
-            currTab: 'tree',
+            currTab: 'add',
             tabs: ['tree', 'add', 'edit'],
         }
     },

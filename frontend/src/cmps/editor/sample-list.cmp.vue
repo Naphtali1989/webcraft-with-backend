@@ -3,6 +3,8 @@
         <Container
             behaviour="copy"
             group-name="editor"
+            drag-class="card-ghost"
+            drop-class="card-ghost-drop"
             :get-child-payload="getChildPayload"
             :get-ghost-parent="getGhostParent"
         >
