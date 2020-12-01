@@ -93,8 +93,12 @@
                 width: 50%;
                 text-transform: uppercase;
                 padding: 1rem;
+                // &:before {
+                //     content: 'hello'
+                // }
                 &.selected {
-                    background: #2e4ead;
+                    // background: #2e4ead;
+                    background: #124a76;
                     color: white;
                 }
             }
@@ -104,18 +108,42 @@
             right: -10px;
             top: 50%;
         }
+        //*****Napthlie i added some css for ur review.***
         .tree-branch {
             list-style-type: "- ";
-            padding: 0 0 0 1rem;
+            font-family: carme, sans-serif;
+            padding: 0.3rem 0 0 1rem;
+            border-radius: 0 15px 15px 0;
             li {
+                border-radius: 15px;
                 h3 {
                     cursor: pointer;
+                    text-transform: capitalize;
+                    // &:hover {
+                    //     background-color: #ccc;
+                    // }
+                    &:before {
+                        content: '\f105';
+                        font-family: "Font Awesome 5 Free";
+                        transition: .3s ease;
+                    }
+                    //*change arrow when clicked -> IN WORKS NAPTHELI..
+                    &:active:before {
+                        content: '\f107';
+                        transform: rotate(90deg);
+                    }
+                }
+                li>* {
+                    border-radius: 10px;
+                    font-family: carme;
+                    content: '\f107';
+                    text-transform: capitalize;
                 }
                 position: relative;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                border: 1px solid black;
+                // border: 1px solid black;
                 padding: 0.5rem 0 0 0.5rem;
                 font-size: 1.125rem;
             }
