@@ -1,8 +1,8 @@
 <template>
-    <!-- <section class="user-controls flex row-reverse">
+    <section class="user-controls flex  justify-center">
         <button class="btn choice-btn">Publish</button>
         <button class="btn choice-btn" @click="saveWap">Save</button>
-    </section> -->
+    </section>
 </template>
 
 <script>
