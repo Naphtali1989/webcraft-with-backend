@@ -9,6 +9,7 @@
                 :is="renderedEditor"
                 :cmpToEdit="cmpToEdit"
                 @uploading="emitUploadImg"
+                @vidChanged="emitChangedVid"
             />
         </template>
         <div v-else class="editor-message flex justify-center">
@@ -61,6 +62,9 @@ export default {
         emitUploadImg(ev) {
             this.$emit('uploading', ev);
         },
+        emitChangedVid(url) {
+            this.$emit('vidChanged', url);
+        }
     },
     updated() {
         this.getEditorsName();

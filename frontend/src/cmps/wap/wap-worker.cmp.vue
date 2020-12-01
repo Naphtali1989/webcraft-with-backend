@@ -25,10 +25,13 @@
         <!-- This Div will be inserted into the slot that each child gets - if the v-if is true -->
         <div
             class="site-video"
-            slot="video"
+            slot="video-control"
             v-if="cmp.class === 'video-container'"
         >
-            <button class="iframe-btn btn">
+            <button
+                class="iframe-btn btn"
+                @click.stop.prevent="onFocus(cmp.children[0]._id)"
+            >
                 <i class="fas fa-link"></i>
             </button>
         </div>
@@ -43,7 +46,7 @@
                 @updatedTxt="emitUpdateTxt"
             >
                 <!-- This Slot will get the site-video div if the v-if is true -->
-                <slot name="video"></slot>
+                <slot name="video-control"></slot>
             </wap-worker>
         </template>
     </component>
@@ -92,7 +95,7 @@ export default {
             if (this.cmp.name === 'iframe') return true
             return false
         },
-        workerHoverClass(){
+        workerHoverClass() {
             return this.cmp._id
         }
     },
