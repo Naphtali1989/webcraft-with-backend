@@ -1,6 +1,6 @@
 <template>
     <section class="app-header flex space-between">
-        <div class="logo align-center" @click="pushHome">
+        <div class="logo place-center flex" @click="pushHome">
             <i class="fas fa-hammer fa-2x"></i>Web<span class="logo-span">craft</span>
         </div>
         <div class="nav-links flex align-center">
