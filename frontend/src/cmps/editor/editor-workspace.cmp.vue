@@ -39,7 +39,7 @@ export default {
         return {
             dropPlaceholderOptions: {
                 className: "drop-preview",
-                animationDuration: "80",
+                animationDuration: "250",
                 showOnTop: false
             },
         }
@@ -75,7 +75,7 @@ export default {
         },
         emitMoveSection(_id, diff) {
             this.$emit('moveSection', _id, diff)
-        }
+        },
     },
     computed: {
         emptyWorkspace() {

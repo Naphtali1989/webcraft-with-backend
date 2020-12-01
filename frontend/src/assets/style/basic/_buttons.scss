@@ -42,3 +42,14 @@
 .video-container:hover .iframe-btn {
     opacity: 1;
 }
+
+.branch-btn {
+    align-self: flex-end;
+    position: absolute;
+    top: 0;
+    padding: 0.775rem;
+    transition: 0.33s;
+    &:hover {
+        background-color: #ccc;
+    }
+}

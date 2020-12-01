@@ -1,8 +1,13 @@
 <template>
     <section v-if="wapTree" class="data-tree">
-        <h1>This is data tree!</h1>
-        <tree-branch v-for="cmp in wapTree" :key="cmp._id" :cmp="cmp" @focused="emitFocusCmp"/>
-
+        <h1 class="editor-name">Your websites data tree:</h1>
+        <tree-branch
+            v-for="cmp in wapTree"
+            :key="cmp._id"
+            :cmp="cmp"
+            @focused="emitFocusCmp"
+        >
+        </tree-branch>
     </section>
 </template>
 
@@ -15,12 +20,44 @@ export default {
             type: Array
         },
     },
-    components:{
-      treeBranch
+    data() {
+        return {
+            items: [],
+            open: null,
+        }
+    },
+    components: {
+        treeBranch
     },
     methods: {
         emitFocusCmp(_id) {
             this.$emit('focused', _id)
+        },
+        registerItem(item) {
+            this.items.push(item)
+            if (this.open === null) {
+                item.toggleAccordionItem(true)
+            }
+        },
+        unregisterItem(item) {
+            if (this.open === item) {
+                this.open = null
+            }
+            const idx = this.items.findIndex(i => i._uid === item._uid)
+            this.items.splice(idx, 1)
+        },
+        setItemOpen(item, isOpen) {
+            for (let i = 0; i < this.items.length; i++) {
+                const currItem = this.items[i]
+                if (isOpen === true && currItem._uid !== item._uid) {
+                    currItem.toggleAccordionItem(false)
+                }
+            }
+            if (isOpen === false) {
+                this.open = null;
+            } else {
+                this.open = item;
+            }
         },
     }
 };
