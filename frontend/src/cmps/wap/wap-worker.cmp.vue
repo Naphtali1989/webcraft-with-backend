@@ -1,7 +1,32 @@
 <template>
     <!-- The flow goes from the bottom worker upwards -->
+<<<<<<< HEAD
     <component class="worker-class" :id="workerHoverClass" frameborder="0" :is="name" :src="urlSrc" :contenteditable="editable" :allowfullscreen="video" :style="cmp.style" :class="cmp.class" :placeholder="cmp.placeholder" @blur="updateTxt" @focused="onFocus" @ondragstart="imgDraggable" @click.stop.prevent="onFocus(cmp._id)">
         <controls v-if="cmp.name === 'section'" :_id="cmp._id" @copy="emitCopy" @delete="emitDelete" @moveSection="emitMoveSection" />
+=======
+    <component
+        class="worker-class"
+        :id="'el-'+workerHoverClass"
+        frameborder="0"
+        :is="name"
+        :src="urlSrc"
+        :contenteditable="editable"
+        :allowfullscreen="video"
+        :style="cmp.style"
+        :class="cmp.class"
+        :placeholder="cmp.placeholder"
+        @blur="updateTxt"
+        @focused="onFocus"
+        @click.stop.prevent="onFocus(cmp._id)"
+    >
+        <controls
+            v-if="cmp.name === 'section'"
+            :_id="cmp._id"
+            @copy="emitCopy"
+            @delete="emitDelete"
+            @moveSection="emitMoveSection"
+        />
+>>>>>>> 2cf5eb37ff406974ffa78655b7cdf324ded96bd1
         <!-- This Div will be inserted into the slot that each child gets - if the v-if is true -->
         <div class="site-video" slot="video-control" v-if="cmp.class === 'video-container'">
             <button class="iframe-btn btn" @click.stop.prevent="onFocus(cmp.children[0]._id)">

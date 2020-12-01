@@ -228,6 +228,12 @@
                     text-transform: capitalize;
                 }
             }
+            .video-editor {
+                .warning-txt {
+                    max-width: 22ch;
+                    margin: 1rem 0;
+                }
+            }
         }
         .editor-message {
             background-color: #2e4ead22;

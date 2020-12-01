@@ -2,7 +2,7 @@
     <ul class="tree-branch">
         <li
             class="tree-branch-name"
-            :id="workerHoverClass"
+            :id="'el-'+workerHoverClass"
             @focused="onFocus"
             @click.stop="toggleAccordionItem(!isItemOpen)"
         >
@@ -92,13 +92,22 @@ export default {
         this.$parent.unregisterItem(this)
     },
     mounted(){
-        const el = document.getElementById(`${this.cmp._id}`)
-        console.log('what do we gett?',el )
+        const el = document.querySelectorAll(`#el-${this.cmp._id}`)
         this.$el.addEventListener('mouseover',(ev)=>{
-            // console.log('Did we get it?', ev.target.id)
+            ev.stopPropagation();
+            el[1].style.outline = '2.5px dashed blue';
+            el[0].style.outline = '1.5px dashed blue';
+            var timer = setTimeout(()=>{
+                el[1].style.outline = null;
+                el[0].style.outline = null;
+            }, 3000)
         })
-    }
-
+        this.$el.addEventListener('mouseleave',(ev)=>{
+            ev.stopPropagation();
+            el[1].style.outline = null;
+            el[0].style.outline = null;
+        })
+    },
 }
 </script>
 
