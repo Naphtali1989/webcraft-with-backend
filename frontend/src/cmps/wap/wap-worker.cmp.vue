@@ -1,10 +1,10 @@
 <template>
     <!-- The flow goes from the bottom worker upwards -->
-    <component class="worker-class" frameborder="0" :is="name" :src="urlSrc" :contenteditable="editable" :allowfullscreen="video" :style="cmp.style" :class="cmp.class" :placeholder="cmp.placeholder" @blur="updateTxt" @focused="onFocus" @ondragstart="imgDraggable" @click.stop.prevent="onFocus(cmp._id)">
+    <component class="worker-class" :id="workerHoverClass" frameborder="0" :is="name" :src="urlSrc" :contenteditable="editable" :allowfullscreen="video" :style="cmp.style" :class="cmp.class" :placeholder="cmp.placeholder" @blur="updateTxt" @focused="onFocus" @ondragstart="imgDraggable" @click.stop.prevent="onFocus(cmp._id)">
         <controls v-if="cmp.name === 'section'" :_id="cmp._id" @copy="emitCopy" @delete="emitDelete" @moveSection="emitMoveSection" />
         <!-- This Div will be inserted into the slot that each child gets - if the v-if is true -->
-        <div class="site-video" slot="video" v-if="cmp.class === 'video-container'">
-            <button class="iframe-btn btn">
+        <div class="site-video" slot="video-control" v-if="cmp.class === 'video-container'">
+            <button class="iframe-btn btn" @click.stop.prevent="onFocus(cmp.children[0]._id)">
                 <i class="fas fa-link"></i>
             </button>
         </div>
@@ -12,7 +12,7 @@
         <template v-if="cmp.children">
             <wap-worker v-for="child in cmp.children" :key="child._id" :cmp="child" @blur="updateTxt" @focused="onFocus" @updatedTxt="emitUpdateTxt">
                 <!-- This Slot will get the site-video div if the v-if is true -->
-                <slot name="video"></slot>
+                <slot name="video-control"></slot>
             </wap-worker>
         </template>
     </component>
@@ -64,38 +64,40 @@ export default {
         imgDraggable() {
             if(this.cmp.name==='img') return 'return false'
             return true
-        }
-    },
-    methods: {
-        updateTxt(ev) {
-            // This is the first event of "udpateTxt" - which will tell 
-            // the next father worker that update happened
-            if(this.cmp.name!=='txt'||this.cmp.name!=='link') return;
-            this.$emit('updatedTxt',ev.target.innerText);
+            workerHoverClass() {
+                return this.cmp._id
+            }
         },
-        emitUpdateTxt(txtValue) {
-            // This is the recursive event of "udpateTxt" - which will tell the next 
-            //  father worker that update happened untill it reaches the workspace
-            this.$emit('updatedTxt',txtValue);
+        methods: {
+            updateTxt(ev) {
+                // This is the first event of "udpateTxt" - which will tell 
+                // the next father worker that update happened
+                if(this.cmp.name!=='txt'||this.cmp.name!=='link') return;
+                this.$emit('updatedTxt',ev.target.innerText);
+            },
+            emitUpdateTxt(txtValue) {
+                // This is the recursive event of "udpateTxt" - which will tell the next 
+                //  father worker that update happened untill it reaches the workspace
+                this.$emit('updatedTxt',txtValue);
+            },
+            onFocus(_id) {
+                this.$emit('focused',_id)
+            },
+            emitCopy(_id) {
+                this.$emit('copy',_id);
+            },
+            emitDelete(_id) {
+                this.$emit('delete',_id);
+            },
+            emitMoveSection(_id,diff) {
+                this.$emit('moveSection',_id,diff);
+            }
         },
-        onFocus(_id) {
-            this.$emit('focused',_id)
+        components: {
+            googleMap,
+            controls
         },
-        emitCopy(_id) {
-            this.$emit('copy',_id);
-        },
-        emitDelete(_id) {
-            this.$emit('delete',_id);
-        },
-        emitMoveSection(_id,diff) {
-            this.$emit('moveSection',_id,diff);
-        }
-    },
-    components: {
-        googleMap,
-        controls
-    },
-};
+    };
 </script>
 
 

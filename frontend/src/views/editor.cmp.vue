@@ -7,6 +7,7 @@
             :cmpToEdit="currCmpToEdit"
             @switchedTab="emptyCmpToEdit"
             @focusedCmp="setCmpToEdit"
+            @vidChanged="setChangedVid"
         >
             <toggle-editor
                 slot="toggle-editor-btn"
@@ -68,6 +69,10 @@ export default {
         toggleEditor
     },
     methods: {
+        setChangedVid(url) {
+            if(!this.currCmpToEdit) return
+            this.currCmpToEdit.vidUrl = url;
+        },
         getCurrWapTree() {
             const currTree = this.currWap.cmps.map(cmp => {
                 return this.makeTree(cmp);

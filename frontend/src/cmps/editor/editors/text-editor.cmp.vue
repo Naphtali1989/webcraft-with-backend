@@ -1,7 +1,7 @@
 <template>
     <section class="text-editor flex column align-center">
         <div class="editor-link-container" v-if="isLink">
-            <p class="editor-txt">Attach a link to this button:</p>
+            <p class="editor-txt">Attach an external link to this button:</p>
             <input
                 type="text"
                 placeholder="Insert a link"

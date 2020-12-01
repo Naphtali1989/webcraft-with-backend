@@ -23,6 +23,7 @@ export default {
         this.$store.commit({
             type: 'toggleUserSiteOpen',
         });
+        console.log('your website:', this)
     },
     destroyed() {
         this.$store.commit({

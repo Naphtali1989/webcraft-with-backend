@@ -4,7 +4,8 @@ export const utilService = {
     applyDrag,
     makeId,
     getImgs,
-    uploadImg
+    uploadImg,
+    videoSearch
 }
 
 function makeId() {
@@ -31,6 +32,26 @@ async function getImgs(term) {
     const imgs = res.data.results.map(img => img.urls);
     return imgs;
 }
+
+
+async function videoSearch(searchTerm) {
+    const apiKey = 'AIzaSyA_MERVsO7PK2D2LJpZNW9hZe0y8e103po'
+    const res = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${apiKey}&q=${searchTerm}`);
+    const videos = res.data.items.map(video => {
+        const { videoId } = video.id
+        const { url } = video.snippet.thumbnails.default
+        const { title } = video.snippet
+        return {
+            videoId,
+            url,
+            title
+        }
+    })
+    return videos
+}
+
+
+
 
 async function uploadImg(ev) {
     const UPLOAD_PRESET = 'tfdzm5iy';
