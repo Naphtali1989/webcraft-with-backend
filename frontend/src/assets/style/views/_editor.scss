@@ -20,6 +20,7 @@
         cursor: grab;
     }
     .editor-workspace {
+        scroll-behavior: smooth;
         &::-webkit-scrollbar {
             width: 0.5rem;
         }
@@ -35,7 +36,7 @@
             min-width: 100%;
         }
         margin-inline-start: 20rem;
-        padding: 1rem;
+        padding: 2rem;
         transition: .5s ease;
         overflow-y: auto;
         &.empty-workspace {
@@ -127,11 +128,17 @@
                         font-family: "Font Awesome 5 Free";
                         transition: .3s ease;
                     }
-                    //*change arrow when clicked -> IN WORKS NAPTHELI..
-                    &.open-branch-enter-active {
+                    &:active::before {
                         content: '\f107';
+                        font-family: "Font Awesome 5 Free";
                         transform: rotate(90deg);
                     }
+                    //*change arrow when clicked -> IN WORKS NAPTHELI..
+                    // &.open-branch-enter-active {
+                    //     content: '\f107';
+                    //     font-family: "Font Awesome 5 Free";
+                    //     transform: rotate(90deg);
+                    // }
                 }
                 li>* {
                     border-radius: 10px;

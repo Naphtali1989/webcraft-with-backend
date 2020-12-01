@@ -3,11 +3,13 @@
     <component
         class="render-class"
         frameborder="0"
+        target="_blank"
         :is="name"
         :src="urlSrc"
         :allowfullscreen="video"
         :style="cmp.style"
         :class="cmp.class"
+        @click.stop.prevent="onClick"
         :placeholder="cmp.placeholder"
     >
         {{ cmpTxt }}
@@ -56,6 +58,12 @@ export default {
         video() {
             if (this.cmp.name === 'iframe') return true
             return false
+        }
+    },
+    methods:{
+        onClick(){
+            if (this.cmp.name !== 'link') return;
+            window.open(this.cmp.href) 
         }
     },
     components: {

@@ -2,6 +2,7 @@
     <!-- The flow goes from the bottom worker upwards -->
     <component
         class="worker-class"
+        :id="workerHoverClass"
         frameborder="0"
         :is="name"
         :src="urlSrc"
@@ -90,6 +91,9 @@ export default {
         video() {
             if (this.cmp.name === 'iframe') return true
             return false
+        },
+        workerHoverClass(){
+            return this.cmp._id
         }
     },
     methods: {
