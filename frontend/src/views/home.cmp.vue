@@ -14,12 +14,17 @@
                 All the templates below were built using Webcraft Platform.</p>
         </div>
 
+        <loader />
     </section>
 </template>
 
 <script>
 
+import loader from '../cmps/custum-cmps/loader.cmp';
 export default {
     name: 'home',
+    components: {
+        loader
+    }
 };
 </script>
