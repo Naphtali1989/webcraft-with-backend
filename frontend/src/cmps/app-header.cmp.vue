@@ -1,18 +1,18 @@
 <template>
-    <section class="app-header flex wrap space-between">
-        <div class="logo align-center" @click="pushHome">
+    <section class="app-header flex space-between">
+        <div class="logo place-center flex" @click="pushHome">
             <i class="fas fa-hammer fa-2x"></i>Web<span class="logo-span">craft</span>
         </div>
         <div class="nav-links flex align-center">
             <router-link to="/" exact>Home</router-link>
             <router-link to="/wap" exact>Templates</router-link>
             <router-link to="/editor" exact>Editor</router-link>
-            <router-link to="/playground">Playground</router-link>
-            <span @click="showSignup">Login</span>
+            <!-- <router-link to="/playground">Playground</router-link> -->
+            <a @click="showSignup" class="cursor">Login</a>
             <div v-if="loggedInUser">
                 <router-link to="/playground">Profile</router-link>
             </div>
-            <avatar :username="loggedInUser.username" :size="45" :color="'#03A9F4'" @click.native="toggleModal" v-if="loggedInUser" />
+            <avatar :username="loggedInUser.username" :size="45" :color="'#124a76'" @click.native="toggleModal" v-if="loggedInUser" />
 
         </div>
         <avatar-modal v-if="showModal" :loggedInUser="loggedInUser" @closeModal="showModal = false" />

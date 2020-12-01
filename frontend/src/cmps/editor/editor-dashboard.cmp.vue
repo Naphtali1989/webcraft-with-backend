@@ -1,27 +1,18 @@
 <template>
     <section class="editor-dashboard">
         <section class="tab-container flex">
-            <button
-                v-for="tab in tabs"
-                :key="tab"
-                class="btn flex column align-center tab-btn"
-                :class="{ selected: currTab === tab }"
-                @click="toggleTabs(tab)"
-            >
+            <button v-for="tab in tabs" :key="tab" class="btn flex column align-center tab-btn" :class="{ selected: currTab === tab }" @click="toggleTabs(tab)">
                 {{ tab }}
             </button>
         </section>
         <slot name="toggle-editor-btn"></slot>
-        <component
-            class="editor-body"
-            :is="currDashboard"
-            :samples="samples"
-            :cmpToEdit="cmpToEdit"
-            :wapTree="wapTree"
-            @focused="emitFocusCmp"
-            @vidChanged="emitChangedVid"
-        >
+        <component class="editor-body" :is="currDashboard" :samples="samples" :cmpToEdit="cmpToEdit" :wapTree="wapTree" @focused="emitFocusCmp" @vidChanged="emitChangedVid">
         </component>
+        <!-- <section class="flex align-center">
+            <button class="btn choice-btn">Publish</button>
+            <button class="btn choice-btn" @click="saveWap">Save</button>
+        </section> -->
+        <user-controls />
     </section>
 </template>
 
@@ -29,6 +20,7 @@
 import editorsContainer from '@/cmps/editor/editors-container.cmp.vue';
 import typeList from '@/cmps/editor/type-list.cmp.vue';
 import dataTree from '@/cmps/editor/data-tree.cmp.vue';
+import userControls from '@/cmps/editor/user-controls.cmp.vue';
 
 export default {
     name: 'editor-dashboard',
@@ -46,42 +38,43 @@ export default {
     data() {
         return {
             currTab: 'add',
-            tabs: ['tree', 'add', 'edit'],
+            tabs: ['tree','add','edit'],
         }
     },
     methods: {
         toggleTabs(tab) {
-            this.currTab = tab;
-            if (this.currTab !== 'edit') {
+            this.currTab=tab;
+            if(this.currTab!=='edit') {
                 this.$emit('switchedTab');
             }
         },
         emitFocusCmp(_id) {
-            this.$emit('focusedCmp', _id)
-            console.log('before time out:', _id)
+            this.$emit('focusedCmp',_id)
+            console.log('before time out:',_id)
             setTimeout(() => {
                 this.toggleTabs('edit')
-            }, 500)
+            },500)
         },
         emitChangedVid(url) {
-            this.$emit('vidChanged', url);
+            this.$emit('vidChanged',url);
         }
     },
     computed: {
         currDashboard() {
-            if (this.currTab === 'tree') return 'data-tree';
-            if (this.currTab === 'edit') return 'editors-container';
+            if(this.currTab==='tree') return 'data-tree';
+            if(this.currTab==='edit') return 'editors-container';
             return 'type-list';
         },
 
     },
     updated() {
-        if (this.cmpToEdit) this.currTab = 'edit';
+        if(this.cmpToEdit) this.currTab='edit';
     },
     components: {
         typeList,
         editorsContainer,
-        dataTree
+        dataTree,
+        userControls
     }
 }
 </script>

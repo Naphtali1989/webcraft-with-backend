@@ -57,7 +57,8 @@ async function videoSearch(searchTerm) {
         console.log('all video', video);
         const { videoId } = video.id
         const { url } = video.snippet.thumbnails.default
-        const { title } = video.snippet
+            // const { title } = video.snippet
+        const title = `${video.snippet.title}`
         console.log(videoId);
         console.log('url:', url);
         console.log('title:', title);

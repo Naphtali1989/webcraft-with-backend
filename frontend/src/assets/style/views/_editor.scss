@@ -1,26 +1,26 @@
 .editor-container {
-    .user-controls {
-        background: #2e4ead;
-        position: sticky;
-        height: 48px;
-        width: 100%;
-        border-left: 1px solid #e6e9ec;
-        top: 0;
-        z-index: 1002;
-        button {
-            background: #0076df;
-            padding: 0.5rem;
-            margin-inline-start: 5px;
-            font-size: 1.2rem;
-            font-family: carme;
-            color: white;
-        }
-    }
+    border-right: 1px solid #cacaca;
+    // .user-controls {
+    //     background: #2e4ead;
+    //     position: sticky;
+    //     height: 48px;
+    //     width: 100%;
+    //     border-left: 1px solid #e6e9ec;
+    //     top: 0;
+    //     z-index: 1002;
+    //     button {
+    //         background: #0076df;
+    //         padding: 0.5rem;
+    //         margin-inline-start: 5px;
+    //         font-size: 1.2rem;
+    //         font-family: carme;
+    //         color: white;
+    //     }
+    // }
     .smooth-dnd-draggable-wrapper {
         cursor: grab;
     }
     .editor-workspace {
-        scroll-behavior: smooth;
         &::-webkit-scrollbar {
             width: 0.5rem;
         }
@@ -36,7 +36,7 @@
             min-width: 100%;
         }
         margin-inline-start: 20rem;
-        padding: 2rem;
+        padding: 1rem;
         transition: .5s ease;
         overflow-y: auto;
         &.empty-workspace {
@@ -55,11 +55,8 @@
                 transform: translate(-50%, -50%);
             }
         }
-        .worker-class {
-            outline: none;
-            &:hover {
-                outline: 1.5px dashed #0076df;
-            }
+        .worker-class:hover {
+            outline: 1.5px dashed #0076df;
         }
         section {
             position: relative;
@@ -131,15 +128,13 @@
                         font-family: "Font Awesome 5 Free";
                         transition: .3s ease;
                     }
-                    &:active::before {
+                    //*change arrow when clicked -> IN WORKS NAPTHELI..
+                    &.open-branch-enter-active {
                         content: '\f107';
-                        font-family: "Font Awesome 5 Free";
                         transform: rotate(90deg);
                     }
-                    //*change arrow when clicked -> IN WORKS NAPTHELI..
                     // &.open-branch-enter-active {
                     //     content: '\f107';
-                    //     font-family: "Font Awesome 5 Free";
                     //     transform: rotate(90deg);
                     // }
                 }
@@ -188,6 +183,8 @@
             // Custum range from Element Ui
             .el-slider__bar {
                 background-color: #0655ff;
+                width: 70%;
+                margin: 0 auto;
             }
             .el-slider__button {
                 border: 4px solid #0d3c6b;
@@ -222,6 +219,7 @@
                 font-size: 1.2rem;
                 text-align: center;
                 box-shadow: 0 0 4px black;
+                filter: contrast(0.8);
                 img {
                     width: 100%;
                     object-fit: cover
@@ -229,12 +227,6 @@
                 h3 {
                     padding: 0.25rem;
                     text-transform: capitalize;
-                }
-            }
-            .video-editor {
-                .warning-txt {
-                    max-width: 22ch;
-                    margin: 1rem 0;
                 }
             }
         }
