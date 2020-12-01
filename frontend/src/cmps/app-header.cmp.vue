@@ -1,5 +1,5 @@
 <template>
-    <section class="app-header flex wrap space-between">
+    <section class="app-header flex space-between">
         <div class="logo align-center" @click="pushHome">
             <i class="fas fa-hammer fa-2x"></i>Web<span class="logo-span">craft</span>
         </div>
