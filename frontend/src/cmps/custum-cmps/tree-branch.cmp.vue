@@ -102,17 +102,23 @@ export default {
         const el = document.querySelectorAll(`#el-${this.cmp._id}`)
         this.$el.addEventListener('mouseover', (ev) => {
             ev.stopPropagation();
-            el[1].style.outline = '2.5px dashed blue';
+            // Branch element:
             el[0].style.outline = '1.5px dashed blue';
+            // Workspace element:
+            el[1].style.outline = '2.5px dashed blue';
             var timer = setTimeout(() => {
-                el[1].style.outline = null;
+                 // Branch element:
                 el[0].style.outline = null;
+                // Workspace element:
+                el[1].style.outline = null;
             }, 3000)
         })
         this.$el.addEventListener('mouseleave', (ev) => {
             ev.stopPropagation();
-            el[1].style.outline = null;
+             // Branch element:
             el[0].style.outline = null;
+            // Workspace element:
+            el[1].style.outline = null;
         })
     },
 }
