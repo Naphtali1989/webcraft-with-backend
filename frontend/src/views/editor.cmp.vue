@@ -47,8 +47,8 @@ export default {
         toggleEditor
     },
     methods: {
-
         setChangedVid(url) {
+            console.log('url:',url);
             if(!this.currCmpToEdit) return
             this.currCmpToEdit.vidUrl=url;
         },

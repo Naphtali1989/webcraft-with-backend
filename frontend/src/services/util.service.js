@@ -43,7 +43,7 @@ async function videoSearch(searchTerm) {
         const { title } = video.snippet
 
         return {
-            title: title.substring(0, 7),
+            title: title.substring(0, 10),
             videoId,
             thumbnail: url
         }

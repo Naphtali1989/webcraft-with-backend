@@ -39,9 +39,11 @@ export default {
     },
     methods: {
         setVideo(id) {
-            const vidUrl=`https://www.youtube.com/watch?v=${id}`;
-            this.vidUrl=vidUrl
-            this.$emit('vidChanged',vidUrl)
+            const url=`https://www.youtube.com/watch?v=${id}`;
+            // this.cmpToEdit.vidUrl=vidUrl
+            this.vidUrl=url
+            this.setVidUrl()
+            // this.$emit('vidChanged',vidUrl)
         },
         setVidUrl() {
             if(!this.matchYoutubeUrl(this.vidUrl)) returns
@@ -63,6 +65,10 @@ export default {
     },
     components: {
         videoSearch
+    },
+    updated(vidUrl) {
+        console.log('maybe?',this.cmpToEdit.vidUrl);
+
     },
     created() {
         this.vidUrl=this.cmpToEdit.vidUrl;

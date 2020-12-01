@@ -3,6 +3,7 @@
         <!-- Saving a spot to the user that there is no component to edit -->
         <template v-if="cmpToEdit">
             <h1 class="editor-name text-center">
+                <span :class="vidIcon"></span>
                 {{ editorTitle }}
             </h1>
             <component :is="renderedEditor" :cmpToEdit="cmpToEdit" @uploading="emitUploadImg" @vidChanged="emitChangedVid" />
@@ -43,6 +44,9 @@ export default {
                 if(name==='iframe') return 'Video Editor';
                 return this.cmpToEdit.name+' Editor';
             }
+        },
+        vidIcon() {
+            if(this.cmpToEdit.name==='iframe') return 'fab fa-youtube'
         }
     },
     methods: {
