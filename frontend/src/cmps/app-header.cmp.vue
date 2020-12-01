@@ -12,7 +12,7 @@
             <div v-if="loggedInUser">
                 <router-link to="/playground">Profile</router-link>
             </div>
-            <avatar :username="loggedInUser.username" :size="45" :color="'#03A9F4'" @click.native="toggleModal" v-if="loggedInUser" />
+            <avatar :username="loggedInUser.username" :size="45" :color="'#124a76'" @click.native="toggleModal" v-if="loggedInUser" />
 
         </div>
         <avatar-modal v-if="showModal" :loggedInUser="loggedInUser" @closeModal="showModal = false" />

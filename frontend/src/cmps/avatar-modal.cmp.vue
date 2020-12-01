@@ -1,7 +1,7 @@
 <template>
     <section class="avatar-modal flex column align-center">
         <div class="info flex column align-center">
-            <avatar :username="loggedInUser.username" :size="75" :color="'#03A9F4'" />
+            <avatar :username="loggedInUser.username" :size="65" :color="'#124a76'" />
             <h3>{{loggedInUser.username}}</h3>
             <span>{{loggedInUser.email}}</span>
         </div>
