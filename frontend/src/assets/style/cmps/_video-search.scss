@@ -1,0 +1,45 @@
+.video-search-container {
+    font-family: 'carme';
+    .video-btn {
+        padding: 10px;
+        background: #124a76;
+        color: white;
+        outline: 0;
+        border: 0;
+        font-size: 14px;
+    }
+}
+
+.video-thumnbail {
+    // width: 200px;
+    // height: 200px;
+    background: gainsboro;
+    padding: 0.25rem;
+    position: relative;
+    margin: 1rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-align: center;
+    box-shadow: 0 0 4px black;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    .vid-title {
+        text-align: center;
+        font-size: 14px;
+    }
+    img {
+        width: 100%;
+        object-fit: cover;
+        cursor: pointer;
+    }
+}
+
+.video-thumb-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 10px;
+    // margin: 20px;
+    justify-items: center;
+    align-items: center;
+}

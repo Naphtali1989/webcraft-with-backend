@@ -10,15 +10,13 @@
         </form>
         <iframe v-if="cmpToEdit.vidUrl" width="270" height="270" :src="convertedUrl" frameBorder="0"></iframe>
         <p>Or search on youtube</p>
-        <form @submit.prevent="searchVideos">
-            <input type="text" v-model.trim="term">
-            <button>Search video!</button>
-        </form>
+        <video-search @setVideo="setVideo" />
     </section>
 </template>
 
 <script>
-import { utilService } from '@/services/util.service';
+
+import videoSearch from '@/cmps/editor/editors/video-search.cmp.vue';
 export default {
     name: 'video-editor',
     data() {
@@ -40,11 +38,10 @@ export default {
         },
     },
     methods: {
-        async searchVideos() {
-            const videos=await utilService.videoSearch();
-            console.log('videos from api:',videos);
-            this.videos=videos;
-            this.term=''
+        setVideo(id) {
+            const vidUrl=`https://www.youtube.com/watch?v=${id}`;
+            this.vidUrl=vidUrl
+            this.$emit('vidChanged',vidUrl)
         },
         setVidUrl() {
             if(!this.matchYoutubeUrl(this.vidUrl)) returns
@@ -63,6 +60,9 @@ export default {
             },3000)
             return false;
         }
+    },
+    components: {
+        videoSearch
     },
     created() {
         this.vidUrl=this.cmpToEdit.vidUrl;
