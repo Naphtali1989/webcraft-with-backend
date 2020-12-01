@@ -23,12 +23,13 @@ export default {
         this.$store.commit({
             type: 'toggleUserSiteOpen',
         });
-        console.log('your website:', this)
+        document.title = this.wapToShow.title;
     },
     destroyed() {
         this.$store.commit({
             type: 'toggleUserSiteOpen',
         });
+        document.title = 'Webcraft';
     },
     components: {
         // wapWorker,

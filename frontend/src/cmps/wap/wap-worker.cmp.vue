@@ -2,7 +2,7 @@
     <!-- The flow goes from the bottom worker upwards -->
     <component
         class="worker-class"
-        :id="workerHoverClass"
+        :id="'el-'+workerHoverClass"
         frameborder="0"
         :is="name"
         :src="urlSrc"
