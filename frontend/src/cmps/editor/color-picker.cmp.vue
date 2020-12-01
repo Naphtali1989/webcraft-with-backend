@@ -59,8 +59,6 @@ export default {
 <style scoped lang="scss">
 .color-picker-container {
     max-width: 15rem;
-    background: #fafafa;
-    border: 1px solid rgb(204, 204, 204);
     border-radius: 0.5rem;
     display: flex;
     flex-wrap: wrap;

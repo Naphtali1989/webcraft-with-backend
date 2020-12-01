@@ -1,7 +1,7 @@
 <template>
     <section class="app-header flex wrap space-between">
         <div class="logo align-center" @click="pushHome">
-            <i class="fas fa-hammer fa-2x"></i><span> Webcraft</span>
+            <i class="fas fa-hammer fa-2x"></i>Web<span class="logo-span">craft</span>
         </div>
         <div class="nav-links flex align-center">
             <router-link to="/" exact>Home</router-link>

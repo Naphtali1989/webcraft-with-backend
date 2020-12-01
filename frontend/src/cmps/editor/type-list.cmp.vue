@@ -8,9 +8,7 @@
         </div>
         <div v-if="selectedType">
             <span><i class="fas fa-arrow-left" @click="emptyType"></i></span>
-            <sample-list
-                :samples="filterdSamples"
-            />
+            <sample-list :samples="filterdSamples" />
         </div>
     </section>
 </template>
@@ -27,21 +25,21 @@ export default {
     data() {
         return {
             //TODO: Think of new types of cmps
-            types: ['header', 'cards', 'footer', 'gallery', 'map', 'video', 'form'], 
+            types: ['header','cards','footer','gallery','map','video','form','text'],
             selectedType: null
         }
     },
     methods: {
         pickType(type) {
-            this.selectedType = type
+            this.selectedType=type
         },
         emptyType() {
-            this.selectedType = null
+            this.selectedType=null
         },
     },
     computed: {
         filterdSamples() {
-            return this.samples.filter(sample => sample.type === this.selectedType)
+            return this.samples.filter(sample => sample.type===this.selectedType)
         }
     },
     components: {
