@@ -7,8 +7,8 @@
             <router-link to="/" exact>Home</router-link>
             <router-link to="/wap" exact>Templates</router-link>
             <router-link to="/editor" exact>Editor</router-link>
-            <router-link to="/playground">Playground</router-link>
-            <span @click="showSignup">Login</span>
+            <!-- <router-link to="/playground">Playground</router-link> -->
+            <a @click="showSignup" class="cursor">Login</a>
             <div v-if="loggedInUser">
                 <router-link to="/playground">Profile</router-link>
             </div>
