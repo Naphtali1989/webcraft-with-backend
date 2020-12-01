@@ -2,7 +2,7 @@
     <!-- The flow goes from the bottom worker upwards -->
     <component
         class="worker-class"
-        :id="'el' + workerHoverClass"
+        :id="'el-' + this.cmp._id"
         frameborder="0"
         :is="name"
         :src="urlSrc"
@@ -100,9 +100,6 @@ export default {
             if (this.cmp.name === 'img') return 'return false'
             return true
         },
-        workerHoverClass() {
-            return this.cmp._id
-        }
     },
     methods: {
         updateTxt(ev) {
