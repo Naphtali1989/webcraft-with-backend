@@ -24,9 +24,7 @@ export default {
     data() {
         return {
             vidUrl: null,
-            isInvalid: false,
-            term: '',
-            videos: []
+            isInvalid: false
         }
     },
     props: {

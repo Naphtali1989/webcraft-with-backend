@@ -1,14 +1,9 @@
 <template>
-    <div @click="toggleEditor" id="arrowAnim" :class="arrowDirection">
-        <div class="arrowSliding">
-            <div class="arrow"></div>
-        </div>
-        <div class="arrowSliding delay1">
-            <div class="arrow"></div>
-        </div>
-        <div class="arrowSliding delay2">
-            <div class="arrow"></div>
-        </div>
+    <div @click="toggleEditor" id="arrowAnim" :class="reverseIcon">
+        <span class="btn cursor"><i :class="icon"></i></span>
+        <!-- <div class="arrow-btn btn">
+
+        </div> -->
     </div>
 </template>
 
@@ -24,66 +19,70 @@ export default {
         }
     },
     computed: {
-        arrowDirection() {
-            return { rotateArrow: !this.isEditorShow }
+        icon() {
+            if(this.isEditorShow) return 'fas fa-caret-left'
+            return 'fas fa-caret-right'
+        },
+        reverseIcon() {
+            return { reversed: !this.isEditorShow }
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-#arrowAnim {
-    cursor: pointer;
-    height: 22px;
-    width: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(10px);
-    &.rotateArrow {
-        // transform: rotate(180deg);
-        .arrow {
-            border-color:transparent #909399d6 #909399d6 transparent}
-    }
-}
+// #arrowAnim {
+//     cursor: pointer;
+//     height: 22px;
+//     width: 60px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     transform: translateX(10px);
+//     &.rotateArrow {
+//         // transform: rotate(180deg);
+//         .arrow {
+//             border-color:transparent #909399d6 #909399d6 transparent}
+//     }
+// }
 
-.arrow {
-    width: 22px;
-    height: 22px;
-    border: 4px solid;
-    border-color: #909399d6 transparent transparent #909399d6;
-    transform: rotate(-45deg);
-}
+// .arrow {
+//     width: 22px;
+//     height: 22px;
+//     border: 4px solid;
+//     border-color: #909399d6 transparent transparent #909399d6;
+//     transform: rotate(-45deg);
+// }
 
-.arrowSliding {
-    position: absolute;
-    animation: slide 3s linear infinite;
-}
+// .arrowSliding {
+//     position: absolute;
+//     animation: slide 3s linear infinite;
+// }
 
-.delay1 {
-    animation-delay: 1s;
-}
-.delay2 {
-    animation-delay: 2s;
-}
+// .delay1 {
+//     animation-delay: 1s;
+// }
+// .delay2 {
+//     animation-delay: 2s;
+// }
 
-@keyframes slide {
-    0% {
-        opacity: 0;
-        transform: translateX(110%);
-    }
-    20% {
-        opacity: 1;
-        transform: translateX(50%);
-    }
-    80% {
-        opacity: 1;
-        transform: translateX(-50%);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(-110%);
-    }
-}
+// @keyframes slide {
+//     0% {
+//         opacity: 0;
+//         transform: translateX(110%);
+//     }
+//     20% {
+//         opacity: 1;
+//         transform: translateX(50%);
+//     }
+//     80% {
+//         opacity: 1;
+//         transform: translateX(-50%);
+//     }
+//     100% {
+//         opacity: 0;
+//         transform: translateX(-110%);
+//     }
+// }
 </style>
 

@@ -1,7 +1,7 @@
 <template>
     <section class="user-controls flex  justify-center">
         <button class="btn choice-btn">Publish</button>
-        <button class="btn choice-btn" @click="saveWap">Save</button>
+        <button class="btn choice-btn" @click="saveWap"><i class="far fa-save"></i></button>
     </section>
 </template>
 
@@ -15,6 +15,7 @@ export default {
     },
     methods: {
         saveWap() {
+            console.log('clicked!');
             this.$emit('saveWap')
         }
     },

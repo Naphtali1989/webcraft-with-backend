@@ -8,11 +8,7 @@
         <slot name="toggle-editor-btn"></slot>
         <component class="editor-body" :is="currDashboard" :samples="samples" :cmpToEdit="cmpToEdit" :wapTree="wapTree" @focused="emitFocusCmp" @vidChanged="emitChangedVid">
         </component>
-        <!-- <section class="flex align-center">
-            <button class="btn choice-btn">Publish</button>
-            <button class="btn choice-btn" @click="saveWap">Save</button>
-        </section> -->
-        <user-controls />
+        <user-controls @saveWap="emitSaveWap" />
     </section>
 </template>
 
@@ -57,6 +53,10 @@ export default {
         },
         emitChangedVid(url) {
             this.$emit('vidChanged',url);
+        },
+        emitSaveWap() {
+            console.log('in editor');
+            this.$emit('saveWap')
         }
     },
     computed: {
