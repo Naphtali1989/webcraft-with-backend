@@ -1,9 +1,10 @@
 **wap-gallery:
-d<!-- TODO: needs to look better -->
+
+<!-- TODO: needs to look better -->
 
  **user-profile:
 
-// TODO: Construct a user base and connect users here
+// TODO: Construct a user profile page
 
 **home:
 
@@ -14,14 +15,18 @@ d<!-- TODO: needs to look better -->
 // TODO: Think of new types of cmps
 
 **sample-list: 
+
 // TODO: make Awesome Samples - (more gallerys!!!)
+
 **editor-workspace:
 
 <!-- TODO: Make sure that drag and drop doesnt take img into the drag -->
-**editors :
-<!-- TODO: get text-shadow option -->
-**over-all:
 
+**editors :
+
+<!-- TODO: get text-shadow option -->
+
+**over-all:
 
 **Loader:
 // TODO: Add a loader
