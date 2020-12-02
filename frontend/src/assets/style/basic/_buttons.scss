@@ -32,14 +32,19 @@
 }
 
 .iframe-btn {
-    background-color: #2e4ead;
+    background-color: #124a76;
     color: #f0f0f0;
     opacity: 0;
     padding: 0.5rem;
     transition: all 0.3s;
+    z-index: 200000000;
 }
 
 .video-container:hover .iframe-btn {
+    opacity: 1;
+}
+
+.map-container:hover .iframe-btn {
     opacity: 1;
 }
 
