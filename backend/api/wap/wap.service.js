@@ -4,10 +4,12 @@ const ObjectId = require('mongodb').ObjectId
 const userService = require('../user/user.service');
 
 //get all toys
-async function query() {
+async function query(filterBy) {
     const collection = await dbService.getCollection('wap')
+        // const critieria = filterBy ? { userId: filterBy } : {};
+        // console.log(object);
     try {
-        const waps = await collection.find({}).toArray();
+        const waps = await collection.find(filterBy).toArray();
         return waps;
     } catch (error) {
         console.log('error:', error);

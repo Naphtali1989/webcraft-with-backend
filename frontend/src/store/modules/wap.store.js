@@ -1,9 +1,11 @@
 import { wapService } from '@/services/wap.service';
+import { userService } from '@/services/user.service'
 export const wapStore = {
     state: {
         waps: [
 
-        ]
+        ],
+        currWapReviews: []
 
     },
     getters: {
@@ -42,6 +44,11 @@ export const wapStore = {
             const savedWap = await wapService.save(wap);
             // commit({ type: 'setIsLoading', isLoading: false })
             return savedWap
+        },
+        async getOwnerWapReviews({ commit }, { userId }) {
+            const wap = await wapService.query(_id);
+            console.log('user saved wap is:', wap);
+            return wap.reviews
         }
     }
 }

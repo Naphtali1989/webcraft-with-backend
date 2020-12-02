@@ -47,7 +47,8 @@ export default {
     name: 'user-profile',
     data() {
         return {
-            user: null
+            user: null,
+            reviews: []
         }
     },
     methods: {
@@ -78,8 +79,12 @@ export default {
     created() {
         const _id=this.$route.params.id;
         console.log('id of user in profile:',_id);
+
         if(_id) this.$store.dispatch({ type: 'loadLoggedInUser',_id })
-        this.$store.dispatch({ type: 'getWap',userId: _id })
+        const reviews=this.$store.dispatch({ type: 'getOwnerWapReviews',userId: _id })
+        this.reviews=reviews;
+
+
 
     },
 }
