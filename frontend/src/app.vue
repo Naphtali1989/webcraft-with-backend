@@ -2,6 +2,7 @@
     <div id="app">
         <app-header v-if="!isViewMode" @openSignupModal="showModal = true" />
         <router-view />
+        <!-- <loader v-if="isLoading"/> -->
         <sign-up v-if="showModal" @closeSignupModal="showModal = false" />
     </div>
 </template>

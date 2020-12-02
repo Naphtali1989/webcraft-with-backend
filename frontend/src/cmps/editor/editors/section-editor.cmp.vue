@@ -62,7 +62,7 @@ export default {
     components: {
         myRange,
         colorPicker,
-        imgSearch
+        imgSearch,
     }
 };
 </script>
