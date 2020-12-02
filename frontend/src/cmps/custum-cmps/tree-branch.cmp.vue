@@ -1,13 +1,27 @@
 <template>
     <ul class="tree-branch">
-        <li class="tree-branch-name" :id="'el-' + workerHoverClass" @focused="onFocus" @click.stop="toggleAccordionItem(!isItemOpen)">
+        <li
+            class="tree-branch-name"
+            :id="'el-' + workerHoverClass"
+            @focused="onFocus"
+            @click.stop="toggleAccordionItem(!isItemOpen)"
+        >
             <h3>
                 {{ cmp.name }}
             </h3>
-            <button class="btn branch-btn" @click.stop.prevent="onFocus(cmp._id)"></button>
+            <button
+                class="btn branch-btn"
+                @click.stop.prevent="onFocus(cmp._id)"
+            ></button>
             <template v-if="cmp.children && isItemOpen">
                 <transition-group name="open-branch" />
-                <tree-branch slot="branch-slot" v-for="child in cmp.children" :key="child._id" :cmp="child" @focused="onFocus" />
+                <tree-branch
+                    slot="branch-slot"
+                    v-for="child in cmp.children"
+                    :key="child._id"
+                    :cmp="child"
+                    @focused="onFocus"
+                />
                 <transition-group />
             </template>
         </li>
@@ -31,38 +45,38 @@ export default {
     },
     methods: {
         onFocus(_id) {
-            this.$emit('focused',_id)
+            this.$emit('focused', _id)
         },
         registerItem(item) {
             this.items.push(item)
-            if(this.open===null) {
+            if (this.open === null) {
                 item.toggleAccordionItem(true)
             }
         },
         unregisterItem(item) {
-            if(this.open===item) {
-                this.open=null
+            if (this.open === item) {
+                this.open = null
             }
-            const idx=this.items.findIndex(i => i._uid===item._uid)
-            this.items.splice(idx,1)
+            const idx = this.items.findIndex(i => i._uid === item._uid)
+            this.items.splice(idx, 1)
         },
-        setItemOpen(item,isOpen) {
-            for(let i=0;i<this.items.length;i++) {
-                const currItem=this.items[i]
-                if(isOpen===true&&currItem._uid!==item._uid) {
+        setItemOpen(item, isOpen) {
+            for (let i = 0; i < this.items.length; i++) {
+                const currItem = this.items[i]
+                if (isOpen === true && currItem._uid !== item._uid) {
                     currItem.toggleAccordionItem(false)
                 }
             }
-            if(isOpen===false) {
-                this.open=null;
+            if (isOpen === false) {
+                this.open = null;
             } else {
-                this.open=item;
+                this.open = item;
             }
         },
         toggleAccordionItem(value) {
-            if(value!==this.isItemOpen) {
-                this.isItemOpen=value
-                this.$parent.setItemOpen(this,this.isItemOpen)
+            if (value !== this.isItemOpen) {
+                this.isItemOpen = value
+                this.$parent.setItemOpen(this, this.isItemOpen)
             }
         }
     },
@@ -76,39 +90,43 @@ export default {
     },
     beforeDestroy() {
         this.$parent.unregisterItem(this)
-        this.$el.removeEventListener("mouseover",() => {
+        this.$el.removeEventListener("mouseover", () => {
             // do nothing
-        },true);
-        this.$el.removeEventListener("mouseleave",() => {
+        }, true);
+        this.$el.removeEventListener("mouseleave", () => {
             // do nothing again
-        },true);
+        }, true);
 
     },
     mounted() {
-        const el=document.querySelectorAll(`#el-${this.cmp._id}`)
-        console.log('el:',el);
-        this.$el.addEventListener('mouseover',(ev) => {
+        const el = document.querySelectorAll(`#el-${this.cmp._id}`)
+        console.log('el:', el);
+        this.$el.addEventListener('mouseover', (ev) => {
             // console.log('ev:',ev);
-            console.log('el:',el);
+            console.log('element:', el[1].localName);
             ev.stopPropagation();
             // Branch element:
-            el[0].style.outline='1.5px dashed blue';
+            el[0].style.outline = '1.5px dashed #124a76';
             // Workspace element:
-            el[1].style.outline='2.5px dashed blue';
-            var timer=setTimeout(() => {
+            el[1].style.outline = '2.5px dashed #124a76';
+            if (el[1].localName === 'div' || el[1].localName === 'section') el[1].style.border = '3px dashed #124a76';
+
+            var timer = setTimeout(() => {
                 // Branch element:
-                el[0].style.outline=null;
+                el[0].style.outline = null;
                 // Workspace element:
-                el[1].style.outline=null;
-            },3000)
+                el[1].style.outline = null;
+                if (el[1].localName === 'div' || el[1].localName === 'section') el[1].style.border = null;
+            }, 3000)
         })
-        this.$el.addEventListener('mouseleave',(ev) => {
+        this.$el.addEventListener('mouseleave', (ev) => {
             console.log(ev);
             ev.stopPropagation();
             // Branch element:
-            el[0].style.outline=null;
+            el[0].style.outline = null;
             // Workspace element:
-            el[1].style.outline=null;
+            el[1].style.outline = null;
+            if (el[1].localName === 'div' || el[1].localName === 'section') el[1].style.border = null;
         })
     },
 }
