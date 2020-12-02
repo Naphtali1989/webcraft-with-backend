@@ -10,6 +10,10 @@
         :allowfullscreen="video"
         :style="cmp.style"
         :class="cmp.class"
+        :data-key="cmp.dataset"
+        @input="onInput"
+        @submit="submitReview"
+        @inputed="emitInputValue"
         @click.stop.prevent="onClick"
         :placeholder="cmp.placeholder"
     >
@@ -19,7 +23,7 @@
                 v-for="child in cmp.children"
                 :key="child._id"
                 :cmp="child"
-                @input="setInputValue"
+                @submit="submitReview"
             >
             </wap-renderer>
         </template>
@@ -38,15 +42,13 @@ export default {
     },
     data() {
         return {
-            inputValue: {}
-
         }
     },
     computed: {
         getInfo() {
             if (!this.cmp.info) return;
-            console.log('this cmp:', this.cmp);
-            return this.cmp.info
+            this.cmp.info.isDraggable = false;
+            return this.cmp.info;
         },
         name() {
             const { name } = this.cmp;
@@ -75,12 +77,24 @@ export default {
     },
     methods: {
         onClick() {
-            if (this.cmp.name !== 'link') return;
-            window.open(this.cmp.href)
+            if (this.cmp.name === 'link') this.sendToLink();
+            if (this.cmp.name === 'button') this.submitReview();
         },
-        setInputValue(what) {
-            console.log('Lets see what we get?', what)
+        submitReview() {
+            this.$emit('submit');
         },
+        sendToLink() {
+            window.open(this.cmp.href);
+        },
+        onInput(ev) {
+            const { value } = ev.target
+            const { key } = ev.target.dataset;
+            this.$emit('inputed', value, key);
+        },
+        emitInputValue(value, key) {
+            this.$emit('inputed', value, key);
+        },
+
     },
     components: {
         googleMap,
