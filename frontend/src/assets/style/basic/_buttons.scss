@@ -22,18 +22,15 @@
 
 .site-video {
     position: relative;
-    .iframe-btn {
-        position: absolute;
-        left: 0;
-        top: 0;
-        font-size: 20px;
-        z-index: 2000;
-    }
 }
 
 .iframe-btn {
     background-color: #124a76;
     color: #f0f0f0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 20px;
     opacity: 0;
     padding: 0.5rem;
     transition: all 0.3s;
@@ -52,7 +49,7 @@
     align-self: flex-end;
     position: absolute;
     top: 0;
-    padding: 0.5rem;
+    padding: 0.75rem;
     transition: 0.33s;
     border-radius: 50%;
     &:hover {
@@ -77,6 +74,9 @@
     &:hover {
         background-color: #124a76d1;
         color: rgba(255, 255, 255, 0.582);
+    }
+    &:first-child {
+        border-right: 1px solid rgba(204, 204, 204, 0.5);
     }
 }
 

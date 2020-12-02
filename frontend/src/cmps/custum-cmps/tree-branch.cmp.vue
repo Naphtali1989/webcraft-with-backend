@@ -1,6 +1,7 @@
 <template>
     <ul class="tree-branch">
         <li
+        :class="{ selected: isItemOpen }"
             class="tree-branch-name"
             :id="'el-' + workerHoverClass"
             @focused="onFocus"
@@ -102,8 +103,6 @@ export default {
         const el = document.querySelectorAll(`#el-${this.cmp._id}`)
         console.log('el:', el);
         this.$el.addEventListener('mouseover', (ev) => {
-            // console.log('ev:',ev);
-            console.log('element:', el[1].localName);
             ev.stopPropagation();
             // Branch element:
             el[0].style.outline = '1.5px dashed #124a76';

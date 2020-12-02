@@ -2,12 +2,15 @@
     border-right: 1px solid #cacaca;
     .toggle-dashboard {
         position: absolute;
-        right: -16px;
+        right: -20px;
         top: 50%;
         font-size: 33px;
         height: 40px;
         width: 40px;
-        background: #124a76;
+        // background: #124a76;
+        border: 20px solid;
+        border-color: #124a76 transparent transparent #124a76;
+        transform: rotate(-45deg);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -16,6 +19,7 @@
         transition: .33s;
         &.reversed {
             right: -17px;
+            border-color: transparent #124a76 #124a76 transparent;
         }
         // .arrow-btn {
         //     height: 15px;
@@ -123,59 +127,80 @@
             font-family: carme;
             width: 100%;
             .tab-btn {
+                // background: #b6b6b660;
+                background: #b6b6b660;
                 width: 50%;
                 text-transform: uppercase;
                 padding: 1rem;
-                // border-right: 1px #ccc solid;
+                transition: .33s;
+                &:hover {
+                    color: #124a76;
+                }
+                &:not(last-child) {
+                    border-right: 1px solid #ccc;
+                }
                 &.selected {
                     background: #124a76;
                     color: white;
+                    // background: transparent;
+                    // color: rgb(107, 107, 107);
                 }
             }
         }
-        .tree-branch {
-            list-style-type: "- ";
-            font-family: carme, sans-serif;
-            padding: 0.3rem 0 0 1rem;
-            border-radius: 0 15px 15px 0;
-            li {
-                border-radius: 15px;
-                h3 {
-                    cursor: pointer;
-                    text-transform: capitalize;
-                    &:before {
-                        content: '\f105';
-                        font-family: "Font Awesome 5 Free";
-                        transition: .3s ease;
+        .data-tree {
+            &:first-child {
+                padding-inline-end: 2rem;
+            }
+            .tree-branch {
+                font-family: carme, sans-serif;
+                li {
+                    h3 {
+                        margin: 0.3rem;
                     }
-                    //*change arrow when clicked -> IN WORKS NAPTHELI..
-                    &.open-branch-enter-active {
+                    padding: 0.3rem 0 0 1rem;
+                    &.selected {
+                        ul {
+                            color: 2c2c2c;
+                            padding: 0.125rem 0 0.125rem 0.5rem;
+                        }
+                    }
+                    h3 {
+                        cursor: pointer;
+                        text-transform: capitalize;
+                        &:before {
+                            content: '\f105';
+                            font-family: "Font Awesome 5 Free";
+                            transition: .3s ease;
+                        }
+                        //*change arrow when clicked -> IN WORKS NAPTHELI..
+                        &.open-branch-enter-active {
+                            content: '\f107';
+                            transform: rotate(90deg);
+                        }
+                        // &.open-branch-enter-active {
+                        //     content: '\f107';
+                        //     transform: rotate(90deg);
+                        // }
+                    }
+                    li>* {
+                        font-family: carme;
                         content: '\f107';
-                        transform: rotate(90deg);
+                        text-transform: capitalize;
                     }
-                    // &.open-branch-enter-active {
-                    //     content: '\f107';
-                    //     transform: rotate(90deg);
-                    // }
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    // border: 1px solid black;
+                    padding: 0.5rem 0 0 0.5rem;
+                    font-size: 1.125rem;
                 }
-                li>* {
-                    border-radius: 10px;
-                    font-family: carme;
-                    content: '\f107';
-                    text-transform: capitalize;
-                }
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                // border: 1px solid black;
-                padding: 0.5rem 0 0 0.5rem;
-                font-size: 1.125rem;
             }
         }
         .dashboard-container {
             flex: 1;
             overflow-y: auto;
+            overflow-x: hidden;
             direction: rtl;
             &::-webkit-scrollbar {
                 width: 0.5rem;
@@ -237,6 +262,11 @@
                     width: 100%;
                 }
             }
+            .form-container {
+                input {
+                    width: 100%;
+                }
+            }
             .misc-editor {
                 input {
                     width: 100%;
@@ -267,7 +297,7 @@
             .sample-preview {
                 background: gainsboro;
                 position: relative;
-                margin: 1rem;
+                margin: 0.5rem 2rem;
                 border-radius: 2px;
                 font-size: 1.2rem;
                 text-align: center;

@@ -17,9 +17,16 @@
             text-transform: uppercase;
             box-shadow: 0 0.5px 1.5px rgba(0, 0, 0, 0.26);
             text-align: center;
-            transition: 0.3s ease;
-            &:hover {
-                transform: scale(1.0625);
+            transition: 0.53s ease;
+            &:nth-child(odd) {
+                &:hover {
+                    transform: translate3d(-3px, 3px, 3px);
+                }
+            }
+            &:nth-child(even) {
+                &:hover {
+                    transform: translate3d(3px, 3px, 3px);
+                }
             }
         }
     }
