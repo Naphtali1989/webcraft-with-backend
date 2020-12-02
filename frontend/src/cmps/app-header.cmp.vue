@@ -8,11 +8,8 @@
             <router-link to="/wap" exact>Templates</router-link>
             <router-link to="/editor" exact>Editor</router-link>
             <!-- <router-link to="/playground">Playground</router-link> -->
-            <a @click="showSignup" class="cursor">Login</a>
-            <div v-if="loggedInUser">
-                <router-link to="/playground">Profile</router-link>
-            </div>
-            <avatar :username="loggedInUser.username" :size="45" :color="'#124a76'" @click.native="toggleModal" v-if="loggedInUser" />
+            <a @click="showSignup" class="cursor" v-if="!loggedInUser">Login</a>
+            <avatar :username="loggedInUser.username" :imgUrl="loggedInUser.imgUrl" :size="45" :color="'#124a76'" @click.native="toggleModal" v-if="loggedInUser" />
 
         </div>
         <avatar-modal v-if="showModal" :loggedInUser="loggedInUser" @closeModal="showModal = false" />
@@ -38,12 +35,17 @@ export default {
         },
         showSignup() {
             this.$emit('openSignupModal')
-        }
+        },
+
     },
     computed: {
         loggedInUser() {
             return this.$store.getters.loggedInUser;
-        }
+        },
+        // avatar() {
+        //     if(this.loggedInUser&&this.loggedInUser.imgUrl) return this.loggedInUser.imgUrl
+        //     return this.loggedInUser.username
+        // }
     },
     components: {
         avatar,

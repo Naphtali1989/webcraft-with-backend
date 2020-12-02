@@ -1,8 +1,14 @@
 import { userService } from '../../services/user.service';
 
+
+var localLoggedinUser = null;
+
+//if there is a user in session storage i set the localLoggedUser.
+if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user)
+
 export const userStore = {
     state: {
-        loggedInUser: null
+        loggedInUser: localLoggedinUser
     },
     getters: {
         loggedInUser(state) {
@@ -27,6 +33,15 @@ export const userStore = {
         async logout(context, state) {
             await userService.logout();
             context.commit({ type: 'setUser', user: null })
+        },
+        async loadLoggedInUser({ commit }, { _id }) {
+            const user = await userService.getById(_id);
+            commit({ type: 'setUser', user })
+        },
+        async updateUser({ commit }, { user }) {
+            const savedUser = await userService.update(user)
+            commit({ type: 'setUser', savedUser })
+
         }
     }
 }

@@ -15,12 +15,12 @@
                             <input type="text" placeholder="Enter Email" v-model="user.email" required>
                         </div>
                         <div class="form-control">
-                            <span @click="toggleFieldType" class="fas fa-lock"></span>
+                            <span @click="toggleFieldType" class="cursor fas fa-lock"></span>
                             <input :type="passwordType" placeholder="Enter Password" v-model="user.password" required>
                         </div>
                         <button class="btn signup">{{modalHeader}}</button>
                     </form>
-                    <a class="btn" @click="toggleModalMode">You dont have an account? Sign up!</a>
+                    <a class="btn toggle-modal-btn" @click="toggleModalMode">{{link}}</a>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg">
                     <path xmlns="http://www.w3.org/2000/svg" d="M306.5 -31.4999L882 -31.4998C999 -31.4997 999 -151.22 999 -10V480.5V1082.5C999 1347.06 553.889 1094.34 212.5 932.5C-67.0003 800 -42.9294 593.465 125.001 266C285 -45.9997 206.667 -14.9999 306.5 -31.4999Z" fill="#04befe" />
@@ -83,6 +83,9 @@ export default {
         },
         modelMode() {
             return this.isSignup? 'user.username':'user.email'
+        },
+        link() {
+            return this.isSignup? 'Already have an account? Sign in!':'You dont have an account? Sign up!';
         }
     },
     created() {

@@ -29,14 +29,15 @@
     .signin-signup {
         font-family: carme;
     }
-    .title {
-        font-size: 2.2rem;
-        color: #444;
-        margin-bottom: 0.6rem;
-        margin: 0 auto;
-        font-family: carme;
-    }
     .forms-container {
+        .title {
+            font-size: 2.2rem;
+            color: #444;
+            margin-bottom: 0.6rem;
+            margin: 0 auto;
+            font-family: carme;
+            text-align: start;
+        }
         form {
             padding: 0.5rem;
         }
@@ -47,7 +48,7 @@
             height: 55px;
             background: #f0f0f0;
             margin: 10px 0;
-            border-radius: 40px;
+            // border-radius: 40px;
             display: grid;
             grid-template-columns: 15% 85%;
             padding: 0 .4rem;
@@ -85,7 +86,13 @@
         z-index: 20001;
         letter-spacing: 2px;
         font-family: carme;
+        margin-bottom: 5px;
     }
+}
+
+.toggle-modal-btn {
+    color: #124a76;
+    font-weight: 600;
 }
 
 .svg-img {

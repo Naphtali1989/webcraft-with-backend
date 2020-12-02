@@ -22,7 +22,7 @@ export default {
         return {
             colors: _.flatten(colors),
             pageNum: 0,
-            pageSize: 21,
+            pageSize: 25,
             selectedColor: null
         };
     },

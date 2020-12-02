@@ -2,10 +2,10 @@
     <div class="avatar" :style="{
             width: size + 'px',
             height: size + 'px',
-            backgroundColor: color || bgColor,
+            backgroundColor:  imgUrl ? '' : color,
             lineHeight: size + 'px',
         }">
-        <span v-if="username">{{ computeName }} </span>
+        <span v-if="username && !imgUrl">{{ computeName }} </span>
         <img v-else :src="imgUrl" />
     </div>
 </template>
@@ -23,12 +23,10 @@ export default {
         size: {
             type: Number
         },
-        admin: {
-            type: Boolean
-        },
         color: {
             type: String
-        }
+        },
+
     },
     computed: {
         computeName() {

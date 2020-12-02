@@ -9,6 +9,7 @@ export const userService = {
     logout,
     getById,
     getLoggedinUser,
+    update,
     getUsers,
     remove
 }
@@ -19,8 +20,8 @@ async function login(userCreds) {
     try {
         const user = await httpService.post('auth/login', userCreds)
         console.log('user get back from db:', user);
-        return user
-            // return _handleLogin(user);
+        return _handleLogin(user);
+        // return _handleLogin(user);
     } catch (error) {
         console.log("🚀 ~ file: user.service.js ~ line 22 ~ login ~ error", error.response)
             //this is how i get the error from the error response
@@ -34,9 +35,10 @@ async function login(userCreds) {
 async function signup(userCreds) {
     console.log('signup to server', userCreds);
     const user = await httpService.post('auth/signup', userCreds);
-    return user;
+    return _handleLogin(user);
     // return _handleLogin(user);
 }
+
 
 
 
@@ -57,6 +59,7 @@ async function logout() {
 }
 
 async function getById(userId) {
+    console.log('user Id in service?:', userId);
     console.log('userid from frontend:', userId);
     const user = await httpService.get(`user/${userId}`);
     return user;
@@ -67,6 +70,11 @@ async function getById(userId) {
 function _handleLogin(user) {
     sessionStorage.setItem('user', JSON.stringify(user))
     return user;
+}
+
+function update(user) {
+    console.log('getting user:', user);
+    return httpService.put(`user/${user._id}`, user)
 }
 
 function getLoggedinUser() {

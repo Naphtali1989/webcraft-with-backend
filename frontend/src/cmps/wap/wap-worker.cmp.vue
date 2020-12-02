@@ -1,6 +1,6 @@
 <template>
     <!-- The flow goes from the bottom worker upwards -->
-    <component class="worker-class" :info="parentInfo" :id="workerHoverClass" frameborder="0" :is="name" :src="urlSrc" :contenteditable="editable" :allowfullscreen="video" :style="cmp.style" :class="cmp.class" :placeholder="cmp.placeholder" @blur="updateTxt" @focused="onFocus" @ondragstart="imgDraggable" @click.stop.prevent="onFocus(cmp._id)">
+    <component class="worker-class" :info="parentInfo" :id="workerHoverClass" :frameborder="0" :is="name" :src="urlSrc" :contenteditable="editable" :allowfullscreen="video" :style="cmp.style" :class="cmp.class" :placeholder="cmp.placeholder" @blur="updateTxt" @focused="onFocus" @ondragstart="imgDraggable" @click.stop.prevent="onFocus(cmp._id)">
         <controls v-if="cmp.name === 'section'" :_id="cmp._id" @copy="emitCopy" @delete="emitDelete" @moveSection="emitMoveSection" />
         <!-- This Div will be inserted into the slot that each child gets - if the v-if is true -->
         <div class="site-video" slot="video-control" v-if="cmp.class === 'video-container' || cmp.class==='map-container'">

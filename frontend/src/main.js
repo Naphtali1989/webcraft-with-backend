@@ -5,12 +5,12 @@ import store from '@/store/store';
 
 import ElementUI from 'element-ui';
 import * as VueGoogleMaps from 'vue2-google-maps';
-import LottieAnimation from 'lottie-vuejs';
+// import LottieAnimation from 'lottie-vuejs';
 
 import 'element-ui/lib/theme-chalk/index.css';
 import '@/assets/style/main.scss';
 
-vue.use(LottieAnimation);
+// vue.use(LottieAnimation);
 vue.use(ElementUI);
 vue.use(VueGoogleMaps, {
     load: {

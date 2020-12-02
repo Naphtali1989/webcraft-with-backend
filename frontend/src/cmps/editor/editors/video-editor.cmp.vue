@@ -10,17 +10,18 @@
                 </h3>
             </form>
             <iframe v-if="cmpToEdit.vidUrl" width="270" height="270" :src="convertedUrl" frameBorder="0"></iframe>
-            <p>Or search on youtube</p>
+            <p class="normal-txt">Or search on YouTube</p>
             <video-search @setVideo="setVideo" />
         </div>
         <div class="map-editor flex align-center column" v-if="cmpToEdit.name === 'google-map'">
             <h1>Map fucking editor!</h1>
-            <form @submit.prevent="">
+            <!-- <form @submit.prevent="">
                 <p>Set Zoom</p>
-                <my-range :options="{ initVal: info.zoom, min: 0, max: 50 }" @input="setMapZoom" />
-                <!-- <input type="text" placeholder="Search Location..."> -->
 
-            </form>
+       
+                <input type="text" placeholder="Search Location...">
+
+            </form> -->
         </div>
     </section>
 </template>
@@ -29,6 +30,7 @@
 
 import videoSearch from '@/cmps/editor/editors/video-search.cmp.vue';
 import myRange from '@/cmps/custum-cmps/my-range.cmp.vue';
+import inputNumber from '@/cmps/custum-cmps/input-number.cmp.vue';
 export default {
     name: 'video-editor',
     data() {
@@ -82,7 +84,8 @@ export default {
     },
     components: {
         videoSearch,
-        myRange
+        myRange,
+        inputNumber
     },
     updated(vidUrl) {
         console.log('maybe?',this.cmpToEdit.vidUrl);

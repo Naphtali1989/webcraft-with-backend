@@ -69,6 +69,8 @@ async function getByEmail(email) {
 async function add(user) {
     const collection = await dbService.getCollection('user')
     try {
+        user.createdAt = Date.now();
+        user.isAdmin = false;
         await collection.insertOne(user);
         return user;
     } catch (err) {

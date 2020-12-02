@@ -12,6 +12,11 @@
             font-family: carme, sans-serif;
         }
     }
+    p {
+        font-size: 16px;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
     // .user-controls {
     //     background: #2e4ead;
     //     position: sticky;
@@ -204,14 +209,16 @@
         .editor-body {
             max-height: 900px;
             overflow-y: auto;
+            // direction: rtl;
             &::-webkit-scrollbar {
                 width: 0.5rem;
             }
             &::-webkit-scrollbar-track {
                 box-shadow: inset 2px 4px 6px rgba(34, 32, 32, 0.5);
+                // direction: rtl;
             }
             &::-webkit-scrollbar-thumb {
-                background-color: #42579595;
+                background-color: #124a76;
             }
             .fa-arrow-left {
                 font-size: 30px;
@@ -234,7 +241,7 @@
             }
             // Custum range from Element Ui
             .el-slider__bar {
-                background-color: #0655ff;
+                background-color: #124a76;
                 width: 70%;
             }
             .el-slider__button {
@@ -303,6 +310,18 @@
             margin: 2.5rem;
         }
     }
+}
+
+.warning-txt {
+    font-size: 16px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.normal-txt {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 1rem;
 }
 
 // Drag and Drop class 

@@ -14,9 +14,9 @@
         cursor: pointer;
         font-family: bungee;
         margin-inline-start: 1rem;
-        font-size: 1rem;
+        font-size: 1.5rem;
         .fa-hammer {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             padding: 0.3rem;
         }
         .logo-span {
@@ -41,5 +41,11 @@
     a.router-link-active {
         background: #124a76;
         color: white;
+    }
+    .avatar {
+        width: 65px;
+        height: 65px;
+        background-color: #124a76;
+        line-height: 65px;
     }
 }
