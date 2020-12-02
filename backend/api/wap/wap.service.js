@@ -31,7 +31,7 @@ async function getById(wapId) {
 
 
 async function add(wap) {
-    console.log('*********wap in service backend***********', wap);
+    // console.log('*********wap in service backend***********', wap);
     const collection = await dbService.getCollection('wap')
     console.log('collection?:', collection);
     try {

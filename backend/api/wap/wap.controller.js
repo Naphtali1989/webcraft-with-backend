@@ -33,6 +33,8 @@ async function deleteWap(req, res) {
 async function addWap(req, res) {
     try {
         const wap = req.body
+        console.log('session:', req.session.user);
+        wap.userId = req.session.user._id;
         await wapService.add(wap)
         res.json(wap)
 
