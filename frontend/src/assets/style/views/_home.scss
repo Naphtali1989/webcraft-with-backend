@@ -1,14 +1,22 @@
 .content-wrapper {
     background-color: #ccc;
+    img {
+        width: 40%;
+    }
     .main-hero {
         position: relative;
         height: 75vh;
+        h1 {
+            position: absolute;
+            font-size: 5vw;
+            max-width: 11ch;
+            justify-self: flex-end;
+        }
     }
-    h1 {
-        position: absolute;
-        font-size: 5vw;
-        max-width: 11ch;
-        justify-self: flex-end;
+    .home-card {
+        .card-content1 {
+            flex: 2;
+        }
     }
 }
 
