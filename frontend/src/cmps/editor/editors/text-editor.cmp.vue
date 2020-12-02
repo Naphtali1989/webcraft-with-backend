@@ -9,7 +9,7 @@
             />
             <i class="fas fa-link"></i>
         </div>
-        <div class="flex column align-center" v-if="cmpToEdit">
+        <div class="ranges-container flex column align-center" v-if="cmpToEdit">
             <my-select
                 :options="fonts"
                 @change="setFontFamily"
