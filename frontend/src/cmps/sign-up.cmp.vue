@@ -62,7 +62,10 @@ export default {
         async signup() {
             const userCreds=JSON.parse(JSON.stringify(this.user))
             await this.$store.dispatch({ type: 'signup',userCreds })
+            this.closeModal()
             this.user=userService.getEmptyUser()
+
+
         },
         async login() {
             const userCreds=JSON.parse(JSON.stringify(this.user));
