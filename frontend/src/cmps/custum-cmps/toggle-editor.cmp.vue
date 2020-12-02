@@ -1,11 +1,11 @@
 <template>
     <div @click="toggleEditor" id="arrowAnim" :class="reverseIcon">
-        <span class="btn cursor">
+        <!-- <span class="btn cursor"> -->
             <!-- <i :class="icon"></i> -->
-            </span>
-        <!-- <div class="arrow-btn btn">
+            <!-- </span> -->
+         <!-- <div class="arrow-btn btn">
 
-        </div> -->
+        </div>  -->
     </div>
 </template>
 
