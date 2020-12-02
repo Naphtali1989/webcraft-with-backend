@@ -4,6 +4,7 @@
             <h1>Build a website easily!</h1>
             <!-- <img class="hero-img" src="../assets/img/builderbcg.jpg" /> -->
             <img class="hero-img" src="../assets/img/temp-hero.jpg" />
+            <button class="home-btn hero-btn btn">Start Building</button>
         </div>
 
         <div class="home-card flex">
