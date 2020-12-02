@@ -26,10 +26,10 @@ export const wapStore = {
     },
     actions: {
         async loadWaps({ commit }) {
-            commit({ type: 'setIsLoading', isLoading: true })
+            commit({ type: 'setIsLoading', isLoading: true });
             const waps = await wapService.query();
-            commit({ type: "setWaps", waps })
-            commit({ type: 'setIsLoading', isLoading: false })
+            commit({ type: "setWaps", waps });
+            commit({ type: 'setIsLoading', isLoading: false });
         },
         async loadWap(context, { _id }) {
             // commit({ type: 'setIsLoading', isLoading: true })

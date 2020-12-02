@@ -243,6 +243,17 @@
             }
             .el-input {
                 font-size: unset;
+                color: #124a76;
+            }
+            .el-select {
+                &.custom-select {
+                    font-size: unset;
+                    color: #124a76 !important;
+                }
+            }
+            .el-input__inner {
+                font-size: unset;
+                color: #124a76;
             }
             .form-container,
             .video-editor,

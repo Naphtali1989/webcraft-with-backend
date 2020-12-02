@@ -40,6 +40,7 @@ export default {
     },
     methods: {
         async searchImgs() {
+            
             this.imgs = await utilService.getImgs(this.term)
             this.term = null
         },

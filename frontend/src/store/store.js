@@ -18,7 +18,7 @@ export default new vuex.Store({
             return !state.isUserSiteclosed;
         },
         isLoading(state) {
-            return state.isLoading
+            return state.isLoading;
         }
     },
     mutations: {

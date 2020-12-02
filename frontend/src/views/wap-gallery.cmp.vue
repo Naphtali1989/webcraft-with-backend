@@ -1,5 +1,6 @@
 <template>
     <section>
+        <!-- <wap-list @addWap="pushEditor" v-if="waps" :waps="waps"></wap-list> -->
         <wap-list @addWap="pushEditor" v-if="!isLoading" :waps="waps"></wap-list>
         <loader v-else />
     </section>
@@ -21,7 +22,7 @@ export default {
     },
     computed: {
         waps() {
-            return this.$store.getters.getWaps
+            return this.$store.getters.getWaps;
         },
         isLoading() {
             return this.$store.getters.isLoading;
