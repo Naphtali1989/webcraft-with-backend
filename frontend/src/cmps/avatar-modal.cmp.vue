@@ -8,7 +8,7 @@
         <div class="seperator"></div>
         <section class="modal-links flex column">
             <router-link class="profile-btn" :to="`/user/${loggedInUser._id}`"><i class="fas fa-user"></i> Profile</router-link>
-            <span v-if="loggedInUser" @click="logout"><i class="fas fa-times-circle"></i> Logout</span>
+            <span class="profile-btn" v-if="loggedInUser" @click="logout"><i class="fas fa-times-circle"></i> Logout</span>
         </section>
     </section>
 </template>

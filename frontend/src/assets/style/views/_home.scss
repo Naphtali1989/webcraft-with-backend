@@ -6,9 +6,10 @@
         h1 {
             position: absolute;
             font-size: 6rem;
-            max-width: 7ch;
+            // max-width: ch;
             left: 10vw;
             top: 7vw;
+            color: white;
         }
         .hero-img {
             object-fit: cover;
@@ -53,10 +54,12 @@
             width: 50%;
         }
         .home-btn {
-            background-color: #5ac7f97d;
+            background-color: #6879827d;
             padding: 0.75rem;
             font-size: 1.2rem;
-            max-width: 25%;
+            max-width: 50%;
+            color: white;
+            font-weight: bold;
         }
     }
 }
