@@ -1,369 +1,371 @@
-.editor-container {
-    border-right: 1px solid #cacaca;
-    .toggle-dashboard {
-        border: 20px solid;
-        border-color: white transparent transparent white;
-        position: absolute;
-        right: -20px;
-        top: 50%;
-        font-size: 33px;
-        height: 40px;
-        width: 40px;
-        // background: #124a76;
-        border: 20px solid;
-        border-color: white transparent transparent white;
-        transform: rotate(-45deg);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        transition: .33s;
-        &.reversed {
-            right: -17px;
-            border-color: transparent #e6e9ec #e6e9ec transparent;
-        }
-        // .arrow-btn {
-        //     height: 15px;
-        //     width: 15px;
-        //     border: 3px solid white;
-        //     border-color: transparent transparent white white;
-        //     transform: rotate(45deg);
-        // }
-    }
-    //     position: absolute;
-    // right: -24.75px;
-    // top: 50%;
-    // font-size: 33px;
-    // height: 50px;
-    // width: 50px;
-    // /* background: #124a76; */
-    // text-align: center;
-    // border-radius: 50%;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    // border: 12px solid #124a76;
-    // /* color: red; */
-    // border-color: transparent transparent #124a76 #124a76;
-    // transform: rotate(45deg);
-    //*****Napthlie i added some css for ur review.***
-    p {
-        font-size: 16px;
-        margin-bottom: 1rem;
-        font-weight: 600;
-    }
-    .smooth-dnd-draggable-wrapper {
-        cursor: grab;
-    }
-    .editor-workspace {
-        &::-webkit-scrollbar {
-            width: 0.5rem;
-        }
-        &::-webkit-scrollbar-track {
-            box-shadow: inset 2px 4px 6px rgba(34, 32, 32, 0.3);
-        }
-        &::-webkit-scrollbar-thumb {
-            background-color: #2e4ead95;
-        }
-        .smooth-dnd-container {
-            position: relative;
-            min-height: 770px;
-            min-width: 100%;
-        }
-        margin-inline-start: 20rem;
-        padding: 1rem;
-        transition: .5s ease;
-        overflow-y: auto;
-        &.empty-workspace {
-            margin: 1rem 1rem 1rem 21rem;
-            background-color: #2e4ead25;
-            border: 4px dashed #22222260;
-            text-align: center;
-            justify-content: center;
-            position: relative;
-            &:before {
-                content: 'Drag an element here';
-                font-size: 56px;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
-        .worker-class:hover {
-            outline: 1.5px dashed #0076df;
-        }
-        section {
-            position: relative;
-            &:hover {
-                .controls {
-                    transition: opacity .5s ease;
-                    opacity: 1;
-                    z-index: 1001;
-                }
-            }
-        }
-        .drop-preview {
-            background-color: #2e4ead25;
-            border: 2px dashed #22222260;
-            text-align: center;
-            justify-content: center;
-            &:after {
-                content: 'Place Section Here';
-                font-size: 65px;
-                padding: 1.5rem;
-            }
-        }
-    }
-    .editor-dashboard {
-        background-color: #e6e9ec;
-        position: fixed;
-        height: calc(100vh - 3.5rem);
-        display: flex;
-        flex-direction: column;
-        width: 20rem;
-        z-index: 1003;
-        transition: all .3s ease-in-out;
-        .tab-container {
-            font-family: carme;
-            width: 100%;
-            .tab-btn {
-                // background: #b6b6b660;
-                background: #b6b6b660;
-                width: 50%;
-                text-transform: uppercase;
-                padding: 1rem;
-                transition: .33s;
-                // &:hover {
-                //     color: #124a76;
-                // }
-                &:not(last-child) {
-                    border-right: 1px solid #ccc;
-                }
-                &.selected {
-                    // background: #124a76;
-                    color: rgb(107, 107, 107);
-                    background: transparent;
-                    // color: rgb(107, 107, 107);
-                }
-            }
-        }
-        .data-tree {
-            &:first-child {
-                padding-inline-end: 2rem;
-            }
-            .tree-branch {
-                font-family: carme, sans-serif;
-                li {
-                    h3 {
-                        margin: 0.3rem;
-                    }
-                    padding: 0.3rem 0 0 1rem;
-                    &.selected {
-                        ul {
-                            color: 2c2c2c;
-                            padding: 0.125rem 0 0.125rem 0.5rem;
+                .editor-container {
+                    border-right: 1px solid #cacaca;
+                    .toggle-dashboard {
+                        border: 20px solid;
+                        border-color: white transparent transparent white;
+                        position: absolute;
+                        right: -20px;
+                        top: 50%;
+                        font-size: 33px;
+                        height: 40px;
+                        width: 40px;
+                        // background: #124a76;
+                        border: 20px solid;
+                        border-color: white transparent transparent white;
+                        transform: rotate(-45deg);
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: .33s;
+                        &.reversed {
+                            right: -17px;
+                            border-color: transparent #e6e9ec #e6e9ec transparent;
+                            .arrow-btn {
+                                transform: rotate(225deg);
+                                z-index: 1;
+                            }
+                        }
+                        .arrow-btn {
+                            font-size: 16px;
+                            // border: 3px solid white;
+                            // border-color: transparent transparent white white;
+                            transform: rotate(45deg);
                         }
                     }
-                    h3 {
-                        cursor: pointer;
-                        text-transform: capitalize;
-                        &:before {
-                            content: '\f105';
-                            font-family: "Font Awesome 5 Free";
-                            transition: .3s ease;
+                    //     position: absolute;
+                    // right: -24.75px;
+                    // top: 50%;
+                    // font-size: 33px;
+                    // height: 50px;
+                    // width: 50px;
+                    // /* background: #124a76; */
+                    // text-align: center;
+                    // border-radius: 50%;
+                    // display: flex;
+                    // align-items: center;
+                    // justify-content: center;
+                    // border: 12px solid #124a76;
+                    // /* color: red; */
+                    // border-color: transparent transparent #124a76 #124a76;
+                    // transform: rotate(45deg);
+                    //*****Napthlie i added some css for ur review.***
+                    p {
+                        font-size: 16px;
+                        margin-bottom: 1rem;
+                        font-weight: 600;
+                    }
+                    .smooth-dnd-draggable-wrapper {
+                        cursor: grab;
+                    }
+                    .editor-workspace {
+                        &::-webkit-scrollbar {
+                            width: 0.5rem;
                         }
-                        //*change arrow when clicked -> IN WORKS NAPTHELI..
-                        &.open-branch-enter-active {
-                            content: '\f107';
-                            transform: rotate(90deg);
+                        &::-webkit-scrollbar-track {
+                            box-shadow: inset 2px 4px 6px rgba(34, 32, 32, 0.3);
                         }
-                        // &.open-branch-enter-active {
-                        //     content: '\f107';
-                        //     transform: rotate(90deg);
-                        // }
+                        &::-webkit-scrollbar-thumb {
+                            background-color: #2e4ead95;
+                        }
+                        .smooth-dnd-container {
+                            position: relative;
+                            min-height: 770px;
+                            min-width: 100%;
+                        }
+                        margin-inline-start: 20rem;
+                        padding: 1rem;
+                        transition: .5s ease;
+                        overflow-y: auto;
+                        &.empty-workspace {
+                            margin: 1rem 1rem 1rem 21rem;
+                            background-color: #2e4ead25;
+                            border: 4px dashed #22222260;
+                            text-align: center;
+                            justify-content: center;
+                            position: relative;
+                            &:before {
+                                content: 'Drag an element here';
+                                font-size: 56px;
+                                position: absolute;
+                                left: 50%;
+                                top: 50%;
+                                transform: translate(-50%, -50%);
+                            }
+                        }
+                        .worker-class:hover {
+                            outline: 1.5px dashed #0076df;
+                        }
+                        section {
+                            position: relative;
+                            &:hover {
+                                .controls {
+                                    transition: opacity .5s ease;
+                                    opacity: 1;
+                                    z-index: 1001;
+                                }
+                            }
+                        }
+                        .drop-preview {
+                            background-color: #2e4ead25;
+                            border: 2px dashed #22222260;
+                            text-align: center;
+                            justify-content: center;
+                            &:after {
+                                content: 'Place Section Here';
+                                font-size: 65px;
+                                padding: 1.5rem;
+                            }
+                        }
                     }
-                    li>* {
-                        font-family: carme;
-                        content: '\f107';
-                        text-transform: capitalize;
+                    .editor-dashboard {
+                        background-color: #e6e9ec;
+                        position: fixed;
+                        height: calc(100vh - 3.5rem);
+                        display: flex;
+                        flex-direction: column;
+                        width: 20rem;
+                        z-index: 1003;
+                        transition: all .3s ease-in-out;
+                        .tab-container {
+                            font-family: carme;
+                            width: 100%;
+                            .tab-btn {
+                                // background: #b6b6b660;
+                                background: #b6b6b660;
+                                width: 50%;
+                                text-transform: capitalize;
+                                padding: 1rem;
+                                transition: .33s;
+                                // &:hover {
+                                //     color: #124a76;
+                                // }
+                                &:not(last-child) {
+                                    border-right: 1px solid #ccc;
+                                }
+                                &.selected {
+                                    // background: #124a76;
+                                    color: rgb(107, 107, 107);
+                                    background: transparent;
+                                    // color: rgb(107, 107, 107);
+                                }
+                            }
+                        }
+                        .data-tree {
+                            &:first-child {
+                                padding-inline-end: 2rem;
+                            }
+                            .tree-branch {
+                                font-family: carme, sans-serif;
+                                li {
+                                    h3 {
+                                        margin: 0.3rem;
+                                    }
+                                    padding: 0.3rem 0 0 1rem;
+                                    &.selected {
+                                        ul {
+                                            color: 2c2c2c;
+                                            padding: 0.125rem 0 0.125rem 0.5rem;
+                                        }
+                                    }
+                                    h3 {
+                                        cursor: pointer;
+                                        text-transform: capitalize;
+                                        &:before {
+                                            content: '\f105';
+                                            font-family: "Font Awesome 5 Free";
+                                            transition: .3s ease;
+                                        }
+                                        //*change arrow when clicked -> IN WORKS NAPTHELI..
+                                        &.open-branch-enter-active {
+                                            content: '\f107';
+                                            transform: rotate(90deg);
+                                        }
+                                        // &.open-branch-enter-active {
+                                        //     content: '\f107';
+                                        //     transform: rotate(90deg);
+                                        // }
+                                    }
+                                    li>* {
+                                        font-family: carme;
+                                        content: '\f107';
+                                        text-transform: capitalize;
+                                    }
+                                    position: relative;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: space-between;
+                                    // border: 1px solid black;
+                                    padding: 0.5rem 0 0 0.5rem;
+                                    font-size: 1.125rem;
+                                }
+                            }
+                        }
+                        .dashboard-container {
+                            flex: 1;
+                            overflow-y: auto;
+                            overflow-x: hidden;
+                            direction: rtl;
+                            &::-webkit-scrollbar {
+                                width: 0.5rem;
+                            }
+                            &::-webkit-scrollbar-track {
+                                box-shadow: inset 2px 4px 6px rgba(34, 32, 32, 0.5);
+                            }
+                            &::-webkit-scrollbar-thumb {
+                                background-color: #124a76;
+                            }
+                        }
+                        .editor-body {
+                            direction: ltr;
+                            .ranges-container {
+                                width: 100%;
+                            }
+                            .fa-arrow-left {
+                                font-size: 30px;
+                                padding: 0.8rem;
+                                cursor: pointer;
+                                transition: transform 0.4s ease;
+                            }
+                            .fa-arrow-left:hover {
+                                transform: scale(1.1);
+                            }
+                            .align-controls,
+                            .decoration-controls {
+                                margin: 0 auto;
+                                width: 80%;
+                                color: #2f2f2f;
+                            }
+                            .el-slider {
+                                margin: 0 auto;
+                            }
+                            // Custum range from Element Ui
+                            .el-slider__bar {
+                                background-color: #124a76;
+                            }
+                            .el-slider__button {
+                                border: 4px solid #0d3c6b;
+                            }
+                            .el-slider__runway {
+                                background-color: #94a3c393;
+                            }
+                            .custom-range {
+                                width: 70%;
+                            }
+                            .el-input {
+                                font-size: unset;
+                            }
+                            .form-container,
+                            .video-editor,
+                            .map-editor {
+                                width: 100%;
+                                form {
+                                    width: 85%;
+                                }
+                                .video-search-container {
+                                    width: 100%;
+                                }
+                            }
+                            .form-container {
+                                input {
+                                    width: 100%;
+                                }
+                            }
+                            .misc-editor {
+                                input {
+                                    width: 100%;
+                                    padding: 0.5rem;
+                                    margin: 1rem 0;
+                                }
+                                iframe {
+                                    margin: 1rem 0;
+                                }
+                                .map-editor {
+                                    .custom-range {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                            .section-editor {
+                                .input-file {
+                                    display: flex;
+                                    justify-content: center;
+                                    font-size: 38px;
+                                    color: #124a76;
+                                    cursor: pointer;
+                                    input {
+                                        display: none;
+                                    }
+                                }
+                            }
+                            .sample-preview {
+                                background: gainsboro;
+                                position: relative;
+                                margin: 0.5rem 2rem;
+                                border-radius: 2px;
+                                font-size: 1.2rem;
+                                text-align: center;
+                                box-shadow: 0 0 1.5px black;
+                                filter: contrast(0.75);
+                                transition: .33s;
+                                img {
+                                    object-fit: cover
+                                }
+                                h3 {
+                                    padding: 0.25rem;
+                                    text-transform: capitalize;
+                                }
+                                &:hover {
+                                    filter: contrast(0.88);
+                                }
+                            }
+                        }
+                        .editor-message {
+                            background-color: #2e4ead22;
+                            border-radius: 1rem;
+                            padding: 2rem;
+                            margin: 1rem;
+                            font-size: 2rem;
+                            text-align: center;
+                        }
+                        .editor-name {
+                            padding: 1rem;
+                            text-transform: capitalize;
+                            font-size: 1.25rem;
+                        }
                     }
-                    position: relative;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    // border: 1px solid black;
-                    padding: 0.5rem 0 0 0.5rem;
-                    font-size: 1.125rem;
-                }
-            }
-        }
-        .dashboard-container {
-            flex: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
-            direction: rtl;
-            &::-webkit-scrollbar {
-                width: 0.5rem;
-            }
-            &::-webkit-scrollbar-track {
-                box-shadow: inset 2px 4px 6px rgba(34, 32, 32, 0.5);
-            }
-            &::-webkit-scrollbar-thumb {
-                background-color: #124a76;
-            }
-        }
-        .editor-body {
-            direction: ltr;
-            .ranges-container {
-                width: 100%;
-            }
-            .fa-arrow-left {
-                font-size: 30px;
-                padding: 0.8rem;
-                cursor: pointer;
-                transition: transform 0.4s ease;
-            }
-            .fa-arrow-left:hover {
-                transform: scale(1.1);
-            }
-            .align-controls,
-            .decoration-controls {
-                margin: 0 auto;
-                width: 80%;
-                color: #2f2f2f;
-            }
-            .el-slider {
-                margin: 0 auto;
-            }
-            // Custum range from Element Ui
-            .el-slider__bar {
-                background-color: #124a76;
-            }
-            .el-slider__button {
-                border: 4px solid #0d3c6b;
-            }
-            .el-slider__runway {
-                background-color: #94a3c393;
-            }
-            .custom-range {
-                width: 70%;
-            }
-            .el-input {
-                font-size: unset;
-            }
-            .form-container,
-            .video-editor,
-            .map-editor {
-                width: 100%;
-                form {
-                    width: 85%;
-                }
-                .video-search-container {
-                    width: 100%;
-                }
-            }
-            .form-container {
-                input {
-                    width: 100%;
-                }
-            }
-            .misc-editor {
-                input {
-                    width: 100%;
-                    padding: 0.5rem;
-                    margin: 1rem 0;
-                }
-                iframe {
-                    margin: 1rem 0;
-                }
-                .map-editor {
-                    .custom-range {
-                        width: 100%;
+                    &.hide-editor {
+                        .editor-dashboard {
+                            transform: translateX(-100%);
+                        }
+                        .editor-workspace {
+                            margin: 2.5rem;
+                        }
                     }
                 }
-            }
-            .section-editor {
-                .input-file {
-                    display: flex;
-                    justify-content: center;
-                    font-size: 38px;
-                    color: #124a76;
-                    cursor: pointer;
-                    input {
+                
+                .warning-txt {
+                    font-size: 16px;
+                    margin-bottom: 1rem;
+                    font-weight: 600;
+                }
+                
+                .normal-txt {
+                    font-weight: 600;
+                    font-size: 16px;
+                    margin-bottom: 1rem;
+                }
+                
+                // Drag and Drop class 
+                .card-ghost {
+                    transition: transform 0.18s ease;
+                    transform: rotateZ(2deg) scale(0.9);
+                    .sample-title {
                         display: none;
                     }
                 }
-            }
-            .sample-preview {
-                background: gainsboro;
-                position: relative;
-                margin: 0.5rem 2rem;
-                border-radius: 2px;
-                font-size: 1.2rem;
-                text-align: center;
-                box-shadow: 0 0 1.5px black;
-                filter: contrast(0.75);
-                transition: .33s;
-                img {
-                    object-fit: cover
+                
+                .card-ghost-drop {
+                    transition: transform 0.18s ease-in-out;
+                    transform: rotateZ(0) scale(1);
                 }
-                h3 {
-                    padding: 0.25rem;
-                    text-transform: capitalize;
-                }
-                &:hover {
-                    filter: contrast(0.88);
-                }
-            }
-        }
-        .editor-message {
-            background-color: #2e4ead22;
-            border-radius: 1rem;
-            padding: 2rem;
-            margin: 1rem;
-            font-size: 2rem;
-            text-align: center;
-        }
-        .editor-name {
-            padding: 1rem;
-            text-transform: capitalize;
-            font-size: 1.25rem;
-        }
-    }
-    &.hide-editor {
-        .editor-dashboard {
-            transform: translateX(-100%);
-        }
-        .editor-workspace {
-            margin: 2.5rem;
-        }
-    }
-}
-
-.warning-txt {
-    font-size: 16px;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.normal-txt {
-    font-weight: 600;
-    font-size: 16px;
-    margin-bottom: 1rem;
-}
-
-// Drag and Drop class 
-.card-ghost {
-    transition: transform 0.18s ease;
-    transform: rotateZ(2deg) scale(0.9);
-    .sample-title {
-        display: none;
-    }
-}
-
-.card-ghost-drop {
-    transition: transform 0.18s ease-in-out;
-    transform: rotateZ(0) scale(1);
-}

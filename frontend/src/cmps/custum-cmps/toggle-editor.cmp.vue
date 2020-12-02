@@ -1,9 +1,12 @@
 <template>
     <div @click="toggleEditor" id="arrowAnim" :class="reverseIcon">
+        <span class="arrow-btn"><i class="fas fa-chevron-left"></i> </span>
         <!-- <span class="btn cursor"> -->
-            <!-- <i :class="icon"></i> -->
-            <!-- </span> -->
-         <!-- <div class="arrow-btn btn">
+        <!-- <i :class="icon"></i> -->
+        <!-- </span> -->
+        <!-- <div class="arrow-btn btn">
+            <i class="fas fa-chevron-left"></i>
+
 
         </div>  -->
     </div>
@@ -22,7 +25,7 @@ export default {
     },
     computed: {
         icon() {
-            if(this.isEditorShow) return 'fas fa-caret-left'
+            if (this.isEditorShow) return 'fas fa-caret-left'
             return 'fas fa-caret-right'
         },
         reverseIcon() {
