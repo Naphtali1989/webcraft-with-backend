@@ -6,6 +6,7 @@
         target="_blank"
         :is="name"
         :src="urlSrc"
+        :info="getInfo"
         :allowfullscreen="video"
         :style="cmp.style"
         :class="cmp.class"
@@ -18,6 +19,7 @@
                 v-for="child in cmp.children"
                 :key="child._id"
                 :cmp="child"
+                @input="setInputValue"
             >
             </wap-renderer>
         </template>
@@ -34,7 +36,18 @@ export default {
             required: true
         }
     },
+    data() {
+        return {
+            inputValue: {}
+
+        }
+    },
     computed: {
+        getInfo() {
+            if (!this.cmp.info) return;
+            console.log('this cmp:', this.cmp);
+            return this.cmp.info
+        },
         name() {
             const { name } = this.cmp;
             if (name === 'txt') return 'span';
@@ -60,11 +73,14 @@ export default {
             return false
         }
     },
-    methods:{
-        onClick(){
+    methods: {
+        onClick() {
             if (this.cmp.name !== 'link') return;
-            window.open(this.cmp.href) 
-        }
+            window.open(this.cmp.href)
+        },
+        setInputValue(what) {
+            console.log('Lets see what we get?', what)
+        },
     },
     components: {
         googleMap,
