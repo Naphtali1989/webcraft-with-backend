@@ -79,6 +79,7 @@ export default {
         const _id=this.$route.params.id;
         console.log('id of user in profile:',_id);
         if(_id) this.$store.dispatch({ type: 'loadLoggedInUser',_id })
+        this.$store.dispatch({ type: 'getWap',userId: _id })
 
     },
 }

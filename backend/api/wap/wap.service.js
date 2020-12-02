@@ -1,6 +1,7 @@
 //get access to db service
 const dbService = require('../../services/db.service');
 const ObjectId = require('mongodb').ObjectId
+const userService = require('../user/user.service');
 
 //get all toys
 async function query() {
@@ -31,11 +32,12 @@ async function getById(wapId) {
 
 
 async function add(wap) {
-    console.log('*********wap in service backend***********', wap);
+    // console.log('*********wap in service backend***********', wap);
     const collection = await dbService.getCollection('wap')
     console.log('collection?:', collection);
     try {
         wap.createdAt = Date.now();
+        user
         await collection.insertOne(wap);
         console.log('after adding.........');
         return wap;
