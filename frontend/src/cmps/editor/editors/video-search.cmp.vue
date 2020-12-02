@@ -1,8 +1,8 @@
 <template>
     <section class="video-search-container flex column align-center">
-        <form @submit.prevent="searchVideos">
+        <form @submit.prevent="searchVideos" class="flex column">
             <input type="text" v-model.trim="term" placeholder="Search videos...">
-            <button class="video-btn">Search video!</button>
+            <button class="video-btn">Search Video</button>
         </form>
         <div class="video-thumb-container flex column align-center">
             <div class="video-thumnbail" v-for="(video, idx) in videos" :key="idx">

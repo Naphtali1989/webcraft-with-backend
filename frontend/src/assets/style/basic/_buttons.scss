@@ -71,12 +71,15 @@
     font-family: carme, sans-serif;
     padding: 0.5rem;
     transition: all 0.33s;
+    border-top: 1px solid #ccc;
     &:hover {
         background-color: #124a76d1;
         color: rgba(255, 255, 255, 0.582);
     }
     &:first-child {
         border-right: 1px solid rgba(204, 204, 204, 0.5);
+        background: transparent;
+        color: black
     }
 }
 

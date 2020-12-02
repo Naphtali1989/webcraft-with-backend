@@ -133,16 +133,16 @@
                 text-transform: uppercase;
                 padding: 1rem;
                 transition: .33s;
-                &:hover {
-                    color: #124a76;
-                }
+                // &:hover {
+                //     color: #124a76;
+                // }
                 &:not(last-child) {
                     border-right: 1px solid #ccc;
                 }
                 &.selected {
-                    background: #124a76;
-                    color: white;
-                    // background: transparent;
+                    // background: #124a76;
+                    color: rgb(107, 107, 107);
+                    background: transparent;
                     // color: rgb(107, 107, 107);
                 }
             }

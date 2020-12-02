@@ -29,7 +29,7 @@
                 </p>
             </div>
             <img class="card-img" src="https://imagizer.imageshack.com/img922/6240/9IpCzn.png" />
-            <img src="../assets/showtoasi/img5.svg" />
+            <!-- <img src="../assets/showtoasi/img5.svg" /> -->
         </div>
 
         <loader />
