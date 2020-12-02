@@ -32,15 +32,15 @@ export const wapStore = {
             commit({ type: 'setIsLoading', isLoading: false })
         },
         async loadWap(context, { _id }) {
-            commit({ type: 'setIsLoading', isLoading: true })
+            // commit({ type: 'setIsLoading', isLoading: true })
             const wap = await wapService.getById(_id);
-            commit({ type: 'setIsLoading', isLoading: false })
+            // commit({ type: 'setIsLoading', isLoading: false })
             return wap;
         },
         async saveWap(context, { wap }) {
-            commit({ type: 'setIsLoading', isLoading: true })
+            // commit({ type: 'setIsLoading', isLoading: true })
             const savedWap = await wapService.save(wap);
-            commit({ type: 'setIsLoading', isLoading: false })
+            // commit({ type: 'setIsLoading', isLoading: false })
             return savedWap
         }
     }
