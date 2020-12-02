@@ -1,37 +1,22 @@
 <template>
     <section class="misc-editor flex column align-center">
-        <div
-            class="video-editor flex align-center column"
-            v-if="cmpToEdit.name === 'iframe'"
-        >
+        <div class="video-editor flex align-center column" v-if="cmpToEdit.name === 'iframe'">
             <p>Please enter a youtube link</p>
-            <form @submit.prevent="setVidUrl">
+            <form @submit.prevent="setVidUrl" class="flex column">
                 <input type="text" v-model="vidUrl" />
                 <button class="video-btn">Change</button>
                 <h3 class="warning-txt" v-if="isInvalid">
                     This link is invalid, please try another one.
                 </h3>
             </form>
-            <iframe
-                v-if="cmpToEdit.vidUrl"
-                width="270"
-                height="270"
-                :src="convertedUrl"
-                frameBorder="0"
-            ></iframe>
+            <iframe v-if="cmpToEdit.vidUrl" width="270" height="270" :src="convertedUrl" frameBorder="0"></iframe>
             <p class="normal-txt">Or search on YouTube</p>
             <video-search @setVideo="setVideo" />
         </div>
-        <div
-            class="map-editor flex align-center column"
-            v-if="cmpToEdit.name === 'google-map'"
-        >
+        <div class="map-editor flex align-center column" v-if="cmpToEdit.name === 'google-map'">
             <form @submit.prevent="">
                 <p>Set Zoom</p>
-                <my-range
-                    :options="{ initVal: zoom, min: 1, max: 20 }"
-                    @input="setMapZoom"
-                />
+                <my-range :options="{ initVal: zoom, min: 1, max: 20 }" @input="setMapZoom" />
                 <p>Seach for a location:</p>
                 <input type="text" placeholder="Type here" />
                 <button type="submit" class="map-search-btn btn">Search</button>
@@ -59,8 +44,8 @@ export default {
     },
     computed: {
         convertedUrl() {
-            if (this.cmpToEdit.vidUrl.includes("?v=")) {
-                const vidId = this.cmpToEdit.vidUrl.split("?v=")[1];
+            if(this.cmpToEdit.vidUrl.includes("?v=")) {
+                const vidId=this.cmpToEdit.vidUrl.split("?v=")[1];
                 return `https://www.youtube.com/embed/${vidId}`;
             }
             return this.cmpToEdit.vidUrl
@@ -68,29 +53,29 @@ export default {
     },
     methods: {
         setMapZoom(zoomValue) {
-            console.log('zoomNum:', zoomValue);
-            this.$emit('mapZoomChanged', zoomValue);
+            console.log('zoomNum:',zoomValue);
+            this.$emit('mapZoomChanged',zoomValue);
         },
         setVideo(id) {
-            const url = `https://www.youtube.com/watch?v=${id}`;
-            this.vidUrl = url;
+            const url=`https://www.youtube.com/watch?v=${id}`;
+            this.vidUrl=url;
             this.setVidUrl();
         },
         setVidUrl() {
-            if (!this.matchYoutubeUrl(this.vidUrl)) return;
-            this.isInvalid = false;
-            this.$emit('vidChanged', this.vidUrl);
+            if(!this.matchYoutubeUrl(this.vidUrl)) return;
+            this.isInvalid=false;
+            this.$emit('vidChanged',this.vidUrl);
         },
         matchYoutubeUrl(url) {
-            var p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-            if (url.match(p)) {
+            var p=/^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+            if(url.match(p)) {
                 return url.match(p)[1];
             }
-            this.isInvalid = true;
-            if (timer) clearTimeout(timer);
-            var timer = setTimeout(() => {
-                this.isInvalid = false;
-            }, 3000)
+            this.isInvalid=true;
+            if(timer) clearTimeout(timer);
+            var timer=setTimeout(() => {
+                this.isInvalid=false;
+            },3000)
             return false;
         }
     },
@@ -100,14 +85,14 @@ export default {
         inputNumber
     },
     updated(vidUrl) {
-        console.log('maybe?', this.cmpToEdit.vidUrl);
+        console.log('maybe?',this.cmpToEdit.vidUrl);
 
     },
     created() {
         // this.vidUrl = this.cmpToEdit.vidUrl;
         //*TODO > START FROM HERE*/
-        if (this.cmpToEdit.vidUrl) this.vidUrl = this.cmpToEdit.vidUrl;
-        if (this.cmpToEdit.info) this.zoom = this.cmpToEdit.info.zoom;
+        if(this.cmpToEdit.vidUrl) this.vidUrl=this.cmpToEdit.vidUrl;
+        if(this.cmpToEdit.info) this.zoom=this.cmpToEdit.info.zoom;
     },
 };
 </script>
