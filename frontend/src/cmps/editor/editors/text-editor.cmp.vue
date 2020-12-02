@@ -1,6 +1,6 @@
 <template>
     <section class="text-editor flex column align-center">
-        <div class="editor-link-container" v-if="isLink">
+        <div class="editor-link-container flex column align-center" v-if="isLink">
             <p class="editor-txt">Attach an external link to this button:</p>
             <input
                 type="text"
@@ -23,7 +23,7 @@
             <p class="editor-txt">Line Height</p>
             <my-range
                 :options="{
-                    initVal: +cmpToEdit.style.lineHeight,
+                    initVal: +cmpToEdit.style.lineHeight * 2.5,
                     min: 0,
                     max: 20,
                 }"
@@ -60,7 +60,7 @@
                 <i class="fas fa-bold"></i>
             </button>
         </div>
-        <p class="editor-txt">Background Color</p>
+        <p class="editor-txt">Text Color</p>
         <color-picker @changeColor="setColor" />
     </section>
 </template>
@@ -81,19 +81,19 @@ export default {
             fonts: [{
                 label: 'Arial',
                 value: 'Arial'
-            }, 
+            },
             {
                 label: 'Helvetica',
                 value: 'Helvetica'
-            }, 
+            },
             {
                 label: 'Georgia',
                 value: 'Georgia'
-            }, 
+            },
             {
                 label: 'Monospace',
                 value: 'Monospace'
-            }, 
+            },
             {
                 label: 'Cursive',
                 value: 'Cursive'

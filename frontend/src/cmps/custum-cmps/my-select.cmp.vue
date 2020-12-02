@@ -2,7 +2,7 @@
     <el-select
         class="custom-select user-input input-filter"
         v-model="value"
-        placeholder="Select"
+        placeholder="Select Font"
         @change="emitChange"
     >
         <el-option
