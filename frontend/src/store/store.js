@@ -16,11 +16,18 @@ export default new vuex.Store({
     getters: {
         isViewMode(state) {
             return !state.isUserSiteclosed;
+        },
+        isLoading(state) {
+            return state.isLoading
         }
     },
     mutations: {
         toggleUserSiteOpen(state) {
             state.isUserSiteclosed = !state.isUserSiteclosed;
+        },
+        setIsLoading(state, { isLoading }) {
+            console.log('is Loading?:', isLoading);
+            state.isLoading = isLoading
         }
     },
     actions: {},
