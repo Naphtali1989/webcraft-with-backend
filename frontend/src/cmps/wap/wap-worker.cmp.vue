@@ -71,6 +71,7 @@ export default {
         },
         getInfo() {
             if(!this.cmp.info) return;
+            console.log('this cmp:',this.cmp);
             return this.cmp.info
 
         }

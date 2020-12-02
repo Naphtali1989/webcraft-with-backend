@@ -3,7 +3,7 @@
         <!-- Saving a spot to the user that there is no component to edit -->
         <template v-if="cmpToEdit">
             <h1 class="editor-name text-center">
-                <span :class="vidIcon"></span>
+                <span :class="editorIcon"></span>
                 {{ editorTitle }}
             </h1>
             <component :is="renderedEditor" :cmpToEdit="cmpToEdit" @uploading="emitUploadImg" @vidChanged="emitChangedVid" />
@@ -42,11 +42,13 @@ export default {
                 if(name==='link') return 'Link Editor';
                 if(name==='img') return 'Image Editor';
                 if(name==='iframe') return 'Video Editor';
+                if(name==='google-map') return 'Map Editor';
                 return this.cmpToEdit.name+' Editor';
             }
         },
-        vidIcon() {
+        editorIcon() {
             if(this.cmpToEdit.name==='iframe') return 'fab fa-youtube'
+            if(this.cmpToEdit.name==='google-map') return 'fas fa-map-marked-alt'
         }
     },
     methods: {

@@ -1,28 +1,41 @@
 <template>
     <section class="video-editor flex column align-center">
-        <p>Please enter a youtube link</p>
-        <form @submit.prevent="setVidUrl">
-            <input type="text" v-model="vidUrl" />
-            <button class="sumbit-btn">Change</button>
-            <h3 class="warning-txt" v-if="isInvalid">
-                This link is invalid, please try another one.
-            </h3>
-        </form>
-        <iframe v-if="cmpToEdit.vidUrl" width="270" height="270" :src="convertedUrl" frameBorder="0"></iframe>
-        <p>Or search on youtube</p>
-        <video-search @setVideo="setVideo" />
+        <div class="video-editor flex align-center column" v-if="cmpToEdit.name === 'iframe'">
+            <p>Please enter a youtube link</p>
+            <form @submit.prevent="setVidUrl">
+                <input type="text" v-model="vidUrl" />
+                <button class="sumbit-btn">Change</button>
+                <h3 class="warning-txt" v-if="isInvalid">
+                    This link is invalid, please try another one.
+                </h3>
+            </form>
+            <iframe v-if="cmpToEdit.vidUrl" width="270" height="270" :src="convertedUrl" frameBorder="0"></iframe>
+            <p>Or search on youtube</p>
+            <video-search @setVideo="setVideo" />
+        </div>
+        <div class="map-editor flex align-center column" v-if="cmpToEdit.name === 'google-map'">
+            <h1>Map fucking editor!</h1>
+            <form @submit.prevent="">
+                <p>Set Zoom</p>
+                <my-range :options="{ initVal: info.zoom, min: 0, max: 50 }" @input="setMapZoom" />
+                <!-- <input type="text" placeholder="Search Location..."> -->
+
+            </form>
+        </div>
     </section>
 </template>
 
 <script>
 
 import videoSearch from '@/cmps/editor/editors/video-search.cmp.vue';
+import myRange from '@/cmps/custum-cmps/my-range.cmp.vue';
 export default {
     name: 'video-editor',
     data() {
         return {
             vidUrl: null,
-            isInvalid: false
+            isInvalid: false,
+            zoom: 16
         }
     },
     props: {
@@ -38,6 +51,10 @@ export default {
         },
     },
     methods: {
+        setMapZoom(zoomNum) {
+            console.log('zoomNum:',zoomNum);
+            this.$emit('setZoom',zoomNum)
+        },
         setVideo(id) {
             const url=`https://www.youtube.com/watch?v=${id}`;
             // this.cmpToEdit.vidUrl=vidUrl
@@ -64,7 +81,8 @@ export default {
         }
     },
     components: {
-        videoSearch
+        videoSearch,
+        myRange
     },
     updated(vidUrl) {
         console.log('maybe?',this.cmpToEdit.vidUrl);
@@ -72,6 +90,9 @@ export default {
     },
     created() {
         this.vidUrl=this.cmpToEdit.vidUrl;
+        //*TODO > START FROM HERE*/
+        // if(this.cmpToEdit.vidUrl) this.vidUrl=vidUrl
+        // if(this.cmpToEdit.info) this.cmpToEdit.zoom=this.info.zoom
     },
 };
 </script>
