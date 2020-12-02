@@ -15,7 +15,6 @@ export default {
     },
     methods: {
         saveWap() {
-            console.log('clicked!');
             this.$emit('saveWap')
         }
     },

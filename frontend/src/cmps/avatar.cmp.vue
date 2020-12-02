@@ -32,9 +32,9 @@ export default {
         computeName() {
             return this.username.split(' ').map(letter => letter.charAt(0)).join('').toUpperCase()
         },
-        bgColor() {
-            if(!this.admin) return `#${Math.random().toString().slice(2,8)}`
-        }
+    },
+    created() {
+        console.log('img url:',this.imgUrl)
     }
 }
 </script>

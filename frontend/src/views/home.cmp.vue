@@ -3,6 +3,7 @@
         <div class="main-hero flex">
             <h1>Build a website easily!</h1>
         </div>
+
         <div class="home-card flex">
             <div class="card-content">
                 <h2>Build your own websites that you can be proud of!</h2>
@@ -28,6 +29,7 @@
                 </p>
             </div>
             <img class="card-img" src="https://imagizer.imageshack.com/img922/6240/9IpCzn.png" />
+            <img src="../assets/showtoasi/img5.svg" />
         </div>
 
         <loader />
