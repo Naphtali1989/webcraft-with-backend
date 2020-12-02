@@ -18,27 +18,24 @@
                 @toggled="toggleEditor"
             ></toggle-editor>
         </editor-dashboard>
-        <section class="flex column">
-            <!-- <user-controls/> -->
-            <editor-workspace
-                v-if="currWap"
-                :cmps="currWap.cmps"
-                @focusedCmp="setCmpToEdit"
-                @updatedTxt="updateTxt"
-                @copy="copySection"
-                @moveSection="moveSection"
-                @droppedSample="dropSample"
-                @droppedSection="dropSection"
-                @delete="deleteSection"   
-            />
-        </section>
+
+        <editor-workspace
+            v-if="currWap"
+            :cmps="currWap.cmps"
+            @focusedCmp="setCmpToEdit"
+            @updatedTxt="updateTxt"
+            @copy="copySection"
+            @moveSection="moveSection"
+            @droppedSample="dropSample"
+            @droppedSection="dropSection"
+            @delete="deleteSection"
+        />
     </section>
 </template>
 
 <script>
 import editorDashboard from '@/cmps/editor/editor-dashboard.cmp.vue';
 import editorWorkspace from '@/cmps/editor/editor-workspace.cmp.vue';
-import userControls from '@/cmps/editor/user-controls.cmp.vue';
 import toggleEditor from '@/cmps/custum-cmps/toggle-editor.cmp.vue';
 import { utilService } from '@/services/util.service';
 import { wapService } from '@/services/util.service';
@@ -65,20 +62,15 @@ export default {
             return tree;
         }
     },
-    components: {
-        editorDashboard,
-        editorWorkspace,
-        userControls,
-        toggleEditor
-    },
+
     methods: {
         setChangedVid(url) {
             console.log('url:', url);
             if (!this.currCmpToEdit) return
             this.currCmpToEdit.vidUrl = url;
         },
-        
-        emitChangedZoom(zoomValue){
+
+        emitChangedZoom(zoomValue) {
             if (!this.currCmpToEdit) return
             this.currCmpToEdit.info.zoom = zoomValue;
         },
@@ -201,6 +193,11 @@ export default {
                 ]
             }
         }
-    }
+    },
+    components: {
+        editorDashboard,
+        editorWorkspace,
+        toggleEditor
+    },
 };
 </script>

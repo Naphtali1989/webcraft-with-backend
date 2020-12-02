@@ -1,6 +1,6 @@
 <template>
-    <section class="color-picker-container">
-        <span class="color-circle transparent" :class="colorSelected('transparent')" @click="onSelectColor('transparent')">
+    <section class="color-picker-container flex justify-center wrap">
+        <span class="color-circle transparent"  @click="onSelectColor('transparent')">
             <i class="far fa-times-circle fa-2x"></i>
         </span>
         <span class="color-circle white" :class="colorSelected('white')" :style="{ backgroundColor: 'white' }" @click="onSelectColor('white')"></span>
@@ -22,7 +22,7 @@ export default {
         return {
             colors: _.flatten(colors),
             pageNum: 0,
-            pageSize: 25,
+            pageSize: 20,
             selectedColor: null
         };
     },
@@ -58,10 +58,8 @@ export default {
 
 <style scoped lang="scss">
 .color-picker-container {
-    max-width: 15rem;
+    width: 80%;
     border-radius: 0.5rem;
-    display: flex;
-    flex-wrap: wrap;
 
     .color-circle {
         display: flex;

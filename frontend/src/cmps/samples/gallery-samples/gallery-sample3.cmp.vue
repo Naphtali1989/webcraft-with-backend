@@ -140,19 +140,17 @@ export default {
             name: 'section',
             thumbnail: 'https://imagizer.imageshack.com/img922/37/Gy8un8.png',
             style: {
-                background: "transparent",
-                borderRadius: "0px",
-                //figure out height
+                "background": "transparent",
+                "borderRadius": "0px",
                 height: '500px'
             },
-            //HEADER + H1  + P
             children: [{
                 _id: Math.random().toString(36).substring(2,12),
                 type: 'div',
                 class: '',
                 style: {
-                    background: "transparent",
-                    borderRadius: "0px",
+                    "background": "transparent",
+                    "borderRadius": "0px",
                 },
                 children: [
                     {
@@ -195,19 +193,17 @@ export default {
 
             },
             {
-                //START NAV
                 _id: Math.random().toString(36).substring(2,12),
                 name: "div",
                 type: 'nav-section',
                 class: 'flex align-center',
                 style: {
-                    background: 'red',
-                    borderRadius: '4px',
-                    border: '1px solid #e4e4e4',
+                    "background": 'red',
+                    "borderRadius": '4px',
+                    "border": '1px solid #e4e4e4',
                     margin: '10px 15px',
                     display: 'inline-block',
                 },
-                //NAV UL
                 children:
                     [
                         {
@@ -217,11 +213,11 @@ export default {
                             style: {
                                 boxShadow: ' px 20px 45px 5px rgba(0,0,0,.2)',
                                 "fontSize": "14px",
-                                letterSpacing: '1px',
-                                fontWeight: '600px',
-                                background: '#cfa671;',
+                                "letterSpacing": '1px',
+                                "fontWeight": '600px',
+                                "background": '#cfa671;',
                                 padding: '12px 40px',
-                                border: 'none',
+                                "border": 'none',
                                 "lineHeight": "",
                                 "textDecoration": "",
                                 "fontStyle": "",
@@ -236,11 +232,11 @@ export default {
                             txt: "DRINKS",
                             style: {
                                 "fontSize": "14px",
-                                letterSpacing: '1px',
-                                fontWeight: '600px',
-                                background: '#fff',
-                                padding: '12px 40px',
-                                border: 'none',
+                                "letterSpacing": '1px',
+                                "fontWeight": '600px',
+                                "background": '#fff',
+                                "padding": '12px 40px',
+                                "border": 'none',
                                 "lineHeight": "",
                                 "textDecoration": "",
                                 "fontStyle": "",
@@ -250,16 +246,16 @@ export default {
                             }
                         },
                         {
-                            id: Math.random().toString(36).substring(2,12),
-                            name: 'txt',
-                            txt: "LUCNH",
-                            style: {
+                            "id": "gf2x4itiz2",
+                            "name": 'txt',
+                            "txt": "LUCNH",
+                            'style': {
                                 "fontSize": "14px",
-                                letterSpacing: '1px',
-                                fontWeight: '600px',
-                                background: '#fff',
-                                padding: '12px 40px',
-                                border: 'none',
+                                "letterSpacing": '1px',
+                                "fontWeight": '600px',
+                                "background": '#fff',
+                                "padding": '12px 40px',
+                                "border": 'none',
                                 "lineHeight": "",
                                 "textDecoration": "",
                                 "fontStyle": "",
@@ -269,16 +265,16 @@ export default {
                             }
                         },
                         {
-                            id: Math.random().toString(36).substring(2,12),
-                            name: 'txt',
-                            txt: "DINNER",
-                            style: {
+                            "id": "ssv3gsz22b",
+                            "name": 'txt',
+                            "txt": "DINNER",
+                            "style": {
                                 "fontSize": "14px",
-                                letterSpacing: '1px',
-                                fontWeight: '600px',
-                                background: '#fff',
-                                padding: '12px 40px',
-                                border: 'none',
+                                "letterSpacing": '1px',
+                                "fontWeight": '600px',
+                                "background": '#fff',
+                                "padding": '12px 40px',
+                                "border": 'none',
                                 "lineHeight": "",
                                 "textDecoration": "",
                                 "fontStyle": "",
@@ -304,8 +300,8 @@ export default {
 //                 class: "card-section flex",
 //                 thumbnail: '',
 //                 style: {
-//                     background: "transparent",
-//                     borderRadius: "0px",
+//                     "background": "transparent",
+//                     "borderRadius": "0px",
 //                     height: "0px",
 //                 },
 //                 children: [
@@ -316,7 +312,7 @@ export default {
 //                         class: "card flex column align-center text-center",
 //                         style: {
 //                             borderRadius: '0px',
-//                             background: "#69D2E7",
+//                             "background": "#69D2E7",
 //                             width: '300px',
 //                             height: "380px",
 //                             position: 'relative'
@@ -329,7 +325,7 @@ export default {
 //                             style: {
 //                                 height: '120px',
 //                                 width: '100%',
-//                                 background: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEPu7BceUzLF-DvrMQdcldR3W_5Gn9BhKsiw&usqp=CAU)'
+//                                 "background": 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEPu7BceUzLF-DvrMQdcldR3W_5Gn9BhKsiw&usqp=CAU)'
 //                             },
 
 

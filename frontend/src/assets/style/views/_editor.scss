@@ -1,39 +1,56 @@
 .editor-container {
     border-right: 1px solid #cacaca;
-    .user-controls {
-        font-family: carme;
-        width: 100%;
-        background: #124a76;
+    .toggle-dashboard {
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        font-size: 33px;
+        height: 40px;
+        width: 40px;
+        // background: #124a76;
+        border: 20px solid;
+        border-color: #124a76 transparent transparent #124a76;
+        transform: rotate(-45deg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: white;
-        padding: 5px;
-        button {
-            color: white;
-            font-size: 1.2rem;
-            font-family: carme, sans-serif;
+        transition: .33s;
+        &.reversed {
+            right: -17px;
+            border-color: transparent #124a76 #124a76 transparent;
         }
+        // .arrow-btn {
+        //     height: 15px;
+        //     width: 15px;
+        //     border: 3px solid white;
+        //     border-color: transparent transparent white white;
+        //     transform: rotate(45deg);
+        // }
     }
+    //     position: absolute;
+    // right: -24.75px;
+    // top: 50%;
+    // font-size: 33px;
+    // height: 50px;
+    // width: 50px;
+    // /* background: #124a76; */
+    // text-align: center;
+    // border-radius: 50%;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // border: 12px solid #124a76;
+    // /* color: red; */
+    // border-color: transparent transparent #124a76 #124a76;
+    // transform: rotate(45deg);
+    //*****Napthlie i added some css for ur review.***
     p {
         font-size: 16px;
         margin-bottom: 1rem;
         font-weight: 600;
     }
-    // .user-controls {
-    //     background: #2e4ead;
-    //     position: sticky;
-    //     height: 48px;
-    //     width: 100%;
-    //     border-left: 1px solid #e6e9ec;
-    //     top: 0;
-    //     z-index: 1002;
-    //     button {
-    //         background: #0076df;
-    //         padding: 0.5rem;
-    //         margin-inline-start: 5px;
-    //         font-size: 1.2rem;
-    //         font-family: carme;
-    //         color: white;
-    //     }
-    // }
     .smooth-dnd-draggable-wrapper {
         cursor: grab;
     }
@@ -100,7 +117,9 @@
     .editor-dashboard {
         background-color: #e6e9ec;
         position: fixed;
-        min-height: 100vh;
+        height: calc(100vh - 3.5rem);
+        display: flex;
+        flex-direction: column;
         width: 20rem;
         z-index: 1003;
         transition: all .3s ease-in-out;
@@ -108,117 +127,95 @@
             font-family: carme;
             width: 100%;
             .tab-btn {
+                // background: #b6b6b660;
+                background: #b6b6b660;
                 width: 50%;
                 text-transform: uppercase;
                 padding: 1rem;
-                // &:before {
-                //     content: 'hello'
-                // }
+                transition: .33s;
+                &:hover {
+                    color: #124a76;
+                }
+                &:not(last-child) {
+                    border-right: 1px solid #ccc;
+                }
                 &.selected {
-                    // background: #2e4ead;
                     background: #124a76;
                     color: white;
+                    // background: transparent;
+                    // color: rgb(107, 107, 107);
                 }
             }
         }
-        .toggle-dashboard {
-            position: absolute;
-            right: -12.5px;
-            top: 50%;
-            font-size: 33px;
-            height: 50px;
-            width: 50px;
-            background: #124a76;
-            text-align: center;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            &.reversed {
-                right: -37px;
+        .data-tree {
+            &:first-child {
+                padding-inline-end: 2rem;
             }
-            .arrow-btn {
-                height: 17px;
-                width: 17px;
-                border: 3px solid white;
-                border-color: transparent transparent white white;
-                transform: rotate(45deg);
-            }
-        }
-        //     position: absolute;
-        // right: -24.75px;
-        // top: 50%;
-        // font-size: 33px;
-        // height: 50px;
-        // width: 50px;
-        // /* background: #124a76; */
-        // text-align: center;
-        // border-radius: 50%;
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
-        // border: 12px solid #124a76;
-        // /* color: red; */
-        // border-color: transparent transparent #124a76 #124a76;
-        // transform: rotate(45deg);
-        //*****Napthlie i added some css for ur review.***
-        .tree-branch {
-            list-style-type: "- ";
-            font-family: carme, sans-serif;
-            padding: 0.3rem 0 0 1rem;
-            border-radius: 0 15px 15px 0;
-            li {
-                border-radius: 15px;
-                h3 {
-                    cursor: pointer;
-                    text-transform: capitalize;
-                    // &:hover {
-                    //     background-color: #ccc;
-                    // }
-                    &:before {
-                        content: '\f105';
-                        font-family: "Font Awesome 5 Free";
-                        transition: .3s ease;
+            .tree-branch {
+                font-family: carme, sans-serif;
+                li {
+                    h3 {
+                        margin: 0.3rem;
                     }
-                    //*change arrow when clicked -> IN WORKS NAPTHELI..
-                    &.open-branch-enter-active {
+                    padding: 0.3rem 0 0 1rem;
+                    &.selected {
+                        ul {
+                            color: 2c2c2c;
+                            padding: 0.125rem 0 0.125rem 0.5rem;
+                        }
+                    }
+                    h3 {
+                        cursor: pointer;
+                        text-transform: capitalize;
+                        &:before {
+                            content: '\f105';
+                            font-family: "Font Awesome 5 Free";
+                            transition: .3s ease;
+                        }
+                        //*change arrow when clicked -> IN WORKS NAPTHELI..
+                        &.open-branch-enter-active {
+                            content: '\f107';
+                            transform: rotate(90deg);
+                        }
+                        // &.open-branch-enter-active {
+                        //     content: '\f107';
+                        //     transform: rotate(90deg);
+                        // }
+                    }
+                    li>* {
+                        font-family: carme;
                         content: '\f107';
-                        transform: rotate(90deg);
+                        text-transform: capitalize;
                     }
-                    // &.open-branch-enter-active {
-                    //     content: '\f107';
-                    //     transform: rotate(90deg);
-                    // }
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    // border: 1px solid black;
+                    padding: 0.5rem 0 0 0.5rem;
+                    font-size: 1.125rem;
                 }
-                li>* {
-                    border-radius: 10px;
-                    font-family: carme;
-                    content: '\f107';
-                    text-transform: capitalize;
-                }
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                // border: 1px solid black;
-                padding: 0.5rem 0 0 0.5rem;
-                font-size: 1.125rem;
             }
         }
-        .editor-body {
-            max-height: 900px;
+        .dashboard-container {
+            flex: 1;
             overflow-y: auto;
-            // direction: rtl;
+            overflow-x: hidden;
+            direction: rtl;
             &::-webkit-scrollbar {
                 width: 0.5rem;
             }
             &::-webkit-scrollbar-track {
                 box-shadow: inset 2px 4px 6px rgba(34, 32, 32, 0.5);
-                // direction: rtl;
             }
             &::-webkit-scrollbar-thumb {
                 background-color: #124a76;
+            }
+        }
+        .editor-body {
+            direction: ltr;
+            .ranges-container {
+                width: 100%;
             }
             .fa-arrow-left {
                 font-size: 30px;
@@ -232,17 +229,15 @@
             .align-controls,
             .decoration-controls {
                 margin: 0 auto;
-                width: 160px;
+                width: 80%;
                 color: #2f2f2f;
             }
             .el-slider {
-                width: 70%;
                 margin: 0 auto;
             }
             // Custum range from Element Ui
             .el-slider__bar {
                 background-color: #124a76;
-                width: 70%;
             }
             .el-slider__button {
                 border: 4px solid #0d3c6b;
@@ -251,18 +246,48 @@
                 background-color: #94a3c393;
             }
             .custom-range {
-                width: 90%;
-                color: purple;
+                width: 70%;
             }
-            input {
-                margin: 0.5rem;
-                padding: 0.5rem;
+            .el-input {
+                font-size: unset;
+            }
+            .form-container,
+            .video-editor,
+            .map-editor {
+                width: 100%;
+                form {
+                    width: 85%;
+                }
+                .video-search-container {
+                    width: 100%;
+                }
+            }
+            .form-container {
+                input {
+                    width: 100%;
+                }
+            }
+            .misc-editor {
+                input {
+                    width: 100%;
+                    padding: 0.5rem;
+                    margin: 1rem 0;
+                }
+                iframe {
+                    margin: 1rem 0;
+                }
+                .map-editor {
+                    .custom-range {
+                        width: 100%;
+                    }
+                }
             }
             .section-editor {
                 .input-file {
                     display: flex;
                     justify-content: center;
                     font-size: 38px;
+                    color: #124a76;
                     cursor: pointer;
                     input {
                         display: none;
@@ -272,19 +297,22 @@
             .sample-preview {
                 background: gainsboro;
                 position: relative;
-                margin: 1rem;
-                border-radius: 5px;
+                margin: 0.5rem 2rem;
+                border-radius: 2px;
                 font-size: 1.2rem;
                 text-align: center;
-                box-shadow: 0 0 4px black;
-                filter: contrast(0.8);
+                box-shadow: 0 0 1.5px black;
+                filter: contrast(0.75);
+                transition: .33s;
                 img {
-                    width: 100%;
                     object-fit: cover
                 }
                 h3 {
                     padding: 0.25rem;
                     text-transform: capitalize;
+                }
+                &:hover {
+                    filter: contrast(0.88);
                 }
             }
         }

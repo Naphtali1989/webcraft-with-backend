@@ -12,8 +12,8 @@
         }
         .btn-search {
             position: absolute;
-            bottom: 12px;
-            right: 32px;
+            bottom: 6px;
+            right: 0.5rem;
             font-size: 17px
         }
     }
@@ -32,7 +32,7 @@
             box-shadow: inset 2px 4px 6px rgba(34, 32, 32, 0.3);
         }
         &::-webkit-scrollbar-thumb {
-            background-color: #2e4ead;
+            background-color: #124a76;
         }
         .unsplash-img-card,
         .video-thumnbail {
@@ -47,6 +47,7 @@
         }
         .unsplash-img {
             height: 100%;
+            width: 100%;
             object-fit: cover;
             border-radius: 2px;
         }

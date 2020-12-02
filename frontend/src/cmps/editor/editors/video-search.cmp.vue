@@ -1,5 +1,5 @@
 <template>
-    <section class="video-search-container">
+    <section class="video-search-container flex column align-center">
         <form @submit.prevent="searchVideos">
             <input type="text" v-model.trim="term" placeholder="Search videos...">
             <button class="video-btn">Search video!</button>
@@ -9,9 +9,7 @@
                 <h4 class="vid-title">{{video.title}}</h4>
                 <img class="video-img" :src="video.thumbnail" @click="onVideoSelect(video.videoId)" />
             </div>
-
         </div>
-
     </section>
 </template>
 

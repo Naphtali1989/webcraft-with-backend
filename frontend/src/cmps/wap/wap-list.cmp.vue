@@ -3,7 +3,7 @@
         <button @click="emitAddWap" class="addWap-btn btn">
             <i class="fas fa-plus"></i>
         </button>
-        <wap-preview v-for="wap in waps" :key="wap._id" :wap="wap" />
+        <wap-preview v-for="wap in waps" :key="wap._id" :wap="wap"  />
     </div>
 </template>
 

@@ -12,17 +12,19 @@
             </button>
         </section>
         <slot name="toggle-editor-btn"></slot>
-        <component
-            class="editor-body"
-            :is="currDashboard"
-            :samples="samples"
-            :cmpToEdit="cmpToEdit"
-            :wapTree="wapTree"
-            @focused="emitFocusCmp"
-            @vidChanged="emitChangedVid"
-            @mapZoomChanged="emitChangedZoom"
-        >
-        </component>
+        <section class="dashboard-container">
+            <component
+                class="editor-body"
+                :is="currDashboard"
+                :samples="samples"
+                :cmpToEdit="cmpToEdit"
+                :wapTree="wapTree"
+                @focused="emitFocusCmp"
+                @vidChanged="emitChangedVid"
+                @mapZoomChanged="emitChangedZoom"
+            >
+            </component>
+        </section>
         <user-controls @saveWap="emitSaveWap" />
     </section>
 </template>
@@ -69,7 +71,7 @@ export default {
         emitChangedVid(url) {
             this.$emit('vidChanged', url);
         },
-        emitChangedZoom(zoomValue){
+        emitChangedZoom(zoomValue) {
             this.$emit('mapZoomChanged', zoomValue);
         },
         emitSaveWap() {

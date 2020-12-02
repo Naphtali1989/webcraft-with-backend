@@ -1,5 +1,5 @@
 <template>
-    <section class="video-editor flex column align-center">
+    <section class="misc-editor flex column align-center">
         <div
             class="video-editor flex align-center column"
             v-if="cmpToEdit.name === 'iframe'"
@@ -7,7 +7,7 @@
             <p>Please enter a youtube link</p>
             <form @submit.prevent="setVidUrl">
                 <input type="text" v-model="vidUrl" />
-                <button class="sumbit-btn">Change</button>
+                <button class="video-btn">Change</button>
                 <h3 class="warning-txt" v-if="isInvalid">
                     This link is invalid, please try another one.
                 </h3>
@@ -26,13 +26,15 @@
             class="map-editor flex align-center column"
             v-if="cmpToEdit.name === 'google-map'"
         >
-            <h1>Map fucking editor!</h1>
             <form @submit.prevent="">
                 <p>Set Zoom</p>
-                <my-range 
-                :options="{ initVal: zoom, min: 1, max: 20 }"
-                @input="setMapZoom"/>
-                <input type="text" placeholder="Search Location..." />
+                <my-range
+                    :options="{ initVal: zoom, min: 1, max: 20 }"
+                    @input="setMapZoom"
+                />
+                <p>Seach for a location:</p>
+                <input type="text" placeholder="Type here" />
+                <button type="submit" class="map-search-btn btn">Search</button>
             </form>
         </div>
     </section>
@@ -104,8 +106,8 @@ export default {
     created() {
         // this.vidUrl = this.cmpToEdit.vidUrl;
         //*TODO > START FROM HERE*/
-        if(this.cmpToEdit.vidUrl) this.vidUrl=this.cmpToEdit.vidUrl;
-        if(this.cmpToEdit.info) this.zoom=this.cmpToEdit.info.zoom;
+        if (this.cmpToEdit.vidUrl) this.vidUrl = this.cmpToEdit.vidUrl;
+        if (this.cmpToEdit.info) this.zoom = this.cmpToEdit.info.zoom;
     },
 };
 </script>
