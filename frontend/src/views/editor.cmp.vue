@@ -1,10 +1,10 @@
 <template>
     <section class="editor-container flex column" :class="isEditorShown">
-        <editor-dashboard v-if="currWap" :wapTree="wapTree" :samples="samples" :cmpToEdit="currCmpToEdit" @switchedTab="emptyCmpToEdit" @focusedCmp="setCmpToEdit" @vidChanged="setChangedVid">
-            <toggle-editor slot="toggle-editor-btn" class="toggle-dashboard" :isEditorShow="this.isEditorShow" @toggled="toggleEditor" />
+        <editor-dashboard v-if="currWap" :wapTree="wapTree" :samples="samples" :cmpToEdit="currCmpToEdit" @switchedTab="emptyCmpToEdit" @focusedCmp="setCmpToEdit" @vidChanged="setChangedVid" @saveWap="saveWap">
+            <toggle-editor slot="toggle-editor-btn" class="btn toggle-dashboard" :isEditorShow="this.isEditorShow" @toggled="toggleEditor"></toggle-editor>
         </editor-dashboard>
         <section class="flex column">
-            <!-- <user-controls @saveWap="saveWap" /> -->
+            <!-- <user-controls/> -->
             <editor-workspace v-if="currWap" :cmps="currWap.cmps" @focusedCmp="setCmpToEdit" @updatedTxt="updateTxt" @copy="copySection" @moveSection="moveSection" @droppedSample="dropSample" @droppedSection="dropSection" @delete="deleteSection" />
         </section>
     </section>
@@ -17,6 +17,7 @@ import userControls from '@/cmps/editor/user-controls.cmp.vue';
 import toggleEditor from '@/cmps/custum-cmps/toggle-editor.cmp.vue';
 import { utilService } from '@/services/util.service';
 import { wapService } from '@/services/util.service';
+
 
 export default {
     name: 'editor',
@@ -47,6 +48,7 @@ export default {
     },
     methods: {
         setChangedVid(url) {
+            console.log('url:',url);
             if(!this.currCmpToEdit) return
             this.currCmpToEdit.vidUrl=url;
         },

@@ -34,43 +34,44 @@ async function getImgs(term) {
 }
 
 
+async function videoSearch(searchTerm) {
+    const apiKey = 'AIzaSyAL9hmi8XD2yjr3qrRzuBNP33qgdy5bvss';
+    const res = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${apiKey}&q=${searchTerm}`);
+    const videos = res.data.items.map(video => {
+        const { videoId } = video.id
+        const { url } = video.snippet.thumbnails.default
+        const { title } = video.snippet
+
+        return {
+            title: title.substring(0, 10),
+            videoId,
+            thumbnail: url
+        }
+    })
+    return videos
+}
 // async function videoSearch(searchTerm) {
-//     const apiKey = 'AIzaSyA_MERVsO7PK2D2LJpZNW9hZe0y8e103po'
-//     const res = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${apiKey}&q=${searchTerm}`);
-//     const videos = res.data.items.map(video => {
+//     const apiKey = 'AIzaSyA_MERVsO7PK2D2LJpZNW9hZe0y8e103po';
+//     const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${apiKey}&q=${searchTerm}`);
+//     const data = await res.json();
+//     const videos = data.items.map(video => {
+//         console.log('all video', video);
 //         const { videoId } = video.id
 //         const { url } = video.snippet.thumbnails.default
-//         const { title } = video.snippet
+//             // const { title } = video.snippet
+//         const title = `${video.snippet.title}`
+//         console.log(videoId);
+//         console.log('url:', url);
+//         console.log('title:', title);
 //         return {
 //             title,
 //             videoId,
-//             url,
+//             thumnail: url
 //         }
 //     })
+//     console.log(videos);
 //     return videos
 // }
-async function videoSearch(searchTerm) {
-    const apiKey = 'AIzaSyA_MERVsO7PK2D2LJpZNW9hZe0y8e103po';
-    const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&key=${apiKey}&q=${searchTerm}`);
-    const data = await res.json();
-    const videos = data.items.map(video => {
-        console.log('all video', video);
-        const { videoId } = video.id
-        const { url } = video.snippet.thumbnails.default
-            // const { title } = video.snippet
-        const title = `${video.snippet.title}`
-        console.log(videoId);
-        console.log('url:', url);
-        console.log('title:', title);
-        return {
-            title,
-            videoId,
-            url
-        }
-    })
-    console.log(videos);
-    return videos
-}
 
 
 

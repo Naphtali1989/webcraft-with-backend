@@ -3,14 +3,10 @@
         <!-- Saving a spot to the user that there is no component to edit -->
         <template v-if="cmpToEdit">
             <h1 class="editor-name text-center">
+                <span :class="vidIcon"></span>
                 {{ editorTitle }}
             </h1>
-            <component
-                :is="renderedEditor"
-                :cmpToEdit="cmpToEdit"
-                @uploading="emitUploadImg"
-                @vidChanged="emitChangedVid"
-            />
+            <component :is="renderedEditor" :cmpToEdit="cmpToEdit" @uploading="emitUploadImg" @vidChanged="emitChangedVid" />
         </template>
         <div v-else class="editor-message flex justify-center">
             <h1>Please click on an element to edit</h1>
@@ -36,34 +32,37 @@ export default {
     },
     computed: {
         renderedEditor() {
-            return this.currEditor + '-editor';
+            return this.currEditor+'-editor';
         },
         editorTitle() {
-            if (this.cmpToEdit) {
-                const { name } = this.cmpToEdit;
-                if (name === 'section' || name === 'div') return 'Section Editor';
-                if (name === 'txt' || name === 'i') return 'Text Editor';
-                if (name === 'link') return 'Link Editor';
-                if (name === 'img') return 'Image Editor';
-                if (name === 'iframe') return 'Video Editor';
-                return this.cmpToEdit.name + ' Editor';
+            if(this.cmpToEdit) {
+                const { name }=this.cmpToEdit;
+                if(name==='section'||name==='div') return 'Section Editor';
+                if(name==='txt'||name==='i') return 'Text Editor';
+                if(name==='link') return 'Link Editor';
+                if(name==='img') return 'Image Editor';
+                if(name==='iframe') return 'Video Editor';
+                return this.cmpToEdit.name+' Editor';
             }
+        },
+        vidIcon() {
+            if(this.cmpToEdit.name==='iframe') return 'fab fa-youtube'
         }
     },
     methods: {
         getEditorsName() {
-            if (this.cmpToEdit) {
-                const { name } = this.cmpToEdit;
-                if (name === 'section' || name === 'div' || name === 'img') this.currEditor = 'section';
-                else if (name === 'iframe' || name === 'google-map') this.currEditor = 'video';
-                else this.currEditor = 'text';
+            if(this.cmpToEdit) {
+                const { name }=this.cmpToEdit;
+                if(name==='section'||name==='div'||name==='img') this.currEditor='section';
+                else if(name==='iframe'||name==='google-map') this.currEditor='video';
+                else this.currEditor='text';
             }
         },
         emitUploadImg(ev) {
-            this.$emit('uploading', ev);
+            this.$emit('uploading',ev);
         },
         emitChangedVid(url) {
-            this.$emit('vidChanged', url);
+            this.$emit('vidChanged',url);
         }
     },
     updated() {
