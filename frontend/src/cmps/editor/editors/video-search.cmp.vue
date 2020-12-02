@@ -1,6 +1,6 @@
 <template>
     <section class="video-search-container">
-        <form @submit.prevent="searchVideos" class="flex column align-items">
+        <form @submit.prevent="searchVideos" class="video-form flex column align-items">
             <input type="text" v-model.trim="term" placeholder="Search videos...">
             <button class="video-btn">Search video!</button>
         </form>
