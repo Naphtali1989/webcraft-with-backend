@@ -4,7 +4,7 @@
             <h1>Build a website easily!</h1>
             <!-- <img class="hero-img" src="../assets/img/builderbcg.jpg" /> -->
             <img class="hero-img" src="../assets/img/temp-hero.jpg" />
-            <button class="home-btn hero-btn btn">Start Building</button>
+            <button class="home-btn hero-btn btn" @click="pushEditor">Start Building</button>
         </div>
 
         <div class="home-card flex">
@@ -16,7 +16,7 @@
                     your imagination. Webcraft empowers you to to build
                     professional, custom websites in a completely visual canvas.
                 </p>
-                <button class="home-btn btn">Start Building</button>
+                <button class="home-btn btn" @click="pushEditor">Lets Create</button>
             </div>
             <!-- <img class="card-img" src="../assets/showtoasi/img5.svg" /> -->
             <img class="card-img" src="https://imagizer.imageshack.com/img924/8105/aLPK9v.png" />
@@ -34,7 +34,7 @@
                     <span>Drop</span> and <span>Customise!</span> All the
                     templates below were built using the Webcraft platform. -->
                 </p>
-                <button class="home-btn btn">Start Building</button>
+                <button class="home-btn btn" @click="pushTemplate">Check Templates</button>
             </div>
             <img class="card-img" src="https://imagizer.imageshack.com/img922/6240/9IpCzn.png" />
             <!-- <img src="../assets/showtoasi/img5.svg" /> -->
@@ -49,7 +49,7 @@
                     <span>Drop</span> and <span>Customise!</span> All the
                     templates below were built using the Webcraft platform.
                 </p>
-                <button class="home-btn btn">Start Building</button>
+                <button class="home-btn btn" @click="pushEditor">Give It A Try</button>
             </div>
 
             <img class="card-img" src="https://imagizer.imageshack.com/img924/328/88wVuo.png" />
@@ -68,6 +68,14 @@ export default {
     components: {
         loader,
         // LottieAnimation
+    },
+    methods: {
+        pushEditor() {
+            this.$router.push('/editor')
+        },
+        pushTemplate() {
+            this.$router.push('/wap')
+        }
     }
 };
 </script>

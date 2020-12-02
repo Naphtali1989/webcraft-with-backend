@@ -9,6 +9,7 @@
 <script>
 import appHeader from '@/cmps/app-header.cmp.vue';
 import signUp from '@/cmps/sign-up.cmp.vue';
+import loader from '@/cmps/custum-cmps/loader.cmp.vue';
 
 export default {
     data() {
@@ -18,7 +19,8 @@ export default {
     },
     components: {
         appHeader,
-        signUp
+        signUp,
+        loader
     },
     computed: {
         isViewMode() {
@@ -26,6 +28,9 @@ export default {
         },
         toggleSignupModal() {
             this.showModal=!this.showModal;
+        },
+        isLoading() {
+            return this.$store.getters.isLoading;
         }
     }
 };
