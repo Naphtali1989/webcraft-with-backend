@@ -15,10 +15,7 @@
                     websites in a completely visual canvas.
                 </p>
             </div>
-            <img
-                class="card-img"
-                src="https://imagizer.imageshack.com/img924/8105/aLPK9v.png"
-            />
+            <img class="card-img" src="https://imagizer.imageshack.com/img924/8105/aLPK9v.png" />
         </div>
         <div class="home-card flex">
             <div class="card-content">
@@ -30,10 +27,7 @@
                     Platform.
                 </p>
             </div>
-            <img
-                class="card-img"
-                src="https://imagizer.imageshack.com/img922/6240/9IpCzn.png"
-            />
+            <img class="card-img" src="https://imagizer.imageshack.com/img922/6240/9IpCzn.png" />
         </div>
 
         <loader />

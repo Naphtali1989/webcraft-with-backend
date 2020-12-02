@@ -15,8 +15,8 @@ export default {
         return {
             markers: [
                 { position: { lat: 32.088028,lng: 34.803222 } },
+            ],
 
-            ]
         }
     },
     methods: {
