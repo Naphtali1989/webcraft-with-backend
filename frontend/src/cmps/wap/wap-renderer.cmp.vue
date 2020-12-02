@@ -18,6 +18,7 @@
                 v-for="child in cmp.children"
                 :key="child._id"
                 :cmp="child"
+                @input="setInputValue"
             >
             </wap-renderer>
         </template>
@@ -33,6 +34,9 @@ export default {
             type: Object,
             required: true
         }
+    },
+    data(){
+        inputValue:{}
     },
     computed: {
         name() {
@@ -60,10 +64,13 @@ export default {
             return false
         }
     },
-    methods:{
-        onClick(){
+    methods: {
+        onClick() {
             if (this.cmp.name !== 'link') return;
-            window.open(this.cmp.href) 
+            window.open(this.cmp.href)
+        },
+        setInputValue(what){
+            console.log('Lets see what we get?', what)
         }
     },
     components: {
