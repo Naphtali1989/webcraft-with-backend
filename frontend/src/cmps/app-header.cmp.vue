@@ -9,7 +9,7 @@
             <router-link to="/editor" exact>Editor</router-link>
             <!-- <router-link to="/playground">Playground</router-link> -->
             <a @click="showSignup" class="cursor" v-if="!loggedInUser">Login</a>
-            <avatar :username="loggedInUser.username" :imgUrl="loggedInUser.imgUrl" :size="45" :color="'#124a76'" @click.native="toggleModal" v-if="loggedInUser" />
+            <avatar :username="loggedInUser.username" :imgUrl="loggedInUser.imgUrl" :size="40" :color="'#124a76'" @click.native="toggleModal" v-if="loggedInUser" />
 
         </div>
         <avatar-modal v-if="showModal" :loggedInUser="loggedInUser" @closeModal="showModal = false" />

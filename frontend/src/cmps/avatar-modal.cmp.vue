@@ -24,16 +24,10 @@ export default {
         avatar
     },
     methods: {
-        async logout() {
-            try {
-                await this.$store.dispatch({ type: 'logout' })
-                this.$emit('closeModal')
-                this.$router.push('/');
-            } catch(error) {
-                console.log('err',error)
-            }
-
-
+        logout() {
+            this.$store.dispatch({ type: 'logout' })
+            this.$emit('closeModal')
+            this.$router.push('/').catch(() => { });
         }
 
     }
