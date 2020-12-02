@@ -39,7 +39,6 @@
             img {
                 margin-inline-start: 6.5rem;
             }
-            .home-btn {}
         }
         h2 {
             font-size: 36px;
@@ -61,6 +60,12 @@
             color: white;
             font-weight: bold;
         }
+    }
+}
+
+@media (max-width:800px) {
+    .home-card {
+        flex-direction: column;
     }
 }
 

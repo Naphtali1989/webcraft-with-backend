@@ -2,6 +2,7 @@
     <section class="content-wrapper main-layout">
         <div class="main-hero flex full">
             <h1>Build a website easily!</h1>
+            <!-- <img class="hero-img" src="../assets/img/builderbcg.jpg" /> -->
             <img class="hero-img" src="../assets/img/temp-hero.jpg" />
         </div>
 
@@ -16,6 +17,7 @@
                 </p>
                 <button class="home-btn btn">Start Building</button>
             </div>
+            <!-- <img class="card-img" src="../assets/showtoasi/img5.svg" /> -->
             <img class="card-img" src="https://imagizer.imageshack.com/img924/8105/aLPK9v.png" />
         </div>
         <div class="home-card flex">
