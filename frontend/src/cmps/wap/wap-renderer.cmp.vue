@@ -6,6 +6,7 @@
         target="_blank"
         :is="name"
         :src="urlSrc"
+        :info="getInfo"
         :allowfullscreen="video"
         :style="cmp.style"
         :class="cmp.class"
@@ -35,10 +36,18 @@ export default {
             required: true
         }
     },
-    data(){
-        inputValue:{}
+    data() {
+        return {
+            inputValue: {}
+
+        }
     },
     computed: {
+        getInfo() {
+            if (!this.cmp.info) return;
+            console.log('this cmp:', this.cmp);
+            return this.cmp.info
+        },
         name() {
             const { name } = this.cmp;
             if (name === 'txt') return 'span';
@@ -69,9 +78,9 @@ export default {
             if (this.cmp.name !== 'link') return;
             window.open(this.cmp.href)
         },
-        setInputValue(what){
+        setInputValue(what) {
             console.log('Lets see what we get?', what)
-        }
+        },
     },
     components: {
         googleMap,
