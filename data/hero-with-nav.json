@@ -1,0 +1,12 @@
+{
+    "name": "section",
+    "class": "main-card main-layout",
+    "title": "Business Card",
+    "thumbnail": "https://i.ibb.co/vqZzrcq/buisiness-card.png",
+    "type": "cards",
+    "style": {
+        "background": "white",
+        "borderRadius": 0
+    },
+    "children": [{}]
+}
