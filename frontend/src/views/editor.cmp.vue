@@ -1,12 +1,48 @@
 <template>
-    <section class="editor-container flex column" :class="isEditorShown">
-        <editor-dashboard v-if="currWap" :wapTree="wapTree" :samples="samples" :cmpToEdit="currCmpToEdit" @switchedTab="emptyCmpToEdit" @vidChanged="setChangedVid" @mapZoomChanged="emitChangedZoom" @saveWap="saveWap" @focusedCmp="setCmpToEdit" @copiedCmp="copyCmp" @deletedCmp="deleteCmp" @movedCmp="moveCmp" @openPublishModal="openPublishModal">
-            <toggle-editor slot="toggle-editor-btn" class="btn toggle-dashboard" :isEditorShow="this.isEditorShow" @toggled="toggleEditor"></toggle-editor>
+    <section
+        class="editor-container flex column"
+        :class="isEditorShown"
+    >
+        <editor-dashboard
+            v-if="currWap"
+            :wapTree="wapTree"
+            :samples="samples"
+            :cmpToEdit="currCmpToEdit"
+            @switchedTab="emptyCmpToEdit"
+            @vidChanged="setChangedVid"
+            @mapZoomChanged="emitChangedZoom"
+            @saveWap="saveWap"
+            @focusedCmp="setCmpToEdit"
+            @copiedCmp="copyCmp"
+            @deletedCmp="deleteCmp"
+            @movedCmp="moveCmp"
+            @openPublishModal="publishWebsite"
+        >
+            <toggle-editor
+                slot="toggle-editor-btn"
+                class="btn toggle-dashboard"
+                :isEditorShow="this.isEditorShow"
+                @toggled="toggleEditor"
+            ></toggle-editor>
         </editor-dashboard>
 
-        <editor-workspace v-if="!isLoading && currWap" :cmps="currWap.cmps" @focusedCmp="setCmpToEdit" @updatedTxt="updateTxt" @copy="copySection" @moveSection="moveSection" @droppedSample="dropSample" @droppedSection="dropSection" @delete="deleteSection" />
+        <editor-workspace
+            v-if="!isLoading && currWap"
+            :cmps="currWap.cmps"
+            @focusedCmp="setCmpToEdit"
+            @updatedTxt="updateTxt"
+            @copy="copySection"
+            @moveSection="moveSection"
+            @droppedSample="dropSample"
+            @droppedSection="dropSection"
+            @delete="deleteSection"
+        />
         <loader v-else />
-        <publish-modal v-if="showPublishModal" />
+        <publish-modal
+            v-if="showPublishModal"
+            @closePublishModal="togglePublishModal"
+            :currWebsiteLink="currWebsiteLink"
+        />
     </section>
 </template>
 
@@ -27,7 +63,8 @@ export default {
             currWap: null,
             currCmpToEdit: null,
             isEditorShow: true,
-            showPublishModal: false
+            showPublishModal: false,
+            currWebsiteLink: null
         };
     },
     computed: {
@@ -47,9 +84,16 @@ export default {
     },
 
     methods: {
-        openPublishModal() {
-            console.log('in editor momo');
+        togglePublishModal() {
             this.showPublishModal=!this.showPublishModal;
+        },
+        async publishWebsite() {
+            const wap=await this.saveWap();
+            console.log('wap is');
+            const link=`https://webcraft-ca.herokuapp.com/#/wap/${this.currWap._id}`
+            console.log('link: ',link);
+            this.currWebsiteLink=link;
+            this.togglePublishModal()
         },
         copyCmp(_id) {
             const parent=editorService.findParentNode(this.currWap,_id)
@@ -135,6 +179,7 @@ export default {
             this.currWap.cmps.splice(idx+diff,0,section[0]);
         },
         async saveWap() {
+            console.log('in save wap function');
             this.currWap=await this.$store.dispatch({
                 type: 'saveWap',
                 wap: this.currWap

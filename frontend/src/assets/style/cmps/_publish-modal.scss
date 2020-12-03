@@ -12,12 +12,44 @@
     left: 50%;
     top: 50%;
     transform: translateX(-50%, -50%);
+    z-index: 50000;
+    font-family: carme;
+    .modal-title {
+        font-size: 1.5rem;
+        color: #124a76;
+        margin-bottom: 1.5rem;
+    }
+    .copy-btn {
+        padding: 0.5rem 1rem;
+        font-size: 20px;
+    }
+    input {
+        padding: 0.5rem 1rem;
+        border: 1px solid #124a76;
+    }
     .close-pub-btn {
         position: absolute;
         right: 0;
         top: 0;
         border: 0;
         background: 0;
-        font-size: 1.5rem;
+        font-size: 1.7rem;
+        outline: 0;
+    }
+    .publish-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .screen {
+        width: 100%;
+        position: fixed;
+        z-index: 1200;
+        background-color: rgba(0, 0, 0, .46);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
     }
 }

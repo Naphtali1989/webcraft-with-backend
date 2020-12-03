@@ -1,11 +1,20 @@
 <template>
     <section>
         <section class="user-controls flex justify-center">
-            <button class="btn choice-btn save" @click="saveWap">Save</button>
-            <button class="btn choice-btn save" @click="saveSample">
+            <button
+                class="btn choice-btn save"
+                @click="saveWap"
+            >Save</button>
+            <button
+                class="btn choice-btn save"
+                @click="saveSample"
+            >
                 Save SAMPLE
             </button>
-            <button class="btn choice-btn" @click="openPublishModal">
+            <button
+                class="btn choice-btn"
+                @click="openPublishModal"
+            >
                 Publish
             </button>
         </section>
@@ -24,14 +33,13 @@ export default {
     },
     methods: {
         saveWap() {
-            this.$emit('saveWap')
+            this.$emit('saveWap');
         },
         openPublishModal() {
-            this.$emit('openPublishModal')
-            console.log('clicked publish modal')
+            this.$emit('openPublishModal');
         },
         saveSample() {
-            this.$emit('saveSample')
+            this.$emit('saveSample');
         }
     },
     components: {
