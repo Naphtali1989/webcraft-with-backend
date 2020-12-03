@@ -25,7 +25,7 @@ export default {
     data() {
         return {
             //TODO: Think of new types of cmps
-            types: ['header','cards','footer','gallery','map','video','form','text'],
+            types: ['header','cards','footer','gallery','map','video','form','divider', 'text'],
             selectedType: null
         }
     },

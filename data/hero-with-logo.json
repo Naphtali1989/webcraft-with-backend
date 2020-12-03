@@ -1,0 +1,43 @@
+{
+    "name": "section",
+    "class": "main-hero main-layout",
+    "title": "Hero With Logo",
+    "thumbnail": "https://imagizer.imageshack.com/img922/37/Gy8un8.png",
+    "type": "header",
+    "style": {
+        "background": "",
+        "height": "30vw",
+        "borderRadius": 0
+    },
+    "children": [{
+        "_id": "wy6ejyty56eu5678iuadf",
+        "name": "div",
+        "class": "sample-container flex-center full",
+        "style": {
+            "background": "rgba(0, 0, 0, 0.62)",
+            "width": "100%",
+            "borderRadius": 0
+        },
+        "children": [{
+            "_id": "w4yhwrtebsbw456eywtaerwq43",
+            "name": "div",
+            "class": "inner-div flex-center",
+            "style": {
+                "background": "#bbbbbbcc",
+                "width": "100%",
+                "borderRadius": 0
+            },
+            "children": [{
+                "_id": "rehyw456ywshtre3er4g45wy",
+                "name": "img",
+                "class": "sample-logo flex-center",
+                "imgUrl": "https://firesidechimneys.com/wp-content/uploads/2018/03/Vintage-Logo.png",
+                "style": {
+                    "background": "#bbbbbbcc",
+                    "width": "100%",
+                    "borderRadius": 0
+                }
+            }]
+        }]
+    }]
+}

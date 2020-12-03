@@ -49,7 +49,6 @@ export const wapStore = {
             const waps = await wapService.query(userId);
             const reviews = waps.map(wap => {
                 const { thumbnail, reviews, _id, title } = wap;
-
                 return {
                     wap: { thumbnail, _id, title },
                     reviews

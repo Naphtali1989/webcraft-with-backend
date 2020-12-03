@@ -36,7 +36,7 @@ export default {
         getZoom() {
             return this.info.zoom;
         },
-        isDraggable(){
+        isDraggable() {
             return this.info.isDraggable
         }
     },
