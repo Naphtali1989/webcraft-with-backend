@@ -75,7 +75,6 @@ export default {
         }
     },
     methods: {
-        
         onFocus(_id) {
             this.$emit('focused', _id)
         },
@@ -85,8 +84,8 @@ export default {
         onCopy(_id) {
             this.$emit('copied', _id)
         },
-        onMoveCmp(_id) {
-            this.$emit('moved', _id)
+        onMoveCmp(_id, diff) {
+            this.$emit('moved', _id, diff)
         },
         registerItem(item) {
             this.items.push(item)

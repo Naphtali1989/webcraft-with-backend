@@ -54,7 +54,6 @@ export const wapStore = {
                     reviews
                 }
             });
-            console.log('getting reviews:', reviews);
             return reviews
         }
     }

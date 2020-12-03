@@ -1,16 +1,38 @@
 <template>
     <section class="editor-dashboard">
         <section class="tab-container flex">
-            <button v-for="tab in tabs" :key="tab" class="btn flex column align-center tab-btn" :class="{ selected: currTab === tab }" @click="toggleTabs(tab)">
+            <button
+                v-for="tab in tabs"
+                :key="tab"
+                class="btn flex column align-center tab-btn"
+                :class="{ selected: currTab === tab }"
+                @click="toggleTabs(tab)"
+            >
                 {{ tab }}
             </button>
         </section>
         <slot name="toggle-editor-btn"></slot>
         <section class="dashboard-container">
-            <component class="editor-body" :is="currDashboard" :samples="samples" :cmpToEdit="cmpToEdit" :wapTree="wapTree" @focused="emitFocusCmp" @copied="emitCopyCmp" @deleted="emitDeleteCmp" @moved="emitMoveCmp" @vidChanged="emitChangedVid" @mapZoomChanged="emitChangedZoom">
+            <component
+                class="editor-body"
+                :is="currDashboard"
+                :samples="samples"
+                :cmpToEdit="cmpToEdit"
+                :wapTree="wapTree"
+                @focused="emitFocusCmp"
+                @copied="emitCopyCmp"
+                @deleted="emitDeleteCmp"
+                @moved="emitMoveCmp"
+                @vidChanged="emitChangedVid"
+                @mapZoomChanged="emitChangedZoom"
+            >
             </component>
         </section>
-        <user-controls @saveWap="emitSaveWap" @saveSample="emitSaveSample" @openPublishModal="emitOpenPublishModal" />
+        <user-controls
+            @saveWap="emitSaveWap"
+            @saveSample="emitSaveSample"
+            @openPublishModal="emitOpenPublishModal"
+        />
     </section>
 </template>
 
@@ -36,39 +58,36 @@ export default {
     data() {
         return {
             currTab: 'add',
-            tabs: ['tree','add','edit'],
+            tabs: ['tree', 'add', 'edit'],
         }
     },
     methods: {
         emitDeleteCmp(_id) {
-            console.log('Lets see',_id)
-            this.$emit('deletedCmp',_id)
+            this.$emit('deletedCmp', _id)
         },
         emitCopyCmp(_id) {
-            console.log('Lets see',_id)
-            this.$emit('copiedCmp',_id)
+            this.$emit('copiedCmp', _id)
         },
-        emitMoveCmp(_id) {
-            console.log('Lets see',_id)
-            this.$emit('movedCmp',_id)
+        emitMoveCmp(_id, diff) {
+            this.$emit('movedCmp', _id, diff)
         },
         toggleTabs(tab) {
-            this.currTab=tab;
-            if(this.currTab!=='edit') {
+            this.currTab = tab;
+            if (this.currTab !== 'edit') {
                 this.$emit('switchedTab');
             }
         },
         emitFocusCmp(_id) {
-            this.$emit('focusedCmp',_id)
+            this.$emit('focusedCmp', _id)
             setTimeout(() => {
                 this.toggleTabs('edit')
-            },500)
+            }, 500)
         },
         emitChangedVid(url) {
-            this.$emit('vidChanged',url);
+            this.$emit('vidChanged', url);
         },
         emitChangedZoom(zoomValue) {
-            this.$emit('mapZoomChanged',zoomValue);
+            this.$emit('mapZoomChanged', zoomValue);
         },
         emitSaveWap() {
             this.$emit('saveWap')
@@ -76,18 +95,21 @@ export default {
         emitOpenPublishModal() {
             this.$emit('openPublishModal')
             console.log('on editor dashboard');
+        },
+        emitSaveSample() {
+            this.$emit('saveSample')
         }
     },
     computed: {
         currDashboard() {
-            if(this.currTab==='tree') return 'data-tree';
-            if(this.currTab==='edit') return 'editors-container';
+            if (this.currTab === 'tree') return 'data-tree';
+            if (this.currTab === 'edit') return 'editors-container';
             return 'type-list';
         },
 
     },
     updated() {
-        if(this.cmpToEdit) this.currTab='edit';
+        if (this.cmpToEdit) this.currTab = 'edit';
     },
     components: {
         typeList,

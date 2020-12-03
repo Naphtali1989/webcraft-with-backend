@@ -1,10 +1,15 @@
 <template>
-    <!-- <publish-modal v-if="showPublishModal" /> -->
-
-    <section class="user-controls flex  justify-center">
-        <button class="btn choice-btn save" @click="saveWap">Save</button>
-        <button class="btn choice-btn save" @click="saveSample">Save SAMPLE</button>
-        <button class="btn choice-btn" @click="openPublishModal">Publish</button>
+    <section>
+        <section class="user-controls flex justify-center">
+            <button class="btn choice-btn save" @click="saveWap">Save</button>
+            <button class="btn choice-btn save" @click="saveSample">
+                Save SAMPLE
+            </button>
+            <button class="btn choice-btn" @click="openPublishModal">
+                Publish
+            </button>
+        </section>
+        <!-- <publish-modal v-if="showPublishModal" /> -->
     </section>
 </template>
 
@@ -21,12 +26,12 @@ export default {
         saveWap() {
             this.$emit('saveWap')
         },
-        saveSample() {
-            this.$emit('saveSample')
-        },
         openPublishModal() {
             this.$emit('openPublishModal')
             console.log('clicked publish modal')
+        },
+        saveSample() {
+            this.$emit('saveSample')
         }
     },
     components: {

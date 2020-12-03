@@ -5,7 +5,6 @@ function query(filterBy) {
     const searchQuery = filterBy ? `?userId=${filterBy}` : '';
     // console.log('query in wap service?:', searchQuery)
     const waps = httpService.get(`wap${searchQuery}`);
-    console.log('waps in query?', waps);
     return waps;
 }
 
@@ -31,7 +30,6 @@ function _add(wap) {
 }
 
 function _update(wap) {
-    console.log('getting to update');
     return httpService.put(`wap/${wap._id}`, wap);
 }
 
