@@ -1,6 +1,3 @@
-**wap-gallery:
-
-<!-- TODO: needs to look better -->
 
  **user-profile:
 
@@ -17,20 +14,6 @@
 **sample-list: 
 
 // TODO: make Awesome Samples - (more gallerys!!!)
-
-**editor-workspace:
-
-<!-- TODO: Make sure that drag and drop doesnt take img into the drag -->
-
-**editors :
-
-<!-- TODO: get text-shadow option -->
-
-**over-all:
-
-**Loader:
-// TODO: Add a loader
-
 
 
 ------------------------------------------------------------------------
