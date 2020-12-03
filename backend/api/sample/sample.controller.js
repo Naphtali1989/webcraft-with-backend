@@ -26,6 +26,7 @@ async function updateSample(req, res) {
         const sample = req.body;
         await sampleService.update(sample)
         res.json(sample);
+
     } catch (error) {
         console.log(error);
     }
