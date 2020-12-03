@@ -6,9 +6,23 @@
     "type": "header",
     "style": {
         "background": "url(https://preview.colorlib.com/theme/feliciano/images/bg_2.jpg) no-repeat center/ cover",
-        "borderRadius": 0
+        "borderRadius": 0,
+        "position": "relative"
     },
     "children": [{
+            "_id": "b1v6taad7n",
+            "name": "div",
+            "class": "flex",
+            "style": {
+                "background": "",
+                "width": "100%",
+                "height": "100%",
+                "borderRadius": 0,
+                "position": "absolute",
+                "zIndex": 1
+            }
+        },
+        {
             "_id": "b1v6taad7n",
             "type": "header",
             "thumbnail": "https://imagizer.imageshack.com/img924/5872/s3ba6B.png",
@@ -16,11 +30,13 @@
             "name": "div",
             "class": "flex align-center",
             "style": {
+                "position": "relative",
                 "padding": "15px 0px",
                 "background": "",
                 "width": "100%",
                 "borderRadius": 0,
-                "marginLeft": "30px"
+                "marginLeft": "30px",
+                "zIndex": 2
             },
             "children": [{
                 "_id": "5lpbtomymu",
