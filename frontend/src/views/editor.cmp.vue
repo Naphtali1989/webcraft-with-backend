@@ -206,7 +206,7 @@ export default {
             // console.log('getting to editor');
             this.sample=await this.$store.dispatch({
                 type: 'saveSample',
-                sample: this.currCmpToEdit
+                sample: this.currWap
             });
         },
     },
