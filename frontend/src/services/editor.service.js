@@ -6,6 +6,11 @@ function query() {
     return samples;
 }
 
+function save(sample) {
+    const saveSample = sample._id ? _update(sample) : _add(sample);
+    return saveSample;
+}
+
 function findByIdRecursive(nodes, _id) {
     //Find the id of an element even if it is a child of another element
     for (let i = 0; i < nodes.length; i++) {
@@ -64,6 +69,29 @@ function findParentNode(parent, _id) {
         }
     }
 }
+export const editorService = {
+    query,
+    save,
+    findByIdRecursive,
+    replaceIds,
+    makeTree,
+    findParentNode
+}
+
+
+
+function _add(sample) {
+    return httpService.post(`sample`, sample);
+}
+
+function _update(sample) {
+    console.log('getting to update');
+    return httpService.put(`sample/${wap._id}`, sample);
+}
+
+
+
+
 // function findParentNode(node, _id) {
 //     const children = node.cmps || node.children;
 //     for (let i = 0; i < children.length; i++) {
@@ -80,10 +108,3 @@ function findParentNode(parent, _id) {
 //         }
 //     }
 // }
-export const editorService = {
-    query,
-    findByIdRecursive,
-    replaceIds,
-    makeTree,
-    findParentNode
-}
