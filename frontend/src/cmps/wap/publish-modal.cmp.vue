@@ -1,12 +1,12 @@
 <template>
     <section class="publish-modal-container">
-        <h1>Your website link</h1>
+        <h1>Here is your website</h1>
+        <button class="close-pub-btn">x</button>
         <div class="publish-container-input">
             <input type="text">
             <button>
                 <i class="fas fa-clipboard"></i>
             </button>
-            <button class="close-btn">x</button>
         </div>
     </section>
 </template>

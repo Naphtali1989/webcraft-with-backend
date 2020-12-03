@@ -1,4 +1,8 @@
 .publish-modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 25rem;
     min-width: 20rem;
     height: 17rem;
@@ -6,8 +10,14 @@
     background-color: #f6f6f6;
     position: absolute;
     left: 50%;
-    top: calc(50vh - 3rem);
-    .input-container {
-        position: relative;
+    top: 50%;
+    transform: translateX(-50%, -50%);
+    .close-pub-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        border: 0;
+        background: 0;
+        font-size: 1.5rem;
     }
 }
