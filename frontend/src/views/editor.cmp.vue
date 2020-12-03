@@ -17,6 +17,7 @@
             @deletedCmp="deleteCmp"
             @movedCmp="moveCmp"
             @openPublishModal="publishWebsite"
+            @saveSample="saveSample"
         >
             <toggle-editor
                 slot="toggle-editor-btn"
@@ -199,7 +200,10 @@ export default {
             this.dropSection(dragResult);
         },
         async saveSample() {
-            if(!this.currCmpToEdit) return console.log('Idan And Matan, stop saving!')
+            console.log('getting to editor here');
+            // if(!this.currCmpToEdit) return console.log('Idan And Matan, stop saving!')
+            console.log('pass this check');
+            // console.log('getting to editor');
             this.sample=await this.$store.dispatch({
                 type: 'saveSample',
                 sample: this.currCmpToEdit

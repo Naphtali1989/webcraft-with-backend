@@ -40,6 +40,7 @@ export default {
             this.$emit('openPublishModal');
         },
         saveSample() {
+            console.log('go top here');
             this.$emit('saveSample');
         }
     },

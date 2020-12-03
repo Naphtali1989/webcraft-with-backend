@@ -97,6 +97,7 @@ export default {
             console.log('in editor dahsboard');
         },
         emitSaveSample() {
+            console.log('in editgor');
             this.$emit('saveSample')
         }
     },
