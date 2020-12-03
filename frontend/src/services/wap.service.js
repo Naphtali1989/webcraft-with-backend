@@ -20,6 +20,7 @@ function remove(wapId) {
 
 
 function save(wap) {
+    console.log('wap', wap);
     const saveWap = wap._id ? _update(wap) : _add(wap);
     return saveWap;
 }

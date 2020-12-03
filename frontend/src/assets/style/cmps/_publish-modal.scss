@@ -1,0 +1,13 @@
+.publish-modal-container {
+    width: 25rem;
+    min-width: 20rem;
+    height: 17rem;
+    border: 1px solid #0076df;
+    background-color: #f6f6f6;
+    position: absolute;
+    left: 50%;
+    top: calc(50vh - 3rem);
+    .input-container {
+        position: relative;
+    }
+}
