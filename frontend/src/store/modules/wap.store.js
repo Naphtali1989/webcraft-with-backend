@@ -46,9 +46,17 @@ export const wapStore = {
             return savedWap
         },
         async getOwnerWapReviews({ commit }, { userId }) {
-            const wap = await wapService.query(_id);
-            console.log('user saved wap is:', wap);
-            return wap.reviews
+            const waps = await wapService.query(userId);
+            const reviews = waps.map(wap => {
+                const { thumbnail, reviews, _id, title } = wap;
+
+                return {
+                    wap: { thumbnail, _id, title },
+                    reviews
+                }
+            });
+            console.log('getting reviews:', reviews);
+            return reviews
         }
     }
 }

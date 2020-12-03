@@ -1,12 +1,6 @@
 <template>
     <section v-if="wapToShow">
-        <wap-renderer
-            v-for="cmp in wapToShow.cmps"
-            :key="cmp._id"
-            :cmp="cmp"
-            @inputed="setInputValue"
-            @submit="sendReview"
-        />
+        <wap-renderer v-for="cmp in wapToShow.cmps" :key="cmp._id" :cmp="cmp" @inputed="setInputValue" @submit="sendReview" />
     </section>
 </template>
 
@@ -25,42 +19,43 @@ export default {
         }
     },
     methods: {
-        setInputValue(value, key) {
-            this.inputValue[key] = value;
+        setInputValue(value,key) {
+            this.inputValue[key]=value;
         },
         async sendReview() {
-            const review = { _id: utilService.makeId(), payload: this.inputValue }
-            if (!this.wapToShow.reviews || !this.wapToShow.reviews.length) {
-                this.wapToShow.reviews = [];
+            const byUser=this.$store.getters.loggedInUser||'guest'
+            const review={ _id: utilService.makeId(),payload: this.inputValue,byUser }
+            if(!this.wapToShow.reviews||!this.wapToShow.reviews.length) {
+                this.wapToShow.reviews=[];
             }
             this.wapToShow.reviews.push(review);
             await this.$store.dispatch({
                 type: 'saveWap',
                 wap: this.wapToShow
             })
-            this.inputValue = {};
-            const elInputs = document.querySelectorAll('input')
-            elInputs.forEach(elInput=>{
-                elInput.value = '';
+            this.inputValue={};
+            const elInputs=document.querySelectorAll('input')
+            elInputs.forEach(elInput => {
+                elInput.value='';
             })
-            const elTxt = document.querySelector('textArea')
-            if(elTxt)elTxt.value = '';
+            const elTxt=document.querySelector('textArea')
+            if(elTxt) elTxt.value='';
         }
     },
     async created() {
-        const _id = this.$route.params.id;
-        this.wapToShow = await wapService.getById(_id);
+        const _id=this.$route.params.id;
+        this.wapToShow=await wapService.getById(_id);
 
         this.$store.commit({
             type: 'toggleUserSiteOpen',
         });
-        document.title = this.wapToShow.title;
+        document.title=this.wapToShow.title;
     },
     destroyed() {
         this.$store.commit({
             type: 'toggleUserSiteOpen',
         });
-        document.title = 'Webcraft';
+        document.title='Webcraft';
     },
     components: {
         // wapWorker,

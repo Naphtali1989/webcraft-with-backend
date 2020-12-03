@@ -1,41 +1,21 @@
 <template>
-    <!-- <section class="user-profile flex align-center column">
-        <img src="../assets/img/under-construction.png" />
-        <h1>Under construction</h1>
-        <h1>Welcome back, {{loggedInUser.username}}</h1>
-        <div class="stats">
-            <img :src="imgUrl"  class="user-avatar"/>
-            <p>Waps: In Constuction</p>
-            <p>Email:{{loggedInUser.email}} </p>
+    <section class="user-details-container flex space-around">
+        <div class="user-area-container flex column">
+            <div class="user-circle">
+                <div class="user-img">
+                    <img :src="imgUrl" />
+                </div>
+            </div>
+            <div class="user-info flex column align-center">
+                <span class="name"><i class="fas fa-user-circle"></i> {{loggedInUser.username}}</span>
+                <span class="email"><i class="far fa-envelope"></i> {{loggedInUser.email}}</span>
+                <span class="created-at">Created at {{formatTime}}</span>
+            </div>
         </div>
-        <form class="form-control">
-            <input type="file" name="img-uploader" id="imgUploader" class="upload-input" @change="setAvatar" />
-        </form>
-
-        {{loggedInUser}}
-    </section> -->
-    <section class="user-details-container flex column align-center">
-        <img src="../assets/img/under-construction.png" />
-        <h1>Under construction</h1>
-        <div class="user-card" v-if="loggedInUser">
-            <div class="circle">
-                <img :src="imgUrl" class="user-logo" />
-            </div>
-            <div class="sepator"></div>
-            <div class="user-info">
-                <h2 class="username">{{ loggedInUser.username }}</h2>
-                <small>Email: {{loggedInUser.email}}</small>
-                <small>Created at {{ formatTime }}</small>
-            </div>
-            <div class="stats">
-                <h2>
-                    Waps: will be place here
-                </h2>
-                <form class="form-control">
-                    <p>Upload a img:</p>
-                    <input type="file" name="img-uploader" id="imgUploader" class="upload-input" @change="setAvatar" />
-                </form>
-            </div>
+        <div class="tab-container">
+            <button @click="toggleTab('messages')">Messages</button>
+            <button @click="toggleTab('waps')">Templates</button>
+            <component :is="currTab" :msgs="msgs" />
         </div>
     </section>
 </template>
@@ -43,15 +23,20 @@
 <script>
 import { userService } from '@/services/user.service';
 import { utilService } from '@/services/util.service';
+import userMsgs from '@/cmps/wap/user-msgs.cmp.vue';
+import userWaps from '@/cmps/wap/user-waps.cmp.vue';
 export default {
     name: 'user-profile',
     data() {
         return {
-            user: null,
-            reviews: []
+            msgs: [],
+            selectedTab: 'messages'
         }
     },
     methods: {
+        toggleTab(tab) {
+            this.selectedTab=tab;
+        },
         async setAvatar(ev) {
             const res=await utilService.uploadImg(ev);
             console.log('url',res);
@@ -61,6 +46,10 @@ export default {
         }
     },
     computed: {
+        currTab() {
+            if(this.selectedTab==='messages') return 'user-msgs'
+            return 'user-waps'
+        },
         loggedInUser() {
             return this.$store.getters.loggedInUser;
         },
@@ -73,22 +62,22 @@ export default {
             return new Date(createdAt).toLocaleString()
         },
     },
-    updated() {
-
-    },
-    created() {
+    async created() {
         const _id=this.$route.params.id;
         console.log('id of user in profile:',_id);
 
         if(_id) this.$store.dispatch({ type: 'loadLoggedInUser',_id })
-        const reviews=this.$store.dispatch({ type: 'getOwnerWapReviews',userId: _id })
-        this.reviews=reviews;
-
-
-
+        const msgs=await this.$store.dispatch({ type: 'getOwnerWapReviews',userId: _id })
+        console.log('reviews from store:');
+        this.msgs=msgs;
     },
+    components: {
+        userMsgs,
+        userWaps
+    }
 }
 </script>
 
 <style>
 </style>
+

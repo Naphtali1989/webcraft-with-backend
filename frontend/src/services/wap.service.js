@@ -3,8 +3,9 @@ import httpService from './http.service.js';
 
 function query(filterBy) {
     const searchQuery = filterBy ? `?userId=${filterBy}` : '';
-    console.log('query in wap service?:', searchQuery)
+    // console.log('query in wap service?:', searchQuery)
     const waps = httpService.get(`wap${searchQuery}`);
+    console.log('waps in query?', waps);
     return waps;
 }
 

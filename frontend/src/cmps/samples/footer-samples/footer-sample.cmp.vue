@@ -3,23 +3,13 @@
         <h4>Elena Joy</h4>
         <ul class="clean-list flex space-between align-center">
             <li>
-                <a href="#"
-                    ><img
-                        src="@/assets/svgs/youtube-symbol1.svg"
-                        alt="youtube-social-media"
-                /></a>
+                <a href="#"><img src="@/assets/svgs/youtube-symbol1.svg" alt="youtube-social-media" /></a>
             </li>
             <li>
-                <a href="#"
-                    ><img
-                        src="@/assets/svgs/twitter1.svg"
-                        alt="twitter-social-media"
-                /></a>
+                <a href="#"><img src="@/assets/svgs/twitter1.svg" alt="twitter-social-media" /></a>
             </li>
             <li>
-                <a href="#"
-                    ><img src="@/assets/svgs/instagram1.svg" alt="instagram"
-                /></a>
+                <a href="#"><img src="@/assets/svgs/instagram1.svg" alt="instagram" /></a>
             </li>
         </ul>
     </div>
@@ -117,3 +107,31 @@ export default {
     }
 }
 </style>
+
+
+<template>
+    <section class="user-details-container flex column align-center">
+        <!-- <img src="../assets/img/under-construction.png" />
+        <h1>Under construction</h1>
+        <div class="user-card" v-if="loggedInUser">
+            <div class="circle">
+                <img :src="imgUrl" class="user-logo" />
+            </div>
+            <div class="sepator"></div>
+            <div class="user-info">
+                <h2 class="username">{{ loggedInUser.username }}</h2>
+                <small>Email: {{loggedInUser.email}}</small>
+                <small>Created at {{ formatTime }}</small>
+            </div>
+            <div class="stats">
+                <h2>
+                    Waps: will be place here
+                </h2>
+                <form class="form-control">
+                    <p>Upload a img:</p>
+                    <input type="file" name="img-uploader" id="imgUploader" class="upload-input" @change="setAvatar" />
+                </form>
+            </div>
+        </div> -->
+    </section>
+</template>
