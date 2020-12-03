@@ -6,6 +6,7 @@
                 @click="saveWap"
             >Save</button>
             <button
+                v-if="loggedInUser && loggedInUser.isAdmin"
                 class="btn choice-btn save"
                 @click="saveSample"
             >
@@ -40,6 +41,11 @@ export default {
         },
         saveSample() {
             this.$emit('saveSample');
+        }
+    },
+    computed: {
+        loggedInUser() {
+            return this.$store.getters.loggedInUser
         }
     },
     components: {
