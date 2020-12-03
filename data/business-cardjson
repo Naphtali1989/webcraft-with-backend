@@ -1,0 +1,277 @@
+{
+    "name": "section",
+    "class": "main-card main-layout",
+    "title": "Business Card",
+    "thumbnail": "https://i.ibb.co/vqZzrcq/buisiness-card.png",
+    "type": "cards",
+    "style": {
+        "background": "white",
+        "borderRadius": 0
+    },
+    "children": [{
+        "_id": "w4yhwrtebsbw456eywtaerwq43",
+        "name": "div",
+        "class": "sample-container flex column",
+        "style": {
+            "background": "transparent",
+            "height": "100%",
+            "borderRadius": 0
+        },
+        "children": [{
+                "_id": "rehyw456ywshtre3er4g45wy",
+                "name": "div",
+                "class": "card-header flex-center column",
+                "style": {
+                    "background": "unset",
+                    "width": "100%",
+                    "borderRadius": 0,
+                    "textAlign": "center"
+                },
+                "children": [{
+                        "_id": "llkvmvodjdmasds",
+                        "name": "txt",
+                        "type": "inner-text",
+                        "class": "map-inner-text",
+                        "txt": "Welcome to jobsFactory",
+                        "style": {
+                            "fontWeight": "unset",
+                            "fontSize": "36px",
+                            "lineHeight": "1",
+                            "letterSpacing": "1px",
+                            "background": "unset",
+                            "color": "#151515",
+                            "fontFamily": "Roboto",
+                            "textDecoration": "inherit",
+                            "fontStyle": "inherit",
+                            "textAlign": "center"
+                        }
+                    },
+                    {
+                        "_id": "llkvmvodjdmasds",
+                        "name": "txt",
+                        "type": "inner-text",
+                        "class": "map-inner-text",
+                        "txt": "A place where leading employers are already looking for your talent and experience.",
+                        "style": {
+                            "fontWeight": "unset",
+                            "fontSize": "14px",
+                            "lineHeight": "1",
+                            "letterSpacing": "2px",
+                            "background": "unset",
+                            "color": "#9A9A9B",
+                            "fontFamily": "roboto",
+                            "textDecoration": "inherit",
+                            "fontStyle": "inherit",
+                            "textAlign": "center",
+                            "marginTop": "5px"
+                        }
+                    }
+                ]
+            },
+            {
+                "_id": "w4yhwrtebsbw456eywtaerwq43",
+                "name": "div",
+                "class": "card-content flex",
+                "style": {
+                    "background": "transparent",
+                    "borderRadius": 0
+                },
+                "children": [{
+                        "_id": "w4yhwrtebsbw456eywtaerwq43",
+                        "name": "img",
+                        "class": "inner-img",
+                        "imgUrl": "https://livedemo00.template-help.com/wt_prod-20039/images/home-2-540x413.jpg",
+                        "style": {
+                            "background": "transparent",
+                            "maxHeight": "100%",
+                            "maxWidth": "50%",
+                            "borderRadius": 0
+                        }
+                    },
+                    {
+                        "_id": "w4yhwrtebsbw456eywtaerwq43",
+                        "name": "div",
+                        "class": "inner-cards-container flex wrap",
+                        "style": {
+                            "background": "transparent",
+                            "borderRadius": 0
+                        },
+                        "children": [{
+                                "_id": "w4yhwrtebsbw456eywtaerwq43",
+                                "name": "div",
+                                "class": "inner-card flex-center column",
+                                "style": {
+                                    "background": "transparent",
+                                    "width": "50%",
+                                    "borderRadius": 0
+                                },
+                                "children": [{
+                                        "_id": "w4yhwrtebsbw456eywtaerwq43",
+                                        "name": "img",
+                                        "class": "inner-img",
+                                        "imgUrl": "https://livedemo00.template-help.com/wt_prod-20039/images/home-2-540x413.jpg",
+                                        "style": {
+                                            "background": "transparent",
+                                            "maxHeight": "30%",
+                                            "maxWidth": "30%",
+                                            "borderRadius": 0
+                                        }
+                                    },
+                                    {
+                                        "_id": "llkvmvodjdmasds",
+                                        "name": "txt",
+                                        "type": "inner-text",
+                                        "class": "inner-card-text",
+                                        "txt": "More than 3.8 million visitors every day",
+                                        "style": {
+                                            "fontWeight": "unset",
+                                            "fontSize": "18px",
+                                            "lineHeight": "1",
+                                            "letterSpacing": "2px",
+                                            "background": "unset",
+                                            "color": "#151515",
+                                            "fontFamily": "inherit",
+                                            "textDecoration": "inherit",
+                                            "fontStyle": "inherit",
+                                            "textAlign": "center",
+                                            "marginTop": "8px"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "_id": "w4yhwrtebsbw456eywtaerwq43",
+                                "name": "div",
+                                "class": "inner-card flex-center column",
+                                "style": {
+                                    "background": "transparent",
+                                    "width": "50%",
+                                    "borderRadius": 0
+                                },
+                                "children": [{
+                                        "_id": "w4yhwrtebsbw456eywtaerwq43",
+                                        "name": "img",
+                                        "class": "inner-img",
+                                        "imgUrl": "https://livedemo00.template-help.com/wt_prod-20039/images/home-2-540x413.jpg",
+                                        "style": {
+                                            "background": "transparent",
+                                            "maxHeight": "30%",
+                                            "maxWidth": "30%",
+                                            "borderRadius": 0
+                                        }
+                                    },
+                                    {
+                                        "_id": "llkvmvodjdmasds",
+                                        "name": "txt",
+                                        "type": "inner-text",
+                                        "class": "inner-card-text",
+                                        "txt": "Leading recruiting websites in the US and Europe",
+                                        "style": {
+                                            "fontWeight": "unset",
+                                            "fontSize": "18px",
+                                            "lineHeight": "1",
+                                            "letterSpacing": "2px",
+                                            "background": "unset",
+                                            "color": "#151515",
+                                            "fontFamily": "inherit",
+                                            "textDecoration": "inherit",
+                                            "fontStyle": "inherit",
+                                            "textAlign": "center",
+                                            "marginTop": "8px"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "_id": "w4yhwrtebsbw456eywtaerwq43",
+                                "name": "div",
+                                "class": "inner-card flex-center column",
+                                "style": {
+                                    "background": "transparent",
+                                    "width": "50%",
+                                    "borderRadius": 0
+                                },
+                                "children": [{
+                                        "_id": "w4yhwrtebsbw456eywtaerwq43",
+                                        "name": "img",
+                                        "class": "inner-img",
+                                        "imgUrl": "https://livedemo00.template-help.com/wt_prod-20039/images/home-2-540x413.jpg",
+                                        "style": {
+                                            "background": "transparent",
+                                            "maxHeight": "30%",
+                                            "maxWidth": "30%",
+                                            "borderRadius": 0
+                                        }
+                                    },
+                                    {
+                                        "_id": "llkvmvodjdmasds",
+                                        "name": "txt",
+                                        "type": "inner-text",
+                                        "class": "inner-card-text",
+                                        "txt": "24/7 Dedicated and free Suppurt",
+                                        "style": {
+                                            "fontWeight": "unset",
+                                            "fontSize": "18px",
+                                            "lineHeight": "1",
+                                            "letterSpacing": "2px",
+                                            "background": "unset",
+                                            "color": "#151515",
+                                            "fontFamily": "inherit",
+                                            "textDecoration": "inherit",
+                                            "fontStyle": "inherit",
+                                            "textAlign": "center",
+                                            "marginTop": "8px"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "_id": "w4yhwrtebsbw456eywtaerwq43",
+                                "name": "div",
+                                "class": "inner-card flex-center column",
+                                "style": {
+                                    "background": "transparent",
+                                    "width": "50%",
+                                    "borderRadius": 0
+                                },
+                                "children": [{
+                                        "_id": "w4yhwrtebsbw456eywtaerwq43",
+                                        "name": "img",
+                                        "class": "inner-img",
+                                        "imgUrl": "https://livedemo00.template-help.com/wt_prod-20039/images/home-2-540x413.jpg",
+                                        "style": {
+                                            "background": "transparent",
+                                            "maxHeight": "30%",
+                                            "maxWidth": "30%",
+                                            "borderRadius": 0
+                                        }
+                                    },
+                                    {
+                                        "_id": "llkvmvodjdmasds",
+                                        "name": "txt",
+                                        "type": "inner-text",
+                                        "class": "inner-card-text",
+                                        "txt": "Only relevant and verified vacancies",
+                                        "style": {
+                                            "fontWeight": "unset",
+                                            "fontSize": "18px",
+                                            "lineHeight": "1",
+                                            "letterSpacing": "2px",
+                                            "background": "unset",
+                                            "color": "#151515",
+                                            "fontFamily": "inherit",
+                                            "textDecoration": "inherit",
+                                            "fontStyle": "inherit",
+                                            "textAlign": "center",
+                                            "marginTop": "8px"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }]
+}

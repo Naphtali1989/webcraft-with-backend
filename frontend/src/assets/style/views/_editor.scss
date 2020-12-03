@@ -54,6 +54,7 @@
         cursor: grab;
     }
     .editor-workspace {
+        // overflow: auto;
         &::-webkit-scrollbar {
             width: 0.5rem;
         }
@@ -64,6 +65,7 @@
             background-color: #2e4ead95;
         }
         .smooth-dnd-container {
+            overflow: auto;
             position: relative;
             min-height: 770px;
             min-width: 100%;

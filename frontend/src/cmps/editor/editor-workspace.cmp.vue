@@ -1,6 +1,7 @@
 <template>
     <section :class="emptyWorkspace" class="editor-workspace flex column">
         <Container
+            auto-scroll-enabled
             class="dnd-container"
             group-name="editor"
             drag-class="card-ghost"
