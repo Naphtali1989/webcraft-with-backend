@@ -28,7 +28,11 @@
             >
             </component>
         </section>
-        <user-controls @saveWap="emitSaveWap" @saveSample="emitSaveSample"/>
+        <user-controls
+            @saveWap="emitSaveWap"
+            @saveSample="emitSaveSample"
+            @openPublishModal="emitOpenPublishModal"
+        />
     </section>
 </template>
 
@@ -88,7 +92,11 @@ export default {
         emitSaveWap() {
             this.$emit('saveWap')
         },
-        emitSaveSample(){
+        emitOpenPublishModal() {
+            this.$emit('openPublishModal')
+            console.log('on editor dashboard');
+        },
+        emitSaveSample() {
             this.$emit('saveSample')
         }
     },
