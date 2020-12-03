@@ -7,17 +7,29 @@
                 {{ editorTitle }}
             </h1>
 
-            <div class="branch-controls-btns">
-                <button class="btn branch-btn" @click.stop="onDelete">
+            <div class="editor-branch-controls-btns">
+                <button
+                    class="btn branch-btn"
+                    @click.stop="onDelete"
+                >
                     <i class="fas fa-trash"></i>
                 </button>
-                <button class="btn branch-btn" @click.stop="onCopy">
+                <button
+                    class="btn branch-btn"
+                    @click.stop="onCopy"
+                >
                     <i class="fas fa-copy"></i>
                 </button>
-                <button class="btn branch-btn" @click.stop="onMoveCmp(-1)">
+                <button
+                    class="btn branch-btn"
+                    @click.stop="onMoveCmp(-1)"
+                >
                     <i class="fas fa-angle-double-up"></i>
                 </button>
-                <button class="btn branch-btn" @click.stop="onMoveCmp(1)">
+                <button
+                    class="btn branch-btn"
+                    @click.stop="onMoveCmp(1)"
+                >
                     <i class="fas fa-angle-double-down"></i>
                 </button>
             </div>
@@ -31,7 +43,10 @@
                 @mapZoomChanged="emitChangedZoom"
             />
         </template>
-        <div v-else class="editor-message flex justify-center">
+        <div
+            v-else
+            class="editor-message flex justify-center"
+        >
             <h1>Please click on an element to edit</h1>
         </div>
     </section>
@@ -55,51 +70,51 @@ export default {
     },
     computed: {
         renderedEditor() {
-            return this.currEditor + '-editor';
+            return this.currEditor+'-editor';
         },
         editorTitle() {
-            if (this.cmpToEdit) {
-                const { name } = this.cmpToEdit;
-                if (name === 'section' || name === 'div') return 'Section Editor';
-                if (name === 'txt' || name === 'i') return 'Text Editor';
-                if (name === 'link') return 'Link Editor';
-                if (name === 'img') return 'Image Editor';
-                if (name === 'iframe') return 'Video Editor';
-                if (name === 'google-map') return 'Map Editor';
-                return this.cmpToEdit.name + ' Editor';
+            if(this.cmpToEdit) {
+                const { name }=this.cmpToEdit;
+                if(name==='section'||name==='div') return 'Section Editor';
+                if(name==='txt'||name==='i') return 'Text Editor';
+                if(name==='link') return 'Link Editor';
+                if(name==='img') return 'Image Editor';
+                if(name==='iframe') return 'Video Editor';
+                if(name==='google-map') return 'Map Editor';
+                return this.cmpToEdit.name+' Editor';
             }
         },
         editorIcon() {
-            if (this.cmpToEdit.name === 'iframe') return 'fab fa-youtube'
-            if (this.cmpToEdit.name === 'google-map') return 'fas fa-map-marked-alt'
+            if(this.cmpToEdit.name==='iframe') return 'fab fa-youtube'
+            if(this.cmpToEdit.name==='google-map') return 'fas fa-map-marked-alt'
         }
     },
     methods: {
         getEditorsName() {
-            if (this.cmpToEdit) {
-                const { name } = this.cmpToEdit;
-                if (name === 'section' || name === 'div' || name === 'img') this.currEditor = 'section';
-                else if (name === 'iframe' || name === 'google-map') this.currEditor = 'video';
-                else this.currEditor = 'text';
+            if(this.cmpToEdit) {
+                const { name }=this.cmpToEdit;
+                if(name==='section'||name==='div'||name==='img') this.currEditor='section';
+                else if(name==='iframe'||name==='google-map') this.currEditor='video';
+                else this.currEditor='text';
             }
         },
         emitUploadImg(ev) {
-            this.$emit('uploading', ev);
+            this.$emit('uploading',ev);
         },
         emitChangedVid(url) {
-            this.$emit('vidChanged', url);
+            this.$emit('vidChanged',url);
         },
         emitChangedZoom(zoomValue) {
-            this.$emit('mapZoomChanged', zoomValue);
+            this.$emit('mapZoomChanged',zoomValue);
         },
         onDelete() {
-            this.$emit('deleted', this.cmpToEdit._id)
+            this.$emit('deleted',this.cmpToEdit._id)
         },
         onCopy() {
-            this.$emit('copied', this.cmpToEdit._id)
+            this.$emit('copied',this.cmpToEdit._id)
         },
         onMoveCmp(diff) {
-            this.$emit('moved', this.cmpToEdit._id, diff)
+            this.$emit('moved',this.cmpToEdit._id,diff)
         },
     },
     updated() {
