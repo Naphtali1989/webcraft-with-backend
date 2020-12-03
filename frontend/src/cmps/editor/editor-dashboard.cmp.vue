@@ -20,6 +20,9 @@
                 :cmpToEdit="cmpToEdit"
                 :wapTree="wapTree"
                 @focused="emitFocusCmp"
+                @copied="emitCopyCmp"
+                @deleted="emitDeleteCmp"
+                @moved="emitMoveCmp"
                 @vidChanged="emitChangedVid"
                 @mapZoomChanged="emitChangedZoom"
             >
@@ -55,6 +58,18 @@ export default {
         }
     },
     methods: {
+        emitDeleteCmp(_id) {
+            console.log('Lets see', _id)
+            this.$emit('deletedCmp', _id)
+        },
+        emitCopyCmp(_id) {
+            console.log('Lets see', _id)
+            this.$emit('copiedCmp', _id)
+        },
+        emitMoveCmp(_id) {
+            console.log('Lets see', _id)
+            this.$emit('movedCmp', _id)
+        },
         toggleTabs(tab) {
             this.currTab = tab;
             if (this.currTab !== 'edit') {

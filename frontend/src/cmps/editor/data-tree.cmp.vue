@@ -6,6 +6,9 @@
             :key="cmp._id"
             :cmp="cmp"
             @focused="emitFocusCmp"
+            @deleted="emitDeleteCmp"
+            @copied="emitCopyCmp"
+            @moved="emitMoveCmp"
         >
         </tree-branch>
     </section>
@@ -32,6 +35,15 @@ export default {
     methods: {
         emitFocusCmp(_id) {
             this.$emit('focused', _id)
+        },
+        emitDeleteCmp(_id) {
+            this.$emit('deleted', _id)
+        },
+        emitCopyCmp(_id) {
+            this.$emit('copied', _id)
+        },
+        emitMoveCmp(_id) {
+            this.$emit('moved', _id)
         },
         registerItem(item) {
             this.items.push(item)

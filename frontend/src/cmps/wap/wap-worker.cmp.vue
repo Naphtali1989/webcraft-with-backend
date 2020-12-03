@@ -129,6 +129,7 @@ export default {
             this.$emit('copy', _id);
         },
         emitDelete(_id) {
+            console.log('id:', _id)
             this.$emit('delete', _id);
         },
         emitMoveSection(_id, diff) {
