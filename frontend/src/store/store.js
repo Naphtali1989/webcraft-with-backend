@@ -26,7 +26,6 @@ export default new vuex.Store({
             state.isUserSiteclosed = !state.isUserSiteclosed;
         },
         setIsLoading(state, { isLoading }) {
-            console.log('is Loading?:', isLoading);
             state.isLoading = isLoading
         }
     },

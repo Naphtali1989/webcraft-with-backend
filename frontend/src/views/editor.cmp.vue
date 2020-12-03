@@ -157,6 +157,7 @@ export default {
             this.currWap.cmps.splice(idx + diff, 0, section[0]);
         },
         async saveWap() {
+            console.log('saved wap?', this.currWap)
             this.currWap = await this.$store.dispatch({
                 type: 'saveWap',
                 wap: this.currWap

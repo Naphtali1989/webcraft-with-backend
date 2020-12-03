@@ -64,8 +64,8 @@ export default {
         emitCopyCmp(_id) {
             this.$emit('copiedCmp', _id)
         },
-        emitMoveCmp(_id) {
-            this.$emit('movedCmp', _id)
+        emitMoveCmp(_id, diff) {
+            this.$emit('movedCmp', _id, diff)
         },
         toggleTabs(tab) {
             this.currTab = tab;

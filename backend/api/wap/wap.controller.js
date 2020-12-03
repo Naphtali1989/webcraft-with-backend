@@ -35,7 +35,6 @@ async function addWap(req, res) {
         const wap = req.body
         console.log('session:', req.session);
         wap.userId = req.session.user._id
-            // wap.userId = req.session.user._id;
         await wapService.add(wap)
         res.json(wap)
 

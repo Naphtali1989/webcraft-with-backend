@@ -6,7 +6,24 @@
                 <span :class="editorIcon"></span>
                 {{ editorTitle }}
             </h1>
+
+            <div class="branch-controls-btns">
+                <button class="btn branch-btn" @click.stop="onDelete">
+                    <i class="fas fa-trash"></i>
+                </button>
+                <button class="btn branch-btn" @click.stop="onCopy">
+                    <i class="fas fa-copy"></i>
+                </button>
+                <button class="btn branch-btn" @click.stop="onMoveCmp(-1)">
+                    <i class="fas fa-angle-double-up"></i>
+                </button>
+                <button class="btn branch-btn" @click.stop="onMoveCmp(1)">
+                    <i class="fas fa-angle-double-down"></i>
+                </button>
+            </div>
+
             <component
+                v-if="currEditor"
                 :is="renderedEditor"
                 :cmpToEdit="cmpToEdit"
                 @uploading="emitUploadImg"
@@ -72,8 +89,17 @@ export default {
         emitChangedVid(url) {
             this.$emit('vidChanged', url);
         },
-        emitChangedZoom(zoomValue){
+        emitChangedZoom(zoomValue) {
             this.$emit('mapZoomChanged', zoomValue);
+        },
+        onDelete() {
+            this.$emit('deleted', this.cmpToEdit._id)
+        },
+        onCopy() {
+            this.$emit('copied', this.cmpToEdit._id)
+        },
+        onMoveCmp(diff) {
+            this.$emit('moved', this.cmpToEdit._id, diff)
         },
     },
     updated() {

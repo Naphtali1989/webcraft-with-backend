@@ -9,6 +9,7 @@
             @deleted="emitDeleteCmp"
             @copied="emitCopyCmp"
             @moved="emitMoveCmp"
+
         >
         </tree-branch>
     </section>
@@ -42,8 +43,8 @@ export default {
         emitCopyCmp(_id) {
             this.$emit('copied', _id)
         },
-        emitMoveCmp(_id) {
-            this.$emit('moved', _id)
+        emitMoveCmp(_id, diff) {
+            this.$emit('moved', _id, diff)
         },
         registerItem(item) {
             this.items.push(item)
