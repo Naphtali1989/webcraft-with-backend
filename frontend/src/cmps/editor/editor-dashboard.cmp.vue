@@ -10,11 +10,7 @@
             <component class="editor-body" :is="currDashboard" :samples="samples" :cmpToEdit="cmpToEdit" :wapTree="wapTree" @focused="emitFocusCmp" @copied="emitCopyCmp" @deleted="emitDeleteCmp" @moved="emitMoveCmp" @vidChanged="emitChangedVid" @mapZoomChanged="emitChangedZoom">
             </component>
         </section>
-<<<<<<< HEAD
-        <user-controls @saveWap="emitSaveWap" @openPublishModal="emitOpenPublishModal" />
-=======
-        <user-controls @saveWap="emitSaveWap" @saveSample="emitSaveSample"/>
->>>>>>> 9db8db14aa0388c515e385359d14f03605ac9999
+        <user-controls @saveWap="emitSaveWap" @saveSample="emitSaveSample" @openPublishModal="emitOpenPublishModal" />
     </section>
 </template>
 
@@ -45,7 +41,6 @@ export default {
     },
     methods: {
         emitDeleteCmp(_id) {
-<<<<<<< HEAD
             console.log('Lets see',_id)
             this.$emit('deletedCmp',_id)
         },
@@ -56,15 +51,6 @@ export default {
         emitMoveCmp(_id) {
             console.log('Lets see',_id)
             this.$emit('movedCmp',_id)
-=======
-            this.$emit('deletedCmp', _id)
-        },
-        emitCopyCmp(_id) {
-            this.$emit('copiedCmp', _id)
-        },
-        emitMoveCmp(_id) {
-            this.$emit('movedCmp', _id)
->>>>>>> 9db8db14aa0388c515e385359d14f03605ac9999
         },
         toggleTabs(tab) {
             this.currTab=tab;
@@ -73,12 +59,7 @@ export default {
             }
         },
         emitFocusCmp(_id) {
-<<<<<<< HEAD
             this.$emit('focusedCmp',_id)
-            console.log('before time out:',_id)
-=======
-            this.$emit('focusedCmp', _id)
->>>>>>> 9db8db14aa0388c515e385359d14f03605ac9999
             setTimeout(() => {
                 this.toggleTabs('edit')
             },500)
@@ -92,14 +73,9 @@ export default {
         emitSaveWap() {
             this.$emit('saveWap')
         },
-<<<<<<< HEAD
         emitOpenPublishModal() {
             this.$emit('openPublishModal')
             console.log('on editor dashboard');
-=======
-        emitSaveSample(){
-            this.$emit('saveSample')
->>>>>>> 9db8db14aa0388c515e385359d14f03605ac9999
         }
     },
     computed: {
