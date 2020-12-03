@@ -186,6 +186,9 @@
                         // }
                     }
                     li>* {
+                        &:hover {
+                            background-color: #fafafa;
+                        }
                         font-family: carme;
                         content: '\f107';
                         text-transform: capitalize;
