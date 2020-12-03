@@ -6,10 +6,13 @@
             :samples="samples"
             :cmpToEdit="currCmpToEdit"
             @switchedTab="emptyCmpToEdit"
-            @focusedCmp="setCmpToEdit"
             @vidChanged="setChangedVid"
             @mapZoomChanged="emitChangedZoom"
             @saveWap="saveWap"
+            @focusedCmp="setCmpToEdit"
+            @copiedCmp="copyCmp"
+            @deletedCmp="deleteCmp"
+            @movedCmp="moveCmp"
         >
             <toggle-editor
                 slot="toggle-editor-btn"
@@ -38,8 +41,9 @@
 import editorDashboard from '@/cmps/editor/editor-dashboard.cmp.vue';
 import editorWorkspace from '@/cmps/editor/editor-workspace.cmp.vue';
 import toggleEditor from '@/cmps/custum-cmps/toggle-editor.cmp.vue';
+import { editorService } from '@/services/editor.service';
 import { utilService } from '@/services/util.service';
-import { wapService } from '@/services/util.service';
+import { wapService } from '@/services/wap.service';
 import loader from '@/cmps/custum-cmps/loader.cmp.vue'
 export default {
     name: 'editor',
@@ -67,19 +71,50 @@ export default {
     },
 
     methods: {
+        copyCmp(_id){
+            const parent = editorService.findParentNode(this.currWap, _id)
+            this.copyCmpInsideParent(parent, _id)
+        },
+        deleteCmp(_id){
+            const parent = editorService.findParentNode(this.currWap, _id)
+            this.deleteCmpInsideParent(parent, _id)
+        },
+        moveCmp(_id, diff){
+            const parent = editorService.findParentNode(this.currWap, _id)
+            this.moveCmpInsideParent(parent, _id, diff)
+        },
+        deleteCmpInsideParent(parentEl, _id) {
+            const children = parentEl.cmps || parentEl.children;
+            const idx = children.findIndex(cmp => cmp._id === _id);
+            children.splice(idx, 1);
+        },
+        moveCmpInsideParent(parentEl ,_id, diff) {
+            // Find the element index and replace its position according to the difference
+            const children = parentEl.cmps || parentEl.children;
+            const idx = children.findIndex(cmp => cmp._id === _id);
+            if (idx === 0 && diff === -1) return;
+            const section = children.splice(idx, 1);
+            children.splice(idx + diff, 0, section[0]);
+        },
+        copyCmpInsideParent(parentEl,_id) {
+            const children = parentEl.cmps || parentEl.children;
+            const idx = children.findIndex(child => child._id === _id);
+            const el = children.find(child => child._id === _id);
+            const elCopy = JSON.parse(JSON.stringify(el));
+            editorService.replaceIds(elCopy);
+            children.splice(idx, 0, elCopy);
+        },
         setChangedVid(url) {
-            console.log('url:', url);
             if (!this.currCmpToEdit) return
             this.currCmpToEdit.vidUrl = url;
         },
-
         emitChangedZoom(zoomValue) {
             if (!this.currCmpToEdit) return
             this.currCmpToEdit.info.zoom = zoomValue;
         },
         getCurrWapTree() {
             const currTree = this.currWap.cmps.map(cmp => {
-                return this.makeTree(cmp);
+                return editorService.makeTree(cmp);
             });
             return currTree;
         },
@@ -87,7 +122,7 @@ export default {
             this.isEditorShow = !this.isEditorShow;
         },
         setCmpToEdit(_id) {
-            var cmpToEdit = this.findByIdRecursive(this.currWap.cmps, _id);
+            var cmpToEdit = editorService.findByIdRecursive(this.currWap.cmps, _id);
             this.currCmpToEdit = cmpToEdit;
         },
         emptyCmpToEdit() {
@@ -104,7 +139,7 @@ export default {
             const idx = this.currWap.cmps.findIndex(cmp => cmp._id === _id);
             const section = this.currWap.cmps.find(cmp => cmp._id === _id);
             const sectionCopy = JSON.parse(JSON.stringify(section));
-            this.replaceIds(sectionCopy);
+            editorService.replaceIds(sectionCopy);
             this.currWap.cmps.splice(idx, 0, sectionCopy);
         },
         dropSection(dragResult) {
@@ -119,45 +154,6 @@ export default {
             const section = this.currWap.cmps.splice(idx, 1);
             this.currWap.cmps.splice(idx + diff, 0, section[0]);
         },
-        findByIdRecursive(nodes, _id) {
-            //Find the id of an element even if it is a child of another element
-            for (let i = 0; i < nodes.length; i++) {
-                const child = nodes[i];
-                if (child._id === _id) {
-                    return child;
-                } else {
-                    if (child.children) {
-                        const foundElement = this.findByIdRecursive(child.children, _id);
-                        if (foundElement) {
-                            return foundElement;
-                        }
-                    }
-                }
-            }
-        },
-        replaceIds(node) {
-            //replace the ids of sample in order to differ from section to section
-            node._id = utilService.makeId();
-            if (node.children) {
-                node.children.forEach(child => {
-                    this.replaceIds(child);
-                });
-            }
-        },
-        makeTree(node) {
-            const parent = {
-                name: node.name,
-                _id: node._id,
-                class: node.class,
-                children: []
-            };
-            if (node.children) {
-                node.children.forEach(child => {
-                    parent.children.push(this.makeTree(child));
-                });
-            }
-            return parent;
-        },
         async saveWap() {
             this.currWap = await this.$store.dispatch({
                 type: 'saveWap',
@@ -171,7 +167,7 @@ export default {
                 _id: dragResult.payload._id,
             });
             let sampleCopy = JSON.parse(JSON.stringify(sampleToCopy));
-            this.replaceIds(sampleCopy);
+            editorService.replaceIds(sampleCopy);
             // Re-assign the payload with the copy of the cmp info
             dragResult.payload = sampleCopy;
             // Drop the section in the correct drop zone

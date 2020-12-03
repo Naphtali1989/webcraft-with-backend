@@ -1,19 +1,46 @@
 <template>
     <ul class="tree-branch">
         <li
-        :class="{ selected: isItemOpen }"
+            :class="{ selected: isItemOpen }"
             class="tree-branch-name"
             :id="'el-' + workerHoverClass"
             @focused="onFocus"
+            @deleted="onDelete"
+            @copied="onCopy"
+            @moved="onMoveCmp"
             @click.stop="toggleAccordionItem(!isItemOpen)"
         >
             <h3>
                 {{ cmp.name }}
             </h3>
-            <button
-                class="btn branch-btn"
-                @click.stop.prevent="onFocus(cmp._id)"
-            ></button>
+
+            <div class="branch-controls-btns">
+                <button
+                    class="btn branch-btn"
+                    @click.stop.prevent="onFocus(cmp._id)"
+                >
+                    <i class="fas fa-pen"></i>
+                </button>
+                <button class="btn branch-btn" @click.stop="onDelete(cmp._id)">
+                    <i class="fas fa-trash"></i>
+                </button>
+                <button class="btn branch-btn" @click.stop="onCopy(cmp._id)">
+                    <i class="fas fa-copy"></i>
+                </button>
+                <button
+                    class="btn branch-btn"
+                    @click.stop="onMoveCmp(cmp._id, -1)"
+                >
+                    <i class="fas fa-angle-double-up"></i>
+                </button>
+                <button
+                    class="btn branch-btn"
+                    @click.stop="onMoveCmp(cmp._id, 1)"
+                >
+                    <i class="fas fa-angle-double-down"></i>
+                </button>
+            </div>
+
             <template v-if="cmp.children && isItemOpen">
                 <transition-group name="open-branch" />
                 <tree-branch
@@ -22,6 +49,9 @@
                     :key="child._id"
                     :cmp="child"
                     @focused="onFocus"
+                    @deleted="onDelete"
+                    @copied="onCopy"
+                    @moved="onMoveCmp"
                 />
                 <transition-group />
             </template>
@@ -47,6 +77,15 @@ export default {
     methods: {
         onFocus(_id) {
             this.$emit('focused', _id)
+        },
+        onDelete(_id) {
+            this.$emit('deleted', _id)
+        },
+        onCopy(_id) {
+            this.$emit('copied', _id)
+        },
+        onMoveCmp(_id) {
+            this.$emit('moved', _id)
         },
         registerItem(item) {
             this.items.push(item)
@@ -101,28 +140,26 @@ export default {
     },
     mounted() {
         const el = document.querySelectorAll(`#el-${this.cmp._id}`)
-        console.log('el:', el);
         this.$el.addEventListener('mouseover', (ev) => {
             ev.stopPropagation();
             // Branch element:
-            el[0].style.outline = '1.5px dashed #124a76';
+            // el[0].style.outline = '1.5px dashed #124a76';
             // Workspace element:
             el[1].style.outline = '2.5px dashed #124a76';
             if (el[1].localName === 'div' || el[1].localName === 'section') el[1].style.border = '3px dashed #124a76';
 
             var timer = setTimeout(() => {
                 // Branch element:
-                el[0].style.outline = null;
+                // el[0].style.outline = null;
                 // Workspace element:
                 el[1].style.outline = null;
                 if (el[1].localName === 'div' || el[1].localName === 'section') el[1].style.border = null;
             }, 3000)
         })
         this.$el.addEventListener('mouseleave', (ev) => {
-            console.log(ev);
             ev.stopPropagation();
             // Branch element:
-            el[0].style.outline = null;
+            // el[0].style.outline = null;
             // Workspace element:
             el[1].style.outline = null;
             if (el[1].localName === 'div' || el[1].localName === 'section') el[1].style.border = null;

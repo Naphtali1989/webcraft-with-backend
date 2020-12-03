@@ -1,9 +1,9 @@
 <template>
     <div class="controls flex align-center">
-        <button class="btn" @click="onDelete"><i class="fas fa-trash"></i></button>
-        <button class="btn" @click="onCopy"><i class="fas fa-copy"></i></button>
-        <button class="btn" @click="onMoveSection(-1)"><i class="fas fa-angle-double-up"></i></button>
-        <button class="btn" @click="onMoveSection(1)"><i class="fas fa-angle-double-down"></i></button>
+        <button class="btn" @click.stop="onDelete"><i class="fas fa-trash"></i></button>
+        <button class="btn" @click.stop="onCopy"><i class="fas fa-copy"></i></button>
+        <button class="btn" @click.stop="onMoveSection(-1)"><i class="fas fa-angle-double-up"></i></button>
+        <button class="btn" @click.stop="onMoveSection(1)"><i class="fas fa-angle-double-down"></i></button>
     </div>
 
 </template>
