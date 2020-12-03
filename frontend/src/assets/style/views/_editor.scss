@@ -390,6 +390,15 @@
     align-items: center;
     justify-content: center;
     margin-block-start: 1rem;
+    button {
+        font-size: 1.2rem;
+        transition: 0.53s;
+        padding: 0.5rem;
+        &:hover {
+            background-color: #ccc;
+            border-radius: 12px;
+        }
+    }
 }
 
 .warning-txt {
