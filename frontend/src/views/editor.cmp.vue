@@ -13,6 +13,8 @@
             @copiedCmp="copyCmp"
             @deletedCmp="deleteCmp"
             @movedCmp="moveCmp"
+
+            @saveSample="saveSample"
         >
             <toggle-editor
                 slot="toggle-editor-btn"
@@ -172,6 +174,13 @@ export default {
             dragResult.payload = sampleCopy;
             // Drop the section in the correct drop zone
             this.dropSection(dragResult);
+        },
+        async saveSample() {
+            if(!this.currCmpToEdit) return console.log('Idan And Matan, stop saving!')
+            this.sample = await this.$store.dispatch({
+                type: 'saveSample',
+                sample: this.currCmpToEdit
+            });
         },
     },
     async created() {

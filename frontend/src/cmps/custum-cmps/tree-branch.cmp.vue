@@ -11,7 +11,7 @@
             @click.stop="toggleAccordionItem(!isItemOpen)"
         >
             <h3>
-                {{ cmp.name }}
+                {{ cmpTitle }}
             </h3>
 
             <div class="branch-controls-btns">
@@ -75,6 +75,7 @@ export default {
         }
     },
     methods: {
+        
         onFocus(_id) {
             this.$emit('focused', _id)
         },
@@ -121,6 +122,18 @@ export default {
         }
     },
     computed: {
+        cmpTitle() {
+            if (this.cmp) {
+                const { name } = this.cmp;
+                if (name === 'section' || name === 'div') return 'Section ';
+                if (name === 'txt' || name === 'i') return 'Text';
+                if (name === 'link') return 'Link';
+                if (name === 'img') return 'Image';
+                if (name === 'iframe') return 'Video';
+                if (name === 'google-map') return 'Map';
+                return this.cmp.name ;
+            }
+        },
         workerHoverClass() {
             return this.cmp._id
         }

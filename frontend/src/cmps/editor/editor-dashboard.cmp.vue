@@ -28,7 +28,7 @@
             >
             </component>
         </section>
-        <user-controls @saveWap="emitSaveWap" />
+        <user-controls @saveWap="emitSaveWap" @saveSample="emitSaveSample"/>
     </section>
 </template>
 
@@ -59,15 +59,12 @@ export default {
     },
     methods: {
         emitDeleteCmp(_id) {
-            console.log('Lets see', _id)
             this.$emit('deletedCmp', _id)
         },
         emitCopyCmp(_id) {
-            console.log('Lets see', _id)
             this.$emit('copiedCmp', _id)
         },
         emitMoveCmp(_id) {
-            console.log('Lets see', _id)
             this.$emit('movedCmp', _id)
         },
         toggleTabs(tab) {
@@ -78,7 +75,6 @@ export default {
         },
         emitFocusCmp(_id) {
             this.$emit('focusedCmp', _id)
-            console.log('before time out:', _id)
             setTimeout(() => {
                 this.toggleTabs('edit')
             }, 500)
@@ -90,8 +86,10 @@ export default {
             this.$emit('mapZoomChanged', zoomValue);
         },
         emitSaveWap() {
-            console.log('in editor');
             this.$emit('saveWap')
+        },
+        emitSaveSample(){
+            this.$emit('saveSample')
         }
     },
     computed: {

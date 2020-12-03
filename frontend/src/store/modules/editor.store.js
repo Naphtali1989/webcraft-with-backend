@@ -37,6 +37,9 @@ export const editorStore = {
                 samples
             })
         },
+        async saveSample({ commit }, sample) {
+            const savedSample = await editorService.save(sample)
+        },
         pickedSample({ commit, state }, { _id }) {
             const sample = state.samples.find(sample => sample._id === _id);
             commit({
