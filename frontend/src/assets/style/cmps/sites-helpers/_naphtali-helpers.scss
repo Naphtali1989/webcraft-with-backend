@@ -1,0 +1,35 @@
+    @media(max-width:770px) {
+        .site-header {
+            .site-nav {
+                .nav-links {
+                    display: none;
+                }
+            }
+            .site-header-moto {
+                height: 500%;
+                .site-header-moto-saying {
+                    font-size: 30px !important;
+                }
+            }
+            .site-header-menu {
+                flex-direction: column;
+                transform: translateY(110%);
+                span {
+                    color: black !important;
+                }
+            }
+        }
+    }
+    
+    @media(max-width:370px) {
+        .site-header {
+            display: flex;
+            flex-direction: column;
+            .site-header-moto {
+                transform: translateY(175%);
+            }
+            .site-nav {
+                padding: 1rem;
+            }
+        }
+    }
