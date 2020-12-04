@@ -31,6 +31,7 @@ export const userStore = {
             return user;
         },
         async logout(context, state) {
+            context.commit({ type: '' })
             await userService.logout();
             context.commit({ type: 'setUser', user: null })
         },

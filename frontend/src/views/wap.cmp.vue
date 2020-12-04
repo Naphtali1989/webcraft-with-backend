@@ -1,6 +1,12 @@
 <template>
     <section v-if="wapToShow">
-        <wap-renderer v-for="cmp in wapToShow.cmps" :key="cmp._id" :cmp="cmp" @inputed="setInputValue" @submit="sendReview" />
+        <wap-renderer
+            v-for="cmp in wapToShow.cmps"
+            :key="cmp._id"
+            :cmp="cmp"
+            @inputed="setInputValue"
+            @submit="sendReview"
+        />
     </section>
 </template>
 
@@ -9,6 +15,7 @@
 import wapRenderer from '@/cmps/wap/wap-renderer.cmp.vue';
 import { wapService } from '@/services/wap.service';
 import { utilService } from '@/services/util.service';
+import { eventBus } from '@/services/event-bus.service.js'
 
 export default {
     name: 'wap',
@@ -24,7 +31,10 @@ export default {
         },
         async sendReview() {
             const byUser=this.$store.getters.loggedInUser||'guest'
-            const review={ _id: utilService.makeId(),payload: this.inputValue,byUser }
+            this.inputValue.createdAt=Date.now();
+            this.inputValue.byUser=byUser;
+            const review={ _id: utilService.makeId(),content: this.inputValue }
+            console.log('sending review...',review);
             if(!this.wapToShow.reviews||!this.wapToShow.reviews.length) {
                 this.wapToShow.reviews=[];
             }
@@ -33,6 +43,7 @@ export default {
                 type: 'saveWap',
                 wap: this.wapToShow
             })
+            eventBus.$emit('show-msg',{ txt: `Your details has been saved`,type: 'success' })
             this.inputValue={};
             const elInputs=document.querySelectorAll('input')
             elInputs.forEach(elInput => {
