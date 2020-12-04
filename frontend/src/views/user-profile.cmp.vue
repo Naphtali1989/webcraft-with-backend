@@ -1,5 +1,5 @@
 <template>
-    <section class="user-details-container flex space-around">
+    <section class="user-details-container flex space-between">
         <div class="user-area-container flex column">
             <div class="user-circle">
                 <div
@@ -23,14 +23,15 @@
 
             </div>
         </div>
-        <div class="main-conatiner">
+        <div class="tab-conatiner">
             <button @click="toggleTab('messages')">Messages</button>
             <button @click="toggleTab('waps')">Templates</button>
-            <component
-                :is="currTab"
-                :msgs="msgs"
-            />
         </div>
+        <component
+            v-if="ownerWaps"
+            :is="currTab"
+            :waps="dataToTransfer"
+        />
 
     </section>
 </template>
@@ -38,13 +39,13 @@
 <script>
 import { userService } from '@/services/user.service';
 import { utilService } from '@/services/util.service';
-import userMsgs from '@/cmps/wap/user-msgs.cmp.vue';
+import backofficeMsg from '@/cmps/wap/backoffice-msg.cmp.vue';
 import userWaps from '@/cmps/wap/user-waps.cmp.vue';
 export default {
     name: 'user-profile',
     data() {
         return {
-            msgs: [],
+            ownerWaps: [],
             selectedTab: 'messages'
         }
     },
@@ -62,8 +63,18 @@ export default {
     },
     computed: {
         currTab() {
-            if(this.selectedTab==='messages') return 'user-msgs'
+            if(this.selectedTab==='messages') return 'backoffice-msg'
             return 'user-waps'
+        },
+        dataToTransfer() {
+            if(this.selectedTab==='messages') {
+                return this.ownerWaps.filter(ownerWap => {
+                    return ownerWap.reviews
+                })
+            } else {
+                return this.ownerWaps.map(ownerWap => ownerWap.wap)
+            }
+            // return this.wapReviews;
         },
         loggedInUser() {
             return this.$store.getters.loggedInUser;
@@ -82,13 +93,13 @@ export default {
         console.log('id of user in profile:',_id);
 
         if(_id) this.$store.dispatch({ type: 'loadLoggedInUser',_id })
-        const msgs=await this.$store.dispatch({ type: 'getOwnerWapReviews',userId: _id })
+        const ownerWaps=await this.$store.dispatch({ type: 'getOwnerWapReviews',userId: _id })
         console.log('reviews from store:');
-        this.msgs=msgs;
+        this.ownerWaps=ownerWaps;
     },
     components: {
-        userMsgs,
-        userWaps
+        userWaps,
+        backofficeMsg
     }
 }
 </script>

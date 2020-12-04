@@ -4,8 +4,7 @@ export const wapStore = {
     state: {
         waps: [
 
-        ],
-        currWapReviews: []
+        ]
 
     },
     getters: {
@@ -47,14 +46,15 @@ export const wapStore = {
         },
         async getOwnerWapReviews({ commit }, { userId }) {
             const waps = await wapService.query(userId);
-            const reviews = waps.map(wap => {
+            const msgs = waps.map(wap => {
+                // console.log('what we get from stoere?', wap);
                 const { thumbnail, reviews, _id, title } = wap;
                 return {
                     wap: { thumbnail, _id, title },
                     reviews: reviews ? reviews : ''
                 }
             });
-            return reviews
+            return msgs
         }
     }
 }
