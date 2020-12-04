@@ -5,14 +5,9 @@ async function login(req, res) {
     const { email, password } = req.body
     try {
         const user = await authService.login(email, password)
-            // user.isConncted = true
         req.session.user = user;
-        console.log('session:', req.session.user);
         res.json(user)
     } catch (err) {
-        console.log(err);
-        console.log('err msg:', err.message);
-        // res.status(401).send({ error: err })
         res.status(401).send({ msg: err.message })
     }
 }
@@ -20,9 +15,6 @@ async function login(req, res) {
 async function signup(req, res) {
     try {
         const { email, password, username } = req.body
-        console.log(email)
-        console.log(password)
-        console.log(username)
         const account = await authService.signup(email, password, username)
         logger.debug(`auth.route - new account created: ` + JSON.stringify(account))
         const user = await authService.login(email, password)

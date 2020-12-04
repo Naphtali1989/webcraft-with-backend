@@ -85,26 +85,5 @@ function _add(sample) {
 }
 
 function _update(sample) {
-    console.log('getting to update');
     return httpService.put(`sample/${wap._id}`, sample);
 }
-
-
-
-
-// function findParentNode(node, _id) {
-//     const children = node.cmps || node.children;
-//     for (let i = 0; i < children.length; i++) {
-//         const child = children[i];
-//         if (child._id === _id) {
-//             return node;
-//         } else {
-//             if (child.children) {
-//                 const foundElement = findParentNode(child, _id);
-//                 if (foundElement) {
-//                     return foundElement;
-//                 }
-//             }
-//         }
-//     }
-// }

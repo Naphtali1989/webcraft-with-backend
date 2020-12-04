@@ -45,7 +45,6 @@ export default {
     },
     methods: {
         closePublishModal() {
-            console.log('clicked');
             this.$emit('closePublishModal')
         },
         copyWebLink() {

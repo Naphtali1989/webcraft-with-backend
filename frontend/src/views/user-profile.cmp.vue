@@ -27,12 +27,28 @@
             <button @click="toggleTab('messages')">Messages</button>
             <button @click="toggleTab('waps')">Templates</button>
         </div>
+
+        <div class="user-info flex column align-center">
+            <span class="name"><i class="fas fa-user-circle"></i> {{ loggedInUser.username }}</span>
+            <span class="email"><i class="far fa-envelope"></i> {{ loggedInUser.email }}</span>
+            <span class="created-at">Created at {{ formatTime }}</span>
+            <label class="user-input input-file"><i class="fas fa-cloud-upload-alt"></i>
+                <input
+                    class="hide"
+                    type="file"
+                    @change="setAvatar"
+                />
+            </label>
+        </div>
+        <div class="tab-conatiner">
+            <button @click="toggleTab('messages')">Messages</button>
+            <button @click="toggleTab('waps')">Templates</button>
+        </div>
         <component
             v-if="ownerWaps"
             :is="currTab"
             :waps="dataToTransfer"
         />
-
     </section>
 </template>
 
@@ -55,8 +71,7 @@ export default {
         },
         async setAvatar(ev) {
             const res=await utilService.uploadImg(ev);
-            console.log('url:',res.url);
-            const user=this.loggedInUser
+            const user=JSON.parse(sessionStorage.getItem('user'))
             user.imgUrl=res.url;
             this.$store.dispatch({ type: 'updateUser',user })
         }
@@ -69,12 +84,11 @@ export default {
         dataToTransfer() {
             if(this.selectedTab==='messages') {
                 return this.ownerWaps.filter(ownerWap => {
-                    return ownerWap.reviews
-                })
+                    return ownerWap.reviews;
+                });
             } else {
-                return this.ownerWaps.map(ownerWap => ownerWap.wap)
+                return this.ownerWaps;
             }
-            // return this.wapReviews;
         },
         loggedInUser() {
             return this.$store.getters.loggedInUser;
@@ -90,12 +104,13 @@ export default {
     },
     async created() {
         const _id=this.$route.params.id;
-        console.log('id of user in profile:',_id);
-
         if(_id) this.$store.dispatch({ type: 'loadLoggedInUser',_id })
-        const ownerWaps=await this.$store.dispatch({ type: 'getOwnerWapReviews',userId: _id })
-        console.log('reviews from store:');
+        const ownerWaps=await this.$store.dispatch({
+            type: 'getOwnerWapReviews',
+            userId: _id
+        })
         this.ownerWaps=ownerWaps;
+
     },
     components: {
         userWaps,

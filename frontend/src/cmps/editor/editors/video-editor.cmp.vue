@@ -53,7 +53,6 @@ export default {
     },
     methods: {
         setMapZoom(zoomValue) {
-            console.log('zoomNum:',zoomValue);
             this.$emit('mapZoomChanged',zoomValue);
         },
         setVideo(id) {
@@ -85,7 +84,6 @@ export default {
         inputNumber
     },
     updated(vidUrl) {
-        console.log('maybe?',this.cmpToEdit.vidUrl);
 
     },
     created() {

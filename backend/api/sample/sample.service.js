@@ -6,14 +6,12 @@ async function query() {
         const samples = await collection.find({}).toArray();
         return samples;
     } catch (error) {
-        console.log('error:', error);
         throw error;
     }
 }
 
 async function update(sample) {
     const collection = await dbService.getCollection('sample')
-    console.log('sample update??', sample)
     sample._id = ObjectId(sample._id);
     try {
         sample.updatedAt = Date.now()
@@ -26,13 +24,11 @@ async function update(sample) {
 
 async function add(sample) {
     const collection = await dbService.getCollection('sample')
-    console.log('sample create??', sample)
     try {
         sample.createdAt = Date.now();
         await collection.insertOne(sample);
         return sample;
     } catch (err) {
-        console.log(`ERROR: cannot insert sample`)
         throw err;
     }
 }

@@ -7,7 +7,7 @@
             <button class="home-btn hero-btn btn" @click="pushEditor">Start Building</button>
         </div>
 
-        <div class="home-card flex">
+        <div class="home-card flex column">
             <div class="card-content flex column space-between">
                 <span class="home-tag">Imagination</span>
                 <h2 class="title">Build your own websites that you can be proud of!</h2>
@@ -21,7 +21,7 @@
             <!-- <img class="card-img" src="../assets/showtoasi/img5.svg" /> -->
             <img class="card-img" src="https://imagizer.imageshack.com/img924/8105/aLPK9v.png" />
         </div>
-        <div class="home-card flex">
+        <div class="home-card flex column">
             <div class="card-content flex column space-between">
                 <span class="home-tag">Accessibility</span>
                 <h2 class="title">Suited for all your needs</h2>
@@ -39,7 +39,7 @@
             <img class="card-img" src="https://imagizer.imageshack.com/img922/6240/9IpCzn.png" />
             <!-- <img src="../assets/showtoasi/img5.svg" /> -->
         </div>
-        <div class="home-card flex">
+        <div class="home-card flex column">
             <div class="card-content flex column space-between">
                 <span class="home-tag">Just Drag</span>
                 <h2 class="title">Just Drag &amp; Drop</h2>

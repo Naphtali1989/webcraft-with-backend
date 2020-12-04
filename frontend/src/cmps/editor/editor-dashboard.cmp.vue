@@ -94,10 +94,8 @@ export default {
         },
         emitOpenPublishModal() {
             this.$emit('openPublishModal')
-            console.log('in editor dahsboard');
         },
         emitSaveSample() {
-            console.log('in editgor');
             this.$emit('saveSample')
         }
     },

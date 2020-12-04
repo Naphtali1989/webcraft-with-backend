@@ -1,15 +1,31 @@
 .content-wrapper {
-    // background-color: #ccc;
     .main-hero {
         position: relative;
-        height: 75vh;
-        .hero-btn {
-            background-color: #5ac7f9;
-            position: absolute;
+        color: white;
+    }
+    .hero-btn {
+        background-color: #5ac7f9;
+        position: absolute;
+    }
+    h1 {
+        position: absolute;
+    }
+    .home-btn {
+        background-color: #5ac7f9;
+        padding: 0.75rem;
+        max-width: 50%;
+        color: white;
+        font-weight: bold;
+    }
+}
+
+@media (min-width:700px) {
+    .content-wrapper {
+        .main-hero {
+            height: 75vh;
             padding: 1rem;
             right: 66%;
             top: 28%;
-            color: white;
             font-size: 2.5rem;
             transition: .33s;
             &:hover {
@@ -22,13 +38,13 @@
                 }
             }
         }
+        .home-btn {
+            font-size: 1.2rem;
+        }
         h1 {
-            position: absolute;
             font-size: 6rem;
-            // max-width: ch;
             left: 10vw;
             top: 7vw;
-            color: white;
         }
         .hero-img {
             object-fit: cover;
@@ -71,20 +87,6 @@
         img {
             width: 50%;
         }
-        .home-btn {
-            background-color: #5ac7f9;
-            padding: 0.75rem;
-            font-size: 1.2rem;
-            max-width: 50%;
-            color: white;
-            font-weight: bold;
-        }
-    }
-}
-
-@media (max-width:800px) {
-    .home-card {
-        flex-direction: column;
     }
 }
 
