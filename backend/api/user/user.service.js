@@ -71,6 +71,7 @@ async function add(user) {
     try {
         user.createdAt = Date.now();
         user.isAdmin = false;
+        user.imgUrl = ''
         await collection.insertOne(user);
         return user;
     } catch (err) {

@@ -13,7 +13,13 @@
                 v-for="msg in wap"
                 :key="msg._id"
             >
-
+                <li
+                    v-for="(field,idx) in msg"
+                    :key="idx"
+                >
+                    {{field}}
+                    {{field.name}}
+                </li>
             </ul>
             <!-- {{msg.name}} -->
 

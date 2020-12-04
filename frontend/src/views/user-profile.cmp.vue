@@ -1,11 +1,11 @@
 <template>
-    <section class="user-details-container flex space-between">
+    <section
+        class="user-details-container flex space-between"
+        v-if="loggedInUser"
+    >
         <div class="user-area-container flex column">
             <div class="user-circle">
-                <div
-                    class="user-img"
-                    v-if="loggedInUser.imgUrl"
-                >
+                <div class="user-img">
                     <img :src="imgUrl" />
                 </div>
             </div>
@@ -55,10 +55,10 @@ export default {
         },
         async setAvatar(ev) {
             const res=await utilService.uploadImg(ev);
-            console.log('url',res);
-            this.loggedInUser.imgUrl=res.url
-            // console.log('user:',user);
-            this.$store.dispatch({ type: 'updateUser',user: this.loggedInUser })
+            console.log('url:',res.url);
+            const user=this.loggedInUser
+            user.imgUrl=res.url;
+            this.$store.dispatch({ type: 'updateUser',user })
         }
     },
     computed: {
