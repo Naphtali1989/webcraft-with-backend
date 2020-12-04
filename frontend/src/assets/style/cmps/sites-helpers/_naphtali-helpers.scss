@@ -25,8 +25,10 @@
         .site-header {
             display: flex;
             flex-direction: column;
+            margin: 0 0 59rem;
             .site-header-moto {
-                transform: translateY(175%);
+                transform: translateY(105%);
+                padding: 0 1rem;
             }
             .site-nav {
                 padding: 1rem;
