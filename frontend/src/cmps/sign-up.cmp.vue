@@ -127,6 +127,7 @@ export default {
             if(user) this.closeModal()
             eventBus.$emit('show-msg',{ txt: `Welcome back, ${user.username}.`,type: 'success' })
             this.user={ email: '',password: '' }
+            this.$router.push('/editor');
         },
         toggleFieldType() {
             this.passwordType=this.passwordType==='password'? 'text':'password'
