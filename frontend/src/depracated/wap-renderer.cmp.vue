@@ -55,7 +55,6 @@ export default {
     },
     methods: {
         onInput(ev) {
-            console.log('let us see!', ev.target.value.trim())
         },
         onClick(ev) {
             if (this.$el.localName !== 'button' && this.$el.localName !== 'a') return

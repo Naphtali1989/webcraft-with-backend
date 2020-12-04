@@ -18,7 +18,6 @@ export const wapStore = {
                 };
             });
         },
-
     },
     mutations: {
         setWaps(state, { waps }) {
@@ -46,15 +45,17 @@ export const wapStore = {
         },
         async getOwnerWapReviews({ commit }, { userId }) {
             const waps = await wapService.query(userId);
-            const msgs = waps.map(wap => {
-                // console.log('what we get from stoere?', wap);
-                const { thumbnail, reviews, _id, title } = wap;
+            const curUserWaps = waps.map(wap => {
+                const { thumbnail, _id, title } = wap;
+                const reviews = wap.reviews ? wap.reviews : '';
                 return {
-                    wap: { thumbnail, _id, title },
-                    reviews: reviews ? reviews : ''
+                    thumbnail,
+                    _id,
+                    title,
+                    reviews
                 }
             });
-            return msgs
+            return curUserWaps
         }
     }
 }

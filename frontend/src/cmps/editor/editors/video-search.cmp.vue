@@ -29,7 +29,6 @@ export default {
     methods: {
         async searchVideos() {
             const videos=await utilService.videoSearch(this.term);
-            console.log('videos from api:',videos);
             this.videos=videos;
             this.term='';
         },

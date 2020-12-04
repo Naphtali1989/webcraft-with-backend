@@ -92,9 +92,7 @@ export default {
         },
         async publishWebsite() {
             const wap=await this.saveWap();
-            console.log('wap is');
             const link=`https://webcraft-ca.herokuapp.com/#/wap/${this.currWap._id}`
-            console.log('link: ',link);
             this.currWebsiteLink=link;
             this.togglePublishModal()
         },
@@ -182,7 +180,6 @@ export default {
             this.currWap.cmps.splice(idx+diff,0,section[0]);
         },
         async saveWap() {
-            console.log('in save wap function');
             this.currWap=await this.$store.dispatch({
                 type: 'saveWap',
                 wap: this.currWap
@@ -203,10 +200,7 @@ export default {
             this.dropSection(dragResult);
         },
         async saveSample() {
-            console.log('getting to editor here');
-            // if(!this.currCmpToEdit) return console.log('Idan And Matan, stop saving!')
-            console.log('pass this check');
-            // console.log('getting to editor');
+            if(!this.currCmpToEdit) return console.log('Idan And Matan, stop saving!')
             this.sample=await this.$store.dispatch({
                 type: 'saveSample',
                 sample: this.currWap

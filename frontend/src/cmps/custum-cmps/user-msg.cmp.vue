@@ -51,7 +51,6 @@ export default {
     },
     created() {
         eventBus.$on('show-msg',msg => {
-            console.log('msg:',msg);
             if(this.timer) this.closeMsg()
             this.msg=msg;
             this.timer=setTimeout(() => {

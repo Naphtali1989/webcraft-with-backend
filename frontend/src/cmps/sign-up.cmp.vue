@@ -131,7 +131,6 @@ export default {
                 this.$router.push('/editor');
                 this.user={ email: '',password: '' }
             } catch(error) {
-                console.log('in signup',error);
                 this.currMsg=error
                 eventBus.$emit('show-msg',{ txt: `Invalid Credentials, Try Again`,type: 'error' })
             }

@@ -51,7 +51,6 @@ export default {
       this.$emit('openSignupModal')
     },
     toggleMenu() {
-      console.log('Am i here?')
       document.body.classList.toggle('open-menu');
     }
   },

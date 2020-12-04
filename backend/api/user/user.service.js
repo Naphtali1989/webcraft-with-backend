@@ -19,7 +19,6 @@ async function query(filterBy = {}) {
         users.forEach(user => delete user.password);
         return users
     } catch (err) {
-        console.log('ERROR: cannot find users')
         throw err;
     }
 }
@@ -32,7 +31,6 @@ async function getById(userId) {
 
         return user
     } catch (err) {
-        console.log(`ERROR: while finding user ${userId}`)
         throw err;
     }
 }
@@ -45,7 +43,6 @@ async function update(user) {
         await collection.updateOne({ _id: user._id }, { $set: user })
         return user
     } catch (err) {
-        console.log(`ERROR: cannot update user ${user._id}`)
         throw err;
     }
 }
@@ -58,10 +55,8 @@ async function getByEmail(email) {
     try {
         //find a user with the spefific email
         const user = await collection.findOne({ email })
-        console.log('found email in db!');
         return user
     } catch (err) {
-        console.log(`ERROR: while finding user ${email}`)
         throw err;
     }
 }
@@ -74,7 +69,6 @@ async function add(user) {
         await collection.insertOne(user);
         return user;
     } catch (err) {
-        console.log(`ERROR: cannot insert user`)
         throw err;
     }
 }

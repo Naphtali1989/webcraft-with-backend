@@ -3,30 +3,23 @@ const dbService = require('../../services/db.service');
 const ObjectId = require('mongodb').ObjectId
 const userService = require('../user/user.service');
 
-//get all toys
 async function query(filterBy) {
     const collection = await dbService.getCollection('wap')
-        // const critieria = filterBy ? { userId: filterBy } : {};
-        // console.log(object);
     try {
         const waps = await collection.find(filterBy).toArray();
         return waps;
     } catch (error) {
-        console.log('error:', error);
         throw error;
     }
 }
 
-//Get toy by id
 async function getById(wapId) {
     //connect to db
     const collection = await dbService.getCollection('wap')
     try {
-        //find a toy with specific id, we turn the toyId string into an ObjectId for searching in the db
         const wap = await collection.findOne({ '_id': ObjectId(wapId) })
         return wap;
     } catch (error) {
-        console.log('error', error);
         throw err;
     }
 }
@@ -34,16 +27,12 @@ async function getById(wapId) {
 
 
 async function add(wap) {
-    // console.log('*********wap in service backend***********', wap);
     const collection = await dbService.getCollection('wap')
-    console.log('collection?:', collection);
     try {
         wap.createdAt = Date.now();
         await collection.insertOne(wap);
-        console.log('after adding.........');
         return wap;
     } catch (err) {
-        console.log(`ERROR: cannot insert wap`)
         throw err;
     }
 }
@@ -54,7 +43,6 @@ async function remove(wapId) {
         //delete the user with this specific id
         await collection.deleteOne({ '_id': ObjectId(wapId) })
     } catch (err) {
-        console.log(`ERROR: cannot remove wap ${wapId}`)
         throw err;
     }
 }
