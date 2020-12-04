@@ -1,11 +1,19 @@
 <template>
     <section class="user-msg-container">
-        <div v-for="(msg,idx) in msgs" :key="idx">
+        <div
+            v-for="(msg,idx) in msgs.reviews"
+            :key="idx"
+        >
 
             <!-- <h2>Name: {{msg.payload.name}}</h2>
             <h2>Name: {{msg.payload.email}}</h2>
             <h2>Subject : {{msg.payload.subject}}</h2> -->
             <!-- <h2>Message: {{msg.payload.message}}</h2> -->
+            <!-- {{msg.reviews.map(review => review => {
+                for(item of review) {
+                    {{item}}
+                }
+            })}} -->
             {{msg}}
         </div>
     </section>

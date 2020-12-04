@@ -57,6 +57,8 @@ import { wapService } from '@/services/wap.service';
 import loader from '@/cmps/custum-cmps/loader.cmp.vue';
 import publishModal from '@/cmps/wap/publish-modal.cmp.vue';
 import PublishModalCmp from '../cmps/wap/publish-modal.cmp.vue';
+import { eventBus } from '@/services/event-bus.service.js'
+
 export default {
     name: 'editor',
     data() {
@@ -185,6 +187,7 @@ export default {
                 type: 'saveWap',
                 wap: this.currWap
             });
+            eventBus.$emit('show-msg',{ txt: `Your website has been saved succesfully!`,type: 'success' })
         },
         async dropSample(dragResult) {
             // Getting the sample from the store to copy

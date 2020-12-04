@@ -2,7 +2,10 @@
     <section class="user-details-container flex space-around">
         <div class="user-area-container flex column">
             <div class="user-circle">
-                <div class="user-img">
+                <div
+                    class="user-img"
+                    v-if="loggedInUser.imgUrl"
+                >
                     <img :src="imgUrl" />
                 </div>
             </div>
@@ -10,13 +13,25 @@
                 <span class="name"><i class="fas fa-user-circle"></i> {{loggedInUser.username}}</span>
                 <span class="email"><i class="far fa-envelope"></i> {{loggedInUser.email}}</span>
                 <span class="created-at">Created at {{formatTime}}</span>
+                <label class="user-input input-file"><i class="fas fa-cloud-upload-alt"></i>
+                    <input
+                        class="hide"
+                        type="file"
+                        @change="setAvatar"
+                    />
+                </label>
+
             </div>
         </div>
-        <div class="tab-container">
+        <div class="main-conatiner">
             <button @click="toggleTab('messages')">Messages</button>
             <button @click="toggleTab('waps')">Templates</button>
-            <component :is="currTab" :msgs="msgs" />
+            <component
+                :is="currTab"
+                :msgs="msgs"
+            />
         </div>
+
     </section>
 </template>
 

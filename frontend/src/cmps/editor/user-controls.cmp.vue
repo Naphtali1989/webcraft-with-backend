@@ -37,6 +37,10 @@ export default {
             this.$emit('saveWap');
         },
         openPublishModal() {
+            if(!this.loggedInUser) {
+                alert('Please Register To Publish');
+                return;
+            }
             this.$emit('openPublishModal');
         },
         saveSample() {

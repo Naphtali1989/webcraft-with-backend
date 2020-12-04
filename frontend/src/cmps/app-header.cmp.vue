@@ -1,18 +1,45 @@
 <template>
     <section class="app-header flex space-between">
-        <div class="logo place-center flex" @click="pushHome">
+        <div
+            class="logo place-center flex"
+            @click="pushHome"
+        >
             <i class="fas fa-hammer fa-2x"></i>Web<span class="logo-span">craft</span>
         </div>
         <div class="nav-links flex align-center">
-            <router-link to="/" exact>Home</router-link>
-            <router-link to="/wap" exact>Templates</router-link>
-            <router-link to="/editor" exact>Editor</router-link>
+            <router-link
+                to="/"
+                exact
+            >Home</router-link>
+            <router-link
+                to="/wap"
+                exact
+            >Templates</router-link>
+            <router-link
+                to="/editor"
+                exact
+            >Editor</router-link>
             <!-- <router-link to="/playground">Playground</router-link> -->
-            <a @click="showSignup" class="cursor" v-if="!loggedInUser">Login</a>
-            <avatar :username="loggedInUser.username" :imgUrl="loggedInUser.imgUrl" :size="40" :color="'#124a76'" @click.native="toggleModal" v-if="loggedInUser" />
+            <a
+                @click="showSignup"
+                class="cursor"
+                v-if="!loggedInUser"
+            >Login</a>
+            <avatar
+                :username="loggedInUser.username"
+                :imgUrl="loggedInUser.imgUrl"
+                :size="40"
+                @click.native="toggleModal"
+                :color="'#124a76'"
+                v-if="loggedInUser"
+            />
 
         </div>
-        <avatar-modal v-if="showModal" :loggedInUser="loggedInUser" @closeModal="showModal = false" />
+        <avatar-modal
+            v-if="showModal"
+            :loggedInUser="loggedInUser"
+            @closeModal="showModal = false"
+        />
     </section>
 </template>
 

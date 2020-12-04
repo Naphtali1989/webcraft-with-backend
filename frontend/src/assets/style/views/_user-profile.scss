@@ -1,73 +1,17 @@
-// .user-card {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     background-color: #fafafa;
-//     width: fit-content;
-//     height: 300px;
-//     margin: 100px auto;
-//     border-radius: 10px;
-//     padding: rem(10px);
-//     font-family: Georgia, 'Times New Roman', Times, serif;
-//     .username {
-//         text-transform: capitalize;
-//         margin: 0;
-//     }
-//     .sepator {
-//         border: 1px solid black;
-//     }
-//     // display: inline-block;
-//     .user-logo {
-//         width: 170px;
-//         height: 170px;
-//         border-radius: 50%;
-//         object-fit: cover;
-//     }
-//     .user-info {
-//         display: flex;
-//         flex-direction: column;
-//         margin-inline-start: rem(30px);
-//         margin-inline-end: rem(30px);
-//         padding: 10px;
-//         button {
-//             outline: 0;
-//             border: 0;
-//             background-color: deepskyblue;
-//             color: white;
-//             padding: 0.5rem 1rem;
-//             transition: transform .3s ease;
-//             margin-block-start: 12px;
-//             margin-block-end: 12px;
-//             &:hover {
-//                 opacity: 0.8;
-//                 transform: scale(1.1);
-//             }
-//         }
-//     }
-//     .stats {
-//         display: flex;
-//         flex-direction: column;
-//     }
-//     .fa-times-circle {
-//         color: crimson;
-//     }
-// }
-// .circle {
-//     border: 3px solid #e3d8d8;
-//     border-radius: 50%;
-// }
-// .user-avatar {
-//     border-radius: 50%;
-// }
+.user-details-container {
+    display: flex;
+    height: calc(100vh - 65px);
+    .main-container {
+        width: calc(100vh - 26rem);
+        flex: 1;
+    }
+}
+
 .user-area-container {
     position: fixed;
     left: 0;
-    top: 27px;
-    max-width: 20rem;
-    height: 100vh;
-    padding: 2rem;
-    background: #222;
-    color: white;
+    height: calc(100vh - 52px);
+    border-right: 1px solid #e6e9ec;
     .user-circle {
         border-radius: 50%;
         border: 3px solid white;
@@ -84,7 +28,7 @@
         text-align: center;
         margin-block-start: 10px;
         span {
-            padding: 2.5rem;
+            padding: 2rem;
             font-size: 20px;
             width: 100%;
             font-size: 1.3rem;

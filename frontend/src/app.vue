@@ -1,9 +1,16 @@
 <template>
     <div id="app">
-        <app-header v-if="!isViewMode" @openSignupModal="showModal = true" />
+        <app-header
+            v-if="!isViewMode"
+            @openSignupModal="showModal = true"
+        />
         <router-view />
         <!-- <loader v-if="isLoading"/> -->
-        <sign-up v-if="showModal" @closeSignupModal="showModal = false" />
+        <sign-up
+            v-if="showModal"
+            @closeSignupModal="showModal = false"
+        />
+        <user-msg />
     </div>
 </template>
 
@@ -11,6 +18,7 @@
 import appHeader from '@/cmps/app-header.cmp.vue';
 import signUp from '@/cmps/sign-up.cmp.vue';
 import loader from '@/cmps/custum-cmps/loader.cmp.vue';
+import userMsg from '@/cmps/custum-cmps/user-msg.cmp.vue';
 
 export default {
     data() {
@@ -21,7 +29,8 @@ export default {
     components: {
         appHeader,
         signUp,
-        loader
+        loader,
+        userMsg
     },
     computed: {
         isViewMode() {

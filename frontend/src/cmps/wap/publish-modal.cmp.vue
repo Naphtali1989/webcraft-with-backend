@@ -1,6 +1,9 @@
 <template>
     <section class="modal-container">
-        <div class="flex align-center justify-center screen"></div>
+        <div
+            class="flex align-center justify-center screen"
+            @click="closePublishModal"
+        ></div>
         <section class="publish-modal-container">
             <h1 class="modal-title">Your Website Link:</h1>
             <button
