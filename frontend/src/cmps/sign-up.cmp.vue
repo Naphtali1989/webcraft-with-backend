@@ -27,7 +27,7 @@
                         <div class="form-control">
                             <span><i class="fas fa-envelope"></i></span>
                             <input
-                                type="text"
+                                type="email"
                                 placeholder="Enter Email"
                                 v-model="user.email"
                                 required
@@ -99,7 +99,8 @@ export default {
         return {
             passwordType: 'password',
             isSignup: false,
-            user: null
+            user: null,
+            currMsg: ''
         }
     },
     methods: {
@@ -127,10 +128,11 @@ export default {
                 const user=await this.$store.dispatch({ type: 'login',userCreds });
                 if(user) this.closeModal()
                 eventBus.$emit('show-msg',{ txt: `Welcome back, ${user.username}.`,type: 'success' })
-                this.user={ email: '',password: '' }
                 this.$router.push('/editor');
-
+                this.user={ email: '',password: '' }
             } catch(error) {
+                console.log('in signup',error);
+                this.currMsg=error
                 eventBus.$emit('show-msg',{ txt: `Invalid Credentials, Try Again`,type: 'error' })
             }
         },

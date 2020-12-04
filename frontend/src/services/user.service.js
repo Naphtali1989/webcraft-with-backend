@@ -22,9 +22,8 @@ async function login(userCreds) {
         console.log('user get back from db:', user);
         return _handleLogin(user);
         // return _handleLogin(user);
-    } catch (error) {
-        console.log("🚀 ~ file: user.service.js ~ line 22 ~ login ~ error", error.response)
-            //this is how i get the error from the error response
+    } catch (err) {
+        console.log("🚀 ~ file: user.service.js ~ line 22 ~ login ~ error", err.response) //this is how i get the error from the error response
         const msg = error.response.data.msg;
         throw msg;
     }
