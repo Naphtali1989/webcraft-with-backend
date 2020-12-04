@@ -1,0 +1,11 @@
+{
+    "type": "divider",
+    "thumbnail": "https://imagizer.imageshack.com/img922/9372/4iyvDo.png",
+    "title": "Small Divider",
+    "name": "section",
+    "class": "site-divider flex align-center",
+    "style": {
+        "background": "",
+        "borderRadius": "0px"
+    }
+}
