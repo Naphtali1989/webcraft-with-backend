@@ -122,12 +122,17 @@ export default {
 
         },
         async login() {
-            const userCreds=JSON.parse(JSON.stringify(this.user));
-            const user=await this.$store.dispatch({ type: 'login',userCreds });
-            if(user) this.closeModal()
-            eventBus.$emit('show-msg',{ txt: `Welcome back, ${user.username}.`,type: 'success' })
-            this.user={ email: '',password: '' }
-            this.$router.push('/editor');
+            try {
+                const userCreds=JSON.parse(JSON.stringify(this.user));
+                const user=await this.$store.dispatch({ type: 'login',userCreds });
+                if(user) this.closeModal()
+                eventBus.$emit('show-msg',{ txt: `Welcome back, ${user.username}.`,type: 'success' })
+                this.user={ email: '',password: '' }
+                this.$router.push('/editor');
+
+            } catch(error) {
+                eventBus.$emit('show-msg',{ txt: `Invalid Credentials, Try Again`,type: 'error' })
+            }
         },
         toggleFieldType() {
             this.passwordType=this.passwordType==='password'? 'text':'password'

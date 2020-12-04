@@ -1,0 +1,225 @@
+{
+    "_id": ObjectId("5fca1e423dc911cc88511be3"),
+    "name": "section",
+    "type": "cards",
+    "class": "main-layout",
+    "title": "Cards & People",
+    "thumbnail": "https://imagizer.imageshack.com/img924/3209/qQPDKH.png",
+    "style": {
+        "background": "#fafafa",
+        "borderRadius": "0px"
+    },
+    "children": [{
+            "name": "div",
+            "class": "full flex column align-center",
+            "style": {
+                "background": "",
+                "borderRadius": "0px"
+            },
+            "children": [{
+                    "name": "txt",
+                    "txt": "Blog",
+                    "style": {
+                        "fontSize": "89px",
+                        "padding": "24px 20px",
+                        "lineHeight": "1",
+                        "letterSpacing": "1",
+                        "color": "#c8a97e",
+                        "textDecoration": "inheri",
+                        "fontWeight": "normal",
+                        "fontStyle": "",
+                        "fontFamily": "vibes",
+                        "textAlign": "center",
+                        "borderRadius": "0px"
+                    }
+                },
+                {
+                    "name": "txt",
+                    "txt": "Recent Posts",
+                    "style": {
+                        "color": "inherit",
+                        "fontSize": "52px",
+                        "padding": "0px 20px",
+                        "lineHeight": "1.2",
+                        "letterSpacing": "1",
+                        "backgroundColor": "unset",
+                        "textDecoration": "",
+                        "fontWeight": "900",
+                        "fontStyle": "inheirt",
+                        "fontFamily": "inherit",
+                        "textAlign": "center",
+                        "borderRadius": "0px",
+                        "marginTop": "-69px",
+                        "marginBottom": "36px"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "div",
+            "class": "grid",
+            "style": {
+                "grid-template-columns": "repeat(auto-fit, minmax(350px, 1fr))",
+                "place-items": "center",
+                "gap": "2px"
+            },
+            "children": [{
+                "name": "div",
+                "class": "food-card flex column",
+                "style": {
+                    "padding": "8px",
+                    "background": "transparent",
+                    "borderRadius": "0"
+                },
+                "children": [{
+                        "name": "div",
+                        "style": {
+                            "padding": "0px",
+                            "background": "white",
+                            "borderRadius": "0",
+                            "width": "350px"
+                        },
+                        "children": [{
+                            "name": "img",
+                            "imgUrl": "https://preview.colorlib.com/theme/feliciano/images/chef-1.jpg",
+                            "style": {
+                                "objectFit": "cover",
+                                "width": "100%",
+                                "borderRadius": "0"
+                            }
+                        }]
+                    },
+                    {
+                        "name": "div",
+                        "class": "flex space-between column",
+                        "style": {
+                            "padding": "8px",
+                            "background": "white",
+                            "borderRadius": "0"
+                        },
+                        "children": [{
+                                "name": "div",
+                                "class": "food-card flex space-between",
+                                "style": {
+                                    "padding": "8px",
+                                    "background": "white",
+                                    "borderRadius": "0",
+                                    "marginBottom": "16px"
+                                },
+                                "children": [{
+                                        "name": "txt",
+                                        "txt": "Sept 0.6, 2019",
+                                        "style": {
+                                            "lineHeight": "1.2",
+                                            "textAlign": "center",
+                                            "background": "",
+                                            "color": "#000000",
+                                            "fontSize": "15px",
+                                            "borderRadius": "0px",
+                                            "fontFamily": "inherit",
+                                            "textDecoration": "",
+                                            "fontStyle": "inherit",
+                                            "backgroundColor": "unset",
+                                            "fontWeight": "600"
+                                        }
+                                    },
+                                    {
+                                        "name": "txt",
+                                        "txt": "Admin",
+                                        "style": {
+                                            "lineHeight": "1.2",
+                                            "textAlign": "center",
+                                            "background": "",
+                                            "marginBottom": "14px",
+                                            "color": "rgba(0, 0, 0, 0.3)",
+                                            "fontSize": "15px",
+                                            "borderRadius": "0px",
+                                            "maxWidth": "24ch",
+                                            "backgroundColor": "",
+                                            "textDecoration": "",
+                                            "margin": "0px"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "div",
+                                "style": {
+                                    "background": "transparent",
+                                    "borderRadius": "0",
+                                    "marginBottom": "16px"
+                                },
+                                "children": [{
+                                    "name": "txt",
+                                    "txt": "Taste the delicious foods in Asia",
+                                    "style": {
+                                        "lineHeight": "",
+                                        "textAlign": "left",
+                                        "background": "",
+                                        "color": "#000000",
+                                        "fontSize": "20px",
+                                        "borderRadius": "0px",
+                                        "fontFamily": "inherit",
+                                        "textDecoration": "",
+                                        "fontStyle": "inherit",
+                                        "backgroundColor": "unset",
+                                        "fontWeight": "600",
+                                        "marginBottom": "0px",
+                                        "workBreak": "break-word",
+                                        "marginBottom": "16px",
+                                        "marginLleft": "6px"
+                                    }
+                                }]
+                            },
+                            {
+                                "name": "div",
+                                "class": "food-card flex space-between",
+                                "style": {
+                                    "padding": "8px",
+                                    "background": "transparent",
+                                    "borderRadius": "0"
+                                },
+                                "children": [{
+                                        "name": "txt",
+                                        "txt": "Read more",
+                                        "style": {
+                                            "lineHeight": "1.2",
+                                            "textAlign": "center",
+                                            "background": "",
+                                            "color": "#000000",
+                                            "fontSize": "15px",
+                                            "borderRadius": "0px",
+                                            "fontFamily": "inherit",
+                                            "textDecoration": "",
+                                            "fontStyle": "inherit",
+                                            "backgroundColor": "unset",
+                                            "fontWeight": "600",
+                                            "marginBottom": "0px"
+                                        }
+                                    },
+                                    {
+                                        "name": "txt",
+                                        "txt": "Visit",
+                                        "style": {
+                                            "lineHeight": "1.2",
+                                            "textAlign": "center",
+                                            "background": "",
+                                            "marginBottom": "14px",
+                                            "color": "rgba(0, 0, 0, 0.3)",
+                                            "fontSize": "15px",
+                                            "borderRadius": "0px",
+                                            "maxWidth": "24ch",
+                                            "backgroundColor": "",
+                                            "textDecoration": "",
+                                            "margin": "0px"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }]
+        }
+    ]
+}

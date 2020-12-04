@@ -51,7 +51,7 @@ export const wapStore = {
                 const { thumbnail, reviews, _id, title } = wap;
                 return {
                     wap: { thumbnail, _id, title },
-                    reviews
+                    reviews: reviews ? reviews : ''
                 }
             });
             return reviews

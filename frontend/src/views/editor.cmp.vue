@@ -187,7 +187,7 @@ export default {
                 type: 'saveWap',
                 wap: this.currWap
             });
-            eventBus.$emit('show-msg',{ txt: `Your website has been saved succesfully!`,type: 'success' })
+            eventBus.$emit('show-msg',{ txt: `Your website has been saved!`,type: 'success' })
         },
         async dropSample(dragResult) {
             // Getting the sample from the store to copy

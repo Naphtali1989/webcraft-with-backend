@@ -67,7 +67,7 @@ export default {
 .user-msg {
     position: fixed;
     bottom: 50px;
-    left: 25px;
+    right: 25px;
     width: 350px;
     height: 65px;
     color: black;
@@ -88,6 +88,7 @@ export default {
     display: flex;
     flex-direction: column;
     margin-inline-start: 20px;
+    font-weight: bold;
 }
 
 .msg-info p:first-child {
