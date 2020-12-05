@@ -46,7 +46,7 @@ export default {
             })
             //get rouute id
             const _id=this.$route.params.id;
-            socketService.emit('form-submitted',{ _id,title: this.wapToShow.title,review })
+            socketService.emit('form-submitted',{ _id,title: this.wapToShow.title })
             eventBus.$emit('show-msg',{ txt: `Your details has been saved`,type: 'success' })
             this.inputValue={};
             const elInputs=document.querySelectorAll('input')
