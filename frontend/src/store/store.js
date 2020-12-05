@@ -11,7 +11,8 @@ export default new vuex.Store({
     strict: true,
     state: {
         isUserSiteclosed: true,
-        isLoading: false
+        isLoading: false,
+        isCollabModeOn: false
     },
     getters: {
         isViewMode(state) {
@@ -19,6 +20,9 @@ export default new vuex.Store({
         },
         isLoading(state) {
             return state.isLoading;
+        },
+        isCollabMode(state) {
+            return state.isCollabModeOn
         }
     },
     mutations: {
@@ -27,6 +31,10 @@ export default new vuex.Store({
         },
         setIsLoading(state, { isLoading }) {
             state.isLoading = isLoading
+        },
+        setCollabMode(state, { isCollabModeOn }) {
+            console.log('collab mode is:', isCollabModeOn);
+            state.isCollabModeOn = isCollabModeOn
         }
     },
     actions: {},

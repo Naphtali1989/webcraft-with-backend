@@ -11,6 +11,7 @@ function getById(wapId) {
     return httpService.get(`wap/${wapId}`)
 }
 
+//TODO -> MAKE IT WORK INSTEAD OF DELETEWAPBYID
 function remove(wapId) {
     return httpService.delete(`wap/${wapId}`)
 }
@@ -29,6 +30,7 @@ function _update(wap) {
 }
 
 function deleteWapById(wapId) {
+    console.log('deleting the wap in the service');
     return httpService.delete(`wap/${wapId}`)
 }
 
