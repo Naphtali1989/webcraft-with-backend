@@ -59,7 +59,7 @@ export default {
     this.$store.commit({
       type: 'toggleUserSiteOpen',
     });
-    document.title = this.wapToShow.title;
+    document.title = this.wapToShow.title || 'Webcraft Site';
   },
   destroyed() {
     this.$store.commit({
