@@ -7,6 +7,7 @@
         />
         <template v-if="cmpToEdit.name !== 'img'">
             <p class="editor-txt">Set A Background Color</p>
+            <bgc-picker @input="setColor" />
             <color-picker @changeColor="setColor" />
         </template>
         <div class="img-uploader">
@@ -35,6 +36,7 @@
 
 <script>
 import myRange from '@/cmps/custum-cmps/my-range.cmp.vue';
+import bgcPicker from '@/cmps/custum-cmps/bgc-picker.cmp.vue';
 import colorPicker from '@/cmps/editor/color-picker.cmp.vue';
 import imgSearch from '@/cmps/editor/editors/img-search.cmp.vue';
 import { utilService } from '@/services/util.service';
@@ -54,7 +56,6 @@ export default {
             this.$emit('updatedSocket');
         },
         setColor(color) {
-
             if(this.cmpToEdit.imgUrl) this.cmpToEdit.imgUrl=null
             this.cmpToEdit.style.background=color;
             this.$emit('updatedSocket');
@@ -82,6 +83,7 @@ export default {
         myRange,
         colorPicker,
         imgSearch,
+        bgcPicker
     },
 };
 </script>
