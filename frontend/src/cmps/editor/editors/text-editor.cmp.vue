@@ -29,7 +29,7 @@
             <p class="editor-txt">Line Height</p>
             <my-range
                 :options="{
-                    initVal: +cmpToEdit.style.lineHeight * 2.5,
+                    initVal: (cmpToEdit.style.lineHeight * 2.5),
                     min: 0,
                     max: 20,
                 }"
