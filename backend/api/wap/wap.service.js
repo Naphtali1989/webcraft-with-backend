@@ -48,6 +48,7 @@ async function remove(wapId) {
 }
 
 
+
 //update user
 async function update(wap) {
     const collection = await dbService.getCollection('wap')

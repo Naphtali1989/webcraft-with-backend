@@ -7,7 +7,25 @@ function connectSockets(io) {
 
         socket.on('savedWap', wap => {
             console.log('getting wap?:', wap);
-            socket.broadcast.emit('savedWap', wap)
+            // socket.broadcast.emit('savedWap', wap)
+            socket.broadcast.to(socket.wapId).emit('savedWap', wap)
         })
+
+        socket.on('roomRoute', wapId => {
+            console.log('getting wap id:', wapId);
+            if (socket.wapId) {
+                console.log('there is a active socket');
+                socket.leave(socket.wapId)
+            }
+            socket.join(wapId)
+            socket.wapId = wapId;
+        })
+        socket.on('disconnect', () => {
+            socket.removeAllListeners('roomRoute');
+        });
     })
+
+
+
+
 }

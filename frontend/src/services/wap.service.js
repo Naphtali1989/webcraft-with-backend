@@ -28,9 +28,14 @@ function _update(wap) {
     return httpService.put(`wap/${wap._id}`, wap);
 }
 
+function deleteWapById(wapId) {
+    return httpService.delete(`wap/${wapId}`)
+}
+
 export const wapService = {
     query,
     getById,
     save,
     remove,
+    deleteWapById
 };

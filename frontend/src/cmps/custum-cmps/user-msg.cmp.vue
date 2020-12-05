@@ -18,7 +18,6 @@
         <button
             @click="closeMsg"
             :style="{backgroundColor: bcgColor}"
-            :class="btnBackground"
             class="close-btn-user-msg"
         >x</button>
     </section>

@@ -19,6 +19,7 @@
             @openPublishModal="publishWebsite"
             @saveSample="saveSample"
             @updatedSocket="updatedSocket"
+            @makeWapCollab="makeWapCollab"
         >
             <toggle-editor
                 slot="toggle-editor-btn"
@@ -88,6 +89,17 @@ export default {
     },
 
     methods: {
+        async makeWapCollab() {
+
+            console.log('wap has been createad');
+            this.currWap.isSaved=false
+            await this.saveWap();
+            socketService.emit('roomRoute',this.currWap._id)
+            this.$router.push(`/editor/${this.currWap._id}`)
+            eventBus.$emit('show-msg',{ txt: `Collabrate mode is online`,type: 'success' })
+
+
+        },
         updatedSocket() {
             socketService.emit('savedWap',this.currWap)
         },
@@ -197,10 +209,14 @@ export default {
 
         },
         async saveWap() {
+            // if(!this.currWap.isSaved) {
+            //     this.currWap.isSaved=true
+            // }
             this.currWap=await this.$store.dispatch({
                 type: 'saveWap',
                 wap: this.currWap
             });
+
             eventBus.$emit('show-msg',{ txt: `Your website has been saved!`,type: 'success' })
         },
         async dropSample(dragResult) {
@@ -225,23 +241,25 @@ export default {
         },
     },
     async created() {
-        //open a connection
+        //load samples for the sample list
         socketService.setup();
-
-        //regsiter an event
         socketService.on('savedWap',wap => {
             this.currWap=wap;
         })
-        //load samples for the sample list
         await this.$store.dispatch({ type: 'loadSamples' });
         const _id=this.$route.params.id;
+
         if(_id) {
             const wap=await this.$store.dispatch({
                 type: 'loadWap',
                 _id
             });
             this.currWap=wap;
+            console.log('initaing sockets !');
+            socketService.emit('roomRoute',_id)
+
         }
+        //open a connection
         else {
             this.currWap={
                 name: '',
@@ -257,5 +275,10 @@ export default {
         loader,
         publishModal
     },
+    // destroyed() {
+    //     if(!this.currWap.isSaved) {
+    //         this.$store.dispatch({ type: 'deleteWap',wapId: this.currWap._id })
+    //     }
+    // },
 };
 </script>

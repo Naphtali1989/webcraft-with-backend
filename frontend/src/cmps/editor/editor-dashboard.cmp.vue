@@ -30,6 +30,7 @@
             </component>
         </section>
         <user-controls
+            @makeWapCollab="emitMakeWapCollab"
             @saveWap="emitSaveWap"
             @saveSample="emitSaveSample"
             @openPublishModal="emitOpenPublishModal"
@@ -63,6 +64,10 @@ export default {
         }
     },
     methods: {
+        emitMakeWapCollab() {
+            console.log('make collab in dashboard');
+            this.$emit('makeWapCollab')
+        },
         emitUpdateSocket() {
             this.$emit('updatedSocket')
         },

@@ -43,6 +43,9 @@ export const wapStore = {
             // commit({ type: 'setIsLoading', isLoading: false })
             return savedWap
         },
+        async deleteWap({ commit }, { wapId }) {
+            await wapService.deleteWapById(wapId)
+        },
         async getOwnerWapReviews({ commit }, { userId }) {
             const waps = await wapService.query(userId);
             const curUserWaps = waps.map(wap => {

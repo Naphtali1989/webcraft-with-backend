@@ -18,6 +18,12 @@
             >
                 Publish
             </button>
+            <button
+                class="btn choice-btn"
+                @click="startCollab"
+            >
+                Collabirate
+            </button>
         </section>
         <!-- <publish-modal v-if="showPublishModal" /> -->
     </section>
@@ -26,6 +32,7 @@
 <script>
 import publishModal from '@/cmps/wap/publish-modal.cmp.vue';
 import { eventBus } from '@/services/event-bus.service.js'
+import { utilService } from '@/services/util.service';
 export default {
     name: 'user-controls',
     data() {
@@ -46,6 +53,11 @@ export default {
         },
         saveSample() {
             this.$emit('saveSample');
+        },
+        startCollab() {
+            // const roomId=utilService.makeId();
+            // console.log(`Send this link to a friend: http://localhost:8080/#/editor/${roomId}`);
+            this.$emit('makeWapCollab')
         }
     },
     computed: {
