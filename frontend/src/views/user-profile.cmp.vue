@@ -73,7 +73,9 @@ export default {
             const res=await utilService.uploadImg(ev);
             const user=JSON.parse(sessionStorage.getItem('user'))
             user.imgUrl=res.url;
-            this.$store.dispatch({ type: 'updateUser',user })
+            await this.$store.dispatch({ type: 'updateUser',user })
+            this.$router.push(`/user/${loggedInUser._id}`)
+
         }
     },
     computed: {
@@ -95,7 +97,7 @@ export default {
         },
         imgUrl() {
             if(this.loggedInUser.imgUrl) return this.loggedInUser.imgUrl
-            else return `https://robohash.org/${this.loggedInUser._id}.png`
+            else return `https://robohash.org/2.png`
         },
         formatTime() {
             const { createdAt }=this.loggedInUser

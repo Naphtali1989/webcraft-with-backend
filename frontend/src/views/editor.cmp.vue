@@ -58,6 +58,7 @@ import loader from '@/cmps/custum-cmps/loader.cmp.vue';
 import publishModal from '@/cmps/wap/publish-modal.cmp.vue';
 import PublishModalCmp from '../cmps/wap/publish-modal.cmp.vue';
 import { eventBus } from '@/services/event-bus.service.js'
+import socketService from '@/services/socket.service';
 
 export default {
     name: 'editor',
@@ -159,6 +160,7 @@ export default {
         deleteSection(_id) {
             const idx=this.currWap.cmps.findIndex(cmp => cmp._id===_id);
             this.currWap.cmps.splice(idx,1);
+
         },
         copySection(_id) {
             const idx=this.currWap.cmps.findIndex(cmp => cmp._id===_id);
@@ -171,6 +173,7 @@ export default {
             // dragResult holds the indexes of the current position of the section
             // and the new position for it to drop to, and the section object itself
             this.currWap.cmps=utilService.applyDrag(this.currWap.cmps,dragResult);
+            socketService.emit('savedWap',this.currWap)
         },
         moveSection(_id,diff) {
             // Find the section index and replace its position according to the difference
@@ -208,6 +211,14 @@ export default {
         },
     },
     async created() {
+        //open a connection
+        socketService.setup();
+
+        //resiterer an event
+        socketService.on('savedWap',wap => {
+            this.currWap=wap;
+        })
+
         //load samples for the sample list
         await this.$store.dispatch({ type: 'loadSamples' });
         const _id=this.$route.params.id;

@@ -7,6 +7,7 @@ const session = require('express-session');
 
 const app = express();
 const http = require('http').createServer(app);
+const io = require('socket.io')(http);
 
 const logger = require('./services/logger.service');
 
@@ -34,6 +35,7 @@ if (process.env.NODE_ENV === 'production') {
 const authRoutes = require('./api/auth/auth.routes');
 const userRoutes = require('./api/user/user.routes');
 const wapRoutes = require('./api/wap/wap.routes');
+const connectSockets = require('./api/socket/socket.routes')
 const sampleRoutes = require('./api/sample/sample.routes');
 
 app.use('/api/auth', authRoutes);
@@ -41,6 +43,7 @@ app.use('/api/user', userRoutes);
 app.use('/api/wap', wapRoutes);
 app.use('/api/sample', sampleRoutes);
 
+connectSockets(io)
 
 // app.get('/**', (req, res) => {
 //     res.sendFile(path.join(__dirname, 'public', 'index.html'));
