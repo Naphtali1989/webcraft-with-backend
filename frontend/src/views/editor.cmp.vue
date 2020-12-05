@@ -69,7 +69,8 @@ export default {
             currCmpToEdit: null,
             isEditorShow: true,
             showPublishModal: false,
-            currWebsiteLink: null
+            currWebsiteLink: null,
+            idToKeep: null
         };
     },
     computed: {
@@ -209,13 +210,16 @@ export default {
 
         },
         async saveWap() {
-            // if(!this.currWap.isSaved) {
-            //     this.currWap.isSaved=true
-            // }
-            this.currWap=await this.$store.dispatch({
-                type: 'saveWap',
-                wap: this.currWap
-            });
+            console.log('curr wap?:',this.currWap);
+            if(!this.currWap.isSaved&&this.idToKeep) {
+                this.currWap.isSaved=true
+            } else {
+                this.currWap=await this.$store.dispatch({
+                    type: 'saveWap',
+                    wap: this.currWap
+                });
+
+            }
 
             eventBus.$emit('show-msg',{ txt: `Your website has been saved!`,type: 'success' })
         },
@@ -250,6 +254,7 @@ export default {
         const _id=this.$route.params.id;
 
         if(_id) {
+            this.idToKeep=_id
             const wap=await this.$store.dispatch({
                 type: 'loadWap',
                 _id
@@ -275,10 +280,11 @@ export default {
         loader,
         publishModal
     },
-    // destroyed() {
-    //     if(!this.currWap.isSaved) {
-    //         this.$store.dispatch({ type: 'deleteWap',wapId: this.currWap._id })
-    //     }
-    // },
+    destroyed() {
+        if(!this.currWap.isSaved&&this.idToKeep) {
+            console.log('getting to destroyed!');
+            this.$store.dispatch({ type: 'deleteWap',wapId: this.idToKeep })
+        }
+    }
 };
 </script>
