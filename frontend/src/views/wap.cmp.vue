@@ -50,6 +50,7 @@ export default {
       })
       const elTxt = document.querySelector('textArea')
       if (elTxt) elTxt.value = '';
+      
     }
   },
   async created() {
