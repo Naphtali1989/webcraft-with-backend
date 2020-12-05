@@ -64,6 +64,18 @@
     }
 }
 
+.collab-btn {
+    width: 100%;
+    color: black;
+    font-size: 1.2rem;
+    font-family: carme, sans-serif;
+    padding: 0.5rem;
+    transition: all 0.33s;
+    border-top: 1px solid #ccc;
+    background: #b6b6b660;
+    font-family: 'carme';
+}
+
 .video-btn,
 .map-search-btn {
     padding: 10px;

@@ -69,6 +69,8 @@ import { userService } from '@/services/user.service';
 import { utilService } from '@/services/util.service';
 import backofficeMsg from '@/cmps/wap/backoffice-msg.cmp.vue';
 import userWaps from '@/cmps/wap/user-waps.cmp.vue';
+import socketService from '@/services/socket.service';
+import { eventBus } from '@/services/event-bus.service.js'
 export default {
     name: 'user-profile',
     data() {
@@ -88,6 +90,13 @@ export default {
             await this.$store.dispatch({ type: 'updateUser',user })
             this.$router.push(`/user/${loggedInUser._id}`)
 
+        },
+        async getWapsReviews(_id) {
+            const ownerWaps=await this.$store.dispatch({
+                type: 'getOwnerWapReviews',
+                userId: _id
+            })
+            this.ownerWaps=ownerWaps;
         }
     },
     computed: {
@@ -117,14 +126,15 @@ export default {
         },
     },
     async created() {
-        const _id=this.$route.params.id;
-        if(_id) this.$store.dispatch({ type: 'loadLoggedInUser',_id })
-        const ownerWaps=await this.$store.dispatch({
-            type: 'getOwnerWapReviews',
-            userId: _id
-        })
-        this.ownerWaps=ownerWaps;
+        const _userId=this.$route.params.id;
+        if(_userId) this.$store.dispatch({ type: 'loadLoggedInUser',_userId })
+        socketService.setup();
+        this.getWapsReviews(_userId)
 
+        socketService.on('form-submitted',({ title,_id }) => {
+            this.getWapsReviews(_userId);
+            eventBus.$emit('show-msg',{ txt: `New message received from website:${title}`,type: 'success' })
+        })
     },
     components: {
         userWaps,

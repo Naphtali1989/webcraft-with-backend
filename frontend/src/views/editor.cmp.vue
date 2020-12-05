@@ -46,6 +46,11 @@
             @closePublishModal="togglePublishModal"
             :currWebsiteLink="currWebsiteLink"
         />
+        <socket-modal
+            v-if="showSocketModal"
+            :currCollabLink="currCollabLink"
+            @closeSocketModal="toggleSocketModal"
+        />
     </section>
 </template>
 
@@ -60,6 +65,8 @@ import loader from '@/cmps/custum-cmps/loader.cmp.vue';
 import publishModal from '@/cmps/wap/publish-modal.cmp.vue';
 import { eventBus } from '@/services/event-bus.service.js'
 import socketService from '@/services/socket.service';
+import socketModal from '@/cmps/wap/socket-modal.cmp.vue'
+
 
 export default {
     name: 'editor',
@@ -70,7 +77,8 @@ export default {
             isEditorShow: true,
             showPublishModal: false,
             currWebsiteLink: null,
-            idToKeep: null
+            showSocketModal: false,
+            currCollabLink: null
         };
     },
     computed: {
@@ -97,7 +105,13 @@ export default {
             this.$store.commit({ type: 'setCollabMode',isCollabModeOn: true })
             await this.saveWap(false);
             socketService.emit('roomRoute',this.currWap._id)
-            this.$router.push(`/editor/${this.currWap._id}`)
+            const collabLink=`https://webcraft-ca.herokuapp.com/#/editor/${this.currWap._id}`;
+            this.currCollabLink=collabLink;
+            console.log('collab link?:',this.currCollabLink);
+            this.toggleSocketModal();
+
+            //this will be inserted to the modal
+            // this.$router.push(`/editor/${this.currWap._id}`)
             eventBus.$emit('show-msg',{ txt: `Collabrate mode is online`,type: 'success' })
 
 
@@ -107,6 +121,9 @@ export default {
         },
         togglePublishModal() {
             this.showPublishModal=!this.showPublishModal;
+        },
+        toggleSocketModal() {
+            this.showSocketModal=!this.showSocketModal
         },
         async publishWebsite() {
             const wap=await this.saveWap();
@@ -276,7 +293,8 @@ export default {
         editorWorkspace,
         toggleEditor,
         loader,
-        publishModal
+        publishModal,
+        socketModal
     },
     destroyed() {
         if(this.isCollabMode&&!this.currWap.isSaved) {

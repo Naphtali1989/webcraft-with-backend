@@ -10,7 +10,9 @@
             v-if="showModal"
             @closeSignupModal="showModal = false"
         />
+        <!-- <socket-modal /> -->
         <user-msg />
+
     </div>
 </template>
 
@@ -19,6 +21,7 @@ import appHeader from '@/cmps/app-header.cmp.vue';
 import signUp from '@/cmps/sign-up.cmp.vue';
 import loader from '@/cmps/custum-cmps/loader.cmp.vue';
 import userMsg from '@/cmps/custum-cmps/user-msg.cmp.vue';
+import socketModal from '@/cmps/wap/socket-modal.cmp.vue'
 
 export default {
     data() {
@@ -30,7 +33,8 @@ export default {
         appHeader,
         signUp,
         loader,
-        userMsg
+        userMsg,
+        socketModal
     },
     computed: {
         isViewMode() {
