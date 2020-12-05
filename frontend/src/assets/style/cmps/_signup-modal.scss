@@ -25,7 +25,7 @@
     position: relative;
     padding: 4rem;
     text-align: center;
-    z-index: 20002;
+    z-index: 2010;
     .signin-signup {
         font-family: carme;
     }
@@ -83,7 +83,7 @@
         text-transform: uppercase;
         font-weight: 600;
         transition: transform 0.5 ease;
-        z-index: 20001;
+        z-index: 2010;
         letter-spacing: 2px;
         font-family: carme;
         margin-bottom: 5px;
@@ -111,7 +111,7 @@ svg {
 .screen {
     width: 100%;
     position: fixed;
-    z-index: 20000;
+    z-index: 2010;
     background-color: rgba(0, 0, 0, .46);
     top: 0;
     left: 0;

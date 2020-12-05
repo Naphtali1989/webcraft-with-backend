@@ -82,7 +82,7 @@ export default {
     align-items: center;
     background-color: #fafafa;
     font-family: carme, serif;
-    z-index: 2000000;
+    z-index: 2010;
 }
 
 .icon {
