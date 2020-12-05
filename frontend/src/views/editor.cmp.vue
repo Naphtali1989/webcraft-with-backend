@@ -46,6 +46,11 @@
             @closePublishModal="togglePublishModal"
             :currWebsiteLink="currWebsiteLink"
         />
+        <socket-modal
+            v-if="showSocketModal"
+            :currCollabLink="currCollabLink"
+            @closeSocketModal="toggleSocketModal"
+        />
     </section>
 </template>
 
@@ -60,6 +65,8 @@ import loader from '@/cmps/custum-cmps/loader.cmp.vue';
 import publishModal from '@/cmps/wap/publish-modal.cmp.vue';
 import { eventBus } from '@/services/event-bus.service.js'
 import socketService from '@/services/socket.service';
+import socketModal from '@/cmps/wap/socket-modal.cmp.vue'
+
 
 export default {
     name: 'editor',
@@ -70,7 +77,8 @@ export default {
             isEditorShow: true,
             showPublishModal: false,
             currWebsiteLink: null,
-            idToKeep: null
+            showSocketModal: false,
+            currCollabLink: null
         };
     },
     computed: {
@@ -97,7 +105,13 @@ export default {
             this.$store.commit({ type: 'setCollabMode',isCollabModeOn: true })
             await this.saveWap(false);
             socketService.emit('roomRoute',this.currWap._id)
-            this.$router.push(`/editor/${this.currWap._id}`)
+            const collabLink=`https://webcraft-ca.herokuapp.com/#/editor/${this.currWap._id}`;
+            this.currCollabLink=collabLink;
+            console.log('collab link?:',this.currCollabLink);
+            this.toggleSocketModal();
+
+            //this will be inserted to the modal
+            // this.$router.push(`/editor/${this.currWap._id}`)
             eventBus.$emit('show-msg',{ txt: `Collabrate mode is online`,type: 'success' })
 
 
@@ -107,6 +121,9 @@ export default {
         },
         togglePublishModal() {
             this.showPublishModal=!this.showPublishModal;
+        },
+        toggleSocketModal() {
+            this.showSocketModal=!this.showSocketModal
         },
         async publishWebsite() {
             const wap=await this.saveWap();
@@ -209,10 +226,8 @@ export default {
 
         },
         async saveWap(isFirstCollab=true) {
-            console.log('in save mode');
             if(this.isCollabMode) {
                 this.currWap.isSaved=isFirstCollab;
-                console.log('curr wap is updated with isSave property');
             }
             this.currWap=await this.$store.dispatch({
                 type: 'saveWap',
@@ -251,14 +266,12 @@ export default {
         const _id=this.$route.params.id;
 
         if(_id) {
-            console.log('');
             // this.idToKeep=_id
             const wap=await this.$store.dispatch({
                 type: 'loadWap',
                 _id
             });
             this.currWap=wap;
-            console.log('initaing sockets !');
             socketService.emit('roomRoute',_id)
 
         }
@@ -276,11 +289,11 @@ export default {
         editorWorkspace,
         toggleEditor,
         loader,
-        publishModal
+        publishModal,
+        socketModal
     },
     destroyed() {
         if(this.isCollabMode&&!this.currWap.isSaved) {
-            console.log('getting to destroyed!');
             this.$store.commit({ type: 'setCollabMode',isCollabModeOn: false })
             this.$store.dispatch({ type: 'deleteWap',wapId: this.currWap._id })
         }

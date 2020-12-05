@@ -1,29 +1,24 @@
 <template>
     <section>
+        <button
+            v-if="loggedInUser"
+            class="btn collab-btn"
+            @click="startCollab"
+        >
+            <i class="fas fa-users"></i> Start Collaborate
+        </button>
         <section class="user-controls flex justify-center">
             <button
                 class="btn choice-btn save"
                 @click="saveWap"
             >Save</button>
             <button
-                v-if="loggedInUser && loggedInUser.isAdmin"
-                class="btn choice-btn save"
-                @click="saveSample"
-            >
-                Save SAMPLE
-            </button>
-            <button
                 class="btn choice-btn"
                 @click="openPublishModal"
             >
                 Publish
             </button>
-            <button
-                class="btn choice-btn"
-                @click="startCollab"
-            >
-                Collabirate
-            </button>
+
         </section>
         <!-- <publish-modal v-if="showPublishModal" /> -->
     </section>

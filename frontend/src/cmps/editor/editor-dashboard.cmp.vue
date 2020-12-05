@@ -65,7 +65,6 @@ export default {
     },
     methods: {
         emitMakeWapCollab() {
-            console.log('make collab in dashboard');
             this.$emit('makeWapCollab')
         },
         emitUpdateSocket() {

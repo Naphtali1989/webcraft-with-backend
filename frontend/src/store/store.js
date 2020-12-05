@@ -33,7 +33,6 @@ export default new vuex.Store({
             state.isLoading = isLoading
         },
         setCollabMode(state, { isCollabModeOn }) {
-            console.log('collab mode is:', isCollabModeOn);
             state.isCollabModeOn = isCollabModeOn
         }
     },
