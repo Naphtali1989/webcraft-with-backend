@@ -151,45 +151,45 @@ export default {
     methods: {
         setFontFamily(font) {
             this.cmpToEdit.style.fontFamily=font;
-            // this.$emit('updatedSocket')
+            this.$emit('updatedSocket');
         },
         setFontSize(size) {
-            // this.$emit('updatedSocket')
             this.cmpToEdit.style.fontSize=size+'px';
+            this.$emit('updatedSocket');
         },
         setLineHeight(size) {
             this.cmpToEdit.style.lineHeight=size/2.5;
-            // this.$emit('updatedSocket')
+            this.$emit('updatedSocket');
         },
         setLetterSpacing(size) {
             this.cmpToEdit.style.letterSpacing=size+'px';
-            // this.$emit('updatedSocket')
+            this.$emit('updatedSocket');
         },
         setTxtDecoration(decoration) {
             const { textDecoration }=this.cmpToEdit.style;
             if(textDecoration===decoration) this.cmpToEdit.style.textDecoration='revert'
             else this.cmpToEdit.style.textDecoration=decoration
-            // this.$emit('updatedSocket')
+            this.$emit('updatedSocket');
         },
         setFontStyle(txtStyle) {
             const { fontStyle }=this.cmpToEdit.style;
             if(fontStyle===txtStyle) this.cmpToEdit.style.fontStyle='revert'
             else this.cmpToEdit.style.fontStyle=txtStyle
-            // this.$emit('updatedSocket')
+            this.$emit('updatedSocket');
         },
         setFontWeight(weight) {
             const { fontWeight }=this.cmpToEdit.style;
             if(fontWeight!==weight) this.cmpToEdit.style.fontWeight=weight
             else this.cmpToEdit.style.fontWeight='normal'
-            // this.$emit('updatedSocket')
+            this.$emit('updatedSocket');
         },
         setTextAlign(direction) {
             this.cmpToEdit.style.textAlign=direction;
-            // this.$emit('updatedSocket')
+            this.$emit('updatedSocket');
         },
         setColor(color) {
             this.cmpToEdit.style.color=color;
-            // this.$emit('updatedSocket')
+            this.$emit('updatedSocket');
         }
     },
     computed: {

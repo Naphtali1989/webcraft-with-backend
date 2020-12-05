@@ -51,27 +51,28 @@ export default {
             const res=await utilService.uploadImg(ev);
             this.cmpToEdit.style.background=`url(${res.url}) center / cover no-repeat`;
             this.cmpToEdit.imgUrl=res.url;
-            // this.$emit('updatedSocket')
+            this.$emit('updatedSocket');
         },
         setColor(color) {
+
             if(this.cmpToEdit.imgUrl) this.cmpToEdit.imgUrl=null
             this.cmpToEdit.style.background=color;
-            // this.$emit('updatedSocket')
+            this.$emit('updatedSocket');
         },
         setImg(imgUrl) {
             this.cmpToEdit.imgUrl=imgUrl
             this.cmpToEdit.style.background=`url(${imgUrl}) center / cover no-repeat`;
-            // this.$emit('updatedSocket')
+            this.$emit('updatedSocket');
         },
         setSectionRadius(radius) {
             this.cmpToEdit.style.borderRadius=radius+'px';
-            // this.$emit('updatedSocket')
+            this.$emit('updatedSocket');
         }
     },
     computed: {
         sectionRadius() {
             const { borderRadius }=this.cmpToEdit.style;
-            return parseInt(borderRadius,10)
+            return parseInt(borderRadius,10);
         },
         showBgPreview() {
             return this.cmpToEdit.imgUrl||this.cmpToEdit.style.background!=='transparent';

@@ -73,9 +73,6 @@ export default {
         renderedEditor() {
             return this.currEditor+'-editor';
         },
-        emitUpdateSocket() {
-            this.$emit('updatedSocket')
-        },
         editorTitle() {
             if(this.cmpToEdit) {
                 const { name }=this.cmpToEdit;
@@ -101,6 +98,9 @@ export default {
                 else if(name==='iframe'||name==='google-map') this.currEditor='video';
                 else this.currEditor='text';
             }
+        },
+        emitUpdateSocket() {
+            this.$emit('updatedSocket')
         },
         emitUploadImg(ev) {
             this.$emit('uploading',ev);
