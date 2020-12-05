@@ -30,5 +30,6 @@ function off(eventName, cb) {
 }
 
 function emit(eventName, data) {
+    console.log('we are emitting!!!!', data);
     socket.emit(eventName, data)
 }

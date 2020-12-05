@@ -25,6 +25,7 @@
                 @moved="emitMoveCmp"
                 @vidChanged="emitChangedVid"
                 @mapZoomChanged="emitChangedZoom"
+                @updatedSocket="emitUpdateSocket"
             >
             </component>
         </section>
@@ -62,6 +63,9 @@ export default {
         }
     },
     methods: {
+        emitUpdateSocket() {
+            this.$emit('updatedSocket')
+        },
         emitDeleteCmp(_id) {
             this.$emit('deletedCmp',_id)
         },

@@ -41,6 +41,7 @@
                 @uploading="emitUploadImg"
                 @vidChanged="emitChangedVid"
                 @mapZoomChanged="emitChangedZoom"
+                @updatedSocket="emitUpdateSocket"
             />
         </template>
         <div
@@ -71,6 +72,9 @@ export default {
     computed: {
         renderedEditor() {
             return this.currEditor+'-editor';
+        },
+        emitUpdateSocket() {
+            this.$emit('updatedSocket')
         },
         editorTitle() {
             if(this.cmpToEdit) {

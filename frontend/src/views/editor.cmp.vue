@@ -18,6 +18,7 @@
             @movedCmp="moveCmp"
             @openPublishModal="publishWebsite"
             @saveSample="saveSample"
+            @updatedSocket="updateSocket"
         >
             <toggle-editor
                 slot="toggle-editor-btn"
@@ -56,7 +57,6 @@ import { utilService } from '@/services/util.service';
 import { wapService } from '@/services/wap.service';
 import loader from '@/cmps/custum-cmps/loader.cmp.vue';
 import publishModal from '@/cmps/wap/publish-modal.cmp.vue';
-import PublishModalCmp from '../cmps/wap/publish-modal.cmp.vue';
 import { eventBus } from '@/services/event-bus.service.js'
 import socketService from '@/services/socket.service';
 
@@ -88,6 +88,9 @@ export default {
     },
 
     methods: {
+        updateSocket() {
+            socketService.emit('savedWap',this.currWap)
+        },
         togglePublishModal() {
             this.showPublishModal=!this.showPublishModal;
         },
@@ -113,6 +116,7 @@ export default {
             const children=parentEl.cmps||parentEl.children;
             const idx=children.findIndex(cmp => cmp._id===_id);
             children.splice(idx,1);
+            socketService.emit('savedWap',this.currWap)
         },
         moveCmpInsideParent(parentEl,_id,diff) {
             // Find the element index and replace its position according to the difference
@@ -121,6 +125,7 @@ export default {
             if(idx===0&&diff===-1) return;
             const section=children.splice(idx,1);
             children.splice(idx+diff,0,section[0]);
+            socketService.emit('savedWap',this.currWap)
         },
         copyCmpInsideParent(parentEl,_id) {
             const children=parentEl.cmps||parentEl.children;
@@ -129,6 +134,7 @@ export default {
             const elCopy=JSON.parse(JSON.stringify(el));
             editorService.replaceIds(elCopy);
             children.splice(idx,0,elCopy);
+            socketService.emit('savedWap',this.currWap)
         },
         setChangedVid(url) {
             if(!this.currCmpToEdit) return
@@ -150,6 +156,7 @@ export default {
         setCmpToEdit(_id) {
             var cmpToEdit=editorService.findByIdRecursive(this.currWap.cmps,_id);
             this.currCmpToEdit=cmpToEdit;
+
         },
         emptyCmpToEdit() {
             this.currCmpToEdit=null;
@@ -160,6 +167,7 @@ export default {
         deleteSection(_id) {
             const idx=this.currWap.cmps.findIndex(cmp => cmp._id===_id);
             this.currWap.cmps.splice(idx,1);
+            socketService.emit('savedWap',this.currWap)
 
         },
         copySection(_id) {
@@ -168,6 +176,8 @@ export default {
             const sectionCopy=JSON.parse(JSON.stringify(section));
             editorService.replaceIds(sectionCopy);
             this.currWap.cmps.splice(idx,0,sectionCopy);
+            socketService.emit('savedWap',this.currWap)
+
         },
         dropSection(dragResult) {
             // dragResult holds the indexes of the current position of the section
@@ -181,6 +191,8 @@ export default {
             if(idx===0&&diff===-1) return;
             const section=this.currWap.cmps.splice(idx,1);
             this.currWap.cmps.splice(idx+diff,0,section[0]);
+            socketService.emit('savedWap',this.currWap)
+
         },
         async saveWap() {
             this.currWap=await this.$store.dispatch({
@@ -214,11 +226,10 @@ export default {
         //open a connection
         socketService.setup();
 
-        //resiterer an event
+        //regsiter an event
         socketService.on('savedWap',wap => {
             this.currWap=wap;
         })
-
         //load samples for the sample list
         await this.$store.dispatch({ type: 'loadSamples' });
         const _id=this.$route.params.id;
