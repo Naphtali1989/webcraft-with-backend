@@ -18,7 +18,7 @@
             @movedCmp="moveCmp"
             @openPublishModal="publishWebsite"
             @saveSample="saveSample"
-            @updatedSocket="updateSocket"
+            @updatedSocket="changeMyComp"
         >
             <toggle-editor
                 slot="toggle-editor-btn"
@@ -88,7 +88,7 @@ export default {
     },
 
     methods: {
-        updateSocket() {
+        changeMyComp() {
             socketService.emit('savedWap',this.currWap)
         },
         togglePublishModal() {
