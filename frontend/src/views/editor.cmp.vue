@@ -156,6 +156,8 @@ export default {
         setCmpToEdit(_id) {
             var cmpToEdit=editorService.findByIdRecursive(this.currWap.cmps,_id);
             this.currCmpToEdit=cmpToEdit;
+            socketService.emit('savedWap',this.currWap)
+
 
         },
         emptyCmpToEdit() {

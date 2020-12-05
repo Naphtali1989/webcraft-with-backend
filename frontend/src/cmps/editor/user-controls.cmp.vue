@@ -25,6 +25,7 @@
 
 <script>
 import publishModal from '@/cmps/wap/publish-modal.cmp.vue';
+import { eventBus } from '@/services/event-bus.service.js'
 export default {
     name: 'user-controls',
     data() {
@@ -38,7 +39,7 @@ export default {
         },
         openPublishModal() {
             if(!this.loggedInUser) {
-                alert('Please Register To Publish');
+                eventBus.$emit('show-msg',{ txt: 'Please Login to publish your website',type: 'error' })
                 return;
             }
             this.$emit('openPublishModal');

@@ -17,6 +17,8 @@
         </div>
         <button
             @click="closeMsg"
+            :style="{backgroundColor: bcgColor}"
+            :class="btnBackground"
             class="close-btn-user-msg"
         >x</button>
     </section>
@@ -47,6 +49,12 @@ export default {
             const { type }=this.msg;
             if(type==='success') return 'fas fa-check-circle fa-2x'
             else return 'fas fa-exclamation-triangle fa-2x';
+        },
+        bcgColor() {
+            const { type }=this.msg;
+            if(type==='success') return '#124a76'
+            return '#8b1a1a'
+
         }
     },
     created() {
@@ -114,13 +122,16 @@ export default {
     background: transparent;
     outline: none;
     border: 0;
-    background-color: #124a76;
     border-radius: 50%;
     color: white;
 }
 
 .user-msg.error .close-btn {
     background-color: #8b1a1a;
+}
+
+.user-msg.sucess .close-btn {
+    background-color: #124a76;
 }
 
 .success {

@@ -1,9 +1,47 @@
 <template>
     <section
-        class="user-details-container flex space-between"
+        class="user-details-container"
         v-if="loggedInUser"
     >
-        <div class="user-area-container flex column">
+        <nav class="user-dashboard">
+            <div class="logo">
+                <img :src="imgUrl">
+            </div>
+            <ul class="sidebar-modal-links">
+                <li><i class="fas fa-user-circle"></i> {{loggedInUser.username}}</li>
+                <li>
+                    <i class="fas fa-envelope"></i> {{loggedInUser.email}}
+                </li>
+                <li>
+                    <i class="fas fa-user-circle"></i>Account creation: {{formatTime}}
+                </li>
+                <li>
+                    <label class="user-input input-file"><i class="fas fa-cloud-upload-alt"></i>
+                        <input
+                            class="hide"
+                            type="file"
+                            @change="setAvatar"
+                        />
+                    </label>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-content-page">
+            <div class="main-head">
+                <h1>Welecome back, {{loggedInUser.username}}</h1>
+            </div>
+            <div class="tab-conatiner">
+                <button @click="toggleTab('messages')">Messages</button>
+                <button @click="toggleTab('waps')">Templates</button>
+            </div>
+            <component
+                v-if="ownerWaps"
+                :is="currTab"
+                :waps="dataToTransfer"
+            />
+        </div>
+
+        <!-- <div class="user-area-container flex column">
             <div class="user-circle">
                 <div class="user-img">
                     <img :src="imgUrl" />
@@ -22,33 +60,7 @@
                 </label>
 
             </div>
-        </div>
-        <div class="tab-conatiner">
-            <button @click="toggleTab('messages')">Messages</button>
-            <button @click="toggleTab('waps')">Templates</button>
-        </div>
-
-        <div class="user-info flex column align-center">
-            <span class="name"><i class="fas fa-user-circle"></i> {{ loggedInUser.username }}</span>
-            <span class="email"><i class="far fa-envelope"></i> {{ loggedInUser.email }}</span>
-            <span class="created-at">Created at {{ formatTime }}</span>
-            <label class="user-input input-file"><i class="fas fa-cloud-upload-alt"></i>
-                <input
-                    class="hide"
-                    type="file"
-                    @change="setAvatar"
-                />
-            </label>
-        </div>
-        <div class="tab-conatiner">
-            <button @click="toggleTab('messages')">Messages</button>
-            <button @click="toggleTab('waps')">Templates</button>
-        </div>
-        <component
-            v-if="ownerWaps"
-            :is="currTab"
-            :waps="dataToTransfer"
-        />
+        </div> -->
     </section>
 </template>
 
