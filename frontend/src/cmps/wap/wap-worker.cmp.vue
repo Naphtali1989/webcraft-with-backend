@@ -113,8 +113,10 @@ export default {
         updateTxt(ev) {
             // This is the first event of "udpateTxt" - which will tell 
             // the next father worker that update happened
-            if (this.cmp.name !== 'txt' || this.cmp.name !== 'link') return;
-            this.$emit('updatedTxt', ev.target.innerText);
+            if (this.cmp.name === 'txt' || this.cmp.name === 'link') {
+                this.$emit('updatedTxt', ev.target.innerText);
+            }
+            return;
         },
         emitUpdateTxt(txtValue) {
             // This is the recursive event of "udpateTxt" - which will tell the next 

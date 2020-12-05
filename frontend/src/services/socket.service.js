@@ -14,7 +14,6 @@ export default {
 
 function setup() {
     socket = io(BASE_URL);
-    console.log('socket on service:', socket);
 }
 
 function terminate() {
@@ -30,6 +29,5 @@ function off(eventName, cb) {
 }
 
 function emit(eventName, data) {
-    console.log('we are emitting!!!!', data);
     socket.emit(eventName, data)
 }

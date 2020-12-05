@@ -30,7 +30,6 @@ function _update(wap) {
 }
 
 function deleteWapById(wapId) {
-    console.log('deleting the wap in the service');
     return httpService.delete(`wap/${wapId}`)
 }
 

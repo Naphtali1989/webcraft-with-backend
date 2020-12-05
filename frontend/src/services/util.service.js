@@ -59,7 +59,6 @@ async function uploadImg(ev) {
     FORM_DATA.append('upload_preset', UPLOAD_PRESET);
     try {
         const res = await axios.post(UPLOAD_URL, FORM_DATA);
-        console.log('uploading:', res);
         return res.data;
     } catch (err) {
         console.error('ERROR!', err);

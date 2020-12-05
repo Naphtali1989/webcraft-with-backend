@@ -209,10 +209,8 @@ export default {
 
         },
         async saveWap(isFirstCollab=true) {
-            console.log('in save mode');
             if(this.isCollabMode) {
                 this.currWap.isSaved=isFirstCollab;
-                console.log('curr wap is updated with isSave property');
             }
             this.currWap=await this.$store.dispatch({
                 type: 'saveWap',
@@ -251,14 +249,12 @@ export default {
         const _id=this.$route.params.id;
 
         if(_id) {
-            console.log('');
             // this.idToKeep=_id
             const wap=await this.$store.dispatch({
                 type: 'loadWap',
                 _id
             });
             this.currWap=wap;
-            console.log('initaing sockets !');
             socketService.emit('roomRoute',_id)
 
         }
@@ -280,7 +276,6 @@ export default {
     },
     destroyed() {
         if(this.isCollabMode&&!this.currWap.isSaved) {
-            console.log('getting to destroyed!');
             this.$store.commit({ type: 'setCollabMode',isCollabModeOn: false })
             this.$store.dispatch({ type: 'deleteWap',wapId: this.currWap._id })
         }
