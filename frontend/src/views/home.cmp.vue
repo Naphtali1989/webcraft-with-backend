@@ -2,7 +2,6 @@
     <section class="content-wrapper main-layout">
         <div class="main-hero flex column full">
             <h1>Build a website easily!</h1>
-            <!-- <img class="hero-img" src="../assets/img/builderbcg.jpg" /> -->
             <img class="hero-img" src="../assets/img/temp-hero.jpg" />
             <button class="home-btn hero-btn btn" @click="pushEditor">Start Building</button>
         </div>
@@ -18,7 +17,6 @@
                 </p>
                 <button class="home-btn btn" @click="pushEditor">Lets Create</button>
             </div>
-            <!-- <img class="card-img" src="../assets/showtoasi/img5.svg" /> -->
             <img class="card-img" src="https://imagizer.imageshack.com/img924/8105/aLPK9v.png" />
         </div>
         <div class="home-card flex column">
@@ -29,15 +27,11 @@
                     Suited for any of your needs
                     Design and build your own high-quality websites. Whether you’re promoting your business, showcasing your work,
                     opening your store or starting a blog — you can do it all with the <span class="logo-name">Webcraft</span> website editor.
-                    <!-- With a simple and drag and drop website builder, you can
-                    design any website you want. Just <span>Drag</span>,
-                    <span>Drop</span> and <span>Customise!</span> All the
-                    templates below were built using the Webcraft platform. -->
+
                 </p>
                 <button class="home-btn btn" @click="pushTemplate">Check Templates</button>
             </div>
             <img class="card-img" src="https://imagizer.imageshack.com/img922/6240/9IpCzn.png" />
-            <!-- <img src="../assets/showtoasi/img5.svg" /> -->
         </div>
         <div class="home-card flex column">
             <div class="card-content flex column space-between">
@@ -61,13 +55,11 @@
 
 
 <script>
-// import LottieAnimation from 'lottie-vuejs'
 import loader from '@/cmps/custum-cmps/loader.cmp';
 export default {
     name: 'home',
     components: {
         loader,
-        // LottieAnimation
     },
     methods: {
         pushEditor() {

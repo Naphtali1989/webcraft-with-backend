@@ -69,7 +69,8 @@ export default {
             currCmpToEdit: null,
             isEditorShow: true,
             showPublishModal: false,
-            currWebsiteLink: null
+            currWebsiteLink: null,
+            idToKeep: null
         };
     },
     computed: {
@@ -85,15 +86,16 @@ export default {
         },
         isLoading() {
             return this.$store.getters.isLoading;
+        },
+        isCollabMode() {
+            return this.$store.getters.isCollabMode
         }
     },
 
     methods: {
         async makeWapCollab() {
-
-            console.log('wap has been createad');
-            this.currWap.isSaved=false
-            await this.saveWap();
+            this.$store.commit({ type: 'setCollabMode',isCollabModeOn: true })
+            await this.saveWap(false);
             socketService.emit('roomRoute',this.currWap._id)
             this.$router.push(`/editor/${this.currWap._id}`)
             eventBus.$emit('show-msg',{ txt: `Collabrate mode is online`,type: 'success' })
@@ -169,8 +171,6 @@ export default {
             var cmpToEdit=editorService.findByIdRecursive(this.currWap.cmps,_id);
             this.currCmpToEdit=cmpToEdit;
             // socketService.emit('savedWap',this.currWap)
-
-
         },
         emptyCmpToEdit() {
             this.currCmpToEdit=null;
@@ -208,15 +208,16 @@ export default {
             socketService.emit('savedWap',this.currWap)
 
         },
-        async saveWap() {
-            // if(!this.currWap.isSaved) {
-            //     this.currWap.isSaved=true
-            // }
+        async saveWap(isFirstCollab=true) {
+            console.log('in save mode');
+            if(this.isCollabMode) {
+                this.currWap.isSaved=isFirstCollab;
+                console.log('curr wap is updated with isSave property');
+            }
             this.currWap=await this.$store.dispatch({
                 type: 'saveWap',
                 wap: this.currWap
             });
-
             eventBus.$emit('show-msg',{ txt: `Your website has been saved!`,type: 'success' })
         },
         async dropSample(dragResult) {
@@ -250,6 +251,8 @@ export default {
         const _id=this.$route.params.id;
 
         if(_id) {
+            console.log('');
+            // this.idToKeep=_id
             const wap=await this.$store.dispatch({
                 type: 'loadWap',
                 _id
@@ -275,10 +278,12 @@ export default {
         loader,
         publishModal
     },
-    // destroyed() {
-    //     if(!this.currWap.isSaved) {
-    //         this.$store.dispatch({ type: 'deleteWap',wapId: this.currWap._id })
-    //     }
-    // },
+    destroyed() {
+        if(this.isCollabMode&&!this.currWap.isSaved) {
+            console.log('getting to destroyed!');
+            this.$store.commit({ type: 'setCollabMode',isCollabModeOn: false })
+            this.$store.dispatch({ type: 'deleteWap',wapId: this.currWap._id })
+        }
+    }
 };
 </script>
