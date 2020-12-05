@@ -11,6 +11,10 @@ function connectSockets(io) {
             socket.broadcast.to(socket.wapId).emit('savedWap', wap)
         })
 
+        socket.on('form-submitted', (data) => {
+            io.emit('form-submitted', data)
+        })
+
         socket.on('roomRoute', wapId => {
             console.log('getting wap id:', wapId);
             if (socket.wapId) {
