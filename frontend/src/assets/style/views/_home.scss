@@ -1,41 +1,48 @@
 .content-wrapper {
     .main-hero {
         position: relative;
-        color: white;
+        margin-block-end: 1rem;
     }
     .hero-btn {
         background-color: #5ac7f9;
-        position: absolute;
+        padding: 0.75rem;
+        font-family: carme;
+        color: white;
+        font-size: 1.5rem;
+        transition: .33s;
     }
     h1 {
         position: absolute;
+        top: 1rem;
+        left: 1rem;
+        font-size: 1.5rem;
+        color: #ccc;
     }
-    .home-btn {
-        background-color: #5ac7f9;
-        padding: 0.75rem;
-        max-width: 50%;
-        color: white;
-        font-weight: bold;
+    .home-card {
+        margin: 2rem 0;
+        text-align: center;
+        .home-btn {
+            background-color: #5ac7f9;
+            padding: 0.75rem;
+            margin: 2rem 1rem;
+            max-width: 50%;
+            color: white;
+            font-weight: bold;
+        }
+        .logo-name {
+            color: #5ac7f9;
+        }
     }
 }
 
-@media (min-width:700px) {
+@media (min-width:830px) {
     .content-wrapper {
         .main-hero {
-            height: 75vh;
-            padding: 1rem;
-            right: 66%;
-            top: 28%;
-            font-size: 2.5rem;
-            transition: .33s;
-            &:hover {
-                padding-inline-end: 3em;
-                &:after {
-                    right: 0.5em;
-                    content: '→';
-                    position: absolute;
-                    padding-inline-end: 0.625rem;
-                }
+            max-height: 75vh;
+            flex-direction: row;
+            .hero-btn {
+                position: absolute;
+                font-size: 2rem;
             }
         }
         .home-btn {
@@ -49,43 +56,49 @@
         .hero-img {
             object-fit: cover;
         }
-    }
-    .home-card {
-        margin: 6rem 0 0 0;
-        padding: 2rem;
-        &:first-child {
-            margin-block-start: 6rem;
-        }
-        &:nth-child(odd) {
-            flex-direction: row-reverse;
-            img {
-                margin-inline-end: 6.5rem;
+        .home-card {
+            margin: 6rem 0 0 0;
+            padding: unset;
+            max-height: 400px;
+            &:first-child {
+                margin-block-start: 6rem;
             }
-            .home-btn,
-            .home-tag {
-                align-self: flex-end;
+            &:nth-child(odd) {
+                flex-direction: row-reverse;
+                img {
+                    margin-inline-end: 6.5rem;
+                }
+                .home-btn,
+                .home-tag {
+                    align-self: flex-end;
+                }
+                h2,
+                p {
+                    text-align: right;
+                }
             }
-            h2,
+            &:nth-child(even) {
+                flex-direction: row;
+                img {
+                    margin-inline-start: 6.5rem;
+                }
+                h2,
+                p {
+                    text-align: left;
+                }
+            }
+            h2 {
+                font-size: 36px;
+            }
             p {
-                text-align: right;
+                font-size: 21px;
             }
-        }
-        &:nth-child(even) {
+            .card-content1 {
+                flex: 2;
+            }
             img {
-                margin-inline-start: 6.5rem;
+                width: 50%;
             }
-        }
-        h2 {
-            font-size: 36px;
-        }
-        p {
-            font-size: 21px;
-        }
-        .card-content1 {
-            flex: 2;
-        }
-        img {
-            width: 50%;
         }
     }
 }
