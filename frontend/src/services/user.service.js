@@ -65,6 +65,7 @@ function _handleLogin(user) {
 }
 
 async function update(user) {
+    console.log('user in service?:', user);
     const updatedUser = await httpService.put(`user/${user._id}`, user)
     return updatedUser;
 }

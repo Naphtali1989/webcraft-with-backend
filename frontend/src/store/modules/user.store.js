@@ -17,6 +17,7 @@ export const userStore = {
     },
     mutations: {
         setUser(state, { user }) {
+            console.log('user in mutation?', user);
             state.loggedInUser = user;
         },
         setImgUrl(state, { imgUrl }) {
@@ -37,13 +38,14 @@ export const userStore = {
             await userService.logout();
             commit({ type: 'setUser', user: null })
         },
-        async loadLoggedInUser({ commit }, { _id }) {
-            const user = await userService.getById(_id);
+        async loadLoggedInUser({ commit }, { _userId }) {
+            const user = await userService.getById(_userId);
             commit({ type: 'setUser', user })
         },
         async updateUser({ commit }, { user }) {
             const savedUser = await userService.update(user)
-            commit({ type: 'setUser', savedUser })
+            console.log('save user from db?:', savedUser);
+            commit({ type: 'setUser', user: savedUser })
         },
 
     }

@@ -5,12 +5,10 @@
             @openSignupModal="showModal = true"
         />
         <router-view />
-        <!-- <loader v-if="isLoading"/> -->
         <sign-up
             v-if="showModal"
             @closeSignupModal="showModal = false"
         />
-        <!-- <socket-modal /> -->
         <user-msg />
 
     </div>
@@ -21,7 +19,6 @@ import appHeader from '@/cmps/app-header.cmp.vue';
 import signUp from '@/cmps/sign-up.cmp.vue';
 import loader from '@/cmps/custum-cmps/loader.cmp.vue';
 import userMsg from '@/cmps/custum-cmps/user-msg.cmp.vue';
-import socketModal from '@/cmps/wap/socket-modal.cmp.vue'
 
 export default {
     data() {
@@ -34,13 +31,13 @@ export default {
         signUp,
         loader,
         userMsg,
-        socketModal
     },
     computed: {
         isViewMode() {
             return this.$store.getters.isViewMode;
         },
         toggleSignupModal() {
+            console.log('sign up intitaed');
             this.showModal=!this.showModal;
         },
         isLoading() {
