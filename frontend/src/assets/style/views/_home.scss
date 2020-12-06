@@ -221,6 +221,30 @@ body {
             }
         }
     }
+    .home-wap-gallery {
+        margin: 2rem 0;
+        grid-template-columns: repeat(auto-fill, minmax(18.5rem, 1fr));
+        .wap-preview {
+            background: #86919ba6;
+            position: relative;
+            box-shadow: 0 0 18px rgba(0, 0, 0, 0.45);
+            border-radius: 8px 8px 0 0;
+            height: 450px;
+            color: #eee;
+            font-size: 1.2rem;
+            overflow: hidden;
+            img {
+                height: 100%;
+                object-fit: cover
+            }
+            h3 {
+                padding: 0.5rem;
+                text-transform: capitalize;
+                font-weight: 400;
+                text-shadow: 1px 1px #00000057;
+            }
+        }
+    }
 }
 
 
