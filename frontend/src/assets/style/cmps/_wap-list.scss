@@ -1,38 +1,43 @@
 .wap-container {
     padding: 2rem;
-    grid-template-columns: repeat(auto-fill, minmax(14.5rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(18.5rem, 1fr));
     grid-gap: 1.25rem;
     .wap-preview {
-        background: gainsboro;
+        background: #86919ba6;
         position: relative;
-        box-shadow: 0 0 2px rgba(0, 0, 0, 0.829);
-        border-radius: 2px;
-        width: 100%;
-        height: 380px;
+        box-shadow: 0 0 18px rgba(0, 0, 0, 0.45);
+        border-radius: 8px 8px 0 0;
+        height: 450px;
+        color: #eee;
         font-size: 1.2rem;
         overflow: hidden;
         img {
-            height: 21.25rem;
+            height: 100%;
             object-fit: cover
         }
         h3 {
             padding: 0.5rem;
             text-transform: capitalize;
+            font-weight: 400;
+            text-shadow: 1px 1px #00000057;
         }
         .wap-prev-controls {
             background-color: #222222c9;
             position: absolute;
-            bottom: 0;
+            bottom: -30px;
             width: 100%;
-            height: 95px;
+            height: 165px;
             transform: translateY(100%);
             opacity: 0;
             transition: .5s ease;
             z-index: -1;
-            bottom: 0;
+            bottom: -30px;
+            border-radius: 200px 200px 0 0;
             a {
-                color: white;
-                font-size: 1.5rem;
+                color: #86919b;
+                font-size: 2.5rem;
+                margin: 15px;
+                text-shadow: 1px 1px 1px #eee;
             }
             small {
                 font-size: 1.1rem;
@@ -50,11 +55,11 @@
     .add-wap-btn {
         background: gainsboro;
         position: relative;
-        box-shadow: 0 0 2px rgba(0, 0, 0, 0.829);
+        box-shadow: 0 0 18px rgba(0, 0, 0, 0.45);
         border-radius: 2px;
         border: 1px dashed #555;
         width: 100%;
-        height: 380px;
+        height: 450px;
         opacity: 0.7;
         .fa-plus {
             font-size: 4rem;

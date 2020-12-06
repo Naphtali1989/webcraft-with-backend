@@ -3,6 +3,9 @@
     .main-hero {
         position: relative;
         margin-block-end: 1rem;
+        .hero-img {
+            width: 100%;
+        }
     }
     .hero-screen {
         background-color: rgba(9, 9, 9, 0.26);
