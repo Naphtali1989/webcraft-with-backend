@@ -1,6 +1,6 @@
 <template>
     <el-table
-        :data="msgs"
+        :data="data"
         style="width: 100%"
     >
         <el-table-column
@@ -64,13 +64,6 @@ export default {
     methods: {
         handleClick() {
             console.log('click');
-        }
-    },
-    computed: {
-        msgs() {
-            return this.data.forEach(wap => {
-                return wap.map(msg => msg.reviews)
-            })
         }
     }
 
