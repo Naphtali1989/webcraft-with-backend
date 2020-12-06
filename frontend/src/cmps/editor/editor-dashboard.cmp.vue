@@ -34,6 +34,7 @@
             @saveWap="emitSaveWap"
             @saveSample="emitSaveSample"
             @openPublishModal="emitOpenPublishModal"
+            @saveWapName="emitSaveWapName"
         />
     </section>
 </template>
@@ -105,6 +106,9 @@ export default {
         },
         emitSaveSample() {
             this.$emit('saveSample')
+        },
+        emitSaveWapName(wapName) {
+            this.$emit('saveWapName',wapName)
         }
     },
     computed: {

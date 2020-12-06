@@ -16,7 +16,7 @@
             @copiedCmp="copyCmp"
             @deletedCmp="deleteCmp"
             @movedCmp="moveCmp"
-            @openPublishModal="publishWebsite"
+            @openPublishModal="togglePublishModal"
             @saveSample="saveSample"
             @updatedSocket="updatedSocket"
             @makeWapCollab="makeWapCollab"
@@ -44,6 +44,7 @@
         <publish-modal
             v-if="showPublishModal"
             @closePublishModal="togglePublishModal"
+            @saveWapName="publishWebsite"
             :currWebsiteLink="currWebsiteLink"
         />
         <socket-modal
@@ -78,7 +79,7 @@ export default {
             showPublishModal: false,
             currWebsiteLink: null,
             showSocketModal: false,
-            currCollabLink: null
+            currCollabLink: null,
         };
     },
     computed: {
@@ -101,6 +102,9 @@ export default {
     },
 
     methods: {
+        // async saveWapName(wapName) {
+        //     this.saveWap(wapName)
+        // },
         async makeWapCollab() {
             this.$store.commit({ type: 'setCollabMode',isCollabModeOn: true })
             await this.saveWap(false);
@@ -113,8 +117,6 @@ export default {
             //this will be inserted to the modal
             // this.$router.push(`/editor/${this.currWap._id}`)
             eventBus.$emit('show-msg',{ txt: `Collaborate mode is online`,type: 'success' })
-
-
         },
         updatedSocket() {
             socketService.emit('savedWap',this.currWap)
@@ -125,11 +127,11 @@ export default {
         toggleSocketModal() {
             this.showSocketModal=!this.showSocketModal
         },
-        async publishWebsite() {
+        async publishWebsite(wapName) {
+            this.currWap.title=wapName;
             const wap=await this.saveWap();
             const link=`https://webcraft-ca.herokuapp.com/#/wap/${this.currWap._id}`
             this.currWebsiteLink=link;
-            this.togglePublishModal()
         },
         copyCmp(_id) {
             const parent=editorService.findParentNode(this.currWap,_id)
@@ -232,6 +234,7 @@ export default {
                 this.currWap.isSaved=isFirstCollab;
                 console.log('curr wap is updated with isSave property');
             }
+            // this.currWap.title=wapName;
             this.currWap=await this.$store.dispatch({
                 type: 'saveWap',
                 wap: this.currWap

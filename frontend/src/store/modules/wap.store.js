@@ -60,5 +60,8 @@ export const wapStore = {
             });
             return curUserWaps
         }
+        // async saveWapName({commit}, {wapName}) {
+
+        // }
     }
 }
