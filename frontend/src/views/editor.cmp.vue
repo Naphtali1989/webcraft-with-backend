@@ -115,7 +115,7 @@ export default {
             this.toggleSocketModal();
 
             //this will be inserted to the modal
-            // this.$router.push(`/editor/${this.currWap._id}`)
+            this.$router.push(`/editor/${this.currWap._id}`)
             eventBus.$emit('show-msg',{ txt: `Collaborate mode is online`,type: 'success' })
         },
         updatedSocket() {
