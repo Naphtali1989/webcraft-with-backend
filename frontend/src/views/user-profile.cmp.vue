@@ -132,6 +132,7 @@ export default {
         this.getWapsReviews(_userId)
 
         socketService.on('form-submitted',({ title,_id }) => {
+            if(title==='undefined') title='Mock Website'
             this.getWapsReviews(_userId);
             eventBus.$emit('show-msg',{ txt: `New message received from website:${title}`,type: 'success' })
         })

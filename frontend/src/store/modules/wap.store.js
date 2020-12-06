@@ -44,7 +44,6 @@ export const wapStore = {
             return savedWap
         },
         async deleteWap({ commit }, { wapId }) {
-            console.log('deleteing wap in collab mode', wapId);
             await wapService.remove(wapId)
         },
         async getOwnerWapReviews({ commit }, { userId }) {
