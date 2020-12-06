@@ -1,5 +1,13 @@
 <template>
-    <section v-if="wapToShow">
+    <section class="user-site" v-if="wapToShow">
+        <div
+            class="hamburger flex-center column btn"
+            @click="toggleMenu"
+        >
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
         <wap-renderer
             v-for="cmp in wapToShow.cmps"
             :key="cmp._id"
