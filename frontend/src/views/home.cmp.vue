@@ -74,6 +74,7 @@
                 src="../assets/webcraft-svg/editor-alone.svg"
             />
         </div>
+        <wap-list v-if="!isLoading" :waps="waps"></wap-list>
 
         <!-- <img src="../assets/webcraft-svg/editor-alone.svg" /> -->
         <!-- <img src="../assets/webcraft-svg/webcraft-boy.svg" /> -->
@@ -87,10 +88,18 @@
 
 <script>
 import loader from '@/cmps/custum-cmps/loader.cmp';
+import wapList from '@/cmps/wap/wap-list.cmp.vue';
 export default {
     name: 'home',
-    components: {
-        loader,
+    data() {
+        return {
+            isLoading: false
+        }
+    },
+    computed: {
+        waps() {
+            return this.$store.getters.getWaps;
+        },
     },
     methods: {
         pushEditor() {
@@ -98,7 +107,14 @@ export default {
         },
         pushTemplate() {
             this.$router.push('/wap')
-        }
-    }
+        },
+    },
+    async created() {
+        await this.$store.dispatch({ type: 'loadWaps' });
+    },
+    components: {
+        loader,
+        wapList
+    },
 };
 </script>
