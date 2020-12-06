@@ -226,10 +226,8 @@ export default {
             const section=this.currWap.cmps.splice(idx,1);
             this.currWap.cmps.splice(idx+diff,0,section[0]);
             socketService.emit('savedWap',this.currWap)
-
         },
         async saveWap(isFirstCollab=true) {
-            console.log('in save mode');
             if(this.isCollabMode) {
                 this.currWap.isSaved=isFirstCollab;
                 console.log('curr wap is updated with isSave property');
@@ -273,15 +271,12 @@ export default {
 
         if(_id) {
             console.log('');
-            // this.idToKeep=_id
             const wap=await this.$store.dispatch({
                 type: 'loadWap',
                 _id
             });
             this.currWap=wap;
-            console.log('initaing sockets !');
             socketService.emit('roomRoute',_id)
-
         }
         //open a connection
         else {
@@ -292,6 +287,7 @@ export default {
             }
         }
     },
+
     components: {
         editorDashboard,
         editorWorkspace,
