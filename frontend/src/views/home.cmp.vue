@@ -73,6 +73,11 @@
             />
         </div>
 
+        <img src="../assets/webcraft-svg/editor-alone.svg" />
+        <img src="../assets/webcraft-svg/webcraft-boy.svg" />
+        <img src="../assets/webcraft-svg/editor-alone-v3.svg" />
+        <img src="../assets/webcraft-svg/picture-editor.svg" />
+
         <!-- <loader /> -->
     </section>
 </template>
