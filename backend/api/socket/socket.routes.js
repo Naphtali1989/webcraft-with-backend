@@ -12,6 +12,7 @@ function connectSockets(io) {
         })
 
         socket.on('form-submitted', (data) => {
+            console.log('data:', data);
             io.emit('form-submitted', data)
         })
 
