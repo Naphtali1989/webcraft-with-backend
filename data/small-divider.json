@@ -6,6 +6,7 @@
     "class": "site-divider flex align-center",
     "style": {
         "background": "",
-        "borderRadius": "0px"
+        "borderRadius": "0px",
+        "height": "70px"
     }
 }

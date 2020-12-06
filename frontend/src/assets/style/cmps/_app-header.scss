@@ -1,7 +1,7 @@
 body.open-menu {
     .app-header {
         .nav-links {
-            z-index: 50000000001;
+            z-index: 10001;
             transform: translateX(0);
         }
     }
@@ -25,7 +25,7 @@ body.open-menu {
     position: relative;
     top: 0;
     width: 100%;
-    z-index: 10000000000000000000000000000;
+    z-index: 10000;
     padding: 0 1.5rem;
     background-color: #fafafa;
     height: 3.5rem;

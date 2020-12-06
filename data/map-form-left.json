@@ -11,7 +11,7 @@
     },
     "children": [{
         "name": "div",
-        "class": "site-map-form-container flex",
+        "class": "site-container flex",
         "style": {
             "background": "transparent",
             "borderRadius": "0px",
@@ -23,7 +23,8 @@
                 "style": {
                     "background": "transparent",
                     "borderRadius": "0px",
-                    "height": "100%"
+                    "height": "100%",
+                    "width": "50%"
                 },
                 "children": [{
                     "name": "google-map",
@@ -44,7 +45,7 @@
             },
             {
                 "name": "div",
-                "class": "site-inner-div flex-center column",
+                "class": "site-form-container flex-center column",
                 "style": {
                     "background": "#22222285",
                     "borderRadius": "0px",
