@@ -33,38 +33,21 @@
             <div class="main-head">
                 <h1>Welecome back, {{loggedInUser.username}}</h1>
             </div>
-            <div class="tab-conatiner">
+            <!-- <div class="tab-conatiner">
                 <button @click="toggleTab('messages')">Messages</button>
-                <button @click="toggleTab('waps')">Templates</button>
-                <button>Clean reviews</button>
-            </div>
-            <component
+                <button @click="cleanReviews">Clean reviews</button>
+            </div> -->
+            <backoffice-msg
+                v-if="ownerWaps"
+                :waps="dataToTransfer"
+            />
+            <!-- <component
                 v-if="ownerWaps"
                 :is="currTab"
                 :waps="dataToTransfer"
-            />
+            /> -->
         </div>
 
-        <!-- <div class="user-area-container flex column">
-            <div class="user-circle">
-                <div class="user-img">
-                    <img :src="imgUrl" />
-                </div>
-            </div>
-            <div class="user-info flex column align-center">
-                <span class="name"><i class="fas fa-user-circle"></i> {{loggedInUser.username}}</span>
-                <span class="email"><i class="far fa-envelope"></i> {{loggedInUser.email}}</span>
-                <span class="created-at">Created at {{formatTime}}</span>
-                <label class="user-input input-file"><i class="fas fa-cloud-upload-alt"></i>
-                    <input
-                        class="hide"
-                        type="file"
-                        @change="setAvatar"
-                    />
-                </label>
-
-            </div>
-        </div> -->
     </section>
 </template>
 
@@ -84,9 +67,9 @@ export default {
         }
     },
     methods: {
-        toggleTab(tab) {
-            this.selectedTab=tab;
-        },
+        // toggleTab(tab) {
+        //     this.selectedTab=tab;
+        // },
         async setAvatar(ev) {
             const res=await utilService.uploadImg(ev);
             const user=JSON.parse(sessionStorage.getItem('user'))
@@ -105,18 +88,15 @@ export default {
         }
     },
     computed: {
-        currTab() {
-            if(this.selectedTab==='messages') return 'backoffice-msg'
-            return 'user-waps'
-        },
+        // currTab() {
+        //     if(this.selectedTab==='messages') return 'backoffice-msg'
+        //     return 'user-waps'
+        // },
         dataToTransfer() {
-            if(this.selectedTab==='messages') {
-                return this.ownerWaps.filter(ownerWap => {
-                    return ownerWap.reviews;
-                });
-            } else {
-                return this.ownerWaps;
-            }
+            return this.ownerWaps.filter(ownerWap => {
+                return ownerWap.reviews;
+            });
+
         },
         loggedInUser() {
             return this.$store.getters.loggedInUser;
