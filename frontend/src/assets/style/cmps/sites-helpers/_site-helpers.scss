@@ -84,8 +84,17 @@
             flex-direction: column;
         }
         .site-form-container {
-            padding: unset !important;
+            padding: 1rem 0 !important;
             width: unset !important;
+            .site-map-inner-text {
+                margin: 0 !important;
+            }
+            .site-map-inner-input {
+                width: unset !important;
+            }
+        }
+        .site-map-container {
+            width: 100% !important;
         }
     }
     .site-form-socials-container {

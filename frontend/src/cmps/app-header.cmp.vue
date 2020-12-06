@@ -9,14 +9,17 @@
         </div>
         <nav class="nav-links flex align-center">
             <router-link
+            @click.native="toggleMenu"
                 to="/"
                 exact
             >Home</router-link>
             <router-link
+            @click.native="toggleMenu"
                 to="/wap"
                 exact
             >Templates</router-link>
             <router-link
+            @click.native="toggleMenu"
                 to="/editor"
                 exact
             >Editor</router-link>
@@ -66,10 +69,11 @@ export default {
             this.showModal=!this.showModal;
         },
         pushHome() {
-            this.$router.push('/')
+            this.$router.push('/');
         },
         showSignup() {
-            this.$emit('openSignupModal')
+            this.toggleModal();
+            this.$emit('openSignupModal');
         },
         toggleMenu() {
             document.body.classList.toggle('open-menu');
