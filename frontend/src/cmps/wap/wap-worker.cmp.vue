@@ -35,19 +35,17 @@
         </div>
         {{ cmpTxt }}
         <template v-if="cmp.children">
-
-                    <wap-worker
-                    v-for="child in cmp.children"
-                        :key="child._id"
-                        :cmp="child"
-                        @blur="updateTxt"
-                        @focused="onFocus"
-                        @updatedTxt="emitUpdateTxt"
-                    >
-                        <!-- This Slot will get the misc-control div if the v-if is true -->
-                        <slot name="misc-control"></slot>
-                    </wap-worker>
-
+            <wap-worker
+                v-for="child in cmp.children"
+                :key="child._id"
+                :cmp="child"
+                @blur="updateTxt"
+                @focused="onFocus"
+                @updatedTxt="emitUpdateTxt"
+            >
+                <!-- This Slot will get the misc-control div if the v-if is true -->
+                <slot name="misc-control"></slot>
+            </wap-worker>
         </template>
     </component>
 </template>
@@ -113,7 +111,7 @@ export default {
         }
     },
     methods: {
-       
+
         updateTxt(ev) {
             // This is the first event of "udpateTxt" - which will tell 
             // the next father worker that update happened
