@@ -7,22 +7,25 @@
             <div class="logo">
                 <img :src="imgUrl">
             </div>
-            <ul class="sidebar-modal-links">
+            <ul class="sidebar-modal-links clean-list">
                 <li><i class="fas fa-user-circle"></i> {{loggedInUser.username}}</li>
                 <li>
                     <i class="fas fa-envelope"></i> {{loggedInUser.email}}
                 </li>
                 <li>
-                    <i class="fas fa-user-circle"></i>Account creation: {{formatTime}}
+                    <span class="account-creation">Account Creation:</span>
+                    {{formatTime}}
                 </li>
                 <li>
-                    <label class="user-input input-file"><i class="fas fa-cloud-upload-alt"></i>
+                    <label class="user-input input-file">
+                        <span class="upload-btn"><i class="fas fa-cloud-upload-alt"></i></span>
                         <input
-                            class="hide"
+                            class="hidden"
                             type="file"
                             @change="setAvatar"
                         />
                     </label>
+                    <span class="upload-avatar">Upload Avatar</span>
                 </li>
             </ul>
         </nav>
@@ -33,6 +36,7 @@
             <div class="tab-conatiner">
                 <button @click="toggleTab('messages')">Messages</button>
                 <button @click="toggleTab('waps')">Templates</button>
+                <button>Clean reviews</button>
             </div>
             <component
                 v-if="ownerWaps"
@@ -91,10 +95,11 @@ export default {
             this.$router.push(`/user/${loggedInUser._id}`)
 
         },
-        async getWapsReviews(_id) {
+        async getWapsReviews(_id,wapId) {
             const ownerWaps=await this.$store.dispatch({
                 type: 'getOwnerWapReviews',
-                userId: _id
+                userId: _id,
+                wapId
             })
             this.ownerWaps=ownerWaps;
         }
@@ -133,7 +138,8 @@ export default {
 
         socketService.on('form-submitted',({ title,_id }) => {
             if(title==='undefined') title='Mock Website'
-            this.getWapsReviews(_userId);
+            const wapId=_id
+            this.getWapsReviews(_userId,wapId);
             eventBus.$emit('show-msg',{ txt: `New message received from website:${title}`,type: 'success' })
         })
     },

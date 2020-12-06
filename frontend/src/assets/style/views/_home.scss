@@ -40,6 +40,7 @@
             max-width: 50%;
             color: white;
             font-weight: bold;
+            width: 50%;
         }
         .logo-name {
             color: #5ac7f9;
@@ -47,6 +48,11 @@
         .home-tag {
             background-color: rgba(60, 177, 255, 0.164);
             margin: 1rem 0;
+            padding: 1rem;
+            text-align: center;
+            font-size: 25px;
+            font-family: 'carme';
+            color: black;
         }
     }
 }
