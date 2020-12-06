@@ -1,5 +1,8 @@
 <template>
-    <section class="avatar-modal flex column align-center">
+    <section
+        class="avatar-modal flex column align-center"
+        v-if="loggedInUser"
+    >
         <div class="info flex column align-center">
             <avatar
                 :username="loggedInUser.username"

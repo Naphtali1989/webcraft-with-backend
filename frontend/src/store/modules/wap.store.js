@@ -46,7 +46,7 @@ export const wapStore = {
         async deleteWap({ commit }, { wapId }) {
             await wapService.remove(wapId)
         },
-        async getOwnerWapReviews({ commit }, { userId }) {
+        async getOwnerWapReviews({ commit }, { userId, wapId }) {
             const waps = await wapService.query(userId);
             const curUserWaps = waps.map(wap => {
                 const { thumbnail, _id, title } = wap;
@@ -55,7 +55,8 @@ export const wapStore = {
                     thumbnail,
                     _id,
                     title,
-                    reviews
+                    reviews,
+                    wapId
                 }
             });
             return curUserWaps

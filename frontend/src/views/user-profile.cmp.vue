@@ -31,21 +31,16 @@
         </nav>
         <div class="main-content-page">
             <div class="main-head">
-                <h1>Welecome back, {{loggedInUser.username}}</h1>
+                <h1>Welcome back, {{loggedInUser.username}}</h1>
             </div>
-            <!-- <div class="tab-conatiner">
-                <button @click="toggleTab('messages')">Messages</button>
-                <button @click="cleanReviews">Clean reviews</button>
-            </div> -->
-            <backoffice-msg
+            <!-- <backoffice-msg
                 v-if="ownerWaps"
-                :waps="dataToTransfer"
-            />
-            <!-- <component
-                v-if="ownerWaps"
-                :is="currTab"
                 :waps="dataToTransfer"
             /> -->
+            <msg-table
+                :data="dataToTransfer"
+                v-if="ownerWaps"
+            />
         </div>
 
     </section>
@@ -58,24 +53,24 @@ import backofficeMsg from '@/cmps/wap/backoffice-msg.cmp.vue';
 import userWaps from '@/cmps/wap/user-waps.cmp.vue';
 import socketService from '@/services/socket.service';
 import { eventBus } from '@/services/event-bus.service.js'
+import msgTable from '@/cmps/custum-cmps/msg-table.cmp.vue';
+
 export default {
     name: 'user-profile',
     data() {
         return {
             ownerWaps: [],
-            selectedTab: 'messages'
+            selectedTab: 'messages',
+            user: null
         }
     },
     methods: {
-        // toggleTab(tab) {
-        //     this.selectedTab=tab;
-        // },
         async setAvatar(ev) {
             const res=await utilService.uploadImg(ev);
             const user=JSON.parse(sessionStorage.getItem('user'))
             user.imgUrl=res.url;
             await this.$store.dispatch({ type: 'updateUser',user })
-            this.$router.push(`/user/${loggedInUser._id}`)
+            // this.$router.push(`/user/${loggedInUser._id}`)
 
         },
         async getWapsReviews(_id,wapId) {
@@ -88,10 +83,6 @@ export default {
         }
     },
     computed: {
-        // currTab() {
-        //     if(this.selectedTab==='messages') return 'backoffice-msg'
-        //     return 'user-waps'
-        // },
         dataToTransfer() {
             return this.ownerWaps.filter(ownerWap => {
                 return ownerWap.reviews;
@@ -102,8 +93,11 @@ export default {
             return this.$store.getters.loggedInUser;
         },
         imgUrl() {
-            if(this.loggedInUser.imgUrl) return this.loggedInUser.imgUrl
-            else return `https://robohash.org/2.png`
+            if(this.loggedInUser.imgUrl) {
+                console.log('got to change img');
+                return this.loggedInUser.imgUrl
+            }
+            return `https://robohash.org/2.png`
         },
         formatTime() {
             const { createdAt }=this.loggedInUser
@@ -111,21 +105,25 @@ export default {
         },
     },
     async created() {
-        const _userId=this.$route.params.id;
-        if(_userId) this.$store.dispatch({ type: 'loadLoggedInUser',_userId })
         socketService.setup();
-        this.getWapsReviews(_userId)
-
-        socketService.on('form-submitted',({ title,_id }) => {
-            if(title==='undefined') title='Mock Website'
-            const wapId=_id
-            this.getWapsReviews(_userId,wapId);
-            eventBus.$emit('show-msg',{ txt: `New message received from website:${title}`,type: 'success' })
-        })
+        const _userId=this.$route.params.id;
+        console.log('id from user?:',_userId);
+        if(_userId) {
+            console.log('from disptahc:',this.user);
+            this.user=await this.$store.dispatch({ type: 'loadLoggedInUser',_userId })
+            this.getWapsReviews(_userId)
+            socketService.on('form-submitted',({ title,_id }) => {
+                const wapId=_id
+                this.getWapsReviews(_userId,wapId);
+                eventBus.$emit('show-msg',{ txt: `New message received from website:${title}`,type: 'success' })
+            })
+        }
     },
     components: {
         userWaps,
-        backofficeMsg
+        backofficeMsg,
+        msgTable
+
     }
 }
 </script>

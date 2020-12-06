@@ -1,5 +1,4 @@
 const userService = require('./user.service')
-const logger = require('../../services/logger.service')
 
 async function getUser(req, res) {
     const user = await userService.getById(req.params.id)
@@ -18,14 +17,20 @@ async function deleteUser(req, res) {
 }
 
 async function updateUser(req, res) {
-    const user = req.body;
-    await userService.update(user)
-    res.json(user)
+    try {
+        console.log('***req from frontend is***:', req.body);
+        const user = req.body;
+        await userService.update(user)
+        res.json(user)
+
+    } catch (error) {
+        console.log('error?:', error);
+    }
 }
 
 module.exports = {
     getUser,
     getUsers,
-    deleteUser,
-    updateUser
+    updateUser,
+    deleteUser
 }

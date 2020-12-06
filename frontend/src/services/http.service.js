@@ -31,10 +31,10 @@ async function ajax(endpoint, method = 'get', data = null) {
         });
         return res.data;
     } catch (err) {
-        if (err.response.status === 401) {
-            router.push('/').catch(() => {})
-        }
-        console.log(`Had issues ${method}ing to server`, err)
-        throw err;
+        // if (err.response.status === 401) {
+        //     router.push('/').catch(() => {})
+        // }
+        // console.log(`Had issues ${method}ing to server`, err)
+        // throw err;
     }
 }
