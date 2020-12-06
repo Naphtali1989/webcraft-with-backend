@@ -1,3 +1,22 @@
+.site-grid-inner-img {
+    &.square {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    &.large-square {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    &.portrait {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+    &.landscape {
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+}
+
 @media(max-width:770px) {
     .site-header {
         .site-nav {
