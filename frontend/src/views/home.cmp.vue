@@ -2,9 +2,10 @@
     <section class="content-wrapper main-layout">
         <div class="main-hero flex column full">
             <h1>Build a website easily!</h1>
+            <div class="hero-screen"></div>
             <img
                 class="hero-img"
-                src="../assets/img/temp-hero.jpg"
+                src="../assets/webcraft-svg/picture-editor.svg"
             />
             <button
                 class="home-btn hero-btn btn"
@@ -28,7 +29,7 @@
             </div>
             <img
                 class="card-img"
-                src="https://imagizer.imageshack.com/img924/8105/aLPK9v.png"
+                src="../assets/webcraft-svg/editor-alone-v3.svg"
             />
         </div>
         <div class="home-card flex column">
@@ -48,7 +49,7 @@
             </div>
             <img
                 class="card-img"
-                src="https://imagizer.imageshack.com/img922/6240/9IpCzn.png"
+                src="../assets/webcraft-svg/webcraft-boy.svg"
             />
         </div>
         <div class="home-card flex column">
@@ -69,14 +70,14 @@
 
             <img
                 class="card-img"
-                src="https://imagizer.imageshack.com/img924/328/88wVuo.png"
+                src="../assets/webcraft-svg/editor-alone.svg"
             />
         </div>
 
-        <img src="../assets/webcraft-svg/editor-alone.svg" />
-        <img src="../assets/webcraft-svg/webcraft-boy.svg" />
-        <img src="../assets/webcraft-svg/editor-alone-v3.svg" />
-        <img src="../assets/webcraft-svg/picture-editor.svg" />
+        <!-- <img src="../assets/webcraft-svg/editor-alone.svg" /> -->
+        <!-- <img src="../assets/webcraft-svg/webcraft-boy.svg" /> -->
+        <!-- <img src="../assets/webcraft-svg/editor-alone-v3.svg" /> -->
+        <!-- <img src="../assets/webcraft-svg/picture-editor.svg" /> -->
 
         <!-- <loader /> -->
     </section>

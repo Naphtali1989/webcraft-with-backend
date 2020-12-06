@@ -1,12 +1,23 @@
 .content-wrapper {
+    position: relative;
     .main-hero {
         position: relative;
         margin-block-end: 1rem;
+    }
+    .hero-screen {
+        background-color: rgba(9, 9, 9, 0.26);
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
     }
     .hero-btn {
         background-color: #5ac7f9;
         padding: 0.75rem;
         font-family: carme;
+        bottom: 0;
+        left: 50%;
         color: white;
         font-size: 1.5rem;
         transition: .33s;
@@ -15,8 +26,9 @@
         position: absolute;
         top: 1rem;
         left: 1rem;
-        font-size: 1.5rem;
-        color: #ccc;
+        text-shadow: -2px -2px 5px black;
+        font-size: 2.5rem;
+        color: #5ac7f9;
     }
     .home-card {
         margin: 2rem 0;
@@ -32,6 +44,10 @@
         .logo-name {
             color: #5ac7f9;
         }
+        .home-tag {
+            background-color: rgba(60, 177, 255, 0.164);
+            margin: 1rem 0;
+        }
     }
 }
 
@@ -43,15 +59,17 @@
             .hero-btn {
                 position: absolute;
                 font-size: 2rem;
+                transform: translate(-50%);
             }
         }
         .home-btn {
             font-size: 1.2rem;
         }
         h1 {
-            font-size: 6rem;
-            left: 10vw;
-            top: 7vw;
+            font-size: 4rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         .hero-img {
             object-fit: cover;
@@ -68,8 +86,7 @@
                 img {
                     margin-inline-end: 6.5rem;
                 }
-                .home-btn,
-                .home-tag {
+                .home-btn {
                     align-self: flex-end;
                 }
                 h2,
@@ -94,7 +111,7 @@
                 font-size: 21px;
             }
             .card-content1 {
-                flex: 2;
+                flex: 1;
             }
             img {
                 width: 50%;
