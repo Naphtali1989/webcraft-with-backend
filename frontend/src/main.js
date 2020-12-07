@@ -4,15 +4,15 @@ import router from '@/router/routes';
 import store from '@/store/store';
 
 import ElementUI from 'element-ui';
-import locale from 'element-ui/lib/locale/lang/en'
+import locale from 'element-ui/lib/locale/lang/en';
 import * as VueGoogleMaps from 'vue2-google-maps';
-// import LottieAnimation from 'lottie-vuejs';
+import VueKinesis from 'vue-kinesis';
 
 import 'element-ui/lib/theme-chalk/index.css';
 import '@/assets/style/main.scss';
 
-// vue.use(LottieAnimation);
-vue.use(ElementUI, { locale })
+vue.use(VueKinesis);
+vue.use(ElementUI, { locale });
 vue.use(VueGoogleMaps, {
     load: {
         key: 'AIzaSyAb-nOgpqD_gjhW9jUy6raZW06HfTaFhPI',
