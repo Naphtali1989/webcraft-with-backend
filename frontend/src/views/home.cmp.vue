@@ -161,11 +161,19 @@ export default {
             // if (timeout) clearTimeout(timeout)
             // if (idx === this.waps.length - 1) {
             //     timeout = setTimeout(() => {
-            this.pageNum += 1;
-            if (this.pageNum === this.wapLength -4) {
-                console.log(this.pageNum)
-                this.pageNum = 0;
-                // await this.$store.dispatch({ type: 'loadWaps' });
+            if (idx === 0) {
+                this.pageNum -= 1;
+                if (this.pageNum <= 0) {
+                    console.log(this.pageNum)
+                    this.pageNum = this.wapLength - 3;
+                }
+            }
+            if (idx === 2) {
+                this.pageNum += 1;
+                if (this.pageNum === this.wapLength - 2) {
+                    console.log(this.pageNum)
+                    this.pageNum = 0;
+                }
             }
             // const copyWaps = JSON.parse(JSON.stringify(this.$store.getters.getWaps));
             // this.wapsToShow = copyWaps.slice((this.pageNum), this.pageNum + 3);
