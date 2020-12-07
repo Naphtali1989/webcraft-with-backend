@@ -195,14 +195,12 @@ export default {
             if(idx===0) {
                 this.pageNum-=1;
                 if(this.pageNum<=0) {
-                    console.log(this.pageNum)
                     this.pageNum=this.wapLength-3;
                 }
             }
             if(idx===2) {
                 this.pageNum+=1;
                 if(this.pageNum===this.wapLength-2) {
-                    console.log(this.pageNum)
                     this.pageNum=0;
                 }
             }
@@ -224,7 +222,6 @@ export default {
             this.$router.push('/wap')
         },
         checkAnime(ev) {
-            console.log('eve is?',ev)
         }
     },
     async created() {

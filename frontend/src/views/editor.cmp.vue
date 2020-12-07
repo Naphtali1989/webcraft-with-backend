@@ -111,9 +111,7 @@ export default {
             await this.saveWap(false);
             socketService.emit('roomRoute',this.currWap._id)
             const collabLink=`https://webcraft-ca.herokuapp.com/#/editor/${this.currWap._id}`;
-            console.log(`http://localhost:8080/#/editor/${this.currWap._id}`);
             this.currCollabLink=collabLink;
-            console.log('collab link?:',this.currCollabLink);
             this.toggleSocketModal();
 
             //this will be inserted to the modal
@@ -133,7 +131,6 @@ export default {
             this.currWap.title=wapName;
             const wap=await this.saveWap();
             const link=`https://webcraft-ca.herokuapp.com/#/wap/${this.currWap._id}`
-            console.log(`http://localhost:8080/#/wap/${this.currWap._id}`);
             this.currWebsiteLink=link;
         },
         copyCmp(_id) {
@@ -233,7 +230,6 @@ export default {
         async saveWap(isFirstCollab=true) {
             if(this.isCollabMode) {
                 this.currWap.isSaved=isFirstCollab;
-                console.log('curr wap is updated with isSave property');
             }
             // this.currWap.title=wapName;
             this.currWap=await this.$store.dispatch({
@@ -273,7 +269,6 @@ export default {
         const _id=this.$route.params.id;
 
         if(_id) {
-            console.log('');
             const wap=await this.$store.dispatch({
                 type: 'loadWap',
                 _id
@@ -301,7 +296,6 @@ export default {
     },
     destroyed() {
         if(this.isCollabMode&&!this.currWap.isSaved) {
-            console.log('getting to destroyed!');
             this.$store.commit({ type: 'setCollabMode',isCollabModeOn: false })
             this.$store.dispatch({ type: 'deleteWap',wapId: this.currWap._id })
         }

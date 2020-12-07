@@ -17,7 +17,6 @@ export const userStore = {
     },
     mutations: {
         setUser(state, { user }) {
-            console.log('user in mutation?', user);
             state.loggedInUser = user;
         },
         setImgUrl(state, { imgUrl }) {

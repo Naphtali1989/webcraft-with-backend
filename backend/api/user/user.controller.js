@@ -18,7 +18,6 @@ async function deleteUser(req, res) {
 
 async function updateUser(req, res) {
     try {
-        console.log('***req from frontend is***:', req.body);
         const user = req.body;
         await userService.update(user)
         res.json(user)

@@ -37,7 +37,6 @@ export default {
             return this.$store.getters.isViewMode;
         },
         toggleSignupModal() {
-            console.log('sign up intitaed');
             this.showModal=!this.showModal;
         },
         isLoading() {

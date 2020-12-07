@@ -51,7 +51,7 @@ export default {
         },
         startCollab() {
             // const roomId=utilService.makeId();
-            // console.log(`Send this link to a friend: http://localhost:8080/#/editor/${roomId}`);
+            // (`Send this link to a friend: http://localhost:8080/#/editor/${roomId}`);
             this.$emit('makeWapCollab')
         }
     },

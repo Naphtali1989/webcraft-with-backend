@@ -77,7 +77,6 @@ export default {
     },
     methods: {
         onDeleteWap(wapId) {
-            console.log('wap Id is:',wapId);
             this.$store.dispatch({ type: 'deleteWap',wapId })
         },
         async setAvatar(ev) {
@@ -102,7 +101,6 @@ export default {
         },
         dataToTransfer() {
             let data=this.ownerWaps.filter(ownerWap => {
-                console.log('ownerwap:',ownerWap);
                 return ownerWap.reviews;
             });
             const msgs=[]
@@ -113,7 +111,6 @@ export default {
                 })
                 // return wap.reviews.map(msgField => msgField)
             })
-            console.log('msgs:',msgs);
             return msgs;
         },
         loggedInUser() {
@@ -121,7 +118,6 @@ export default {
         },
         imgUrl() {
             if(this.loggedInUser.imgUrl) {
-                console.log('got to change img');
                 return this.loggedInUser.imgUrl
             }
             return `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSheI9UkWllIpSNbs2UdE18KLLswgDON9qzXg&usqp=CAU`
@@ -137,9 +133,7 @@ export default {
     async created() {
         socketService.setup();
         const _userId=this.$route.params.id;
-        console.log('id from user?:',_userId);
         if(_userId) {
-            console.log('from disptahc:',this.user);
             this.user=await this.$store.dispatch({ type: 'loadLoggedInUser',_userId })
             this.$store.dispatch({ type: 'loadUserWaps',userId: _userId })
             this.getWapsReviews(_userId)
