@@ -52,7 +52,7 @@
             :currCollabLink="currCollabLink"
             @closeSocketModal="toggleSocketModal"
         />
-       
+
     </section>
 </template>
 
@@ -111,6 +111,7 @@ export default {
             await this.saveWap(false);
             socketService.emit('roomRoute',this.currWap._id)
             const collabLink=`https://webcraft-ca.herokuapp.com/#/editor/${this.currWap._id}`;
+            console.log(`http://localhost:8080/#/editor/${this.currWap._id}`);
             this.currCollabLink=collabLink;
             console.log('collab link?:',this.currCollabLink);
             this.toggleSocketModal();
@@ -132,6 +133,7 @@ export default {
             this.currWap.title=wapName;
             const wap=await this.saveWap();
             const link=`https://webcraft-ca.herokuapp.com/#/wap/${this.currWap._id}`
+            console.log(`http://localhost:8080/#/wap/${this.currWap._id}`);
             this.currWebsiteLink=link;
         },
         copyCmp(_id) {
@@ -303,7 +305,7 @@ export default {
             this.$store.commit({ type: 'setCollabMode',isCollabModeOn: false })
             this.$store.dispatch({ type: 'deleteWap',wapId: this.currWap._id })
         }
-            socketService.off('savedWap',wap => {
+        socketService.off('savedWap',wap => {
             this.currWap=wap;
         })
     }

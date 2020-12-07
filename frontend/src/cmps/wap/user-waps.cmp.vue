@@ -50,7 +50,7 @@ export default {
             this.$emit('deleteWap',wapId)
         },
         wapImg(thumbnail) {
-            return thumbnail? thumbnail:'https://cityofelsmere.com/wp-content/plugins/ldd-directory-lite/public/images/noimage.png'
+            return thumbnail? thumbnail:'https://imagizer.imageshack.com/img923/6550/v5nqr0.png'
         },
         pushToEditWap(wapId) {
             this.$router.push(`/editor/${wapId}`)

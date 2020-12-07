@@ -25,7 +25,11 @@
             @moveSection="emitMoveSection"
         />
         <!-- This Div will be inserted into the slot that each child gets - if the v-if is true -->
-        <div class="misc-control" slot="misc-control" v-if="vidOrMap">
+        <div
+            class="misc-control"
+            slot="misc-control"
+            v-if="vidOrMap"
+        >
             <button
                 class="iframe-btn btn"
                 @click.stop.prevent="onFocus(cmp.children[0]._id)"
@@ -68,46 +72,46 @@ export default {
 
     computed: {
         name() {
-            const { name } = this.cmp;
-            if (name === 'txt') return 'span';
-            if (name === 'link') return 'a';
-            if (name === 'vid') return 'iframe';
+            const { name }=this.cmp;
+            if(name==='txt') return 'span';
+            if(name==='link') return 'a';
+            if(name==='vid') return 'iframe';
             else return name
         },
         cmpTxt() {
-            return this.cmp.txt || ''
+            return this.cmp.txt||''
         },
         urlSrc() {
-            return (this.cmp.imgUrl) ? this.cmp.imgUrl : ((this.cmp.vidUrl) ? this.convertedUrl : '');
+            return (this.cmp.imgUrl)? this.cmp.imgUrl:((this.cmp.vidUrl)? this.convertedUrl:'');
         },
         convertedUrl() {
-            if (this.cmp.vidUrl.includes("?v=")) {
-                const vidId = this.cmp.vidUrl.split("?v=")[1];
+            if(this.cmp.vidUrl.includes("?v=")) {
+                const vidId=this.cmp.vidUrl.split("?v=")[1];
                 return `https://www.youtube.com/embed/${vidId}`;
             }
             return this.cmp.vidUrl
         },
         editable() {
-            if (this.cmp.name === 'txt' || this.cmp.name === 'link') return true;
+            if(this.cmp.name==='txt'||this.cmp.name==='link') return true;
             return false
         },
         video() {
-            if (this.cmp.name === 'iframe') return true
+            if(this.cmp.name==='iframe') return true
             return false
         },
         imgDraggable() {
-            if (this.cmp.name === 'img') return 'return false'
+            if(this.cmp.name==='img') return false;
             return true
         },
         workerHoverClass() {
             return this.cmp._id
         },
         getInfo() {
-            if (!this.cmp.info) return;
+            if(!this.cmp.info) return;
             return this.cmp.info
         },
         vidOrMap() {
-            return this.cmp.class === 'video-container' || this.cmp.class === 'map-container';
+            return this.cmp.class==='video-container'||this.cmp.class==='map-container';
         }
     },
     methods: {
@@ -115,27 +119,27 @@ export default {
         updateTxt(ev) {
             // This is the first event of "udpateTxt" - which will tell 
             // the next father worker that update happened
-            if (this.cmp.name === 'txt' || this.cmp.name === 'link') {
-                this.$emit('updatedTxt', ev.target.innerText);
+            if(this.cmp.name==='txt'||this.cmp.name==='link') {
+                this.$emit('updatedTxt',ev.target.innerText);
             }
             return;
         },
         emitUpdateTxt(txtValue) {
             // This is the recursive event of "udpateTxt" - which will tell the next 
             //  father worker that update happened untill it reaches the workspace
-            this.$emit('updatedTxt', txtValue);
+            this.$emit('updatedTxt',txtValue);
         },
         onFocus(_id) {
-            this.$emit('focused', _id)
+            this.$emit('focused',_id)
         },
         emitCopy(_id) {
-            this.$emit('copy', _id);
+            this.$emit('copy',_id);
         },
         emitDelete(_id) {
-            this.$emit('delete', _id);
+            this.$emit('delete',_id);
         },
-        emitMoveSection(_id, diff) {
-            this.$emit('moveSection', _id, diff);
+        emitMoveSection(_id,diff) {
+            this.$emit('moveSection',_id,diff);
         }
     },
     components: {

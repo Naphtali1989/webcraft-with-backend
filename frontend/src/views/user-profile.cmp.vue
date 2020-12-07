@@ -6,7 +6,8 @@
         <nav class="user-dashboard">
             <div class="logo">
                 <i
-                    class="fas fa-user-circle"
+                    
+                    class="fas fa-user-circle "
                     v-if="!loggedInUser.imgUrl"
                 ></i>
                 <img
