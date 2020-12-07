@@ -9,17 +9,17 @@
         </div>
         <nav class="nav-links flex align-center">
             <router-link
-            @click.native="toggleMenu"
+                @click.native="toggleMenu"
                 to="/"
                 exact
             >Home</router-link>
             <router-link
-            @click.native="toggleMenu"
+                @click.native="toggleMenu"
                 to="/wap"
                 exact
             >Templates</router-link>
             <router-link
-            @click.native="toggleMenu"
+                @click.native="toggleMenu"
                 to="/editor"
                 exact
             >Editor</router-link>
@@ -33,7 +33,6 @@
                 :imgUrl="loggedInUser.imgUrl"
                 :size="40"
                 @click.native="toggleModal"
-                @blur="toggleModal"
                 :color="'#124a76'"
                 v-if="loggedInUser"
             />

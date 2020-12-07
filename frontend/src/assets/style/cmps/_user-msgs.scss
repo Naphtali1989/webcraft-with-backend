@@ -35,3 +35,39 @@
 .no-msg-received {
     font-size: 2rem;
 }
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1rem;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+    font-family: carme;
+    margin-bottom: 2rem;
+    thead tr {
+        background-color: #86919b;
+        color: #fff;
+        text-align: left;
+        font-weight: bold;
+    }
+    th,
+    td {
+        padding: 12px 15px;
+    }
+    tbody tr {
+        border-bottom: 1px solid #ddd;
+        &:nth-of-type(even) {
+            background: #f3f3f3;
+        }
+        &:last-of-type {
+            border-bottom: 2px solid #86919b;
+        }
+        &.active-row {
+            font-weight: bold;
+            color: #86919b;
+        }
+    }
+}

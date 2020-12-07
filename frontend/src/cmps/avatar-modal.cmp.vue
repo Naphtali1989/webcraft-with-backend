@@ -42,7 +42,7 @@ export default {
         logout() {
             this.$store.dispatch({ type: 'logout' })
             this.$emit('closeModal')
-            this.$router.push('/').catch(() => { });
+            this.$router.push('/');
         },
         pushProfile() {
             this.$emit('closeModal');
