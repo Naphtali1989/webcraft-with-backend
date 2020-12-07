@@ -241,9 +241,9 @@
                 cursor: pointer;
                 transition: transform 0.4s ease;
             }
-            .fa-arrow-left:hover {
-                transform: scale(1.1);
-            }
+            // .fa-arrow-left:hover {
+            //     transform: scale(1.025) translateX(10%);
+            // }
             .align-controls,
             .decoration-controls {
                 margin: 0 auto;

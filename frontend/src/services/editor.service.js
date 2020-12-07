@@ -75,7 +75,8 @@ export const editorService = {
     findByIdRecursive,
     replaceIds,
     makeTree,
-    findParentNode
+    findParentNode,
+    cleanSample
 }
 
 
@@ -86,4 +87,31 @@ function _add(sample) {
 
 function _update(sample) {
     return httpService.put(`sample/${wap._id}`, sample);
+}
+
+function cleanSample(sample) {
+    _setStyle(sample);
+    if (sample.children) {
+        sample.children.forEach(child => cleanSample(child))
+    }
+}
+
+function _setStyle(el) {
+    const { style } = el;
+    el.style.background = style.background || 'unset';
+    el.style.borderRadius = style.borderRadius || 'unset';
+    el.style.fontSize = style.fontSize || 'inherit';
+    el.style.lineHeight = style.lineHeight || 'inherit';
+    el.style.letterSpacing = style.letterSpacing || 'inherit';
+    el.style.color = style.color || 'inherit';
+    el.style.textDecoration = style.textDecoration || 'inherit';
+    el.style.fontWeight = style.fontWeight || 'inherit';
+    el.style.fontStyle = style.fontStyle || 'inherit';
+    el.style.fontFamily = style.fontFamily || 'inherit';
+    el.style.textAlign = style.textAlign || 'inherit';
+    el.style.textShadow = style.textShadow || 'unset';
+    el.style.boxShadow = style.boxShadow || 'unset';
+    el.style.borderWidth = style.borderWidth || 'unset';
+    el.style.borderStyle = style.borderStyle || 'unset';
+    el.style.borderColor = style.borderColor || 'unset';
 }

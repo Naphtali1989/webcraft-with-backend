@@ -23,7 +23,7 @@
             
             <p class="editor-txt">Font Size</p>
             <my-range
-                :options="{ initVal: fontSize, min: 1, max: 72 }"
+                :options="{ initVal: fontSize, min: 1, max: 100 }"
                 @input="setFontSize"
             />
             <p class="editor-txt">Line Height</p>

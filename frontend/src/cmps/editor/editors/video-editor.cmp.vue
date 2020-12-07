@@ -41,7 +41,7 @@
                     :options="{ initVal: zoom, min: 1, max: 20 }"
                     @input="setMapZoom"
                 />
-                <p>Seach for a location:</p>
+                <!-- <p>Seach for a location:</p>
                 <input
                     type="text"
                     placeholder="Type here"
@@ -49,7 +49,7 @@
                 <button
                     type="submit"
                     class="map-search-btn btn"
-                >Search</button>
+                >Search</button> -->
             </form>
         </div>
     </section>

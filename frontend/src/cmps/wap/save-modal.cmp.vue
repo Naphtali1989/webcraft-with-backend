@@ -51,7 +51,7 @@ export default {
     },
     methods: {
         closeSaveModal() {
-            this.$emit('closeSaveModal')
+            this.$emit('')
         }
     }
 
