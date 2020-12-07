@@ -273,7 +273,10 @@ export default {
                 type: 'loadWap',
                 _id
             });
-            this.currWap=wap;
+            const wapCopy=JSON.parse(JSON.stringify(wap));
+            delete wapCopy.title;
+            delete wapCopy._id;
+            this.currWap=wapCopy;
             socketService.emit('roomRoute',_id)
         }
         //open a connection
