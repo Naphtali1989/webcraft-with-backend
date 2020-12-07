@@ -103,15 +103,15 @@ export default {
         //     this.saveWap(wapName)
         // },
         async makeWapCollab() {
-            this.$store.commit({ type: 'setCollabMode', isCollabModeOn: true })
+            this.$store.commit({ type: 'setCollabMode', isCollabModeOn: true });
             await this.saveWap(true);
-            socketService.emit('roomRoute', this.currWap._id)
+            socketService.emit('roomRoute', this.currWap._id);
             const collabLink = `https://webcraft-ca.herokuapp.com/#/editor/${this.currWap._id}`;
             this.currCollabLink = collabLink;
             this.toggleSocketModal();
 
             //this will be inserted to the modal
-            this.$router.push(`/editor/${this.currWap._id}`)
+            this.$router.push(`/editor/${this.currWap._id}`).catch(() => { });
             eventBus.$emit('show-msg', { txt: `Collaborate mode is online`, type: 'success' })
         },
         updatedSocket() {
@@ -231,7 +231,7 @@ export default {
                 type: 'saveWap',
                 wap: this.currWap
             });
-            if(!isFirstCollab) {
+            if (!isFirstCollab) {
                 eventBus.$emit('show-msg', { txt: `Your website has been saved!`, type: 'success' })
             }
         },
@@ -270,17 +270,25 @@ export default {
                 type: 'loadWap',
                 _id
             });
-            if (this.$store.getters.loggedInUser && this.$store.getters.loggedInUser._id === wap.userId) {
+            if (this.$store.getters.loggedInUser && wap.userId && this.$store.getters.loggedInUser._id === wap.userId) {
                 this.currWap = wap
+                console.log('This wap has been made by me')
             } else {
-
+                console.log('This wap WAS NOT made by me')
                 let wapCopy = JSON.parse(JSON.stringify(wap));
                 delete wapCopy.title;
                 delete wapCopy._id;
                 this.currWap = wapCopy;
-                await this.saveWap(true);
             }
-            socketService.emit('roomRoute', this.currWap._id);
+            if (!wap.isSaved) {
+                console.log('We are not in collab mode!')
+                await this.saveWap(true);
+                this.$router.push('/editor/' + this.currWap._id).catch(() => { });
+            }
+            else if(wap.isSaved){
+                console.log('Should we emit?!')
+                socketService.emit('roomRoute', wap._id);
+            }
         }
         //open a connection
         else {

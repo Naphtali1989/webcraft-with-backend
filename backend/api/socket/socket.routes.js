@@ -14,13 +14,16 @@ function connectSockets(io) {
         })
 
         socket.on('roomRoute', wapId => {
+            console.log(wapId)
             if (socket.wapId) {
                 socket.leave(socket.wapId)
             }
             socket.join(wapId)
+            console.log('Connected')
             socket.wapId = wapId;
         })
         socket.on('disconnect', () => {
+            console.log('Disonnected')
             socket.removeAllListeners('roomRoute');
         });
     })
