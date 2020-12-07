@@ -10,7 +10,7 @@ export const wapStore = {
     },
     getters: {
         getWaps(state) {
-            return state.waps.map(wap => {
+            return state.waps.filter(wap => wap.title).map(wap => {
                 const { _id, thumbnail, title } = wap
                 return {
                     _id,

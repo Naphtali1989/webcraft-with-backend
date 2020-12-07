@@ -52,6 +52,7 @@
             :currCollabLink="currCollabLink"
             @closeSocketModal="toggleSocketModal"
         />
+       
     </section>
 </template>
 
@@ -302,6 +303,9 @@ export default {
             this.$store.commit({ type: 'setCollabMode',isCollabModeOn: false })
             this.$store.dispatch({ type: 'deleteWap',wapId: this.currWap._id })
         }
+            socketService.off('savedWap',wap => {
+            this.currWap=wap;
+        })
     }
 };
 </script>
