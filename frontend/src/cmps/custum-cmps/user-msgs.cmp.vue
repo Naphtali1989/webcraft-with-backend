@@ -14,11 +14,12 @@
                 :key="idx"
                 class="msg-card"
             >
+                <span class="created-at">{{formatTime(data.content.createdAt)}}</span>
                 <i class="far fa-comment-dots"></i>
                 <span>Name: {{data.content.name}}</span>
                 <span>Email: {{data.content.email}}</span>
                 <span>Subject: {{data.content.subject}}</span>
-                <span>Message: {{data.content.message}}</span>
+                <span class="msg">Message: {{data.content.message}}</span>
             </div>
         </section>
     </section>
@@ -32,5 +33,10 @@ export default {
             type: Array
         }
     },
+    methods: {
+        formatTime(time) {
+            return new Date(time).toLocaleString()
+        }
+    }
 }
 </script>
