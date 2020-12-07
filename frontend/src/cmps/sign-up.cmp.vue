@@ -100,7 +100,6 @@ export default {
             passwordType: 'password',
             isSignup: false,
             user: null,
-            currMsg: ''
         }
     },
     methods: {
@@ -131,7 +130,6 @@ export default {
                 this.$router.push('/editor');
                 this.user={ email: '',password: '' }
             } catch(error) {
-                this.currMsg=error
                 eventBus.$emit('show-msg',{ txt: `Invalid Credentials, Try Again`,type: 'error' })
             }
         },

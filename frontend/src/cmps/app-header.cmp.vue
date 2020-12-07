@@ -46,7 +46,7 @@
             <div class="bar3"></div>
         </div>
         <avatar-modal
-            v-if="showModal"
+            v-if="loggedInUser && showModal"
             :loggedInUser="loggedInUser"
             @closeModal="showModal = false"
         />
