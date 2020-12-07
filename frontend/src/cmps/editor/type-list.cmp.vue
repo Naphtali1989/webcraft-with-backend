@@ -7,7 +7,7 @@
             </button>
         </div>
         <div v-if="selectedType">
-            <span><i class="fas fa-arrow-left" @click="emptyType"></i></span>
+        <div class="back-btn-container"><span><i class="fas fa-arrow-left" @click="emptyType"></i></span></div>
             <sample-list :samples="filterdSamples" />
         </div>
     </section>

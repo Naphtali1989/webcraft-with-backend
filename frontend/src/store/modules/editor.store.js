@@ -32,6 +32,7 @@ export const editorStore = {
     actions: {
         async loadSamples({ commit }) {
             const samples = await editorService.query();
+            samples.forEach(sample => editorService.cleanSample(sample))
             commit({
                 type: 'setSamples',
                 samples

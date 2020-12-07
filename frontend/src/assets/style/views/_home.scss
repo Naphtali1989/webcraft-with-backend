@@ -226,6 +226,7 @@ body {
         grid-template-columns: repeat(auto-fill, minmax(18.5rem, 1fr));
         .wap-preview {
             background: #86919ba6;
+            transform: scale(1.1);
             position: relative;
             box-shadow: 0 0 18px rgba(0, 0, 0, 0.45);
             border-radius: 8px 8px 0 0;
@@ -242,6 +243,12 @@ body {
                 text-transform: capitalize;
                 font-weight: 400;
                 text-shadow: 1px 1px #00000057;
+            }
+            &:first-child {
+                transform: translateX(25%) scale(.8) rotate(-6.57deg);
+            }
+            &:last-child {
+                transform: translateX(-25%) scale(.85) rotate(6.57deg);
             }
         }
     }
