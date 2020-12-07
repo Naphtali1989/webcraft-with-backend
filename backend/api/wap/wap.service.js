@@ -66,7 +66,6 @@ async function update(wap) {
 
 
 // function _buildCriteria(filterBy) {
-//     // console.log('getting from frontend filterby:', filterBy);
 //     const criteria = {};
 //     if (filterBy.name) {
 //         criteria.name = { $regex: filterBy.name, $options: "$i" }

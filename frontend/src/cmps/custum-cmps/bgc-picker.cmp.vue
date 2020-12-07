@@ -29,7 +29,6 @@ export default {
     },
     methods:{
         emitInput(){
-            console.log('ani po')
             this.$emit('input', this.color)
         }
     }
