@@ -34,7 +34,7 @@
                     <input
                         type="text"
                         class="content-input"
-                        v-model="currWebsiteLink"
+                        :value="currWebsiteLink"
                     >
                 </div>
 

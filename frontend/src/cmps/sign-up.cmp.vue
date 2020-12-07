@@ -127,7 +127,7 @@ export default {
                 const user=await this.$store.dispatch({ type: 'login',userCreds });
                 if(user) this.closeModal()
                 eventBus.$emit('show-msg',{ txt: `Welcome back, ${user.username}.`,type: 'success' })
-                this.$router.push('/editor');
+                // this.$router.push('/');
                 this.user={ email: '',password: '' }
             } catch(error) {
                 eventBus.$emit('show-msg',{ txt: `Invalid Credentials, Try Again`,type: 'error' })

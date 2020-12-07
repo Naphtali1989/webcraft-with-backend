@@ -1,24 +1,13 @@
 <template>
     <section>
-        <button
-            v-if="loggedInUser"
-            class="btn collab-btn"
-            @click="startCollab"
-        >
+        <button v-if="showCollab" class="btn collab-btn" @click="startCollab">
             <i class="fas fa-users"></i> Start Collaborate
         </button>
         <section class="user-controls flex justify-center">
-            <button
-                class="btn choice-btn save"
-                @click="saveWap"
-            >Save</button>
-            <button
-                class="btn choice-btn"
-                @click="openPublishModal"
-            >
+            <button class="btn choice-btn save" @click="saveWap">Save</button>
+            <button class="btn choice-btn" @click="openPublishModal">
                 Publish
             </button>
-
         </section>
         <!-- <publish-modal v-if="showPublishModal" /> -->
     </section>
@@ -40,8 +29,8 @@ export default {
             this.$emit('saveWap');
         },
         openPublishModal() {
-            if(!this.loggedInUser) {
-                eventBus.$emit('show-msg',{ txt: 'Please Login to publish your website',type: 'error' })
+            if (!this.loggedInUser) {
+                eventBus.$emit('show-msg', { txt: 'Please Login to publish your website', type: 'error' })
                 return;
             }
             this.$emit('openPublishModal');
@@ -56,8 +45,11 @@ export default {
         }
     },
     computed: {
-        loggedInUser() {
-            return this.$store.getters.loggedInUser
+        loggedInUser(){
+            return this.$store.getters.loggedInUser;
+        },
+        showCollab() {
+            return this.$store.getters.loggedInUser && !this.$store.getters.isCollabMode;
         }
     },
     components: {

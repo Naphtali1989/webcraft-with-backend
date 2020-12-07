@@ -103,8 +103,9 @@ export default {
         //     this.saveWap(wapName)
         // },
         async makeWapCollab() {
+            this.currWap.isCollab = true;
             this.$store.commit({ type: 'setCollabMode', isCollabModeOn: true });
-            await this.saveWap(true);
+            await this.saveWap(false);
             socketService.emit('roomRoute', this.currWap._id);
             const collabLink = `https://webcraft-ca.herokuapp.com/#/editor/${this.currWap._id}`;
             this.currCollabLink = collabLink;
@@ -125,7 +126,8 @@ export default {
         },
         async publishWebsite(wapName) {
             this.currWap.title = wapName;
-            const wap = await this.saveWap(false);
+            console.log(this.currWap)
+            const wap = await this.saveWap(true);
             const link = `https://webcraft-ca.herokuapp.com/#/wap/${this.currWap._id}`
             this.currWebsiteLink = link;
         },
@@ -222,7 +224,7 @@ export default {
             this.currWap.cmps.splice(idx + diff, 0, section[0]);
             socketService.emit('savedWap', this.currWap)
         },
-        async saveWap(isFirstCollab = false) {
+        async saveWap(isFirstCollab = true) {
             if (!this.isCollabMode) {
                 this.currWap.isSaved = isFirstCollab;
             }
@@ -280,12 +282,12 @@ export default {
                 delete wapCopy._id;
                 this.currWap = wapCopy;
             }
-            if (!wap.isSaved) {
+            if (!wap.isCollab) {
                 console.log('We are not in collab mode!')
-                await this.saveWap(true);
+                await this.saveWap(false);
                 this.$router.push('/editor/' + this.currWap._id).catch(() => { });
             }
-            else if(wap.isSaved){
+            else if (wap.isCollab) {
                 console.log('Should we emit?!')
                 socketService.emit('roomRoute', wap._id);
             }
@@ -309,7 +311,7 @@ export default {
         socketModal
     },
     destroyed() {
-        if (this.isCollabMode && !this.currWap.isSaved) {
+        if (this.isCollabMode && !this.currWap.isSaved && !this.currWebsiteLink) {
             this.$store.commit({ type: 'setCollabMode', isCollabModeOn: false })
             this.$store.dispatch({ type: 'deleteWap', wapId: this.currWap._id })
         }
