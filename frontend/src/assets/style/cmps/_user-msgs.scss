@@ -1,6 +1,28 @@
-.user-msg-container {
+.msg-container-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    place-items: center;
-    gap: 20px
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    .msg-card {
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 0 18px rgba(190, 185, 185, 0.45);
+        border-radius: 3px;
+        padding: 10px;
+        position: relative;
+        font-weight: bold;
+        word-break: break-word;
+        span {
+            padding: 5px;
+        }
+        .fa-comment-dots {
+            font-size: 15px;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+    }
+}
+
+.no-msg-received {
+    font-size: 2rem;
 }

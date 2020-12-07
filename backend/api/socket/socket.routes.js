@@ -26,6 +26,7 @@ function connectSockets(io) {
             socket.wapId = wapId;
         })
         socket.on('disconnect', () => {
+            console.log('disconncted from room');
             socket.removeAllListeners('roomRoute');
         });
     })

@@ -5,16 +5,22 @@
     >
         <nav class="user-dashboard">
             <div class="logo">
-                <img :src="imgUrl">
+                <i
+                    class="fas fa-user-circle"
+                    v-if="!loggedInUser.imgUrl"
+                ></i>
+                <img
+                    v-else
+                    :src="loggedInUser.imgUrl"
+                >
             </div>
             <ul class="sidebar-modal-links clean-list">
-                <li><i class="fas fa-user-circle"></i> {{loggedInUser.username}}</li>
+                <li><i class="fas fa-user-alt"></i> {{loggedInUser.username}}</li>
                 <li>
                     <i class="fas fa-envelope"></i> {{loggedInUser.email}}
                 </li>
                 <li>
-                    <span class="account-creation">Account Creation:</span>
-                    {{formatTime}}
+                    <span><i class="fas fa-window-maximize"></i> Published Websites: {{ownerWaps.length}}</span>
                 </li>
                 <li>
                     <label class="user-input input-file">
@@ -24,8 +30,8 @@
                             type="file"
                             @change="setAvatar"
                         />
+                        <span class="upload-avatar">Upload User Avatar</span>
                     </label>
-                    <span class="upload-avatar">Upload Avatar</span>
                 </li>
             </ul>
         </nav>
@@ -33,16 +39,19 @@
             <div class="main-head">
                 <h1>Welcome back, {{loggedInUser.username}}</h1>
             </div>
-            <!-- <backoffice-msg
-                v-if="ownerWaps"
-                :waps="dataToTransfer"
-            /> -->
-            <msg-table
-                :data="dataToTransfer"
-                v-if="ownerWaps"
+            <user-waps
+                v-if="!isLoading"
+                :waps="currUserWaps"
+                @deleteWap="onDeleteWap"
             />
+            <img
+                v-if="isLoading"
+                class="loading"
+                src="../assets/img/loading-spinner.svg"
+            />
+            <div class="seperator"></div>
+            <user-msgs :msgs="dataToTransfer" />
         </div>
-
     </section>
 </template>
 
@@ -53,7 +62,8 @@ import backofficeMsg from '@/cmps/wap/backoffice-msg.cmp.vue';
 import userWaps from '@/cmps/wap/user-waps.cmp.vue';
 import socketService from '@/services/socket.service';
 import { eventBus } from '@/services/event-bus.service.js'
-import msgTable from '@/cmps/custum-cmps/msg-table.cmp.vue';
+import userMsgs from '@/cmps/custum-cmps/user-msgs.cmp.vue';
+import loader from '@/cmps/custum-cmps/loader.cmp.vue';
 
 export default {
     name: 'user-profile',
@@ -65,6 +75,10 @@ export default {
         }
     },
     methods: {
+        onDeleteWap(wapId) {
+            console.log('wap Id is:',wapId);
+            this.$store.dispatch({ type: 'deleteWap',wapId })
+        },
         async setAvatar(ev) {
             const res=await utilService.uploadImg(ev);
             const user=JSON.parse(sessionStorage.getItem('user'))
@@ -73,21 +87,33 @@ export default {
             // this.$router.push(`/user/${loggedInUser._id}`)
 
         },
-        async getWapsReviews(_id,wapId) {
+        async getWapsReviews(_id) {
             const ownerWaps=await this.$store.dispatch({
                 type: 'getOwnerWapReviews',
-                userId: _id,
-                wapId
+                userId: _id
             })
             this.ownerWaps=ownerWaps;
         }
     },
     computed: {
+        currUserWaps() {
+            return this.$store.getters.currUserWaps;
+        },
         dataToTransfer() {
-            return this.ownerWaps.filter(ownerWap => {
+            let data=this.ownerWaps.filter(ownerWap => {
+                console.log('ownerwap:',ownerWap);
                 return ownerWap.reviews;
             });
+            const msgs=[]
+            data.map((wap,idx) => {
+                wap.reviews.forEach(msgField => {
+                    msgs.push(msgField);
 
+                })
+                // return wap.reviews.map(msgField => msgField)
+            })
+            console.log('msgs:',msgs);
+            return msgs;
         },
         loggedInUser() {
             return this.$store.getters.loggedInUser;
@@ -97,12 +123,15 @@ export default {
                 console.log('got to change img');
                 return this.loggedInUser.imgUrl
             }
-            return `https://robohash.org/2.png`
+            return `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSheI9UkWllIpSNbs2UdE18KLLswgDON9qzXg&usqp=CAU`
         },
         formatTime() {
             const { createdAt }=this.loggedInUser
             return new Date(createdAt).toLocaleString()
         },
+        isLoading() {
+            return this.$store.getters.isLoading;
+        }
     },
     async created() {
         socketService.setup();
@@ -111,10 +140,10 @@ export default {
         if(_userId) {
             console.log('from disptahc:',this.user);
             this.user=await this.$store.dispatch({ type: 'loadLoggedInUser',_userId })
+            this.$store.dispatch({ type: 'loadUserWaps',userId: _userId })
             this.getWapsReviews(_userId)
             socketService.on('form-submitted',({ title,_id }) => {
-                const wapId=_id
-                this.getWapsReviews(_userId,wapId);
+                this.getWapsReviews(_userId);
                 eventBus.$emit('show-msg',{ txt: `New message received from website:${title}`,type: 'success' })
             })
         }
@@ -122,7 +151,8 @@ export default {
     components: {
         userWaps,
         backofficeMsg,
-        msgTable
+        userMsgs,
+        loader
 
     }
 }

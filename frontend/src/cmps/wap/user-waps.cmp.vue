@@ -1,16 +1,41 @@
 <template>
-    <section class="user-waps">
-        <h1>User waps here</h1>
-        <div class="user-wap-grid">
-            <div
-                v-for="(msg,idx) in msgs"
-                :key="idx"
+    <section>
+        <h3 class="profile-title">Your websites</h3>
+        <section class="user-waps-grid">
+            <button
+                @click="pushToEditor"
+                class="add-wap-btn btn"
+                v-if="!waps.length"
             >
-                {{msg.wap.title}}
-                <img :src="msg.wap.thumbnail" />
+                <i class="fas fa-plus"></i>
+            </button>
+            <div
+                v-else
+                class="wap-card"
+                v-for="wap in waps"
+                :key="wap._id"
+            >
+
+                <div class="card-header">
+                    <!-- <img src="../../assets/img/browser.png" /> -->
+                    <img src="../../assets/img/browser.svg" />
+                    <h1>{{wap.title}}</h1>
+                </div>
+
+                <img :src="wapImg(wap.thumbnail)" />
+                <div class="wap-controls">
+                    <button
+                        class="btn "
+                        @click="emitDeleteWap(wap._id)"
+                    ><i class="fas fa-trash-alt"></i></button>
+                    <button
+                        class="btn"
+                        @click="pushToEditWap(wap._id)"
+                    ><i class="fas fa-pencil-alt"></i></button>
+                </div>
             </div>
 
-        </div>
+        </section>
     </section>
 </template>
 
@@ -18,15 +43,26 @@
 export default {
     name: 'user-waps',
     props: {
-        msgs: Array
+        waps: Array
     },
+    methods: {
+        emitDeleteWap(wapId) {
+            this.$emit('deleteWap',wapId)
+        },
+        wapImg(thumbnail) {
+            return thumbnail? thumbnail:'https://cityofelsmere.com/wp-content/plugins/ldd-directory-lite/public/images/noimage.png'
+        },
+        pushToEditWap(wapId) {
+            this.$router.push(`/editor/${wapId}`)
+        },
+        pushToEditor() {
+            this.$router.push(`/editor`)
+        }
+    },
+    computed: {
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-.user-wap-grid {
-    display: grid;
-    grid-auto-columns: repeat(auto-fit, minmax(250px, 1fr));
-    place-items: center;
-}
 </style>

@@ -39,13 +39,17 @@ export const userStore = {
             commit({ type: 'setUser', user: null })
         },
         async loadLoggedInUser({ commit }, { _userId }) {
+            commit({ type: 'setIsLoading', isLoading: true });
             const user = await userService.getById(_userId);
             commit({ type: 'setUser', user })
+            commit({ type: 'setIsLoading', isLoading: false });
         },
         async updateUser({ commit }, { user }) {
+            commit({ type: 'setIsLoading', isLoading: true });
             const savedUser = await userService.update(user)
             console.log('save user from db?:', savedUser);
             commit({ type: 'setUser', user: savedUser })
+            commit({ type: 'setIsLoading', isLoading: false });
         },
 
     }

@@ -4,7 +4,8 @@ export const wapStore = {
     state: {
         waps: [
 
-        ]
+        ],
+        currUserWaps: []
 
     },
     getters: {
@@ -18,10 +19,21 @@ export const wapStore = {
                 };
             });
         },
+        currUserWaps(state) {
+            return state.currUserWaps;
+        }
     },
     mutations: {
         setWaps(state, { waps }) {
             state.waps = waps
+        },
+        deleteWap(state, { wapId }) {
+            const idx = state.currUserWaps.findIndex(wap => wap._id === wapId)
+            if (idx === -1) return;
+            state.currUserWaps.splice(idx, 1)
+        },
+        setUserWaps(state, { waps }) {
+            state.currUserWaps = waps;
         }
     },
     actions: {
@@ -44,10 +56,21 @@ export const wapStore = {
             return savedWap
         },
         async deleteWap({ commit }, { wapId }) {
+            commit({ type: 'setIsLoading', isLoading: true });
             await wapService.remove(wapId)
+            commit({ type: 'deleteWap', wapId })
+            commit({ type: 'setIsLoading', isLoading: false });
+
         },
-        async getOwnerWapReviews({ commit }, { userId, wapId }) {
+        async loadUserWaps({ commit }, { userId }) {
             const waps = await wapService.query(userId);
+            console.log('user waps?:', waps);
+            commit({ type: 'setUserWaps', waps })
+        },
+        async getOwnerWapReviews({ commit }, { userId }) {
+            console.log('go to store in owner reviews')
+            const waps = await wapService.query(userId);
+            console.log('waps?:', waps);
             const curUserWaps = waps.map(wap => {
                 const { thumbnail, _id, title } = wap;
                 const reviews = wap.reviews ? wap.reviews : '';
@@ -55,14 +78,10 @@ export const wapStore = {
                     thumbnail,
                     _id,
                     title,
-                    reviews,
-                    wapId
+                    reviews
                 }
             });
             return curUserWaps
         }
-        // async saveWapName({commit}, {wapName}) {
-
-        // }
     }
 }
