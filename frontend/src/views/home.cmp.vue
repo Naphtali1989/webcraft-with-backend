@@ -102,9 +102,35 @@
             />
         </div>
 
+        <div
+            data-aos="fade-right"
+            class="home-card flex column"
+        >
+            <div class="card-content flex column space-between">
+                <span class="home-tag text-left">Collaborate</span>
+                <h2 class="title">Collaborate With Friends</h2>
+                <p class="intro-text">
+                    We are proud to introduce the collaboration mode.
+                    Just go to the editor, Click "Start Collaborate" and send the the link to all your Friends
+                    and start work toghter using the <span class="logo-name">Webcraft</span> platform
+                </p>
+                <button
+                    class="home-btn btn"
+                    @click="pushEditor"
+                >
+                    Give it a try!
+                </button>
+            </div>
+
+            <img
+                class="card-img"
+                src="../assets/webcraft-svg/editor-alone.svg"
+            />
+        </div>
+
         <!-- <wap-list v-if="!isLoading" :waps="waps"></wap-list> -->
 
-        <!-- <section
+        <section
             class="home-wap-gallery grid"
             data-aos="zoom-in"
         >
@@ -117,7 +143,7 @@
                 <h3>{{ wap.title }}</h3>
                 <img :src="wap.thumbnail" />
             </div>
-        </section> -->
+        </section>
 
         <!-- <img src="../assets/webcraft-svg/editor-alone.svg" /> -->
         <!-- <img src="../assets/webcraft-svg/webcraft-boy.svg" /> -->
