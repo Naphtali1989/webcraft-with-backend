@@ -145,6 +145,19 @@
     .site-form-socials-container {
         flex-direction: column;
     }
+    .site-form-container {
+        padding: 1rem 0 !important;
+        width: unset !important;
+        .site-map-inner-text {
+            margin: 0 !important;
+        }
+        .site-form-header {
+            font-size: 36px !important;
+        }
+        .site-form-subheader {
+            font-size: 30px !important;
+        }
+    }
 }
 
 @media(max-width:780px) {
