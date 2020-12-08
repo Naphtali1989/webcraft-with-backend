@@ -11,12 +11,12 @@
     font-size: 18px;
     .info,
     .modal-links {
-        padding: 1rem;
+        padding: 0.8rem;
     }
-    .info {
-        span,
+    .user-info {
+        margin-block-start: 1rem;
         h3 {
-            margin-bottom: 5px
+            margin-block-end: 5px;
         }
     }
     img {

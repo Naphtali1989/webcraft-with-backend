@@ -10,8 +10,11 @@
                 :size="65"
                 :color="'#124a76'"
             />
-            <h3>{{loggedInUser.username}}</h3>
-            <span>{{loggedInUser.email}}</span>
+            <div class="user-info flex column align-center">
+                <h3>{{loggedInUser.username}}</h3>
+                <span>{{loggedInUser.email}}</span>
+
+            </div>
         </div>
         <div class="seperator"></div>
         <section class="modal-links flex column">
