@@ -71,12 +71,11 @@ export default {
     },
     methods: {
         formatTime(time) {
-            return new Date(time).toLocaleString()
+            return new Date(time).toLocaleString();
         },
         longMsg(msg) {
-            if(!msg) return 'Dummy Message'
-            console.log('msg:',msg);
-            if(msg.length>12) return msg.substring(0,12)+'...'
+            if(!msg) return '';
+            if(msg.length>12) return msg.substring(0,12)+'...';
             return msg;
         }
     },

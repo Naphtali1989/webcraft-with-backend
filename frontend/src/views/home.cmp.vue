@@ -144,10 +144,17 @@
                     Let's Create!
                 </button>
             </div>
-            <img
+<img
                 class="card-img"
-                src="../assets/webcraft-svg/editor-alone-v3.svg"
+                src="../assets/img/svgs/proudofresults.svg"
             />
+            
+        
+            
+                <!-- src="../assets/img/mockups/9.png"  candidate for first line--> 
+                <!-- src="../assets/img/mockups/10.png" -->
+                <!-- src="../assets/img/mockups/13.jpg" -->
+                <!-- src="../assets/webcraft-svg/editor-alone-v3.svg" -->
         </div>
         <!-- </vue-aos> -->
         <!-- <vue-aos animation-class="fadeIn animated" @animationstart="checkAnime"> -->
@@ -168,9 +175,14 @@
             </div>
             <img
                 class="card-img"
-                src="../assets/webcraft-svg/webcraft-boy.svg"
+                src="../assets/img/svgs/buildingblocks.svg"
             />
+           
         </div>
+            <!-- <img
+                class="card-img"
+                src="../assets/webcraft-svg/webcraft-boy.svg"
+            /> -->
         <!-- </vue-aos> -->
         <!-- <vue-aos animation-class="fadeIn animated" @animationstart="checkAnime"> -->
         <div data-aos="zoom-out" class="home-card flex column">
@@ -189,11 +201,17 @@
                 </button>
             </div>
 
-            <img
+             <img
+                class="card-img"
+                src="../assets/img/svgs/drag&drop.svg"
+            />
+             
+
+        </div>
+            <!-- <img
                 class="card-img"
                 src="../assets/webcraft-svg/editor-alone.svg"
-            />
-        </div>
+            /> -->
 
         <div data-aos="fade-right" class="home-card flex column">
             <div class="card-content flex column space-between">
@@ -206,15 +224,23 @@
                     <span class="logo-name">Webcraft</span> platform
                 </p>
                 <button class="home-btn btn" @click="pushEditor">
-                    Give it a try!
+                    Join us now!
                 </button>
             </div>
-
+            <img
+                class="card-img"
+                src="../assets/img/svgs/buildingsite.svg"
+            />
+            <!-- <img
+                class="card-img"
+                src="../assets/img/svgs/worktogether.svg"
+            /> -->
+        </div>
+<!-- 
             <img
                 class="card-img"
                 src="../assets/webcraft-svg/editor-alone.svg"
-            />
-        </div>
+            /> -->
 
         <section v-if="waps" class="home-wap-gallery grid" data-aos="zoom-in">
             <div

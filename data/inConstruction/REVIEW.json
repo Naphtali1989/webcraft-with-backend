@@ -1,0 +1,369 @@
+{
+    "name": "section",
+    "type": "cards",
+    "class": "main-layout",
+    "title": "Cards & People",
+    "thumbnail": "https://imagizer.imageshack.com/img924/3209/qQPDKH.png",
+    "style": {
+        "background": "",
+        "borderRadius": "0px"
+    },
+    "children": [{
+            "name": "div",
+            "class": "full flex column align-center",
+            "style": {
+                "background": "",
+                "borderRadius": "0px"
+            },
+            "children": [{
+                    "name": "txt",
+                    "txt": "Testimony",
+                    "style": {
+                        "fontSize": "89px",
+                        "padding": "24px 20px",
+                        "lineHeight": "1",
+                        "letterSpacing": "1",
+                        "color": "#c8a97e",
+                        "textDecoration": "inheri",
+                        "fontWeight": "normal",
+                        "fontStyle": "",
+                        "fontFamily": "vibes",
+                        "textAlign": "center",
+                        "borderRadius": "0px"
+                    }
+                },
+                {
+                    "name": "txt",
+                    "txt": "Happy Customer",
+                    "style": {
+                        "color": "inherit",
+                        "fontSize": "52px",
+                        "padding": "0px 20px",
+                        "lineHeight": "1.2",
+                        "letterSpacing": "1",
+                        "backgroundColor": "unset",
+                        "textDecoration": "",
+                        "fontWeight": "900",
+                        "fontStyle": "inheirt",
+                        "fontFamily": "inherit",
+                        "textAlign": "center",
+                        "borderRadius": "0px",
+                        "marginTop": "-69px",
+                        "marginBottom": "36px"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "div",
+            "class": "grid",
+            "style": {
+                "grid-template-columns": "repeat(auto-fit, minmax(250px, 1fr))",
+                "place-items": "center",
+                "gap": "2px"
+            },
+            "children": [{
+                    "name": "div",
+                    "class": "food-card flex column align-center",
+                    "style": {
+                        "padding": "8px",
+                        "background": "transparent",
+                        "borderRadius": "0",
+                        "position": "relative"
+                    },
+                    "children": [{
+                            "name": "img",
+                            "class": "fas fa-birthday-cake",
+                            "imgUrl": "https://images.unsplash.com/photo-1569124589354-615739ae007b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxODU0MTl8MHwxfHNlYXJjaHwxMHx8fGVufDB8fHw&ixlib=rb-1.2.1&q=80&w=1080",
+                            "style": {
+                                "objectFit": "cover",
+                                "width": "150px",
+                                "height": "150px",
+                                "borderRadius": "50%"
+                            },
+                            "children": [{
+                                "name": "div",
+                                "style": {
+                                    "background": "",
+                                    "borderRadius": ""
+                                },
+                                "children": [{
+                                    "name": "i",
+                                    "class": "fas fa-quote-left",
+                                    "style": {
+                                        "textAlign": "center",
+                                        "background": "",
+                                        "lineHeight": "",
+                                        "color": "rgb(200, 169, 126)",
+                                        "fontSize": "20px",
+                                        "borderRadius": "0px"
+                                    }
+
+                                }]
+
+
+
+
+                            }]
+                        },
+                        {
+                            "name": "div",
+                            "class": "food-card flex column align-center",
+                            "style": {
+                                "padding": "8px",
+                                "background": "transparent",
+                                "borderRadius": "0"
+                            },
+                            "children": [{
+                                    "name": "txt",
+                                    "txt": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts",
+                                    "style": {
+                                        "lineHeight": "1.2",
+                                        "textAlign": "center",
+                                        "background": "",
+                                        "color": "#000000",
+                                        "fontSize": "18px",
+                                        "borderRadius": "0px",
+                                        "fontFamily": "inherit",
+                                        "textDecoration": "",
+                                        "fontStyle": "inherit",
+                                        "backgroundColor": "unset",
+                                        "fontWeight": "600",
+                                        "marginBottom": "0px",
+                                        "wordBreak": "break-word",
+                                        "max-width": "25ch"
+                                    }
+                                },
+                                {
+                                    "name": "txt",
+                                    "txt": "Jane Doe",
+                                    "style": {
+                                        "lineHeight": "1.2",
+                                        "textAlign": "center",
+                                        "background": "",
+                                        "marginBottom": "14px",
+                                        "color": "rgba(0, 0, 0, 0.3)",
+                                        "fontSize": "24px",
+                                        "borderRadius": "0px",
+                                        "maxWidth": "24ch",
+                                        "backgroundColor": "",
+                                        "textDecoration": "",
+                                        "display": "block",
+                                        "margin": "0px",
+                                        "wordBreak": "break-word",
+                                        "marginBlockStart": "16px",
+                                        "marginBlockEnd": "16px"
+                                    }
+                                },
+                                {
+                                    "name": "txt",
+                                    "txt": "CUSTOMER",
+                                    "style": {
+                                        "lineHeight": "1.2",
+                                        "textAlign": "center",
+                                        "background": "",
+                                        "marginBottom": "14px",
+                                        "color": "#959191",
+                                        "fontSize": "12px",
+                                        "borderRadius": "0px",
+                                        "backgroundColor": "",
+                                        "textDecoration": "",
+                                        "display": "block",
+                                        "margin": "0px",
+                                        "letterSpacing": "2px",
+                                        "wordBreak": "break-word",
+                                        "fontWeight": "600"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "div",
+                    "class": "food-card flex column align-center",
+                    "style": {
+                        "padding": "8px",
+                        "background": "transparent",
+                        "borderRadius": "0"
+                    },
+                    "children": [{
+                            "name": "img",
+                            "class": "fas fa-birthday-cake",
+                            "imgUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80",
+                            "style": {
+                                "objectFit": "cover",
+                                "width": "150px",
+                                "height": "150px",
+                                "borderRadius": "50%"
+                            }
+                        },
+                        {
+                            "name": "div",
+                            "class": "food-card flex column align-center",
+                            "style": {
+                                "padding": "8px",
+                                "background": "transparent",
+                                "borderRadius": "0"
+                            },
+                            "children": [{
+                                    "name": "txt",
+                                    "txt": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts",
+                                    "style": {
+                                        "lineHeight": "1.2",
+                                        "textAlign": "center",
+                                        "background": "",
+                                        "color": "#000000",
+                                        "fontSize": "18px",
+                                        "borderRadius": "0px",
+                                        "fontFamily": "inherit",
+                                        "textDecoration": "",
+                                        "fontStyle": "inherit",
+                                        "backgroundColor": "unset",
+                                        "fontWeight": "600",
+                                        "marginBottom": "0px",
+                                        "wordBreak": "break-word",
+                                        "max-width": "25ch"
+                                    }
+                                },
+                                {
+                                    "name": "txt",
+                                    "txt": "Noam Levi",
+                                    "style": {
+                                        "lineHeight": "1.2",
+                                        "textAlign": "center",
+                                        "background": "",
+                                        "marginBottom": "14px",
+                                        "color": "rgba(0, 0, 0, 0.3)",
+                                        "fontSize": "24px",
+                                        "borderRadius": "0px",
+                                        "maxWidth": "24ch",
+                                        "backgroundColor": "",
+                                        "textDecoration": "",
+                                        "display": "block",
+                                        "margin": "0px",
+                                        "wordBreak": "break-word",
+                                        "marginBlockStart": "16px",
+                                        "marginBlockEnd": "16px"
+                                    }
+                                },
+                                {
+                                    "name": "txt",
+                                    "txt": "CUSTOMER",
+                                    "style": {
+                                        "lineHeight": "1.2",
+                                        "textAlign": "center",
+                                        "background": "",
+                                        "marginBottom": "14px",
+                                        "color": "#959191",
+                                        "fontSize": "12px",
+                                        "borderRadius": "0px",
+                                        "backgroundColor": "",
+                                        "textDecoration": "",
+                                        "display": "block",
+                                        "margin": "0px",
+                                        "letterSpacing": "2px",
+                                        "wordBreak": "break-word",
+                                        "fontWeight": "600"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "div",
+                    "class": "food-card flex column align-center",
+                    "style": {
+                        "padding": "8px",
+                        "background": "transparent",
+                        "borderRadius": "0"
+                    },
+                    "children": [{
+                            "name": "img",
+                            "class": "fas fa-birthday-cake",
+                            "imgUrl": "https://images.unsplash.com/photo-1566753323558-f4e0952af115?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxODU0MTl8MHwxfHNlYXJjaHw5fHx8ZW58MHx8fA&ixlib=rb-1.2.1&q=80&w=1080",
+                            "style": {
+                                "objectFit": "cover",
+                                "width": "150px",
+                                "height": "150px",
+                                "borderRadius": "50%"
+                            }
+                        },
+                        {
+                            "name": "div",
+                            "class": "food-card flex column align-center",
+                            "style": {
+                                "padding": "8px",
+                                "background": "transparent",
+                                "borderRadius": "0"
+                            },
+                            "children": [{
+                                    "name": "txt",
+                                    "txt": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts",
+                                    "style": {
+                                        "lineHeight": "1.2",
+                                        "textAlign": "center",
+                                        "background": "",
+                                        "color": "#000000",
+                                        "fontSize": "18px",
+                                        "borderRadius": "0px",
+                                        "fontFamily": "inherit",
+                                        "textDecoration": "",
+                                        "fontStyle": "inherit",
+                                        "backgroundColor": "unset",
+                                        "fontWeight": "600",
+                                        "marginBottom": "0px",
+                                        "wordBreak": "break-word",
+                                        "max-width": "25ch"
+                                    }
+                                },
+                                {
+                                    "name": "txt",
+                                    "txt": "Eden Cohen",
+                                    "style": {
+                                        "lineHeight": "1.2",
+                                        "textAlign": "center",
+                                        "background": "",
+                                        "marginBottom": "14px",
+                                        "color": "rgba(0, 0, 0, 0.3)",
+                                        "fontSize": "24px",
+                                        "borderRadius": "0px",
+                                        "maxWidth": "24ch",
+                                        "backgroundColor": "",
+                                        "textDecoration": "",
+                                        "display": "block",
+                                        "margin": "0px",
+                                        "wordBreak": "break-word",
+                                        "marginBlockStart": "16px",
+                                        "marginBlockEnd": "16px"
+                                    }
+                                },
+                                {
+                                    "name": "txt",
+                                    "txt": "CUSTOMER",
+                                    "style": {
+                                        "lineHeight": "1.2",
+                                        "textAlign": "center",
+                                        "background": "",
+                                        "marginBottom": "14px",
+                                        "color": "#959191",
+                                        "fontSize": "12px",
+                                        "borderRadius": "0px",
+                                        "backgroundColor": "",
+                                        "textDecoration": "",
+                                        "display": "block",
+                                        "margin": "0px",
+                                        "letterSpacing": "2px",
+                                        "wordBreak": "break-word",
+                                        "fontWeight": "600"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

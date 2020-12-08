@@ -126,28 +126,27 @@ export default {
         },
         async publishWebsite(wapName) {
             this.currWap.title = wapName;
-            console.log(this.currWap)
             const wap = await this.saveWap(true);
-            const link = `https://webcraft-ca.herokuapp.com/#/wap/${this.currWap._id}`
+            const link = `https://webcraft-ca.herokuapp.com/#/wap/${this.currWap._id}`;
             this.currWebsiteLink = link;
         },
         copyCmp(_id) {
-            const parent = editorService.findParentNode(this.currWap, _id)
-            this.copyCmpInsideParent(parent, _id)
+            const parent = editorService.findParentNode(this.currWap, _id);
+            this.copyCmpInsideParent(parent, _id);
         },
         deleteCmp(_id) {
-            const parent = editorService.findParentNode(this.currWap, _id)
-            this.deleteCmpInsideParent(parent, _id)
+            const parent = editorService.findParentNode(this.currWap, _id);
+            this.deleteCmpInsideParent(parent, _id);
         },
         moveCmp(_id, diff) {
-            const parent = editorService.findParentNode(this.currWap, _id)
-            this.moveCmpInsideParent(parent, _id, diff)
+            const parent = editorService.findParentNode(this.currWap, _id);
+            this.moveCmpInsideParent(parent, _id, diff);
         },
         deleteCmpInsideParent(parentEl, _id) {
             const children = parentEl.cmps || parentEl.children;
             const idx = children.findIndex(cmp => cmp._id === _id);
             children.splice(idx, 1);
-            socketService.emit('savedWap', this.currWap)
+            socketService.emit('savedWap', this.currWap);
         },
         moveCmpInsideParent(parentEl, _id, diff) {
             // Find the element index and replace its position according to the difference
@@ -156,7 +155,7 @@ export default {
             if (idx === 0 && diff === -1) return;
             const section = children.splice(idx, 1);
             children.splice(idx + diff, 0, section[0]);
-            socketService.emit('savedWap', this.currWap)
+            socketService.emit('savedWap', this.currWap);
         },
         copyCmpInsideParent(parentEl, _id) {
             const children = parentEl.cmps || parentEl.children;
@@ -165,7 +164,7 @@ export default {
             const elCopy = JSON.parse(JSON.stringify(el));
             editorService.replaceIds(elCopy);
             children.splice(idx, 0, elCopy);
-            socketService.emit('savedWap', this.currWap)
+            socketService.emit('savedWap', this.currWap);
         },
         setChangedVid(url) {
             if (!this.currCmpToEdit) return
@@ -250,13 +249,7 @@ export default {
             // Drop the section in the correct drop zone
             this.dropSection(dragResult);
         },
-        async saveSample() {
-            if (!this.currCmpToEdit) return console.log('Idan And Matan, stop saving!')
-            this.sample = await this.$store.dispatch({
-                type: 'saveSample',
-                sample: this.currWap
-            });
-        },
+
     },
     async created() {
         //load samples for the sample list

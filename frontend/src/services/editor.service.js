@@ -107,11 +107,11 @@ function _setStyle(el) {
     el.style.textDecoration = style.textDecoration || 'inherit';
     el.style.fontWeight = style.fontWeight || 'inherit';
     el.style.fontStyle = style.fontStyle || 'inherit';
-    el.style.fontFamily = style.fontFamily || 'inherit';
     el.style.textAlign = style.textAlign || 'inherit';
     el.style.textShadow = style.textShadow || 'unset';
     el.style.boxShadow = style.boxShadow || 'unset';
     el.style.borderWidth = style.borderWidth || 'unset';
     el.style.borderStyle = style.borderStyle || 'unset';
     el.style.borderColor = style.borderColor || 'unset';
+    if (el.name !== 'i') el.style.fontFamily = style.fontFamily || 'inherit';
 }

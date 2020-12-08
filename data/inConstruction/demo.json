@@ -1,0 +1,83 @@
+[{
+        "id": "ajahdbdh",
+        "name": "txt",
+        "type": "awesomeTxt",
+        "class": "cool-txt",
+        "txt": "blablabla",
+        "style": {
+            "fontSize": "25px",
+            "lineHeight": 1.5,
+            "letterSpacing": "10px",
+            "background": "inherit",
+            "color": "red",
+            "fontFamily": "cursive",
+            "textDecoration": "underline",
+            "fontStyle": "italic",
+            "textAlign": "left"
+        }
+    },
+
+    {
+        "id": "ahshhfb",
+        "name": "link",
+        "type": "awesomeLink",
+        "class": "cool-link",
+        "txt": "Monday!",
+        "href": "https: //monday.com",
+        "style": {
+            "fontSize": "25px",
+            "lineHeight": 1.5,
+            "letterSpacing": "10px",
+            "backgroundColor": "inherit",
+            "color": "red",
+            "fontFamily": "cursive",
+            "textDecoration": "underline",
+            "fontStyle": "italic",
+            "textAlign": "center"
+        }
+    }, {
+        "id": "weafaweghth",
+        "name": "button",
+        "type": "awesomeButton",
+        "class": "cool-link",
+        "txt": "Click me!",
+        "href": "#clicked",
+        "style": {
+            "fontSize": "25px",
+            "lineHeight": 1.5,
+            "letterSpacing": "10px",
+            "backgroundColor": "inherit",
+            "color": "red",
+            "fontFamily": "cursive",
+            "textDecoration": "underline",
+            "fontStyle": "italic",
+            "textAlign": "center",
+            "width": "unset",
+            "borderRadius": "0px"
+        }
+    },
+
+    {
+        "id": "ajebrnh",
+        "name": "section",
+        "type": "navbar",
+        "class": "cool-navbar",
+        "style": {
+            "background": "red",
+            "borderRadius": "2px",
+            "height": "250px"
+        },
+        "children": []
+    },
+
+    {
+        "id": "gshsusna",
+        "name": "img",
+        "type": "img-container",
+        "class": "cool-img",
+        "style": {
+            "borderRadius": "2px",
+            "height": "250px"
+        }
+    }
+]
