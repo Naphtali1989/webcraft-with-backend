@@ -1,6 +1,7 @@
 <template>
     <section>
         <h1 class="profile-title">Your Msgs</h1>
+        <button @click="emitDeleteMsgs">Delete Msgs</button>
         <p
             class="no-msg-received"
             v-if="!msgs.length"

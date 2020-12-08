@@ -59,9 +59,10 @@ export default {
             return this.$store.getters.loggedInUser;
         },
         showCollab() {
-            return true;
-            // return this.$store.getters.loggedInUser&&!this.$store.getters.isCollabMode;
-        }
+            // return true;
+            return this.$store.getters.loggedInUser;
+        },
+
     },
     components: {
         publishModal

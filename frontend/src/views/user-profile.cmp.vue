@@ -6,7 +6,6 @@
         <nav class="user-dashboard">
             <div class="logo">
                 <i
-                    
                     class="fas fa-user-circle "
                     v-if="!loggedInUser.imgUrl"
                 ></i>
@@ -51,7 +50,10 @@
                 src="../assets/img/loading-spinner.svg"
             />
             <div class="seperator"></div>
-            <user-msgs :msgs="dataToTransfer" />
+            <user-msgs
+                :msgs="dataToTransfer"
+                @deleteMsgs="onDeleteMsgs"
+            />
         </div>
     </section>
 </template>
@@ -76,6 +78,9 @@ export default {
         }
     },
     methods: {
+        onDeleteMsgs() {
+            this.$store.dispatch({ type: 'deleteMsgs',userId: this.loggedInUser._id })
+        },
         onDeleteWap(wapId) {
             this.$store.dispatch({ type: 'deleteWap',wapId })
         },
