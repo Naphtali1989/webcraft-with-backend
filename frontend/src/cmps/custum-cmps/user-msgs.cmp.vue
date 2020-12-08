@@ -13,6 +13,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Subject</th>
+                    <th scope="col">Phone</th>
                     <th scope="col">Message</th>
                     <th scope="col">Sent At</th>
                 </tr>
@@ -26,6 +27,7 @@
                     <td>{{ data.content.name}}</td>
                     <td>{{ data.content.email}}</td>
                     <td>{{data.content.subject}}</td>
+                    <td>{{data.content.phone}}</td>
                     <td>{{longMsg(data.content.message)}}</td>
                     <td>{{formatTime(data.content.createdAt)}}</td>
                 </tr>

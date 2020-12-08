@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 300px));
     gap: 20px;
+    justify-content: center;
     margin-block-end: 4rem;
     .wap-card {
         box-shadow: 0 0 18px rgba(190, 185, 185, 0.45);

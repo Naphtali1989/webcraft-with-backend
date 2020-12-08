@@ -35,6 +35,7 @@
             @saveSample="emitSaveSample"
             @openPublishModal="emitOpenPublishModal"
             @saveWapName="emitSaveWapName"
+            @openLoginModal="emitOpenLoginModal"
         />
     </section>
 </template>
@@ -65,6 +66,9 @@ export default {
         }
     },
     methods: {
+        emitOpenLoginModal() {
+            this.$emit('openLoginModal')
+        },
         emitMakeWapCollab() {
             this.$emit('makeWapCollab')
         },

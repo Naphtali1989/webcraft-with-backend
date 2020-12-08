@@ -4,7 +4,7 @@
             v-if="!isViewMode"
             @openSignupModal="showModal = true"
         />
-        <router-view />
+        <router-view @openLoginModal="openLoginModal" />
         <sign-up
             v-if="showModal"
             @closeSignupModal="showModal = false"
@@ -31,6 +31,11 @@ export default {
         signUp,
         loader,
         userMsg,
+    },
+    methods: {
+        openLoginModal() {
+            this.showModal=true;
+        }
     },
     computed: {
         isViewMode() {
