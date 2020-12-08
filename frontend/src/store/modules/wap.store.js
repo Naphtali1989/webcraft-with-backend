@@ -64,13 +64,10 @@ export const wapStore = {
         },
         async loadUserWaps({ commit }, { userId }) {
             const waps = await wapService.query(userId);
-            console.log('user waps?:', waps);
             commit({ type: 'setUserWaps', waps })
         },
         async getOwnerWapReviews({ commit }, { userId }) {
-            console.log('go to store in owner reviews')
             const waps = await wapService.query(userId);
-            console.log('waps?:', waps);
             const curUserWaps = waps.map(wap => {
                 const { thumbnail, _id, title } = wap;
                 const reviews = wap.reviews ? wap.reviews : '';

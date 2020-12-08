@@ -17,6 +17,12 @@
     }
 }
 
+.render-class {
+    .site-background {
+        height: 18% !important;
+    }
+}
+
 .user-site {
     position: relative;
     .hamburger {
@@ -27,7 +33,8 @@
 }
 
 @media(max-width:770px) {
-    .site- .user-site {
+    // .site- {}
+    .user-site {
         .hamburger {
             display: flex;
             div {
