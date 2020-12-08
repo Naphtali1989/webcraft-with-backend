@@ -11,6 +11,7 @@ function connectSockets(io) {
 
         socket.on('form-submitted', (data) => {
             io.emit('form-submitted', data)
+                // socket.broadcast.emit('form-submitted', data)
         })
 
         socket.on('roomRoute', wapId => {
