@@ -272,23 +272,21 @@ export default {
                 type: 'loadWap',
                 _id
             });
-            if (this.$store.getters.loggedInUser && wap.userId && this.$store.getters.loggedInUser._id === wap.userId) {
+            if (this.$store.getters.loggedInUser &&
+                wap.userId &&
+                this.$store.getters.loggedInUser._id === wap.userId) {
                 this.currWap = wap
-                console.log('This wap has been made by me')
             } else {
-                console.log('This wap WAS NOT made by me')
                 let wapCopy = JSON.parse(JSON.stringify(wap));
                 delete wapCopy.title;
                 delete wapCopy._id;
                 this.currWap = wapCopy;
             }
             if (!wap.isCollab) {
-                console.log('We are not in collab mode!')
                 await this.saveWap(false);
                 this.$router.push('/editor/' + this.currWap._id).catch(() => { });
             }
             else if (wap.isCollab) {
-                console.log('Should we emit?!')
                 socketService.emit('roomRoute', wap._id);
             }
         }

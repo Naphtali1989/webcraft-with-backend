@@ -1,6 +1,6 @@
 body {
     --def: #5ac7f9;
-    --inv: #fff;
+    --inv: rgb(243, 243, 243);
 }
 
 .content-wrapper {
@@ -8,11 +8,11 @@ body {
     .main-hero {
         position: relative;
         margin-block-end: 1rem;
-        .hero-img {
-            width: 100%;
-            border-radius: 0 0 400px 200px;
-            box-shadow: 0 0 20px 0 black;
-        }
+        // .hero-img {
+        //     width: 100%;
+        //     border-radius: 0 0 400px 200px;
+        //     box-shadow: 0 0 20px 0 black;
+        // }
         .home-btn {
             position: relative;
             padding: 1.4rem;
@@ -152,12 +152,17 @@ body {
     .content-wrapper {
         .main-hero {
             flex-direction: row;
-            max-height: 75vh;
+            height: 45vh;
+            width: 100%;
+            svg {
+                width: 100%;
+                height: 100vh;
+            }
             .hero-btn {
                 position: absolute;
                 font-size: 2rem;
                 bottom: 50px;
-                left: 50%;
+                left: 30%;
                 transform: translate(-50%, -50%);
                 border-radius: 3px;
                 box-shadow: 0 0 12px #0000008c;
@@ -166,6 +171,7 @@ body {
         }
         h1 {
             font-size: 4rem;
+            text-align: left;
         }
         .hero-img {
             object-fit: cover;
@@ -218,9 +224,13 @@ body {
         }
     }
     .home-wap-gallery {
+        position: absolute;
         margin: 3rem 0;
-        grid-template-columns: repeat(auto-fill, minmax(18.5rem, 1fr));
+        grid-template-columns: repeat(3, minmax(14.5rem, 18rem));
+        top: 0;
+        right: 0;
         .wap-preview {
+            cursor: pointer;
             background: #86919ba6;
             transform: scale(1.1);
             position: relative;
