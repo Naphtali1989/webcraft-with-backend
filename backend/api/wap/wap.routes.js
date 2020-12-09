@@ -9,6 +9,6 @@ router.get('/', getWaps)
 router.get('/:id', getWapById)
 router.delete('/:id', requireAuth, deleteWap)
 router.put('/:id', requireAuth, updateWap)
-router.post('/', addWap)
+router.post('/', requireAuth, addWap)
 
 module.exports = router
