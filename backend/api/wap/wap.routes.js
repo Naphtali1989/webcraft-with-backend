@@ -7,8 +7,8 @@ const router = express.Router()
 
 router.get('/', getWaps)
 router.get('/:id', getWapById)
-router.delete('/:id', deleteWap)
-router.put('/:id', updateWap)
+router.delete('/:id', requireAuth, deleteWap)
+router.put('/:id', requireAuth, updateWap)
 router.post('/', addWap)
 
 module.exports = router
