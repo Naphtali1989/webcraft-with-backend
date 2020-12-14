@@ -51,7 +51,7 @@
             :currCollabLink="currCollabLink"
             @closeSocketModal="toggleSocketModal"
         />
-        <activity-log :activities="activities"/>
+        <activity-log :activities="activities" v-if="currWap.isCollab"/>
     </section>
 </template>
 
