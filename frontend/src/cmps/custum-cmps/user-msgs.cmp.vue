@@ -78,6 +78,9 @@ export default {
             if(!msg) return '';
             if(msg.length>12) return msg.substring(0,12)+'...';
             return msg;
+        },
+        emitDeleteMsgs() {
+            this.$emit('deleteMsgs')
         }
     },
     computed: {

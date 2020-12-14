@@ -49,6 +49,5 @@ export const userStore = {
             commit({ type: 'setUser', user: savedUser })
             commit({ type: 'setIsLoading', isLoading: false });
         },
-
     }
 }

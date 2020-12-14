@@ -1,0 +1,14 @@
+.activity-log {
+    position: absolute;
+    right: 10px;
+    top: 120px;
+    width: 420px;
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid #000;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 1;
+    font-family: carme;
+    background-color: #fafafa;
+}

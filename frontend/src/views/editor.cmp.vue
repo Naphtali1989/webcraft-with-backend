@@ -51,6 +51,7 @@
             :currCollabLink="currCollabLink"
             @closeSocketModal="toggleSocketModal"
         />
+        <activity-log :activities="activities"/>
     </section>
 </template>
 
@@ -63,6 +64,7 @@ import { utilService } from '@/services/util.service';
 import { wapService } from '@/services/wap.service';
 import loader from '@/cmps/custum-cmps/loader.cmp.vue';
 import publishModal from '@/cmps/wap/publish-modal.cmp.vue';
+import activityLog from '@/cmps/wap/activity-log.cmp.vue';
 import { eventBus } from '@/services/event-bus.service.js'
 import socketService from '@/services/socket.service';
 import socketModal from '@/cmps/wap/socket-modal.cmp.vue'
@@ -79,6 +81,7 @@ export default {
             currWebsiteLink: null,
             showSocketModal: false,
             currCollabLink: null,
+            activities: []
         };
     },
     computed: {
@@ -97,9 +100,11 @@ export default {
         },
         isCollabMode() {
             return this.$store.getters.isCollabMode
+        },
+        loggedInUser() {
+            return this.$store.getters.loggedInUser;
         }
     },
-
     methods: {
         // async saveWapName(wapName) {
         //     this.saveWap(wapName)
@@ -200,6 +205,10 @@ export default {
         deleteSection(_id) {
             const idx=this.currWap.cmps.findIndex(cmp => cmp._id===_id);
             this.currWap.cmps.splice(idx,1);
+            if(this.currWap.isCollab) {
+                const data={ activity: `${this.loggedInUser.username} has deleted a cmp.`,user: this.loggedInUser? this.loggedInUser:'guest',time: Date.now() }
+                socketService.emit('add-activity',data)
+            }
             socketService.emit('savedWap',this.currWap)
 
         },
@@ -259,6 +268,16 @@ export default {
         socketService.on('savedWap',wap => {
             this.currWap=wap;
         })
+
+        socketService.on('add-activity',activities => {
+            console.log('activites?:',activities);
+            this.activities=activities;
+        })
+
+        // socketService.on('add-activity',activities => {
+        //     console.log('activites:',activities);
+        //     this.activities=activities;
+        // })
         await this.$store.dispatch({ type: 'loadSamples' });
         var _id=this.$route.params.id;
 
@@ -282,7 +301,11 @@ export default {
                 this.$router.push('/editor/'+this.currWap._id).catch(() => { });
             }
             else if(wap.isCollab) {
+                console.log('in socket');
                 socketService.emit('roomRoute',wap._id);
+                socketService.on('add-activity',activities => {
+                this.activities=activities;
+        })
             }
         }
         //open a connection
@@ -301,10 +324,12 @@ export default {
         toggleEditor,
         loader,
         publishModal,
-        socketModal
+        socketModal,
+        activityLog
     },
     destroyed() {
         if(this.isCollabMode&&!this.currWap.isSaved&&!this.currWebsiteLink) {
+            console.log('destoryed!');
             this.$store.commit({ type: 'setCollabMode',isCollabModeOn: false })
             this.$store.dispatch({ type: 'deleteWap',wapId: this.currWap._id })
         }

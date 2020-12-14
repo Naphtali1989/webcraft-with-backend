@@ -4,7 +4,9 @@ async function getWaps(req, res) {
     try {
         const waps = await wapService.query(req.query);
         res.json(waps)
-    } catch (error) {}
+    } catch (error) {
+        re.status(500).json(error)
+    }
 }
 
 async function getWapById(req, res) {

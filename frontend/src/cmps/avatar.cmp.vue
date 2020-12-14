@@ -1,12 +1,18 @@
 <template>
-    <div class="avatar" :style="{
+    <div
+        class="avatar"
+        :style="{
             width: size + 'px',
             height: size + 'px',
             backgroundColor:  imgUrl ? '' : color,
             lineHeight: size + 'px',
-        }">
+        }"
+    >
         <span v-if="username && !imgUrl">{{ computeName }} </span>
-        <img v-else :src="imgUrl" />
+        <img
+            v-else
+            :src="imgUrl"
+        />
     </div>
 </template>
 
@@ -34,6 +40,7 @@ export default {
         },
     },
     created() {
+        console.log('avatar is created');
     }
 }
 </script>
