@@ -50,7 +50,7 @@
                 :username="username(activityData)"
                 :imgUrl="activityData.user.imgUrl"
                 :color="'#124a76'"
-                :size="45"
+                :size="35"
             />
             <div class="info flex column align-center">
                 {{ activityData.activity }}
