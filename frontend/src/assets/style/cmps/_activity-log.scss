@@ -1,14 +1,63 @@
+// .activity-log {
+//     position: absolute;
+//     right: 10px;
+//     top: 120px;
+//     width: 420px;
+//     height: 400px;
+//     overflow-y: auto;
+//     border-radius: 8px;
+//     position: absolute;
+//     z-index: 1;
+//     font-family: carme;
+//     background-color: #fafafa;
+// }
 .activity-log {
-    position: absolute;
-    right: 10px;
-    top: 120px;
-    width: 420px;
-    height: 400px;
-    overflow-y: auto;
+    background-color: #fff;
     border: 1px solid #000;
-    border-radius: 8px;
-    position: absolute;
-    z-index: 1;
-    font-family: carme;
-    background-color: #fafafa;
+    border-radius: 18.5px 18.5px 0 0;
+    position: fixed;
+    height: 480px;
+    width: 90%;
+    right: 1rem;
+    bottom: 0;
+    z-index: 200;
+    transition: all .33s;
+    &.minimized {
+        height: 50px;
+        width: 16rem;
+    }
+    .activity-log-header {
+        padding: 1rem;
+        background-color: #404040;
+        border-radius: 1rem 1rem 0 0;
+        color: rgb(241, 241, 241);
+    }
+    .activity-preview {
+        padding: 1rem;
+    }
+    .minimize-toggle-btn,
+    .maximize-toggle-btn,
+    .log-close-btn {
+        color: rgb(241, 241, 241);
+    }
+    .log-close-btn {
+        font-size: 1.15rem;
+    }
+}
+
+@media (min-width:500px) {
+    .activity-log {
+        max-width: 450px;
+        &.maximized {
+            left: 20rem;
+            bottom: 2rem;
+            height: 85%;
+            max-width: 60% !important;
+        }
+    }
+    .minimize-toggle-btn:hover,
+    .maximize-toggle-btn:hover,
+    .log-close-btn:hover {
+        background-color: #00000040;
+    }
 }
