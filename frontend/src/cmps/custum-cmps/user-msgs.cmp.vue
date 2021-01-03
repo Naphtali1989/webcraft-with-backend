@@ -1,6 +1,7 @@
 <template>
     <section>
         <h1 class="profile-title">Your Msgs</h1>
+        <button @click="emitDeleteMsgs">Delete Msgs</button>
         <p
             class="no-msg-received"
             v-if="!msgs.length"
@@ -77,6 +78,9 @@ export default {
             if(!msg) return '';
             if(msg.length>12) return msg.substring(0,12)+'...';
             return msg;
+        },
+        emitDeleteMsgs() {
+            this.$emit('deleteMsgs')
         }
     },
     computed: {

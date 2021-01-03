@@ -1,5 +1,8 @@
 <template>
-    <section class="avatar-modal flex column align-center">
+    <section
+        class="avatar-modal flex column align-center"
+        v-if="loggedInUser"
+    >
         <div class="info flex column align-center">
             <avatar
                 :username="loggedInUser.username"
@@ -7,8 +10,11 @@
                 :size="65"
                 :color="'#124a76'"
             />
-            <h3>{{loggedInUser.username}}</h3>
-            <span>{{loggedInUser.email}}</span>
+            <div class="user-info flex column align-center">
+                <h3>{{loggedInUser.username}}</h3>
+                <span>{{loggedInUser.email}}</span>
+
+            </div>
         </div>
         <div class="seperator"></div>
         <section class="modal-links flex column">
@@ -30,22 +36,28 @@ import avatar from '@/cmps/avatar.cmp.vue';
 export default {
     name: 'avatar-modal',
     props: {
-        loggedInUser: Object
+        loggedInUser: Object,
+        showModal: {
+            type: Boolean
+        }
     },
     components: {
         avatar
     },
     methods: {
+        closeModal() {
+            this.$emit('closeModal')
+        },
+
         logout() {
             this.$store.dispatch({ type: 'logout' })
-            this.$emit('closeModal');
+            this.closeModal();
             this.$router.push('/').catch(() => { });
         },
         pushProfile() {
-            this.$emit('closeModal');
+            this.closeModal();
             this.$router.push(`/user/${this.loggedInUser._id}`)
         }
-
     }
 }
 </script>

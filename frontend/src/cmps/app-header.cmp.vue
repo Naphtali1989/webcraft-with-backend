@@ -46,7 +46,7 @@
             <div class="bar3"></div>
         </div>
         <avatar-modal
-            v-if="loggedInUser && showModal"
+            v-if="showModal"
             :loggedInUser="loggedInUser"
             @closeModal="showModal = false"
         />
@@ -65,13 +65,14 @@ export default {
     },
     methods: {
         toggleModal() {
+            console.log('toggled');
             this.showModal=!this.showModal;
         },
         pushHome() {
             this.$router.push('/');
         },
         showSignup() {
-            this.toggleModal();
+            // this.toggleModal();
             this.$emit('openSignupModal');
         },
         toggleMenu() {

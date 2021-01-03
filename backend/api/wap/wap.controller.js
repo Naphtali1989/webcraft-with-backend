@@ -4,7 +4,9 @@ async function getWaps(req, res) {
     try {
         const waps = await wapService.query(req.query);
         res.json(waps)
-    } catch (error) {}
+    } catch (error) {
+        re.status(500).json(error)
+    }
 }
 
 async function getWapById(req, res) {
@@ -46,10 +48,20 @@ async function updateWap(req, res) {
     } catch (error) {}
 }
 
+async function deleteReviews(req, res) {
+    try {
+        const wap = req.body;
+        await wapService.deleteReviews
+    } catch (error) {
+
+    }
+}
+
 module.exports = {
     getWaps,
     getWapById,
     addWap,
     updateWap,
     deleteWap,
+    deleteReviews
 }

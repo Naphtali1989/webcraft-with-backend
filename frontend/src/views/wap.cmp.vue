@@ -1,5 +1,8 @@
 <template>
-    <section class="user-site" v-if="wapToShow">
+    <section
+        class="user-site"
+        v-if="wapToShow"
+    >
         <div
             class="hamburger flex-center column btn"
             @click="toggleMenu"

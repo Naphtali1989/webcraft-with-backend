@@ -79,6 +79,12 @@ export const wapStore = {
                 }
             });
             return curUserWaps
-        }
+        },
+        // async deleteMsgs({ commit }, { userId }) {
+        //     const waps = await wapService.query(userId);
+        //     waps.forEach(wap => {
+        //         await wapService.delete(wap._id);
+        //     })
+        // }
     }
 }

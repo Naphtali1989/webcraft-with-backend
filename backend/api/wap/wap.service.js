@@ -49,7 +49,7 @@ async function remove(wapId) {
 
 
 
-//update user
+
 async function update(wap) {
     const collection = await dbService.getCollection('wap')
         //convert the id which is a string to an objectId in order to update it in the db
@@ -57,10 +57,23 @@ async function update(wap) {
     try {
         wap.updatedAt = Date.now()
             //replace a user with the user id and set in the db the new user
-        await collection.updateOne({ _id: wap._id }, { $set: wap })
+        if (!wap.reviews) await collection.updateOne({ _id: wap._id }, { $set: wap })
+
         return wap
     } catch (err) {
         throw err;
+    }
+}
+
+async function deleteReviews() {
+    const collection = await dbService.getCollection('wap')
+    wap._id = ObjectId(wap._id);
+    try {
+        console.log('go into delete ereviews');
+        db.getCollection('userData').update({}, { $unset: { pi: 1 } })
+        await collection.updateOne({}, { $unset: { reviews: 1 } });
+    } catch (error) {
+        throw error;
     }
 }
 

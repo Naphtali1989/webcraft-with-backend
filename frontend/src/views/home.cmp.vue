@@ -26,7 +26,10 @@
                         x2="1991.9283"
                         y2="270.9562"
                     >
-                        <stop offset="0" style="stop-color: #ff1902" />
+                        <stop
+                            offset="0"
+                            style="stop-color: #ff1902"
+                        />
                         <stop
                             offset="1"
                             style="stop-color: #ff1902; stop-opacity: 0"
@@ -58,7 +61,10 @@
                         x2="1892.9183"
                         y2="246.9538"
                     >
-                        <stop offset="0" style="stop-color: #ff1902" />
+                        <stop
+                            offset="0"
+                            style="stop-color: #ff1902"
+                        />
                         <stop
                             offset="1"
                             style="stop-color: #ff1902; stop-opacity: 0"
@@ -91,7 +97,10 @@
                         x2="2090.9382"
                         y2="237.9529"
                     >
-                        <stop offset="0" style="stop-color: #ff1902" />
+                        <stop
+                            offset="0"
+                            style="stop-color: #ff1902"
+                        />
                         <stop
                             offset="1"
                             style="stop-color: #ff1902; stop-opacity: 0"
@@ -120,14 +129,20 @@
                 class="hero-img"
                 src="../assets/webcraft-svg/picture-editor.svg"
             /> -->
-            <div class="home-btn hero-btn from-top btn" @click="pushEditor">
+            <div
+                class="home-btn hero-btn from-top btn"
+                @click="pushEditor"
+            >
                 Start Building
             </div>
         </div>
 
         <h1>Build a website easily!</h1>
         <!-- <vue-aos animation-class="fadeIn animated" @animationstart="checkAnime"> -->
-        <div class="home-card flex column" data-aos="fade-right">
+        <div
+            class="home-card flex column"
+            data-aos="fade-right"
+        >
             <div class="card-content flex column space-between">
                 <span class="home-tag text-left">Imagination</span>
                 <h2 class="title">
@@ -140,25 +155,29 @@
                     build professional, custom websites in a completely visual
                     canvas.
                 </p>
-                <button class="home-btn btn" @click="pushEditor">
+                <button
+                    class="home-btn btn"
+                    @click="pushEditor"
+                >
                     Let's Create!
                 </button>
             </div>
-<img
+            <img
                 class="card-img"
                 src="../assets/img/svgs/proudofresults.svg"
             />
-            
-        
-            
-                <!-- src="../assets/img/mockups/9.png"  candidate for first line--> 
-                <!-- src="../assets/img/mockups/10.png" -->
-                <!-- src="../assets/img/mockups/13.jpg" -->
-                <!-- src="../assets/webcraft-svg/editor-alone-v3.svg" -->
+
+            <!-- src="../assets/img/mockups/9.png"  candidate for first line-->
+            <!-- src="../assets/img/mockups/10.png" -->
+            <!-- src="../assets/img/mockups/13.jpg" -->
+            <!-- src="../assets/webcraft-svg/editor-alone-v3.svg" -->
         </div>
         <!-- </vue-aos> -->
         <!-- <vue-aos animation-class="fadeIn animated" @animationstart="checkAnime"> -->
-        <div class="home-card flex column" data-aos="fade-left">
+        <div
+            class="home-card flex column"
+            data-aos="fade-left"
+        >
             <div class="card-content flex column space-between">
                 <span class="home-tag text-right">Accessibility</span>
                 <h2 class="title">Suited for all your needs</h2>
@@ -169,7 +188,10 @@
                     starting a blog — you can do it all with the
                     <span class="logo-name">Webcraft</span> website editor.
                 </p>
-                <button class="home-btn btn" @click="pushTemplate">
+                <button
+                    class="home-btn btn"
+                    @click="pushTemplate"
+                >
                     Check Templates
                 </button>
             </div>
@@ -177,15 +199,18 @@
                 class="card-img"
                 src="../assets/img/svgs/buildingblocks.svg"
             />
-           
+
         </div>
-            <!-- <img
+        <!-- <img
                 class="card-img"
                 src="../assets/webcraft-svg/webcraft-boy.svg"
             /> -->
         <!-- </vue-aos> -->
         <!-- <vue-aos animation-class="fadeIn animated" @animationstart="checkAnime"> -->
-        <div data-aos="zoom-out" class="home-card flex column">
+        <div
+            data-aos="zoom-out"
+            class="home-card flex column"
+        >
             <div class="card-content flex column space-between">
                 <span class="home-tag text-left">Just Drag</span>
                 <h2 class="title">Just Drag &amp; Drop</h2>
@@ -196,34 +221,42 @@
                     templates below were built using the
                     <span class="logo-name">Webcraft</span> platform.
                 </p>
-                <button class="home-btn btn" @click="pushEditor">
+                <button
+                    class="home-btn btn"
+                    @click="pushEditor"
+                >
                     Give it a try!
                 </button>
             </div>
 
-             <img
+            <img
                 class="card-img"
                 src="../assets/img/svgs/drag&drop.svg"
             />
-             
 
         </div>
-            <!-- <img
+        <!-- <img
                 class="card-img"
                 src="../assets/webcraft-svg/editor-alone.svg"
             /> -->
 
-        <div data-aos="fade-right" class="home-card flex column">
+        <div
+            data-aos="fade-right"
+            class="home-card flex column"
+        >
             <div class="card-content flex column space-between">
                 <span class="home-tag text-left">Collaborate</span>
                 <h2 class="title">Collaborate With Friends</h2>
                 <p class="intro-text">
                     We are proud to introduce the collaboration mode. Just go to
-                    the editor, Click "Start Collaborate" and send the the link
+                    the editor, Click "Start Collaborate" and send the link
                     to all your Friends and start work toghter using the
                     <span class="logo-name">Webcraft</span> platform
                 </p>
-                <button class="home-btn btn" @click="pushEditor">
+                <button
+                    class="home-btn btn"
+                    @click="pushEditor"
+                >
                     Join us now!
                 </button>
             </div>
@@ -236,13 +269,17 @@
                 src="../assets/img/svgs/worktogether.svg"
             /> -->
         </div>
-<!-- 
+        <!-- 
             <img
                 class="card-img"
                 src="../assets/webcraft-svg/editor-alone.svg"
             /> -->
 
-        <section v-if="waps" class="home-wap-gallery grid" data-aos="zoom-in">
+        <section
+            v-if="waps"
+            class="home-wap-gallery grid"
+            data-aos="zoom-in"
+        >
             <div
                 v-for="(wap, idx) in waps.slice(pageNum, pageNum + 3)"
                 :key="wap._id"
@@ -268,7 +305,7 @@
 import VueAos from 'vue-aos';
 import AOS from "aos";
 import "aos/dist/aos.css";
-app.AOS = new AOS.init({ disable: "phone" });
+app.AOS=new AOS.init({ disable: "phone" });
 import loader from '@/cmps/custum-cmps/loader.cmp';
 AOS.init({
     duration: 2400,
@@ -287,7 +324,7 @@ export default {
     },
     computed: {
         waps() {
-            const copyWaps = JSON.parse(JSON.stringify(this.$store.getters.getWaps));
+            const copyWaps=JSON.parse(JSON.stringify(this.$store.getters.getWaps));
             // const wapsToShow = copyWaps.slice((this.pageNum), this.pageNum + 3);
             return copyWaps;
         },
@@ -301,16 +338,16 @@ export default {
             // if (timeout) clearTimeout(timeout)
             // if (idx === this.waps.length - 1) {
             //     timeout = setTimeout(() => {
-            if (idx === 0) {
-                this.pageNum -= 1;
-                if (this.pageNum <= 0) {
-                    this.pageNum = this.wapLength - 3;
+            if(idx===0) {
+                this.pageNum-=1;
+                if(this.pageNum<=0) {
+                    this.pageNum=this.wapLength-3;
                 }
             }
-            if (idx === 2) {
-                this.pageNum += 1;
-                if (this.pageNum === this.wapLength - 2) {
-                    this.pageNum = 0;
+            if(idx===2) {
+                this.pageNum+=1;
+                if(this.pageNum===this.wapLength-2) {
+                    this.pageNum=0;
                 }
             }
             // const copyWaps = JSON.parse(JSON.stringify(this.$store.getters.getWaps));
