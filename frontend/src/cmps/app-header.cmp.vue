@@ -65,7 +65,6 @@ export default {
     },
     methods: {
         toggleModal() {
-            console.log('toggled');
             this.showModal=!this.showModal;
         },
         pushHome() {

@@ -2,10 +2,8 @@
     <section>
         <h1 class="profile-title">Your Msgs</h1>
         <button @click="emitDeleteMsgs">Delete Msgs</button>
-        <p
-            class="no-msg-received"
-            v-if="!msgs.length"
-        >No message received yet
+        <p class="no-msg-received" v-if="!msgs.length">
+            No message received yet
         </p>
         <table class="content-table">
             <thead>
@@ -20,17 +18,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr
-                    v-for="(data, idx) in msgs"
-                    :key="idx"
-                >
+                <tr v-for="(data, idx) in msgs" :key="idx">
                     <th scope="row">{{ idx + 1 }}</th>
-                    <td>{{ data.content.name}}</td>
-                    <td>{{ data.content.email}}</td>
-                    <td>{{data.content.subject}}</td>
-                    <td>{{data.content.phone}}</td>
-                    <td>{{longMsg(data.content.message)}}</td>
-                    <td>{{formatTime(data.content.createdAt)}}</td>
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.email }}</td>
+                    <td>{{ data.subject }}</td>
+                    <td>{{ data.phone }}</td>
+                    <td>{{ longMsg(data.message) }}</td>
+                    <td>{{ formatTime(data.createdAt) }}</td>
                 </tr>
             </tbody>
         </table>
@@ -75,8 +70,8 @@ export default {
             return new Date(time).toLocaleString();
         },
         longMsg(msg) {
-            if(!msg) return '';
-            if(msg.length>12) return msg.substring(0,12)+'...';
+            if (!msg) return '';
+            if (msg.length > 12) return msg.substring(0, 12) + '...';
             return msg;
         },
         emitDeleteMsgs() {

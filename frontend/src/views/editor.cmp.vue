@@ -52,6 +52,7 @@
             :activities="activities"
             v-if="currWap && currWap.isCollab"
         />
+        <!-- @undone="undoWap" -->
     </section>
 </template>
 
@@ -81,6 +82,7 @@ export default {
             currWebsiteLink: null,
             showSocketModal: false,
             currCollabLink: null,
+            // wapChanges: [],
             activities: []
         };
     },
@@ -106,9 +108,10 @@ export default {
         }
     },
     methods: {
-        // async saveWapName(wapName) {
-        //     this.saveWap(wapName)
+        // undoWap(idx) { --- WIP of the undo
+        //     this.currWap = this.wapChanges.splice(idx, 1)[0]
         // },
+
         async makeWapCollab() {
             this.currWap.isCollab = true;
             this.$store.commit({ type: 'setCollabMode', isCollabModeOn: true });
@@ -133,7 +136,7 @@ export default {
         },
         async publishWebsite(wapName) {
             this.currWap.title = wapName;
-            const wap = await this.saveWap(true);
+            await this.saveWap(true);
             const link = `https://webcraft-ca.herokuapp.com/#/wap/${this.currWap._id}`;
             this.currWebsiteLink = link;
         },
@@ -203,14 +206,14 @@ export default {
             this.currCmpToEdit.txt = txtValue;
         },
         deleteSection(_id) {
-            const idx = this.currWap.cmps.findIndex(cmp => cmp._id === _id);
-            this.currWap.cmps.splice(idx, 1);
             if (this.currWap.isCollab) {
                 const data = { activity: `${this.loggedInUser.username} has deleted a cmp.`, user: this.loggedInUser ? this.loggedInUser : ' guest', time: Date.now() }
                 socketService.emit('add-activity', data)
+                this.wapChanges.unshift(JSON.parse(JSON.stringify(this.currWap)))
             }
+            const idx = this.currWap.cmps.findIndex(cmp => cmp._id === _id);
+            this.currWap.cmps.splice(idx, 1);
             socketService.emit('savedWap', this.currWap)
-
         },
         copySection(_id) {
             const idx = this.currWap.cmps.findIndex(cmp => cmp._id === _id);
@@ -240,7 +243,6 @@ export default {
             if (!this.isCollabMode) {
                 this.currWap.isSaved = isFirstCollab;
             }
-            // this.currWap.title=wapName;
             this.currWap = await this.$store.dispatch({
                 type: 'saveWap',
                 wap: this.currWap
@@ -262,7 +264,6 @@ export default {
             // Drop the section in the correct drop zone
             this.dropSection(dragResult);
         },
-
     },
     async created() {
         //load samples for the sample list
@@ -272,7 +273,6 @@ export default {
         })
 
         socketService.on('add-activity', activities => {
-            console.log('activites?:', activities);
             this.activities = activities;
         })
 
@@ -299,7 +299,6 @@ export default {
                 this.$router.push('/editor/' + this.currWap._id).catch(() => { });
             }
             else if (wap.isCollab) {
-                console.log('in socket');
                 socketService.emit('roomRoute', wap._id);
                 socketService.on('add-activity', activities => {
                     this.activities = activities;
@@ -314,7 +313,6 @@ export default {
             }
         }
     },
-
     components: {
         editorDashboard,
         editorWorkspace,
@@ -326,7 +324,6 @@ export default {
     },
     destroyed() {
         if (this.isCollabMode && !this.currWap.isSaved && !this.currWebsiteLink) {
-            console.log('destoryed!');
             this.$store.commit({ type: 'setCollabMode', isCollabModeOn: false })
             this.$store.dispatch({ type: 'deleteWap', wapId: this.currWap._id })
         }

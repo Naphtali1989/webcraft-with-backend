@@ -1,11 +1,6 @@
 <template>
-    <section
-        class="user-site"
-        v-if="wapToShow"
-    >
-        <div
-            class="hamburger flex-center column btn"
-        >
+    <section class="user-site" v-if="wapToShow">
+        <div class="hamburger flex-center column btn">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
@@ -37,16 +32,16 @@ export default {
         }
     },
     methods: {
-        setInputValue(value,key) {
-            this.inputValue[key]=value;
+        setInputValue(value, key) {
+            this.inputValue[key] = value;
         },
         async sendReview() {
-            const byUser=this.$store.getters.loggedInUser||'guest'
-            this.inputValue.createdAt=Date.now();
-            this.inputValue.byUser=byUser;
-            const review={ _id: utilService.makeId(),content: this.inputValue }
-            if(!this.wapToShow.reviews||!this.wapToShow.reviews.length) {
-                this.wapToShow.reviews=[];
+            const byUser = this.$store.getters.loggedInUser || 'guest'
+            this.inputValue.createdAt = Date.now();
+            this.inputValue.byUser = byUser;
+            const review = { _id: utilService.makeId(), ...this.inputValue }
+            if (!this.wapToShow.reviews || !this.wapToShow.reviews.length) {
+                this.wapToShow.reviews = [];
             }
 
             this.wapToShow.reviews.push(review);
@@ -54,34 +49,34 @@ export default {
                 type: 'saveWap',
                 wap: this.wapToShow
             })
-            //get rouute id
-            const _id=this.$route.params.id;
-            socketService.emit('form-submitted',{ _id,title: this.wapToShow.title })
-            eventBus.$emit('show-msg',{ txt: `Your details has been saved`,type: 'success' })
-            this.inputValue={};
-            const elInputs=document.querySelectorAll('input')
+            //get route id
+            const _id = this.$route.params.id;
+            socketService.emit('form-submitted', { _id, title: this.wapToShow.title })
+            eventBus.$emit('show-msg', { txt: `Your details have been saved`, type: 'success' })
+            this.inputValue = {};
+            const elInputs = document.querySelectorAll('input')
             elInputs.forEach(elInput => {
-                elInput.value='';
+                elInput.value = '';
             })
-            const elTxt=document.querySelector('textArea')
-            if(elTxt) elTxt.value='';
+            const elTxt = document.querySelector('textArea')
+            if (elTxt) elTxt.value = '';
         }
     },
     async created() {
-        const _id=this.$route.params.id;
+        const _id = this.$route.params.id;
         socketService.setup();
-        this.wapToShow=await wapService.getById(_id);
+        this.wapToShow = await wapService.getById(_id);
 
         this.$store.commit({
             type: 'toggleUserSiteOpen',
         });
-        document.title=this.wapToShow.title;
+        document.title = this.wapToShow.title;
     },
     destroyed() {
         this.$store.commit({
             type: 'toggleUserSiteOpen',
         });
-        document.title='Webcraft';
+        document.title = 'Webcraft';
     },
     components: {
         // wapWorker,

@@ -66,7 +66,7 @@ export const wapStore = {
             const waps = await wapService.query(userId);
             commit({ type: 'setUserWaps', waps })
         },
-        async getOwnerWapReviews({ commit }, { userId }) {
+        async getOwnerWaps({ commit }, { userId }) {
             const waps = await wapService.query(userId);
             const curUserWaps = waps.map(wap => {
                 const { thumbnail, _id, title } = wap;

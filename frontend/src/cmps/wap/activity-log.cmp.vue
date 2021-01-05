@@ -46,7 +46,6 @@
             :key="idx"
             class="activity-preview flex align-center space-between"
         >
-        {{activityData}}
             <avatar
                 :username="username(activityData)"
                 :imgUrl="activityData.user.imgUrl"
@@ -57,7 +56,7 @@
                 {{ activityData.activity }}
                 {{ new Date(activityData.time).toLocaleString() }}
             </div>
-            <button class="undo-btn btn">
+            <button class="undo-btn btn" @click="emitUndoChange(idx)">
                 <i class="fas fa-undo-alt"></i>
             </button>
         </section>
@@ -84,6 +83,10 @@ export default {
         }
     },
     methods: {
+        emitUndoChange(idx){
+            console.log('idx in activity log:',idx)
+        //     this.$emit('undone', idx)
+        },
         toggleMinimize() {
             if (this.isMaximized) this.isMaximized = false;
             this.isMinimized = !this.isMinimized;
@@ -97,7 +100,6 @@ export default {
         }
     },
     created() {
-        console.log('creating...', this.activities);
     },
     name: 'activity-log',
     components: {
