@@ -46,6 +46,7 @@
             :key="idx"
             class="activity-preview flex align-center space-between"
         >
+        {{activityData}}
             <avatar
                 :username="username(activityData)"
                 :imgUrl="activityData.user.imgUrl"
