@@ -5,7 +5,8 @@ var gActivites = [];
 function connectSockets(io) {
     //listen to on conenction events
     io.on('connection', socket => {
-
+        socket.on('editCmp', cmpIdx => { socket.broadcast.to(socket.wapId).emit('editCmp', cmpIdx) }
+        )
 
         socket.on('savedWap', wap => {
             // socket.broadcast.emit('savedWap', wap)
@@ -22,8 +23,8 @@ function connectSockets(io) {
             gActivites.push(data);
             console.log('activity array', gActivites);
             io.emit('add-activity', gActivites)
-                // io.to(socket.wapId).emit('add-activity', add-activity);
-                // io.emit('add-activity', gActivites);
+            // io.to(socket.wapId).emit('add-activity', add-activity);
+            // io.emit('add-activity', gActivites);
         })
 
         socket.on('roomRoute', wapId => {

@@ -13,8 +13,9 @@
 // }
 .activity-log {
     background-color: #fff;
-    border: 1px solid #000;
+    border: 1px solid #ccc;
     border-radius: 18.5px 18.5px 0 0;
+    box-shadow: 0 0.5px 1.5px rgba(0, 0, 0, 0.26);
     position: fixed;
     height: 480px;
     width: 90%;
@@ -28,18 +29,18 @@
     }
     .activity-log-header {
         padding: 1rem;
-        background-color: #404040;
+        background-color: #b6b6b660;
         border-radius: 1rem 1rem 0 0;
-        color: rgb(241, 241, 241);
+        // color: rgb(241, 241, 241);
     }
     .activity-preview {
-        padding: 1rem;
+        padding: 1rem 0.75rem 1rem 0.75rem;
     }
-    .minimize-toggle-btn,
-    .maximize-toggle-btn,
-    .log-close-btn {
-        color: rgb(241, 241, 241);
-    }
+    // .minimize-toggle-btn,
+    // .maximize-toggle-btn,
+    // .log-close-btn {
+    //     // color: rgb(241, 241, 241);
+    // }
     .log-close-btn {
         font-size: 1.15rem;
     }

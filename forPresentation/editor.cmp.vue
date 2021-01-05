@@ -186,7 +186,8 @@ export default {
         setCmpToEdit(_id) {
             var cmpToEdit = editorService.findByIdRecursive(this.currWap.cmps, _id);
             this.currCmpToEdit = cmpToEdit;
-            // socketService.emit('savedWap',this.currWap)
+            const idx = this.currWap.findIndex(cmp => cmp._id === cmpToEdit._id)
+            socketService.emit('editCmp',idx)
         },
         emptyCmpToEdit() {
             this.currCmpToEdit = null;
@@ -254,6 +255,9 @@ export default {
     async created() {
         //load samples for the sample list
         socketService.setup();
+        socketService.on('editCmp', cmpIdx=> {
+            this.currWap[cmpIdx].
+        })
         socketService.on('savedWap', wap => {
             this.currWap = wap;
         })
